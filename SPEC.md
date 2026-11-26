@@ -4789,13 +4789,13 @@ without it and a green CI run always means the fixtures ran.
   before it asks. Then it moves the changelog's notes under the version and its date in a commit
   holding that alone, unless the section is there already, tags `v<version>`, uploads the bundle
   as a deployment of the publishing type the Portal leaves to a person (`scripts/central-upload.sh`,
-  which waits until the Portal has validated it), pushes `main` at that commit and the tag to
-  Entire in one atomic push, and waits, ten minutes at most, until the mirror lists the tag; where
-  it never does, it says the release is done and names `mirror.yml`'s runs to read. Publishing the
-  deployment to Maven Central is the maintainer's, and so is resuming a release that stopped after
-  its tag, which starts by looking for its deployment in the Portal, so a validated one is never
-  uploaded twice. The key is held in memory from `MOUNTAYA_SIGNING_KEY`, an
-  ASCII-armoured secret key whose primary key signs, with `MOUNTAYA_SIGNING_PASSWORD` and, for a
+  which waits until the Portal has validated it), pushes `main` at that commit to Entire and then
+  the tag, since Entire takes no atomic push, and waits, ten minutes at most, until the mirror
+  lists the tag; where it never does, it says the release is done and names `mirror.yml`'s runs to
+  read. Publishing the deployment to Maven Central is the maintainer's, and so is resuming a
+  release that stopped after its tag, which starts by looking for its deployment in the Portal, so
+  a validated one is never uploaded twice. The key is held in memory from `MOUNTAYA_SIGNING_KEY`,
+  an ASCII-armoured secret key whose primary key signs, with `MOUNTAYA_SIGNING_PASSWORD` and, for a
   signing subkey, `MOUNTAYA_SIGNING_KEY_ID`; the token is `MOUNTAYA_CENTRAL_USERNAME` and
   `MOUNTAYA_CENTRAL_PASSWORD`. `--dry-run` runs every check but git's, and the gate, then publishes
   into a local Maven repository a consumer can resolve from, unsigned where no key is given; it

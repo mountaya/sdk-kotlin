@@ -171,7 +171,7 @@ mise run readme                         # print the README's Kotlin snippets int
 mise run snippets -- <file.md> [...]    # compile the Kotlin fences of any Markdown documents, for the jvm and Android; never a gate
 mise run api:update                     # rewrite the ABI dumps after a deliberate API change
 mise run wrapper                        # regenerate the wrapper after moving the Gradle pin
-mise run release <version>              # the preflight and the whole gate, then the changelog, the tag, the deployment, one atomic push to Entire, the wait for the mirror
+mise run release <version>              # the preflight and the whole gate, then the changelog, the tag, the deployment, the push of main and then the tag to Entire, the wait for the mirror
 mise run release <version> --dry-run    # every check but git's, and the gate, then the modules, signed where a key is given, into a local repository
 ```
 
@@ -309,15 +309,16 @@ mise run release <version> --dry-run    # every check but git's, and the gate, t
   `checkReleaseRepository` holds to what the Central Portal validates, and to naming no directory
   of this machine) before it asks; then it commits the moved changelog, tags `v<version>`, uploads
   the bundle as a deployment the person publishes in the Portal (`scripts/central-upload.sh`,
-  never released by the script), waits until the Portal has validated it, pushes `main` and the tag
-  to Entire in one atomic push, and waits, ten minutes at most, until the GitHub mirror lists the
-  tag, which `.depot/workflows/mirror.yml`, rendered by `ai`, pushes there from Entire. Where a
-  release stopped after its tag, look for its deployment in the Portal before uploading again. The
-  key is `MOUNTAYA_SIGNING_KEY` (ASCII-armoured, with `MOUNTAYA_SIGNING_PASSWORD`), the token
-  `MOUNTAYA_CENTRAL_USERNAME` and `MOUNTAYA_CENTRAL_PASSWORD`. `--dry-run` touches no git and
-  uploads nothing, and runs the gate: it publishes into `build/release/dry-run/maven`, or the
-  empty directory `--repository` names, unsigned where no key is given; `--skip-gate` leaves the
-  gate out of a dry run, and is refused without one.
+  never released by the script), waits until the Portal has validated it, pushes `main` to Entire
+  and then the tag (Entire takes no atomic push), and waits, ten minutes at most, until the GitHub
+  mirror lists the tag, which `.depot/workflows/mirror.yml`, rendered by `ai`, pushes there from
+  Entire. Where a release stopped after its tag, look for its deployment in the Portal before
+  uploading again. The key is `MOUNTAYA_SIGNING_KEY` (ASCII-armoured, with
+  `MOUNTAYA_SIGNING_PASSWORD`), the token `MOUNTAYA_CENTRAL_USERNAME` and
+  `MOUNTAYA_CENTRAL_PASSWORD`. `--dry-run` touches no git and uploads nothing, and runs the gate:
+  it publishes into `build/release/dry-run/maven`, or the empty directory `--repository` names,
+  unsigned where no key is given; `--skip-gate` leaves the gate out of a dry run, and is refused
+  without one.
 - **The changelog is gated.** `CHANGELOG.md` keeps `## [Unreleased]` first, holding what the next
   release carries, then each release as `## [MAJOR.MINOR.PATCH] - YYYY-MM-DD`, newest first;
   `checkChangelog`, in `verify`, holds that shape and every name it writes in backticks to a

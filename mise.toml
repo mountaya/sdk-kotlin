@@ -152,7 +152,7 @@ run = "./gradlew conformanceReport"
 # signed or uploaded. `bash scripts/release.sh --help` says what it refuses and what it does, and
 # `--dry-run` proves all of it but git and the upload.
 [tasks.release]
-description = "Release a version: the preflight and the gate, then the changelog, the tag, the deployment on the Central Portal, one atomic push of main and the tag to Entire, and the wait for the mirror"
+description = "Release a version: the preflight and the gate, then the changelog, the tag, the deployment on the Central Portal, the push of main and then the tag to Entire, and the wait for the mirror"
 run = "bash scripts/release.sh"
 
 # What pre-commit runs: formatting, the only lint the Gradle build has on its own.

@@ -42,12 +42,12 @@
 # Then it publishes every module, signed, into the release repository and zips the bundle, before
 # anything is committed, so a key that does not sign stops it there. Once it has said what it will
 # do and been answered: the changelog's `[Unreleased]` notes become the version's section with
-# today's date, in a commit "Release <version>" that holds that change alone, unless CHANGELOG.md
-# holds the section already; the annotated tag `v<version>` is made on it; the bundle is uploaded
-# to the Central Portal as a deployment you publish yourself, and waited on until the Portal has
-# validated it; `main` at that commit and the tag are pushed to Entire in one atomic push; and the
-# release waits until the mirror lists the tag, which the Depot workflow mirror.yml pushes there
-# from Entire. The deployment is yours to publish.
+# today's date, in a commit "version: Release v<version>" that holds that change alone,
+# unless CHANGELOG.md holds the section already; the annotated tag `v<version>` is made on it; the
+# bundle is uploaded to the Central Portal as a deployment you publish yourself, and waited on
+# until the Portal has validated it; `main` at that commit is pushed to Entire, then the tag, since
+# Entire takes no atomic push; and the release waits until the mirror lists the tag, which the
+# Depot workflow mirror.yml pushes there from Entire. The deployment is yours to publish.
 set -euo pipefail
 
 # shellcheck source=lib/common.sh
@@ -266,7 +266,7 @@ else
   Fix: where that release stopped before its push, look for the deployment sdk-kotlin-$version at
   $portal/publishing/deployments before uploading anything again. Where it is
   there and validated, push, then wait for the mirror to list $tag:
-  git push --atomic $entire $tag^{commit}:refs/heads/main refs/tags/$tag
+  git push $entire $tag^{commit}:refs/heads/main && git push $entire refs/tags/$tag
   Where there is none: bash scripts/central-upload.sh build/release/central-bundle.zip sdk-kotlin-$version,
   then that push. Otherwise release a version past $version."
     elif [ -n "$entire_tag" ]; then
@@ -534,7 +534,7 @@ if [ "$dry_run" -eq 1 ]; then
   ok "The dry run of $version passed. A consumer resolves the modules from that repository:"
   echo "  repositories { maven(\"$repository\") }"
   echo "A release would now commit the changelog, tag $tag, upload $bundle to the Central Portal,"
-  echo "push main and $tag to $entire in one atomic push, and wait for $mirror to list $tag."
+  echo "push main and then $tag to $entire, and wait for $mirror to list $tag."
   exit 0
 fi
 
@@ -555,14 +555,14 @@ echo ""
 echo "${PF_BOLD}The release of $version:${PF_RESET}"
 if [ "$moved" -eq 0 ]; then
   step "CHANGELOG.md: the notes under [Unreleased] become [$version] - $date."
-  step "A commit on main, \"Release $version\", holding that change and nothing else."
+  step "A commit on main, \"version: Release $tag\", holding that change and nothing else."
 else
   step "CHANGELOG.md already holds ${section#"## "}, committed: nothing to move, and no commit."
 fi
 step "The annotated tag $tag, on that commit."
 step "$bundle, uploaded to the Central Portal as a deployment you publish there yourself," \
   "and waited on until the Portal has validated it."
-step "main at that commit and $tag, pushed to $entire ($entire_url) in one atomic push."
+step "main at that commit, pushed to $entire ($entire_url), then $tag."
 step "A wait, up to ten minutes, until the mirror, $mirror, lists $tag:" \
   "the Depot workflow mirror.yml pushes it there from $entire."
 echo ""
@@ -582,12 +582,12 @@ if [ "$moved" -eq 0 ]; then
   moved_changelog "$version" >"$moved_file"
   mv "$moved_file" CHANGELOG.md
   git add CHANGELOG.md
-  if ! git commit --quiet -m "Release $version"; then
-    die "The commit \"Release $version\" was stopped, by pre-commit as the lines above say: nothing was tagged, uploaded or pushed, and CHANGELOG.md holds the moved notes, staged." \
+  if ! git commit --quiet -m "version: Release $tag"; then
+    die "The commit \"version: Release $tag\" was stopped, by pre-commit as the lines above say: nothing was tagged, uploaded or pushed, and CHANGELOG.md holds the moved notes, staged." \
       "Put CHANGELOG.md back as it was: git restore --staged --worktree CHANGELOG.md" \
       "Fix what pre-commit reported in a commit of its own, push it, then run the release again."
   fi
-  ok "Committed CHANGELOG.md as \"Release $version\"."
+  ok "Committed CHANGELOG.md as \"version: Release $tag\"."
   section="## [$version] - $date"
 fi
 
@@ -609,17 +609,26 @@ if ! deployment="$(bash scripts/central-upload.sh "$bundle" "sdk-kotlin-$version
   die "The Central Portal validated no deployment of $version, as the lines above say; the commit and $tag are made here, and nothing was pushed." \
     "Look for sdk-kotlin-$version at $portal/publishing/deployments before uploading again: one validated, or still validating, is never uploaded twice." \
     "Where there is none, or you dropped it: bash scripts/central-upload.sh $bundle sdk-kotlin-$version" \
-    "Then: git push --atomic $entire HEAD:refs/heads/main refs/tags/$tag, and wait for the mirror to list it: git ls-remote $mirror refs/tags/$tag"
+    "Then: git push $entire HEAD:refs/heads/main && git push $entire refs/tags/$tag, and wait for the mirror to list it: git ls-remote $mirror refs/tags/$tag"
 fi
 ok "The Central Portal validated deployment $deployment."
 
-if ! git push --atomic "$entire" "HEAD:refs/heads/main" "refs/tags/$tag"; then
-  die "Pushing main and $tag to $entire failed; deployment $deployment is validated on the Portal, and the commit and the tag are made here." \
-    "Once $entire is reachable: git push --atomic $entire HEAD:refs/heads/main refs/tags/$tag" \
+# Entire takes no atomic push, so main goes first and the tag after it: a tag on Entire then always
+# names a commit its main holds, and a push that stops between the two leaves only the tag to push.
+if ! git push "$entire" "HEAD:refs/heads/main"; then
+  die "Pushing main to $entire failed; deployment $deployment is validated on the Portal, and the commit and the tag are made here." \
+    "Once $entire is reachable: git push $entire HEAD:refs/heads/main && git push $entire refs/tags/$tag" \
     "Then wait for the mirror to list it: git ls-remote $mirror refs/tags/$tag" \
     "And publish the deployment yourself: $portal/publishing/deployments"
 fi
-ok "Pushed main and $tag to $entire."
+ok "Pushed main to $entire."
+if ! git push "$entire" "refs/tags/$tag"; then
+  die "Pushing $tag to $entire failed; deployment $deployment is validated on the Portal, main is pushed there, and the tag is made here alone." \
+    "Once $entire is reachable: git push $entire refs/tags/$tag" \
+    "Then wait for the mirror to list it: git ls-remote $mirror refs/tags/$tag" \
+    "And publish the deployment yourself: $portal/publishing/deployments"
+fi
+ok "Pushed $tag to $entire."
 
 info "Waiting for the mirror, $mirror, to list $tag; mirror.yml pushes it there from $entire."
 made="$(git rev-parse "refs/tags/$tag")"
