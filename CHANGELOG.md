@@ -16,6 +16,8 @@ it, and hands the signed modules to the Central Portal.
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-11-26
+
 The first release, written against contract v0.9.0 of `mountaya/schemas` (registry version 20).
 
 - Each module's public API is one package, so one import per module reaches it: com.mountaya.client,
