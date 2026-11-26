@@ -2,6 +2,7 @@ package com.example.trail
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -22,7 +23,14 @@ class SearchBoxPlacementTest {
     fun theSearchBoxStartsBelowTheWatermarksFrame() {
         compose.setContent {
             Box(Modifier.fillMaxSize()) {
-                Box(Modifier.searchBoxPlacement().height(48.dp).testTag("search"))
+                // As wide as the row the placement leaves it, as the search field is: a box of no width has no bounds.
+                Box(
+                    Modifier
+                        .searchBoxPlacement()
+                        .fillMaxWidth()
+                        .height(48.dp)
+                        .testTag("search"),
+                )
             }
         }
 

@@ -255,8 +255,11 @@ class LayersPanelTest {
         compose.waitUntil(TIMEOUT) { compose.onAllNodesWithText("Slope").fetchSemanticsNodes().size == 2 }
 
         val bounds = compose.onNodeWithTag("light").getBoundsInRoot()
-        assertTrue((bounds.right - bounds.left).value >= 240f)
-        assertTrue((bounds.right - bounds.left).value <= 340f)
+        // Laid out in whole pixels: at a density that makes 340 no whole number of pixels, the panel reads up to one
+        // pixel wider.
+        val width = (bounds.right - bounds.left).value
+        assertTrue(width >= 240f, "the panel is $width wide")
+        assertTrue(width <= 340f + 1f / compose.density.density, "the panel is $width wide")
         assertTrue(compose.pixel(compose.image("light"), 4.0, 4.0).isNear(color("#ffffff")))
         assertTrue(compose.pixel(compose.image("dark"), 4.0, 4.0).isNear(color("#25262b")))
         compose.onAllNodesWithText("Slope")[0].performClick()

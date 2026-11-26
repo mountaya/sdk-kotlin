@@ -3,8 +3,10 @@
   The device tests' own APK alone, never the library's: the loopback Tile API the request hook's tests
   reach answers over plain HTTP on the device's loopback address, which Android refuses an app targeting
   API 28 or later unless its manifest permits it, so each request goes out on the network, through the
-  hook's network interceptor, as a request to the Tile API does.
+  hook's network interceptor, as a request to the Tile API does. It supports layouts that run right to
+  left, as an app does, so a view a test lays out right to left resolves to that direction: without it,
+  Android resolves every view's direction to left to right.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <application android:usesCleartextTraffic="true" />
+    <application android:supportsRtl="true" android:usesCleartextTraffic="true" />
 </manifest>
