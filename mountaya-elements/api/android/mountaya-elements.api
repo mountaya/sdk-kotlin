@@ -1,0 +1,952 @@
+public final class com/mountaya/elements/AnalysisHandle {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/Object;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getResult ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/CameraFit {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Lcom/mountaya/geo/PixelPadding;Ljava/lang/Double;Lkotlin/time/Duration;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/mountaya/geo/PixelPadding;Ljava/lang/Double;Lkotlin/time/Duration;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDuration-FghU774 ()Lkotlin/time/Duration;
+	public final fun getMaxZoom ()Ljava/lang/Double;
+	public final fun getPadding ()Lcom/mountaya/geo/PixelPadding;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/elements/CameraMotion {
+}
+
+public final class com/mountaya/elements/CameraMotion$Ease : com/mountaya/elements/CameraMotion {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Lkotlin/time/Duration;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lkotlin/time/Duration;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDuration-FghU774 ()Lkotlin/time/Duration;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/CameraMotion$Fly : com/mountaya/elements/CameraMotion {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/mountaya/elements/CameraMotion$Fly;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/CameraMotion$Jump : com/mountaya/elements/CameraMotion {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/mountaya/elements/CameraMotion$Jump;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/CameraTarget {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBearing ()Ljava/lang/Double;
+	public final fun getCenter ()Ljava/util/List;
+	public final fun getPitch ()Ljava/lang/Double;
+	public final fun getZoom ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/CompassControlKt {
+	public static final fun CompassControl (Lcom/mountaya/elements/MapEngine;Landroidx/compose/ui/Modifier;ZLjava/util/Map;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/mountaya/elements/ComposableSingletons$MapControlsKt {
+	public static final field INSTANCE Lcom/mountaya/elements/ComposableSingletons$MapControlsKt;
+	public fun <init> ()V
+	public final fun getLambda$1985410286$com_mountaya_mountaya_elements ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/mountaya/elements/ComposableSingletons$PanelSurfaceKt {
+	public static final field INSTANCE Lcom/mountaya/elements/ComposableSingletons$PanelSurfaceKt;
+	public fun <init> ()V
+	public final fun getLambda$575784020$com_mountaya_mountaya_elements ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class com/mountaya/elements/CursorMarkerPin {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getGlyph ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/CursorMarkerPoint {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getGlyph ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLngLat ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/elements/CursorMarkerTarget {
+	public abstract fun addMarker (Lcom/mountaya/elements/MapMarker;)V
+	public abstract fun editMarker (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun editMarker$default (Lcom/mountaya/elements/CursorMarkerTarget;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public abstract fun removeMarker (Ljava/lang/String;)V
+}
+
+public final class com/mountaya/elements/DeviceGeolocation : com/mountaya/elements/Geolocation {
+	public static final field $stable I
+	public fun <init> (Landroid/content/Context;)V
+	public fun locate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun permission (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/DirectionsControlKt {
+	public static final fun DirectionsControl (Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLjava/util/Map;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/mountaya/elements/DownloadControlKt {
+	public static final fun DownloadControl (Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLjava/util/Map;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/mountaya/elements/GeolocateControlKt {
+	public static final fun GeolocateControl (Lcom/mountaya/elements/MapEngine;Landroidx/compose/ui/Modifier;ZLjava/lang/Boolean;Ljava/util/Map;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/mountaya/elements/Geolocation {
+	public abstract fun locate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun permission (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/mountaya/elements/GeolocationFix {
+}
+
+public final class com/mountaya/elements/GeolocationFix$Located : com/mountaya/elements/GeolocationFix {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccuracyMeters ()D
+	public final fun getPosition ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/GeolocationFix$Refused : com/mountaya/elements/GeolocationFix {
+	public static final field $stable I
+	public fun <init> (Lcom/mountaya/elements/GeolocationRefusal;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReason ()Lcom/mountaya/elements/GeolocationRefusal;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/GeolocationKt {
+	public static final fun getLocateFixWait ()J
+	public static final fun getLocateMaxFixAge ()J
+}
+
+public final class com/mountaya/elements/GeolocationPermission : java/lang/Enum {
+	public static final field Denied Lcom/mountaya/elements/GeolocationPermission;
+	public static final field Granted Lcom/mountaya/elements/GeolocationPermission;
+	public static final field Prompt Lcom/mountaya/elements/GeolocationPermission;
+	public static final field Unknown Lcom/mountaya/elements/GeolocationPermission;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/elements/GeolocationPermission;
+	public static fun values ()[Lcom/mountaya/elements/GeolocationPermission;
+}
+
+public final class com/mountaya/elements/GeolocationRefusal : java/lang/Enum {
+	public static final field Denied Lcom/mountaya/elements/GeolocationRefusal;
+	public static final field NoApi Lcom/mountaya/elements/GeolocationRefusal;
+	public static final field Unavailable Lcom/mountaya/elements/GeolocationRefusal;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/elements/GeolocationRefusal;
+	public static fun values ()[Lcom/mountaya/elements/GeolocationRefusal;
+}
+
+public final class com/mountaya/elements/GeometrySlot : java/lang/Enum {
+	public static final field Emphasis Lcom/mountaya/elements/GeometrySlot;
+	public static final field Highlight Lcom/mountaya/elements/GeometrySlot;
+	public static final field Preview Lcom/mountaya/elements/GeometrySlot;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/elements/GeometrySlot;
+	public static fun values ()[Lcom/mountaya/elements/GeometrySlot;
+}
+
+public final class com/mountaya/elements/GlyphKt {
+	public static final fun Glyph-NKG1LGE (Ljava/lang/String;Landroidx/compose/ui/Modifier;Lcom/mountaya/geo/GlyphSet;FJLjava/lang/String;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/mountaya/elements/HideCursorMarkerKt {
+	public static final fun hideCursorMarker (Lcom/mountaya/elements/CursorMarkerTarget;Lcom/mountaya/elements/CursorMarkerPin;Ljava/lang/String;)V
+}
+
+public final class com/mountaya/elements/InertGeolocation : com/mountaya/elements/Geolocation {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun locate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun permission (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ItineraryProfileKt {
+	public static final fun ItineraryProfile (Lcom/mountaya/geo/ItineraryResourceEngine;Landroidx/compose/ui/Modifier;Ljava/util/List;Lcom/mountaya/elements/MapEngine;Lcom/mountaya/geo/UnitPreferences;Ljava/util/List;Lcom/mountaya/elements/ProfileColoring;Ljava/util/List;Ljava/util/Set;Lcom/mountaya/geo/ProfileAnchor;Landroidx/compose/runtime/MutableState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ZLjava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;IIII)V
+	public static final fun ItineraryProfile-TTkaVuY (Ljava/lang/String;Lcom/mountaya/geo/ItineraryResourceCache;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/util/List;Lcom/mountaya/elements/MapEngine;Lcom/mountaya/geo/UnitPreferences;Ljava/util/List;Lcom/mountaya/elements/ProfileColoring;Ljava/util/List;Ljava/util/Set;Lcom/mountaya/geo/ProfileAnchor;Landroidx/compose/runtime/MutableState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ZLjava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;IIII)V
+}
+
+public final class com/mountaya/elements/ItinerarySegmentTableKt {
+	public static final fun ItinerarySegmentTable (Lcom/mountaya/geo/ItineraryResourceEngine;Landroidx/compose/ui/Modifier;Ljava/util/List;Lcom/mountaya/elements/MapEngine;Lcom/mountaya/geo/UnitPreferences;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
+	public static final fun ItinerarySegmentTable-DrD65JI (Ljava/lang/String;Lcom/mountaya/geo/ItineraryResourceCache;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/util/List;Lcom/mountaya/elements/MapEngine;Lcom/mountaya/geo/UnitPreferences;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class com/mountaya/elements/ItinerarySparklineKt {
+	public static final fun ItinerarySparkline (Lcom/mountaya/geo/ElevationSeries;Landroidx/compose/ui/Modifier;Lcom/mountaya/geo/ProfileRange;Ljava/lang/String;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/mountaya/elements/ItineraryWaypointTableKt {
+	public static final fun ItineraryWaypointTable (Lcom/mountaya/geo/ItineraryResourceEngine;Landroidx/compose/ui/Modifier;Lcom/mountaya/elements/MapEngine;Lcom/mountaya/geo/UnitPreferences;Ljava/util/List;Landroidx/compose/runtime/MutableState;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ZLjava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
+	public static final fun ItineraryWaypointTable-iX2nXoQ (Ljava/lang/String;Lcom/mountaya/geo/ItineraryResourceCache;Landroidx/compose/ui/Modifier;Ljava/lang/String;Lcom/mountaya/elements/MapEngine;Lcom/mountaya/geo/UnitPreferences;Ljava/util/List;Landroidx/compose/runtime/MutableState;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ZLjava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class com/mountaya/elements/LayersPanelKt {
+	public static final fun LayersPanel (Lcom/mountaya/geo/LayersSelectionEngine;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function1;ZLkotlin/jvm/functions/Function2;Ljava/util/Map;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/mountaya/elements/LegEmphasisTarget {
+	public abstract fun clearGeometry (Lcom/mountaya/elements/GeometrySlot;)V
+	public abstract fun setGeometry (Lcom/mountaya/client/GeoJsonGeometry;Lcom/mountaya/elements/GeometrySlot;Ljava/lang/String;)V
+	public static synthetic fun setGeometry$default (Lcom/mountaya/elements/LegEmphasisTarget;Lcom/mountaya/client/GeoJsonGeometry;Lcom/mountaya/elements/GeometrySlot;Ljava/lang/String;ILjava/lang/Object;)V
+}
+
+public final class com/mountaya/elements/LocalMountayaClockKt {
+	public static final fun getLocalMountayaClock ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/mountaya/elements/LocalMountayaScopeKt {
+	public static final fun getLocalMountayaScope ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/mountaya/elements/LocalMountayaTokensKt {
+	public static final fun getLocalMountayaTokens ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/mountaya/elements/MapControlsKt {
+	public static final fun MapControls (Lcom/mountaya/elements/MapEngine;Landroidx/compose/ui/Modifier;ZZZZZZLcom/mountaya/elements/MapCorner;Landroidx/compose/runtime/MutableState;Landroidx/compose/runtime/MutableState;ZLkotlin/jvm/functions/Function2;ZLjava/util/Map;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class com/mountaya/elements/MapCorner : java/lang/Enum {
+	public static final field BottomLeft Lcom/mountaya/elements/MapCorner;
+	public static final field BottomRight Lcom/mountaya/elements/MapCorner;
+	public static final field TopLeft Lcom/mountaya/elements/MapCorner;
+	public static final field TopRight Lcom/mountaya/elements/MapCorner;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/elements/MapCorner;
+	public static fun values ()[Lcom/mountaya/elements/MapCorner;
+}
+
+public final class com/mountaya/elements/MapEngine : com/mountaya/elements/CursorMarkerTarget, com/mountaya/elements/LegEmphasisTarget, com/mountaya/geo/GeolocateControlTarget, com/mountaya/geo/LayersSelectionTarget, java/lang/AutoCloseable {
+	public static final field $stable I
+	public static final field Companion Lcom/mountaya/elements/MapEngine$Companion;
+	public synthetic fun <init> (Lcom/mountaya/client/Mountaya;Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/geo/CameraPose;Ljava/lang/String;Lcom/mountaya/geo/MapPaint;Lcom/mountaya/geo/GlyphSet;Lcom/mountaya/elements/Geolocation;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/mountaya/client/Mountaya;Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/geo/CameraPose;Ljava/lang/String;Lcom/mountaya/geo/MapPaint;Lcom/mountaya/geo/GlyphSet;Lcom/mountaya/elements/Geolocation;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun addDirections (Lcom/mountaya/client/generated/DataSchema$DirectionsInput;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun addDirections (Lcom/mountaya/client/generated/DataSchema$DirectionsResult;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun addDirections$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/client/generated/DataSchema$DirectionsInput;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun addDirections$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/client/generated/DataSchema$DirectionsResult;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun addEnrichment (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun addIsochrones (Lcom/mountaya/client/generated/DataSchema$IsochronesInput;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun addIsochrones (Lcom/mountaya/client/generated/DataSchema$IsochronesResult;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun addIsochrones$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/client/generated/DataSchema$IsochronesInput;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun addIsochrones$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/client/generated/DataSchema$IsochronesResult;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun addLayer (Lcom/mountaya/elements/MapLayer;)V
+	public fun addMarker (Lcom/mountaya/elements/MapMarker;)V
+	public final fun addMatrix (Lcom/mountaya/client/generated/DataSchema$MatrixInput;Lcom/mountaya/client/generated/DataSchema$MatrixResult;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun addMatrix$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/client/generated/DataSchema$MatrixInput;Lcom/mountaya/client/generated/DataSchema$MatrixResult;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun addPlaces (Lcom/mountaya/client/generated/DataSchema$GeocodeInput;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun addPlaces (Lcom/mountaya/client/generated/DataSchema$GeocodeResult;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun addPlaces$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/client/generated/DataSchema$GeocodeInput;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun addPlaces$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/client/generated/DataSchema$GeocodeResult;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun addSource (Lcom/mountaya/elements/MapSource;)V
+	public final fun addSuggestions (Lcom/mountaya/client/generated/DataSchema$SuggestionsInput;ILcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun addSuggestions (Lcom/mountaya/client/generated/DataSchema$SuggestionsResult;ILcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun addSuggestions$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/client/generated/DataSchema$SuggestionsInput;ILcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun addSuggestions$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/client/generated/DataSchema$SuggestionsResult;ILcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun beginWaypointEdit (Ljava/lang/String;Ljava/util/List;)V
+	public static synthetic fun beginWaypointEdit$default (Lcom/mountaya/elements/MapEngine;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)V
+	public final fun clearCollection ()V
+	public final fun clearDirections ()V
+	public final fun clearEnrichments ()V
+	public fun clearGeometry (Lcom/mountaya/elements/GeometrySlot;)V
+	public final fun clearIsochrones ()V
+	public final fun clearItinerary ()V
+	public final fun clearMarkers ()V
+	public final fun clearMatrix ()V
+	public fun clearOverlay (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun clearPlaces ()V
+	public final fun clearPointsOfInterest ()V
+	public final fun clearSpecifications ()V
+	public final fun clearSuggestions ()V
+	public fun close ()V
+	public final fun drawnLayerKeys (Ljava/lang/Integer;)Ljava/util/List;
+	public static synthetic fun drawnLayerKeys$default (Lcom/mountaya/elements/MapEngine;Ljava/lang/Integer;ILjava/lang/Object;)Ljava/util/List;
+	public final fun ease (Lcom/mountaya/elements/CameraTarget;)V
+	public final fun easeIntoZoomRange (Lcom/mountaya/geo/ZoomBounds;)V
+	public final fun editDirections (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun editDirections$default (Lcom/mountaya/elements/MapEngine;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun editGeometry (Lcom/mountaya/elements/GeometrySlot;Lcom/mountaya/client/GeoJsonGeometry;Ljava/lang/String;)V
+	public static synthetic fun editGeometry$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/elements/GeometrySlot;Lcom/mountaya/client/GeoJsonGeometry;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun editIsochrones (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun editIsochrones$default (Lcom/mountaya/elements/MapEngine;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun editLayer (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;)V
+	public static synthetic fun editLayer$default (Lcom/mountaya/elements/MapEngine;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;ILjava/lang/Object;)V
+	public fun editMarker (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun editMatrix (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun editMatrix$default (Lcom/mountaya/elements/MapEngine;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun editPlaces (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun editPlaces$default (Lcom/mountaya/elements/MapEngine;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun editPointsOfInterest (Lkotlin/jvm/functions/Function1;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun editPointsOfInterest$default (Lcom/mountaya/elements/MapEngine;Lkotlin/jvm/functions/Function1;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun editSuggestions (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Ljava/lang/Integer;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun editSuggestions$default (Lcom/mountaya/elements/MapEngine;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Ljava/lang/Integer;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun elevationAt (Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun endWaypointEdit ()Lcom/mountaya/elements/WaypointEdit;
+	public final fun events ()Lkotlinx/coroutines/flow/Flow;
+	public final fun featuresAt (Ljava/util/List;)Ljava/util/List;
+	public final fun fitBounds (Ljava/util/List;Lcom/mountaya/elements/CameraFit;)V
+	public static synthetic fun fitBounds$default (Lcom/mountaya/elements/MapEngine;Ljava/util/List;Lcom/mountaya/elements/CameraFit;ILjava/lang/Object;)V
+	public final fun fly (Lcom/mountaya/elements/CameraTarget;)V
+	public final fun geometry (Lcom/mountaya/elements/GeometrySlot;)Lcom/mountaya/elements/SlotGeometry;
+	public final fun getCredits ()Ljava/util/List;
+	public final fun getEnrichments ()Ljava/util/List;
+	public final fun getGlyphs ()Lcom/mountaya/geo/GlyphSet;
+	public final fun getInstant ()Lkotlin/time/Instant;
+	public final fun getLayersManifest ()Lcom/mountaya/client/generated/TileSchema$Layers;
+	public final fun getOrganization ()Lcom/mountaya/client/generated/RestSchema$Organization;
+	public final fun getOrganizationRead ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun getPaint ()Lcom/mountaya/geo/MapPaint;
+	public final fun getSpecifications ()Ljava/util/List;
+	public final fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public fun getTerrain ()Ljava/lang/String;
+	public final fun isAccessRestrictionsVisible ()Z
+	public final fun isKeyVisible (Ljava/lang/String;)Z
+	public final fun isLayerVisible (Ljava/lang/String;)Z
+	public fun isLocationRefused (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun itinerariesAt (Ljava/util/List;)Ljava/util/List;
+	public final fun jump (Lcom/mountaya/elements/CameraTarget;)V
+	public final fun layerIds (Ljava/lang/String;)Ljava/util/List;
+	public fun loadLayers (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun loadOrganization (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun locate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun placeWaypoint (Ljava/util/List;Lcom/mountaya/elements/ScreenProjection;)V
+	public final fun poisAt (Ljava/util/List;)Ljava/util/List;
+	public final fun project (Ljava/util/List;)Ljava/util/List;
+	public final fun removeAnalysis (Ljava/lang/String;)V
+	public fun removeEnrichment (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun removeLayer (Ljava/lang/String;)V
+	public fun removeMarker (Ljava/lang/String;)V
+	public final fun removeSource (Ljava/lang/String;)V
+	public final fun removeSpecification (Ljava/lang/String;)V
+	public final fun resetNorth ()V
+	public final fun setAccessRestrictionsVisibility (Z)V
+	public final fun setActiveSegments (Ljava/util/List;)V
+	public final fun setCollection (Ljava/lang/String;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun setCollection$default (Lcom/mountaya/elements/MapEngine;Ljava/lang/String;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public fun setGeometry (Lcom/mountaya/client/GeoJsonGeometry;Lcom/mountaya/elements/GeometrySlot;Ljava/lang/String;)V
+	public fun setInstant (Lkotlin/time/Instant;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setItineraries (ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setItinerary (Ljava/lang/String;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun setItinerary$default (Lcom/mountaya/elements/MapEngine;Ljava/lang/String;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun setKeyVisibility (Ljava/lang/String;Z)V
+	public final fun setLabelLanguage--HKujkg (Ljava/lang/String;)V
+	public final fun setLayerVisibility (Ljava/lang/String;Z)V
+	public final fun setLayersOrganization (Ljava/lang/String;)V
+	public final fun setMaxBounds (Ljava/util/List;)V
+	public fun setOverlay (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setPointsOfInterest (Lcom/mountaya/client/generated/DataSchema$PoisInput;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setPointsOfInterest (Lcom/mountaya/client/generated/DataSchema$PoisResult;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun setPointsOfInterest$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/client/generated/DataSchema$PoisInput;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun setPointsOfInterest$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/client/generated/DataSchema$PoisResult;Lcom/mountaya/elements/CameraFit;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun setSearchHighlight (Lcom/mountaya/geo/SearchHighlight;Lcom/mountaya/geo/HexColor;)V
+	public static synthetic fun setSearchHighlight$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/geo/SearchHighlight;Lcom/mountaya/geo/HexColor;ILjava/lang/Object;)V
+	public final fun setSpecification (Lcom/mountaya/client/generated/TileSchema$TileSpecification;Ljava/lang/String;)V
+	public final fun setStyle-ojM33As (Ljava/lang/String;)V
+	public fun setTerrain (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setTerrainVariant-BryhRfg (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setZones (ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setZoomBounds (Lcom/mountaya/elements/ZoomLimit;Lcom/mountaya/elements/ZoomLimit;)V
+	public static synthetic fun setZoomBounds$default (Lcom/mountaya/elements/MapEngine;Lcom/mountaya/elements/ZoomLimit;Lcom/mountaya/elements/ZoomLimit;ILjava/lang/Object;)V
+	public final fun unproject (Ljava/util/List;)Ljava/util/List;
+	public final fun zonesAt (Ljava/util/List;)Ljava/util/List;
+	public final fun zoomIn ()V
+	public final fun zoomOut ()V
+}
+
+public final class com/mountaya/elements/MapEngine$Companion {
+	public final fun getPoisAnalysisId ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/elements/MapEvent {
+}
+
+public final class com/mountaya/elements/MapEvent$AccessRefused : com/mountaya/elements/MapEvent {
+	public static final field $stable I
+	public fun <init> (ILjava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStatus ()I
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapEvent$AccessRestored : com/mountaya/elements/MapEvent {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/mountaya/elements/MapEvent$AccessRestored;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapEvent$Click : com/mountaya/elements/MapEvent {
+	public static final field $stable I
+	public fun <init> (Lcom/mountaya/elements/MapTap;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTap ()Lcom/mountaya/elements/MapTap;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapEvent$Failure : com/mountaya/elements/MapEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCause ()Ljava/lang/Throwable;
+	public final fun getStatus ()Ljava/lang/Integer;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapEvent$FeatureClick : com/mountaya/elements/MapEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFeatures ()Ljava/util/List;
+	public final fun getPosition ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapEvent$FeatureHover : com/mountaya/elements/MapEvent {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFeatures ()Ljava/util/List;
+	public final fun getPosition ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapEvent$LayersChange : com/mountaya/elements/MapEvent {
+	public static final field $stable I
+	public fun <init> (Lcom/mountaya/client/generated/TileSchema$Layers;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLayers ()Lcom/mountaya/client/generated/TileSchema$Layers;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapEvent$LongClick : com/mountaya/elements/MapEvent {
+	public static final field $stable I
+	public fun <init> (Lcom/mountaya/elements/MapTap;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTap ()Lcom/mountaya/elements/MapTap;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapException : java/lang/Exception {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/elements/GeolocationRefusal;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/elements/GeolocationRefusal;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKind-_F6kW1c ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getReason ()Lcom/mountaya/elements/GeolocationRefusal;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapException$Kind {
+	public static final field Companion Lcom/mountaya/elements/MapException$Kind$Companion;
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lcom/mountaya/elements/MapException$Kind;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/lang/String;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapException$Kind$Companion {
+	public final fun getAnalysisNotFound-_F6kW1c ()Ljava/lang/String;
+	public final fun getClosed-_F6kW1c ()Ljava/lang/String;
+	public final fun getFixRefused-_F6kW1c ()Ljava/lang/String;
+	public final fun getKindMismatch-_F6kW1c ()Ljava/lang/String;
+	public final fun getLayerNotFound-_F6kW1c ()Ljava/lang/String;
+	public final fun getMarkerNotFound-_F6kW1c ()Ljava/lang/String;
+	public final fun getMaxBoundsRefused-_F6kW1c ()Ljava/lang/String;
+	public final fun getNoInput-_F6kW1c ()Ljava/lang/String;
+	public final fun getNumberRefused-_F6kW1c ()Ljava/lang/String;
+	public final fun getOverlayNotFound-_F6kW1c ()Ljava/lang/String;
+	public final fun getPositionRefused-_F6kW1c ()Ljava/lang/String;
+	public final fun getTerrainNotFound-_F6kW1c ()Ljava/lang/String;
+	public final fun getTypeRefused-_F6kW1c ()Ljava/lang/String;
+	public final fun getZoomBoundsRefused-_F6kW1c ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapLayer {
+	public static final field $stable I
+	public fun <init> (Lcom/mountaya/client/generated/TileSchema$TileLayer;Ljava/lang/String;Ljava/util/Map;)V
+	public synthetic fun <init> (Lcom/mountaya/client/generated/TileSchema$TileLayer;Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/util/Map;Ljava/util/Map;Lkotlinx/serialization/json/JsonElement;Lcom/mountaya/geo/ZoomBounds;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/util/Map;Ljava/util/Map;Lkotlinx/serialization/json/JsonElement;Lcom/mountaya/geo/ZoomBounds;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFilter ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getLayout ()Ljava/util/Map;
+	public final fun getPaint ()Ljava/util/Map;
+	public final fun getRank ()I
+	public final fun getSource ()Ljava/lang/String;
+	public final fun getSourceLayer ()Ljava/lang/String;
+	public final fun getType-MiFBaM0 ()Ljava/lang/String;
+	public final fun getZoom ()Lcom/mountaya/geo/ZoomBounds;
+	public fun hashCode ()I
+	public final fun isHidden ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapMarker {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getGlyph ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getPosition ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapPanel {
+	public static final field Companion Lcom/mountaya/elements/MapPanel$Companion;
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lcom/mountaya/elements/MapPanel;
+	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/lang/String;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapPanel$Companion {
+	public final fun getLayers-jAhsjjI ()Ljava/lang/String;
+	public final fun getPois-jAhsjjI ()Ljava/lang/String;
+	public final fun getPreferences-jAhsjjI ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapRequest {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Map;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHeaders ()Ljava/util/Map;
+	public final fun getUrl-zQUtL00 ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapSource {
+	public static final field $stable I
+	public fun <init> (Lcom/mountaya/client/generated/TileSchema$TileSource;)V
+	public fun <init> (Ljava/lang/String;Lcom/mountaya/elements/MapSource$Kind;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/mountaya/elements/MapSource$Kind;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAttribution ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getKind ()Lcom/mountaya/elements/MapSource$Kind;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/elements/MapSource$Kind {
+}
+
+public final class com/mountaya/elements/MapSource$Kind$GeoJson : com/mountaya/elements/MapSource$Kind {
+	public static final field $stable I
+	public fun <init> (Lcom/mountaya/geo/GeoJsonFeatureCollection;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFeatures ()Lcom/mountaya/geo/GeoJsonFeatureCollection;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapSource$Kind$Raster : com/mountaya/elements/MapSource$Kind {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Ljava/lang/Integer;Lcom/mountaya/geo/ZoomBounds;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTileSize ()Ljava/lang/Integer;
+	public final fun getTiles ()Ljava/util/List;
+	public final fun getZoom ()Lcom/mountaya/geo/ZoomBounds;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapSource$Kind$RasterDem : com/mountaya/elements/MapSource$Kind {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Ljava/lang/Integer;Lcom/mountaya/geo/ZoomBounds;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTileSize ()Ljava/lang/Integer;
+	public final fun getTiles ()Ljava/util/List;
+	public final fun getZoom ()Lcom/mountaya/geo/ZoomBounds;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapSource$Kind$Vector : com/mountaya/elements/MapSource$Kind {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Lcom/mountaya/geo/ZoomBounds;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTiles ()Ljava/util/List;
+	public final fun getZoom ()Lcom/mountaya/geo/ZoomBounds;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapState {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/lang/String;Lcom/mountaya/geo/CameraPose;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lcom/mountaya/geo/ZoomBounds;Ljava/util/List;Lcom/mountaya/elements/WaypointEdit;ZLjava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/mountaya/geo/CameraPose;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lcom/mountaya/geo/ZoomBounds;Ljava/util/List;Lcom/mountaya/elements/WaypointEdit;ZLjava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActiveSegments ()Ljava/util/List;
+	public final fun getCamera ()Lcom/mountaya/geo/CameraPose;
+	public final fun getLabelLanguage-kv_CogA ()Ljava/lang/String;
+	public final fun getLayers ()Ljava/util/List;
+	public final fun getMarkers ()Ljava/util/List;
+	public final fun getMaxBounds ()Ljava/util/List;
+	public final fun getSources ()Ljava/util/List;
+	public final fun getStyle-20xtLQA ()Ljava/lang/String;
+	public final fun getTerrain ()Ljava/lang/String;
+	public final fun getTerrainVariant-iQqWXfQ ()Ljava/lang/String;
+	public final fun getWaypointEdit ()Lcom/mountaya/elements/WaypointEdit;
+	public final fun getZoomBounds ()Lcom/mountaya/geo/ZoomBounds;
+	public fun hashCode ()I
+	public final fun isAccessRequired ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapTap {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMarker ()Ljava/lang/String;
+	public final fun getPoint ()Ljava/util/List;
+	public final fun getPosition ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/MapViewKt {
+	public static final fun MapView (Lcom/mountaya/elements/MapEngine;Landroidx/compose/ui/Modifier;Lokhttp3/OkHttpClient;ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/mountaya/elements/MountayaScopeKt {
+	public static final fun MountayaScope (Lcom/mountaya/geo/ElementsScopeStatement;Lcom/mountaya/geo/ThemeScheme;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/mountaya/elements/PanelControlKt {
+	public static final fun PanelControl-bFEXHPM (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroidx/compose/ui/Modifier;Ljava/lang/String;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/mountaya/elements/PoiPanelKt {
+	public static final fun PoiPanel (Lcom/mountaya/elements/MapEngine;Landroidx/compose/ui/Modifier;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/Map;Ljava/lang/Double;ZLjava/util/Map;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class com/mountaya/elements/PreferencesPanelKt {
+	public static final fun PreferencesPanel (Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/mountaya/elements/MapEngine;Ljava/util/Map;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/mountaya/elements/ProfileColoring {
+}
+
+public final class com/mountaya/elements/ProfileColoring$Classes : com/mountaya/elements/ProfileColoring {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getClasses ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ProfileColoring$Plain : com/mountaya/elements/ProfileColoring {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/mountaya/elements/ProfileColoring$Plain;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ProfileColoring$Slope : com/mountaya/elements/ProfileColoring {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBuckets ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ProfileColoring$Stretches : com/mountaya/elements/ProfileColoring {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStretches ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ProfilePart : java/lang/Enum {
+	public static final field Amenities Lcom/mountaya/elements/ProfilePart;
+	public static final field Companion Lcom/mountaya/elements/ProfilePart$Companion;
+	public static final field DistanceAxis Lcom/mountaya/elements/ProfilePart;
+	public static final field ElevationAxis Lcom/mountaya/elements/ProfilePart;
+	public static final field Navigator Lcom/mountaya/elements/ProfilePart;
+	public static final field Sections Lcom/mountaya/elements/ProfilePart;
+	public static final field Tooltip Lcom/mountaya/elements/ProfilePart;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/elements/ProfilePart;
+	public static fun values ()[Lcom/mountaya/elements/ProfilePart;
+}
+
+public final class com/mountaya/elements/ProfilePart$Companion {
+	public final fun getStandard ()Ljava/util/Set;
+}
+
+public final class com/mountaya/elements/QueriedFeature {
+	public static final field $stable I
+	public fun <init> (Ljava/util/Map;Lcom/mountaya/client/GeoJsonGeometry;Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/elements/QueriedFeature$Id;)V
+	public synthetic fun <init> (Ljava/util/Map;Lcom/mountaya/client/GeoJsonGeometry;Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/elements/QueriedFeature$Id;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGeometry ()Lcom/mountaya/client/GeoJsonGeometry;
+	public final fun getId ()Lcom/mountaya/elements/QueriedFeature$Id;
+	public final fun getLayer ()Ljava/lang/String;
+	public final fun getProperties ()Ljava/util/Map;
+	public final fun getSourceLayer ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/elements/QueriedFeature$Id {
+}
+
+public final class com/mountaya/elements/QueriedFeature$Id$Number : com/mountaya/elements/QueriedFeature$Id {
+	public static final field $stable I
+	public fun <init> (D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/QueriedFeature$Id$Text : com/mountaya/elements/QueriedFeature$Id {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ScreenProjection {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public final fun getPoint ()Lkotlin/jvm/functions/Function1;
+	public final fun getPosition ()Lkotlin/jvm/functions/Function1;
+}
+
+public final class com/mountaya/elements/ScriptedMapSurface {
+	public static final field $stable I
+	public fun <init> (Lcom/mountaya/elements/MapEngine;Ljava/util/List;Lcom/mountaya/geo/ZoomBounds;)V
+	public synthetic fun <init> (Lcom/mountaya/elements/MapEngine;Ljava/util/List;Lcom/mountaya/geo/ZoomBounds;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun click (Ljava/util/List;Ljava/util/List;)V
+	public final fun drawFrame ()V
+	public final fun failRequest (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;ZLjava/lang/Throwable;)V
+	public static synthetic fun failRequest$default (Lcom/mountaya/elements/ScriptedMapSurface;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;ZLjava/lang/Throwable;ILjava/lang/Object;)V
+	public final fun failStyle ()V
+	public final fun getBaseLabels ()Ljava/util/List;
+	public final fun getBaseSources ()Ljava/util/List;
+	public final fun getCanvas ()Ljava/util/List;
+	public final fun getFrames ()Ljava/util/List;
+	public final fun getHeldSources ()Ljava/util/List;
+	public final fun getLiveLayers ()Ljava/util/List;
+	public final fun getMoves ()Ljava/util/List;
+	public final fun getProjection ()Lcom/mountaya/elements/ScreenProjection;
+	public final fun getQueries ()Ljava/util/List;
+	public final fun getRelabelled ()Ljava/util/List;
+	public final fun getRendered ()Ljava/util/List;
+	public final fun getZoomLimits ()Lcom/mountaya/geo/ZoomBounds;
+	public final fun hover (Ljava/util/List;Ljava/util/List;)V
+	public final fun leave (Ljava/util/List;Ljava/util/List;)V
+	public final fun loadStyle ()V
+	public final fun loadTile (Ljava/lang/String;)V
+	public final fun longClick (Ljava/util/List;Ljava/util/List;)V
+	public final fun setBaseLabels (Ljava/util/List;)V
+	public final fun setBaseSources (Ljava/util/List;)V
+	public final fun setCanvas (Ljava/util/List;)V
+	public final fun setHeldSources (Ljava/util/List;)V
+	public final fun setLiveLayers (Ljava/util/List;)V
+	public final fun setProjection (Lcom/mountaya/elements/ScreenProjection;)V
+	public final fun setRendered (Ljava/util/List;)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ScriptedMapSurface$BaseSource {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Z)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAttribution ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isDrawn ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ScriptedMapSurface$Frame {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Lcom/mountaya/elements/CameraFit;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBounds ()Ljava/util/List;
+	public final fun getFit ()Lcom/mountaya/elements/CameraFit;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ScriptedMapSurface$Label {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getTextField ()Lkotlinx/serialization/json/JsonElement;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ScriptedMapSurface$Move {
+	public static final field $stable I
+	public fun <init> (Lcom/mountaya/elements/CameraTarget;Lcom/mountaya/elements/CameraMotion;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMotion ()Lcom/mountaya/elements/CameraMotion;
+	public final fun getTarget ()Lcom/mountaya/elements/CameraTarget;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/SearchControlKt {
+	public static final fun SearchControl-PJK8nDs (Lcom/mountaya/elements/MapEngine;Landroidx/compose/ui/Modifier;Lcom/mountaya/geo/SearchEngine;Landroidx/compose/runtime/MutableState;Landroidx/compose/runtime/MutableState;Ljava/util/List;Ljava/lang/String;Lcom/mountaya/geo/SearchLimit;Lcom/mountaya/geo/UnitPreferences;Lcom/mountaya/geo/SearchWording;Lcom/mountaya/geo/SearchFetch;ZLjava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
+}
+
+public final class com/mountaya/elements/ShowCursorMarkerKt {
+	public static final field CURSOR_MARKER_GLYPH Ljava/lang/String;
+	public static final field PROFILE_CURSOR_MARKER_ID Ljava/lang/String;
+	public static final field SEGMENT_TABLE_CURSOR_MARKER_ID Ljava/lang/String;
+	public static final field WAYPOINT_TABLE_CURSOR_MARKER_ID Ljava/lang/String;
+	public static final fun showCursorMarker (Lcom/mountaya/elements/CursorMarkerTarget;Lcom/mountaya/elements/CursorMarkerPin;Lcom/mountaya/elements/CursorMarkerPoint;)Lcom/mountaya/elements/CursorMarkerPin;
+}
+
+public final class com/mountaya/elements/SlotGeometry {
+	public static final field $stable I
+	public fun <init> (Lcom/mountaya/client/GeoJsonGeometry;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getGeometry ()Lcom/mountaya/client/GeoJsonGeometry;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ThemeSchemeInForceKt {
+	public static final fun themeSchemeInForce (Landroidx/compose/runtime/Composer;I)Lcom/mountaya/geo/ThemeScheme;
+}
+
+public final class com/mountaya/elements/WaypointCardKt {
+	public static final fun WaypointCard (Lcom/mountaya/geo/ItineraryPlace;Landroidx/compose/ui/Modifier;Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;Ljava/util/Map;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/mountaya/elements/WaypointEdit {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPosition ()Ljava/util/List;
+	public final fun getWaypointId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isSnapped ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/WriteLegEmphasisKt {
+	public static final fun writeLegEmphasis (Lcom/mountaya/elements/LegEmphasisTarget;ZLcom/mountaya/client/GeoJsonGeometry;Ljava/lang/String;)Z
+	public static synthetic fun writeLegEmphasis$default (Lcom/mountaya/elements/LegEmphasisTarget;ZLcom/mountaya/client/GeoJsonGeometry;Ljava/lang/String;ILjava/lang/Object;)Z
+}
+
+public final class com/mountaya/elements/ZoomControlKt {
+	public static final fun ZoomControl (Lcom/mountaya/elements/MapEngine;Landroidx/compose/ui/Modifier;ZLjava/util/Map;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/mountaya/elements/ZoomLimit {
+}
+
+public final class com/mountaya/elements/ZoomLimit$Kept : com/mountaya/elements/ZoomLimit {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/mountaya/elements/ZoomLimit$Kept;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ZoomLimit$Released : com/mountaya/elements/ZoomLimit {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/mountaya/elements/ZoomLimit$Released;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/elements/ZoomLimit$Zoom : com/mountaya/elements/ZoomLimit {
+	public static final field $stable I
+	public fun <init> (D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getZoom ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+

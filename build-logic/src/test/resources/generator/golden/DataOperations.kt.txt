@@ -1,0 +1,33 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+package com.mountaya.client.generated
+
+/** DataOperations is each Data API operation with its full field tree, which a caller's selection is held to. */
+internal object DataOperations {
+    /** `route`, with its full field tree. */
+    val route: com.mountaya.client.DataOperation =
+        com.mountaya.client.DataOperation(
+            name = "route",
+            inputType = "RouteInput!",
+            selection =
+                com.mountaya.client.FieldSelection {
+                    field("distance")
+                    field("line")
+                    field("legs") {
+                        field("at")
+                    }
+                },
+        )
+
+    /** Every Data API operation, in the model's order. */
+    val all: kotlin.collections.List<com.mountaya.client.DataOperation> =
+        kotlin.collections.listOf(
+            route,
+        )
+}

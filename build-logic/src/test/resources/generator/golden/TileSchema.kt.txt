@@ -1,0 +1,56 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+@file:kotlinx.serialization.UseSerializers(com.mountaya.client.TimestampSerializer::class)
+
+package com.mountaya.client.generated
+
+/** TileSchema is the types of the Tile API, as the contract names them. */
+public object TileSchema {
+    @kotlinx.serialization.Serializable
+    public class Spec private constructor(
+        public val tiles: kotlin.collections.List<com.mountaya.client.Url>,
+    ) {
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is TileSchema.Spec &&
+                other.tiles == this.tiles
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.tiles.hashCode()
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "Spec(" +
+                "tiles=" + this.tiles +
+                ")"
+
+        /** Builder sets the optional properties of a [TileSchema.Spec], each by assigning it. */
+        public class Builder internal constructor() {
+        }
+
+        /** Builds a [TileSchema.Spec]. */
+        public companion object {
+            /** Returns a [TileSchema.Spec] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                tiles: kotlin.collections.List<com.mountaya.client.Url>,
+                optional: TileSchema.Spec.Builder.() -> kotlin.Unit = {},
+            ): TileSchema.Spec {
+                val given = TileSchema.Spec.Builder().apply(optional)
+                return TileSchema.Spec(
+                    tiles = tiles,
+                )
+            }
+        }
+    }
+
+    /** GetSpecParameters sets the optional parameters of `getSpec`, each by assigning it. Every operation takes one, even with nothing in it, so a parameter the contract adds changes no call site. */
+    public class GetSpecParameters internal constructor() {
+    }
+}

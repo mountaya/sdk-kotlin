@@ -1,0 +1,40 @@
+{
+  "plugins": [
+    "mountaya-kotlin"
+  ],
+  "mcp": [],
+  "permissions": {
+    "deny": [
+      "Bash(mise run release:*)",
+      "Bash(bash scripts/release.sh:*)",
+      "Bash(bash scripts/central-upload.sh:*)",
+      "Bash(./gradlew centralBundle:*)",
+      "Bash(./gradlew publish:*)",
+      "Bash(./gradlew publishAllPublicationsToReleaseRepository:*)",
+      "Bash(mise exec -- ./gradlew centralBundle:*)",
+      "Bash(mise run clean:toolchains:*)",
+      "Bash(bash scripts/clean-toolchains.sh:*)",
+      "Bash(mise run android:packages:*)",
+      "Bash(mise run android:emulator:*)",
+      "Bash(android sdk install:*)",
+      "Bash(sdkmanager:*)",
+      "Bash(avdmanager create:*)",
+      "Edit(./mountaya-*/src/commonMain/kotlin/com/mountaya/*/generated/**)",
+      "Edit(./THIRD-PARTY-NOTICES.txt)",
+      "Edit(./consumer/src/commonMain/kotlin/com/example/consumer/readme/ReadmeSnippets.kt)",
+      "Edit(./mountaya-*/api/**)"
+    ]
+  },
+  "setup": [
+    "mise run android:packages"
+  ],
+  "siblings": [
+    "schemas",
+    "ai"
+  ],
+  "mirror": {
+    "tags": [
+      "v*"
+    ]
+  }
+}

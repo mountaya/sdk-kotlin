@@ -1,0 +1,26 @@
+{
+  "platform": "android",
+  "build": "./gradlew -p examples/trail assembleRelease",
+  "scenario": 2,
+  "agp": "9.5.1",
+  "kotlin": "2.4.21",
+  "dex": 3039505,
+  "modules": {
+    "com.mountaya.client": 274310,
+    "com.mountaya.elements": 206892,
+    "com.mountaya.geo": 254937,
+    "com.mountaya.navigation": 7875
+  },
+  "brought": {
+    "io.ktor": 133054,
+    "kotlinx.serialization": 68659,
+    "okhttp3": 139933,
+    "org.maplibre": 154954
+  },
+  "versions": {
+    "io.ktor": "3.6.1",
+    "kotlinx.serialization": "1.13.0",
+    "okhttp3": "5.5.1",
+    "org.maplibre": "13.7.1"
+  }
+}

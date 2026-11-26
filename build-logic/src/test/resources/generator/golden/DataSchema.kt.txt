@@ -1,0 +1,255 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+@file:kotlinx.serialization.UseSerializers(com.mountaya.client.TimestampSerializer::class)
+
+package com.mountaya.client.generated
+
+/** DataSchema is the Data API's types, as the SDL names them. */
+public object DataSchema {
+    /** A route. */
+    @kotlinx.serialization.Serializable
+    public class RouteResult private constructor(
+        public val distance: kotlin.Double? = null,
+        public val line: com.mountaya.client.GeoJsonGeometry? = null,
+        @kotlin.Deprecated("The contract deprecates this, and a later major removes it.")
+        public val legs: kotlin.collections.List<DataSchema.Leg>? = null,
+    ) {
+        @kotlin.Suppress("DEPRECATION")
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is DataSchema.RouteResult &&
+                other.distance == this.distance &&
+                other.line == this.line &&
+                other.legs == this.legs
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + (this.distance?.hashCode() ?: 0)
+            hash = 31 * hash + (this.line?.hashCode() ?: 0)
+            hash = 31 * hash + (this.legs?.hashCode() ?: 0)
+            return hash
+        }
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun toString(): kotlin.String =
+            "RouteResult(" +
+                "distance=" + this.distance +
+                ", line=" + this.line +
+                ", legs=" + this.legs +
+                ")"
+
+        /** Builder sets the optional properties of a [DataSchema.RouteResult], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot0: kotlin.Double? = null
+            internal var slot1: com.mountaya.client.GeoJsonGeometry? = null
+            internal var slot2: kotlin.collections.List<DataSchema.Leg>? = null
+
+            public var distance: kotlin.Double?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot0 = value
+                }
+
+            public var line: com.mountaya.client.GeoJsonGeometry?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot1 = value
+                }
+
+            @kotlin.Deprecated("The contract deprecates this, and a later major removes it.")
+            public var legs: kotlin.collections.List<DataSchema.Leg>?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot2 = value
+                }
+        }
+
+        /** Builds a [DataSchema.RouteResult]. */
+        public companion object {
+            /** Returns a [DataSchema.RouteResult] of the required properties given here and the optional ones [optional] sets. */
+            @kotlin.Suppress("DEPRECATION")
+            public operator fun invoke(
+                optional: DataSchema.RouteResult.Builder.() -> kotlin.Unit = {},
+            ): DataSchema.RouteResult {
+                val given = DataSchema.RouteResult.Builder().apply(optional)
+                return DataSchema.RouteResult(
+                    distance = given.slot0,
+                    line = given.slot1,
+                    legs = given.slot2,
+                )
+            }
+        }
+    }
+
+    @kotlinx.serialization.Serializable
+    public class Leg private constructor(
+        public val at: kotlin.time.Instant? = null,
+    ) {
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is DataSchema.Leg &&
+                other.at == this.at
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + (this.at?.hashCode() ?: 0)
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "Leg(" +
+                "at=" + this.at +
+                ")"
+
+        /** Builder sets the optional properties of a [DataSchema.Leg], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot0: kotlin.time.Instant? = null
+
+            public var at: kotlin.time.Instant?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot0 = value
+                }
+        }
+
+        /** Builds a [DataSchema.Leg]. */
+        public companion object {
+            /** Returns a [DataSchema.Leg] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                optional: DataSchema.Leg.Builder.() -> kotlin.Unit = {},
+            ): DataSchema.Leg {
+                val given = DataSchema.Leg.Builder().apply(optional)
+                return DataSchema.Leg(
+                    at = given.slot0,
+                )
+            }
+        }
+    }
+
+    @kotlinx.serialization.Serializable
+    public class RouteInput private constructor(
+        public val activity: DataSchema.Activity,
+        public val points: kotlin.collections.List<kotlin.collections.List<kotlin.Double>>,
+        /** Left out, the server applies its default: `4.5`. */
+        public val speed: kotlin.Double? = null,
+        public val link: @kotlinx.serialization.Serializable(with = com.mountaya.client.SentUrlSerializer::class) com.mountaya.client.Url? = null,
+    ) {
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is DataSchema.RouteInput &&
+                other.activity == this.activity &&
+                other.points == this.points &&
+                other.speed == this.speed &&
+                other.link == this.link
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.activity.hashCode()
+            hash = 31 * hash + this.points.hashCode()
+            hash = 31 * hash + (this.speed?.hashCode() ?: 0)
+            hash = 31 * hash + (this.link?.hashCode() ?: 0)
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "RouteInput(" +
+                "activity=" + this.activity +
+                ", points=" + this.points +
+                ", speed=" + this.speed +
+                ", link=" + this.link +
+                ")"
+
+        /** Builder sets the optional properties of a [DataSchema.RouteInput], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot2: kotlin.Double? = null
+            internal var slot3: com.mountaya.client.Url? = null
+
+            /** Left out, the server applies its default: `4.5`. */
+            public var speed: kotlin.Double?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot2 = value
+                }
+
+            public var link: com.mountaya.client.Url?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot3 = value
+                }
+        }
+
+        /** Builds a [DataSchema.RouteInput]. */
+        public companion object {
+            /** Returns a [DataSchema.RouteInput] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                activity: DataSchema.Activity,
+                points: kotlin.collections.List<kotlin.collections.List<kotlin.Double>>,
+                optional: DataSchema.RouteInput.Builder.() -> kotlin.Unit = {},
+            ): DataSchema.RouteInput {
+                val given = DataSchema.RouteInput.Builder().apply(optional)
+                return DataSchema.RouteInput(
+                    activity = activity,
+                    points = points,
+                    speed = given.slot2,
+                    link = given.slot3,
+                )
+            }
+        }
+    }
+
+    /** It is open: a value the contract adds after this build decodes as itself, and the constants below are the values it names today. */
+    @kotlinx.serialization.Serializable
+    @kotlin.jvm.JvmInline
+    public value class Activity(
+        /** The value, exactly as the wire carries it. */
+        public val value: kotlin.String,
+    ) {
+        override fun toString(): kotlin.String = value
+
+        /** The values the contract names. */
+        public companion object {
+            public val Hiking: Activity = Activity("HIKING")
+
+            @kotlin.Deprecated("The contract deprecates this, and a later major removes it.")
+            public val Skiing: Activity = Activity("SKIING")
+
+            public val HikingAndTrail: Activity = Activity("HIKING_AND_TRAIL")
+
+            public val Mtb0: Activity = Activity("MTB_0")
+        }
+    }
+
+    /**
+     * The closed vocabulary of `extensions.code` on an error entry.
+     *
+     * It is open: a value the contract adds after this build decodes as itself, and the constants below are the values it names today.
+     */
+    @kotlinx.serialization.Serializable
+    @kotlin.jvm.JvmInline
+    public value class ErrorCode(
+        /** The value, exactly as the wire carries it. */
+        public val value: kotlin.String,
+    ) {
+        override fun toString(): kotlin.String = value
+
+        /** The values the contract names. */
+        public companion object {
+            /** The request was malformed. */
+            public val BadRequest: ErrorCode = ErrorCode("BAD_REQUEST")
+
+            public val NotFound: ErrorCode = ErrorCode("NOT_FOUND")
+
+            public val GatewayTimeout: ErrorCode = ErrorCode("GATEWAY_TIMEOUT")
+        }
+    }
+}

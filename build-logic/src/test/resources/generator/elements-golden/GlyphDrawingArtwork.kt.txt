@@ -1,0 +1,41 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew :mountaya-geo:generateElements` from sdk/elements/glyphs.json of
+// mountaya/schemas, contract v0.8.0, model digest
+// 6c1cf0ef10563c2bb2d6c6250bbb734b976eeea9bcbd280d67325516b4deb15c.
+// A value that is wrong here is a defect in the contract's table, and the next print overwrites
+// any edit.
+
+package com.mountaya.geo.generated
+
+import com.mountaya.geo.GlyphDrawing
+import com.mountaya.geo.HexColor
+
+/**
+ * artworkDrawings is Mountaya's own drawings the contract's glyph table carries, by the name it
+ * gives each. `GlyphDrawing.artwork` publishes them.
+ */
+internal val artworkDrawings: Map<String, GlyphDrawing> =
+    mapOf(
+        "compass-rose" to
+            GlyphDrawing(
+                viewBox = listOf(0.0, 0.0, 32.0, 32.0),
+                shapes =
+                    listOf(
+                        GlyphDrawing.PaintedShape(markup = "<rect height=\"32\" rx=\"16\" width=\"32\" />", fill = GlyphDrawing.Paint.Token(ElementTokens::controlBg, opacity = 1.0)),
+                        GlyphDrawing.PaintedShape(markup = "<path d=\"M16 7 12 16h8z\" />", fill = GlyphDrawing.Paint.Color(HexColor(hex = "#e9501e"))),
+                        GlyphDrawing.PaintedShape(markup = "<path d=\"M16 25 12 16h8z\" />", fill = GlyphDrawing.Paint.Token(ElementTokens::accent, opacity = 0.45), stroke = GlyphDrawing.Paint.Color(HexColor(hex = "#000000", opacity = 0.25)), strokeWidth = 1.0),
+                    ),
+            ),
+        "watermark" to
+            GlyphDrawing(
+                viewBox = listOf(0.0, 0.0, 138.0, 58.0),
+                shapes =
+                    listOf(
+                        GlyphDrawing.PaintedShape(markup = "<path d=\"M22 16 29 23 16 23z\" />", fill = GlyphDrawing.Paint.LinearGradient(from = listOf(23.7246, 40.8919), to = listOf(22.8662, 18.575), stops = listOf(GlyphDrawing.GradientStop(offset = 0.0, color = HexColor(hex = "#090b0e")), GlyphDrawing.GradientStop(offset = 1.0, color = HexColor(hex = "#dddbdc", opacity = 0.6))))),
+                        GlyphDrawing.PaintedShape(markup = "<path d=\"M49 30H47L46 23z\" />", fill = GlyphDrawing.Paint.Color(HexColor(hex = "#ffffff"))),
+                    ),
+                opacity = 0.9,
+                shadow = GlyphDrawing.Shadow(blur = 12.1452, dx = 0.0, dy = 0.0, color = HexColor(hex = "#000000", opacity = 0.55)),
+            ),
+    )

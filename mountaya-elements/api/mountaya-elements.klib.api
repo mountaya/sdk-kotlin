@@ -1,0 +1,877 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.mountaya:mountaya-elements>
+final enum class com.mountaya.elements/GeolocationPermission : kotlin/Enum<com.mountaya.elements/GeolocationPermission> { // com.mountaya.elements/GeolocationPermission|null[0]
+    enum entry Denied // com.mountaya.elements/GeolocationPermission.Denied|null[0]
+    enum entry Granted // com.mountaya.elements/GeolocationPermission.Granted|null[0]
+    enum entry Prompt // com.mountaya.elements/GeolocationPermission.Prompt|null[0]
+    enum entry Unknown // com.mountaya.elements/GeolocationPermission.Unknown|null[0]
+
+    final val entries // com.mountaya.elements/GeolocationPermission.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.mountaya.elements/GeolocationPermission> // com.mountaya.elements/GeolocationPermission.entries.<get-entries>|<get-entries>#static(){}[0]
+    final val id // com.mountaya.elements/GeolocationPermission.id|{}id[0]
+        final fun <get-id>(): kotlin/String // com.mountaya.elements/GeolocationPermission.id.<get-id>|<get-id>(){}[0]
+
+    final fun valueOf(kotlin/String): com.mountaya.elements/GeolocationPermission // com.mountaya.elements/GeolocationPermission.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.mountaya.elements/GeolocationPermission> // com.mountaya.elements/GeolocationPermission.values|values#static(){}[0]
+}
+
+final enum class com.mountaya.elements/GeolocationRefusal : kotlin/Enum<com.mountaya.elements/GeolocationRefusal> { // com.mountaya.elements/GeolocationRefusal|null[0]
+    enum entry Denied // com.mountaya.elements/GeolocationRefusal.Denied|null[0]
+    enum entry NoApi // com.mountaya.elements/GeolocationRefusal.NoApi|null[0]
+    enum entry Unavailable // com.mountaya.elements/GeolocationRefusal.Unavailable|null[0]
+
+    final val entries // com.mountaya.elements/GeolocationRefusal.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.mountaya.elements/GeolocationRefusal> // com.mountaya.elements/GeolocationRefusal.entries.<get-entries>|<get-entries>#static(){}[0]
+    final val id // com.mountaya.elements/GeolocationRefusal.id|{}id[0]
+        final fun <get-id>(): kotlin/String // com.mountaya.elements/GeolocationRefusal.id.<get-id>|<get-id>(){}[0]
+
+    final fun valueOf(kotlin/String): com.mountaya.elements/GeolocationRefusal // com.mountaya.elements/GeolocationRefusal.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.mountaya.elements/GeolocationRefusal> // com.mountaya.elements/GeolocationRefusal.values|values#static(){}[0]
+}
+
+final enum class com.mountaya.elements/GeometrySlot : kotlin/Enum<com.mountaya.elements/GeometrySlot> { // com.mountaya.elements/GeometrySlot|null[0]
+    enum entry Emphasis // com.mountaya.elements/GeometrySlot.Emphasis|null[0]
+    enum entry Highlight // com.mountaya.elements/GeometrySlot.Highlight|null[0]
+    enum entry Preview // com.mountaya.elements/GeometrySlot.Preview|null[0]
+
+    final val entries // com.mountaya.elements/GeometrySlot.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.mountaya.elements/GeometrySlot> // com.mountaya.elements/GeometrySlot.entries.<get-entries>|<get-entries>#static(){}[0]
+    final val id // com.mountaya.elements/GeometrySlot.id|{}id[0]
+        final fun <get-id>(): kotlin/String // com.mountaya.elements/GeometrySlot.id.<get-id>|<get-id>(){}[0]
+
+    final fun valueOf(kotlin/String): com.mountaya.elements/GeometrySlot // com.mountaya.elements/GeometrySlot.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.mountaya.elements/GeometrySlot> // com.mountaya.elements/GeometrySlot.values|values#static(){}[0]
+}
+
+abstract interface com.mountaya.elements/CursorMarkerTarget { // com.mountaya.elements/CursorMarkerTarget|null[0]
+    abstract fun addMarker(com.mountaya.elements/MapMarker) // com.mountaya.elements/CursorMarkerTarget.addMarker|addMarker(com.mountaya.elements.MapMarker){}[0]
+    abstract fun editMarker(kotlin/String, kotlin.collections/List<kotlin/Double>? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ...) // com.mountaya.elements/CursorMarkerTarget.editMarker|editMarker(kotlin.String;kotlin.collections.List<kotlin.Double>?;kotlin.String?;kotlin.String?;kotlin.String?){}[0]
+    abstract fun removeMarker(kotlin/String) // com.mountaya.elements/CursorMarkerTarget.removeMarker|removeMarker(kotlin.String){}[0]
+}
+
+abstract interface com.mountaya.elements/Geolocation { // com.mountaya.elements/Geolocation|null[0]
+    abstract suspend fun locate(): com.mountaya.elements/GeolocationFix // com.mountaya.elements/Geolocation.locate|locate(){}[0]
+    abstract suspend fun permission(): com.mountaya.elements/GeolocationPermission // com.mountaya.elements/Geolocation.permission|permission(){}[0]
+}
+
+abstract interface com.mountaya.elements/LegEmphasisTarget { // com.mountaya.elements/LegEmphasisTarget|null[0]
+    abstract fun clearGeometry(com.mountaya.elements/GeometrySlot) // com.mountaya.elements/LegEmphasisTarget.clearGeometry|clearGeometry(com.mountaya.elements.GeometrySlot){}[0]
+    abstract fun setGeometry(com.mountaya.client/GeoJsonGeometry?, com.mountaya.elements/GeometrySlot, kotlin/String? = ...) // com.mountaya.elements/LegEmphasisTarget.setGeometry|setGeometry(com.mountaya.client.GeoJsonGeometry?;com.mountaya.elements.GeometrySlot;kotlin.String?){}[0]
+}
+
+sealed interface com.mountaya.elements/CameraMotion { // com.mountaya.elements/CameraMotion|null[0]
+    final class Ease : com.mountaya.elements/CameraMotion { // com.mountaya.elements/CameraMotion.Ease|null[0]
+        constructor <init>(kotlin.time/Duration? = ...) // com.mountaya.elements/CameraMotion.Ease.<init>|<init>(kotlin.time.Duration?){}[0]
+
+        final val duration // com.mountaya.elements/CameraMotion.Ease.duration|{}duration[0]
+            final fun <get-duration>(): kotlin.time/Duration? // com.mountaya.elements/CameraMotion.Ease.duration.<get-duration>|<get-duration>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/CameraMotion.Ease.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/CameraMotion.Ease.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/CameraMotion.Ease.toString|toString(){}[0]
+    }
+
+    final object Fly : com.mountaya.elements/CameraMotion { // com.mountaya.elements/CameraMotion.Fly|null[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/CameraMotion.Fly.toString|toString(){}[0]
+    }
+
+    final object Jump : com.mountaya.elements/CameraMotion { // com.mountaya.elements/CameraMotion.Jump|null[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/CameraMotion.Jump.toString|toString(){}[0]
+    }
+}
+
+sealed interface com.mountaya.elements/GeolocationFix { // com.mountaya.elements/GeolocationFix|null[0]
+    final class Located : com.mountaya.elements/GeolocationFix { // com.mountaya.elements/GeolocationFix.Located|null[0]
+        constructor <init>(kotlin.collections/List<kotlin/Double>, kotlin/Double) // com.mountaya.elements/GeolocationFix.Located.<init>|<init>(kotlin.collections.List<kotlin.Double>;kotlin.Double){}[0]
+
+        final val accuracyMeters // com.mountaya.elements/GeolocationFix.Located.accuracyMeters|{}accuracyMeters[0]
+            final fun <get-accuracyMeters>(): kotlin/Double // com.mountaya.elements/GeolocationFix.Located.accuracyMeters.<get-accuracyMeters>|<get-accuracyMeters>(){}[0]
+        final val position // com.mountaya.elements/GeolocationFix.Located.position|{}position[0]
+            final fun <get-position>(): kotlin.collections/List<kotlin/Double> // com.mountaya.elements/GeolocationFix.Located.position.<get-position>|<get-position>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/GeolocationFix.Located.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/GeolocationFix.Located.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/GeolocationFix.Located.toString|toString(){}[0]
+    }
+
+    final class Refused : com.mountaya.elements/GeolocationFix { // com.mountaya.elements/GeolocationFix.Refused|null[0]
+        constructor <init>(com.mountaya.elements/GeolocationRefusal) // com.mountaya.elements/GeolocationFix.Refused.<init>|<init>(com.mountaya.elements.GeolocationRefusal){}[0]
+
+        final val reason // com.mountaya.elements/GeolocationFix.Refused.reason|{}reason[0]
+            final fun <get-reason>(): com.mountaya.elements/GeolocationRefusal // com.mountaya.elements/GeolocationFix.Refused.reason.<get-reason>|<get-reason>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/GeolocationFix.Refused.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/GeolocationFix.Refused.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/GeolocationFix.Refused.toString|toString(){}[0]
+    }
+}
+
+sealed interface com.mountaya.elements/MapEvent { // com.mountaya.elements/MapEvent|null[0]
+    final class AccessRefused : com.mountaya.elements/MapEvent { // com.mountaya.elements/MapEvent.AccessRefused|null[0]
+        constructor <init>(kotlin/Int, kotlin/String) // com.mountaya.elements/MapEvent.AccessRefused.<init>|<init>(kotlin.Int;kotlin.String){}[0]
+
+        final val status // com.mountaya.elements/MapEvent.AccessRefused.status|{}status[0]
+            final fun <get-status>(): kotlin/Int // com.mountaya.elements/MapEvent.AccessRefused.status.<get-status>|<get-status>(){}[0]
+        final val url // com.mountaya.elements/MapEvent.AccessRefused.url|{}url[0]
+            final fun <get-url>(): kotlin/String // com.mountaya.elements/MapEvent.AccessRefused.url.<get-url>|<get-url>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapEvent.AccessRefused.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/MapEvent.AccessRefused.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/MapEvent.AccessRefused.toString|toString(){}[0]
+    }
+
+    final class Click : com.mountaya.elements/MapEvent { // com.mountaya.elements/MapEvent.Click|null[0]
+        constructor <init>(com.mountaya.elements/MapTap) // com.mountaya.elements/MapEvent.Click.<init>|<init>(com.mountaya.elements.MapTap){}[0]
+
+        final val tap // com.mountaya.elements/MapEvent.Click.tap|{}tap[0]
+            final fun <get-tap>(): com.mountaya.elements/MapTap // com.mountaya.elements/MapEvent.Click.tap.<get-tap>|<get-tap>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapEvent.Click.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/MapEvent.Click.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/MapEvent.Click.toString|toString(){}[0]
+    }
+
+    final class Failure : com.mountaya.elements/MapEvent { // com.mountaya.elements/MapEvent.Failure|null[0]
+        constructor <init>(kotlin/String, kotlin/Int?, kotlin/Throwable? = ...) // com.mountaya.elements/MapEvent.Failure.<init>|<init>(kotlin.String;kotlin.Int?;kotlin.Throwable?){}[0]
+
+        final val cause // com.mountaya.elements/MapEvent.Failure.cause|{}cause[0]
+            final fun <get-cause>(): kotlin/Throwable? // com.mountaya.elements/MapEvent.Failure.cause.<get-cause>|<get-cause>(){}[0]
+        final val status // com.mountaya.elements/MapEvent.Failure.status|{}status[0]
+            final fun <get-status>(): kotlin/Int? // com.mountaya.elements/MapEvent.Failure.status.<get-status>|<get-status>(){}[0]
+        final val url // com.mountaya.elements/MapEvent.Failure.url|{}url[0]
+            final fun <get-url>(): kotlin/String // com.mountaya.elements/MapEvent.Failure.url.<get-url>|<get-url>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapEvent.Failure.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/MapEvent.Failure.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/MapEvent.Failure.toString|toString(){}[0]
+    }
+
+    final class FeatureClick : com.mountaya.elements/MapEvent { // com.mountaya.elements/MapEvent.FeatureClick|null[0]
+        constructor <init>(kotlin.collections/List<kotlin/Double>, kotlin.collections/List<com.mountaya.elements/QueriedFeature>) // com.mountaya.elements/MapEvent.FeatureClick.<init>|<init>(kotlin.collections.List<kotlin.Double>;kotlin.collections.List<com.mountaya.elements.QueriedFeature>){}[0]
+
+        final val features // com.mountaya.elements/MapEvent.FeatureClick.features|{}features[0]
+            final fun <get-features>(): kotlin.collections/List<com.mountaya.elements/QueriedFeature> // com.mountaya.elements/MapEvent.FeatureClick.features.<get-features>|<get-features>(){}[0]
+        final val position // com.mountaya.elements/MapEvent.FeatureClick.position|{}position[0]
+            final fun <get-position>(): kotlin.collections/List<kotlin/Double> // com.mountaya.elements/MapEvent.FeatureClick.position.<get-position>|<get-position>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapEvent.FeatureClick.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/MapEvent.FeatureClick.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/MapEvent.FeatureClick.toString|toString(){}[0]
+    }
+
+    final class FeatureHover : com.mountaya.elements/MapEvent { // com.mountaya.elements/MapEvent.FeatureHover|null[0]
+        constructor <init>(kotlin.collections/List<kotlin/Double>, kotlin.collections/List<com.mountaya.elements/QueriedFeature>) // com.mountaya.elements/MapEvent.FeatureHover.<init>|<init>(kotlin.collections.List<kotlin.Double>;kotlin.collections.List<com.mountaya.elements.QueriedFeature>){}[0]
+
+        final val features // com.mountaya.elements/MapEvent.FeatureHover.features|{}features[0]
+            final fun <get-features>(): kotlin.collections/List<com.mountaya.elements/QueriedFeature> // com.mountaya.elements/MapEvent.FeatureHover.features.<get-features>|<get-features>(){}[0]
+        final val position // com.mountaya.elements/MapEvent.FeatureHover.position|{}position[0]
+            final fun <get-position>(): kotlin.collections/List<kotlin/Double> // com.mountaya.elements/MapEvent.FeatureHover.position.<get-position>|<get-position>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapEvent.FeatureHover.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/MapEvent.FeatureHover.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/MapEvent.FeatureHover.toString|toString(){}[0]
+    }
+
+    final class LayersChange : com.mountaya.elements/MapEvent { // com.mountaya.elements/MapEvent.LayersChange|null[0]
+        constructor <init>(com.mountaya.client.generated/TileSchema.Layers?) // com.mountaya.elements/MapEvent.LayersChange.<init>|<init>(com.mountaya.client.generated.TileSchema.Layers?){}[0]
+
+        final val layers // com.mountaya.elements/MapEvent.LayersChange.layers|{}layers[0]
+            final fun <get-layers>(): com.mountaya.client.generated/TileSchema.Layers? // com.mountaya.elements/MapEvent.LayersChange.layers.<get-layers>|<get-layers>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapEvent.LayersChange.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/MapEvent.LayersChange.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/MapEvent.LayersChange.toString|toString(){}[0]
+    }
+
+    final class LongClick : com.mountaya.elements/MapEvent { // com.mountaya.elements/MapEvent.LongClick|null[0]
+        constructor <init>(com.mountaya.elements/MapTap) // com.mountaya.elements/MapEvent.LongClick.<init>|<init>(com.mountaya.elements.MapTap){}[0]
+
+        final val tap // com.mountaya.elements/MapEvent.LongClick.tap|{}tap[0]
+            final fun <get-tap>(): com.mountaya.elements/MapTap // com.mountaya.elements/MapEvent.LongClick.tap.<get-tap>|<get-tap>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapEvent.LongClick.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/MapEvent.LongClick.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/MapEvent.LongClick.toString|toString(){}[0]
+    }
+
+    final object AccessRestored : com.mountaya.elements/MapEvent { // com.mountaya.elements/MapEvent.AccessRestored|null[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/MapEvent.AccessRestored.toString|toString(){}[0]
+    }
+}
+
+sealed interface com.mountaya.elements/ZoomLimit { // com.mountaya.elements/ZoomLimit|null[0]
+    final class Zoom : com.mountaya.elements/ZoomLimit { // com.mountaya.elements/ZoomLimit.Zoom|null[0]
+        constructor <init>(kotlin/Double) // com.mountaya.elements/ZoomLimit.Zoom.<init>|<init>(kotlin.Double){}[0]
+
+        final val zoom // com.mountaya.elements/ZoomLimit.Zoom.zoom|{}zoom[0]
+            final fun <get-zoom>(): kotlin/Double // com.mountaya.elements/ZoomLimit.Zoom.zoom.<get-zoom>|<get-zoom>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/ZoomLimit.Zoom.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/ZoomLimit.Zoom.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/ZoomLimit.Zoom.toString|toString(){}[0]
+    }
+
+    final object Kept : com.mountaya.elements/ZoomLimit { // com.mountaya.elements/ZoomLimit.Kept|null[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/ZoomLimit.Kept.toString|toString(){}[0]
+    }
+
+    final object Released : com.mountaya.elements/ZoomLimit { // com.mountaya.elements/ZoomLimit.Released|null[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/ZoomLimit.Released.toString|toString(){}[0]
+    }
+}
+
+final class <#A: out kotlin/Any?> com.mountaya.elements/AnalysisHandle { // com.mountaya.elements/AnalysisHandle|null[0]
+    constructor <init>(kotlin/String, #A) // com.mountaya.elements/AnalysisHandle.<init>|<init>(kotlin.String;1:0){}[0]
+
+    final val id // com.mountaya.elements/AnalysisHandle.id|{}id[0]
+        final fun <get-id>(): kotlin/String // com.mountaya.elements/AnalysisHandle.id.<get-id>|<get-id>(){}[0]
+    final val result // com.mountaya.elements/AnalysisHandle.result|{}result[0]
+        final fun <get-result>(): #A // com.mountaya.elements/AnalysisHandle.result.<get-result>|<get-result>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/AnalysisHandle.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/AnalysisHandle.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/AnalysisHandle.toString|toString(){}[0]
+}
+
+final class com.mountaya.elements/CameraFit { // com.mountaya.elements/CameraFit|null[0]
+    constructor <init>(com.mountaya.geo/PixelPadding? = ..., kotlin/Double? = ..., kotlin.time/Duration? = ...) // com.mountaya.elements/CameraFit.<init>|<init>(com.mountaya.geo.PixelPadding?;kotlin.Double?;kotlin.time.Duration?){}[0]
+
+    final val duration // com.mountaya.elements/CameraFit.duration|{}duration[0]
+        final fun <get-duration>(): kotlin.time/Duration? // com.mountaya.elements/CameraFit.duration.<get-duration>|<get-duration>(){}[0]
+    final val maxZoom // com.mountaya.elements/CameraFit.maxZoom|{}maxZoom[0]
+        final fun <get-maxZoom>(): kotlin/Double? // com.mountaya.elements/CameraFit.maxZoom.<get-maxZoom>|<get-maxZoom>(){}[0]
+    final val padding // com.mountaya.elements/CameraFit.padding|{}padding[0]
+        final fun <get-padding>(): com.mountaya.geo/PixelPadding? // com.mountaya.elements/CameraFit.padding.<get-padding>|<get-padding>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/CameraFit.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/CameraFit.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/CameraFit.toString|toString(){}[0]
+}
+
+final class com.mountaya.elements/CameraTarget { // com.mountaya.elements/CameraTarget|null[0]
+    constructor <init>(kotlin.collections/List<kotlin/Double>? = ..., kotlin/Double? = ..., kotlin/Double? = ..., kotlin/Double? = ...) // com.mountaya.elements/CameraTarget.<init>|<init>(kotlin.collections.List<kotlin.Double>?;kotlin.Double?;kotlin.Double?;kotlin.Double?){}[0]
+
+    final val bearing // com.mountaya.elements/CameraTarget.bearing|{}bearing[0]
+        final fun <get-bearing>(): kotlin/Double? // com.mountaya.elements/CameraTarget.bearing.<get-bearing>|<get-bearing>(){}[0]
+    final val center // com.mountaya.elements/CameraTarget.center|{}center[0]
+        final fun <get-center>(): kotlin.collections/List<kotlin/Double>? // com.mountaya.elements/CameraTarget.center.<get-center>|<get-center>(){}[0]
+    final val pitch // com.mountaya.elements/CameraTarget.pitch|{}pitch[0]
+        final fun <get-pitch>(): kotlin/Double? // com.mountaya.elements/CameraTarget.pitch.<get-pitch>|<get-pitch>(){}[0]
+    final val zoom // com.mountaya.elements/CameraTarget.zoom|{}zoom[0]
+        final fun <get-zoom>(): kotlin/Double? // com.mountaya.elements/CameraTarget.zoom.<get-zoom>|<get-zoom>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/CameraTarget.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/CameraTarget.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/CameraTarget.toString|toString(){}[0]
+}
+
+final class com.mountaya.elements/CursorMarkerPin { // com.mountaya.elements/CursorMarkerPin|null[0]
+    constructor <init>(kotlin/String?, kotlin/String) // com.mountaya.elements/CursorMarkerPin.<init>|<init>(kotlin.String?;kotlin.String){}[0]
+
+    final val color // com.mountaya.elements/CursorMarkerPin.color|{}color[0]
+        final fun <get-color>(): kotlin/String? // com.mountaya.elements/CursorMarkerPin.color.<get-color>|<get-color>(){}[0]
+    final val glyph // com.mountaya.elements/CursorMarkerPin.glyph|{}glyph[0]
+        final fun <get-glyph>(): kotlin/String // com.mountaya.elements/CursorMarkerPin.glyph.<get-glyph>|<get-glyph>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/CursorMarkerPin.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/CursorMarkerPin.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/CursorMarkerPin.toString|toString(){}[0]
+}
+
+final class com.mountaya.elements/CursorMarkerPoint { // com.mountaya.elements/CursorMarkerPoint|null[0]
+    constructor <init>(kotlin/String, kotlin.collections/List<kotlin/Double>, kotlin/String? = ..., kotlin/String = ...) // com.mountaya.elements/CursorMarkerPoint.<init>|<init>(kotlin.String;kotlin.collections.List<kotlin.Double>;kotlin.String?;kotlin.String){}[0]
+
+    final val color // com.mountaya.elements/CursorMarkerPoint.color|{}color[0]
+        final fun <get-color>(): kotlin/String? // com.mountaya.elements/CursorMarkerPoint.color.<get-color>|<get-color>(){}[0]
+    final val glyph // com.mountaya.elements/CursorMarkerPoint.glyph|{}glyph[0]
+        final fun <get-glyph>(): kotlin/String // com.mountaya.elements/CursorMarkerPoint.glyph.<get-glyph>|<get-glyph>(){}[0]
+    final val id // com.mountaya.elements/CursorMarkerPoint.id|{}id[0]
+        final fun <get-id>(): kotlin/String // com.mountaya.elements/CursorMarkerPoint.id.<get-id>|<get-id>(){}[0]
+    final val lngLat // com.mountaya.elements/CursorMarkerPoint.lngLat|{}lngLat[0]
+        final fun <get-lngLat>(): kotlin.collections/List<kotlin/Double> // com.mountaya.elements/CursorMarkerPoint.lngLat.<get-lngLat>|<get-lngLat>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/CursorMarkerPoint.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/CursorMarkerPoint.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/CursorMarkerPoint.toString|toString(){}[0]
+}
+
+final class com.mountaya.elements/InertGeolocation : com.mountaya.elements/Geolocation { // com.mountaya.elements/InertGeolocation|null[0]
+    constructor <init>() // com.mountaya.elements/InertGeolocation.<init>|<init>(){}[0]
+
+    final fun toString(): kotlin/String // com.mountaya.elements/InertGeolocation.toString|toString(){}[0]
+    final suspend fun locate(): com.mountaya.elements/GeolocationFix // com.mountaya.elements/InertGeolocation.locate|locate(){}[0]
+    final suspend fun permission(): com.mountaya.elements/GeolocationPermission // com.mountaya.elements/InertGeolocation.permission|permission(){}[0]
+}
+
+final class com.mountaya.elements/MapEngine : com.mountaya.elements/CursorMarkerTarget, com.mountaya.elements/LegEmphasisTarget, com.mountaya.geo/GeolocateControlTarget, com.mountaya.geo/LayersSelectionTarget, kotlin/AutoCloseable { // com.mountaya.elements/MapEngine|null[0]
+    constructor <init>(com.mountaya.client/Mountaya, com.mountaya.client/Url? = ..., com.mountaya.client.generated/TileSchema.TerrainVariant = ..., com.mountaya.geo/CameraPose = ..., com.mountaya.client.generated/RestSchema.Language? = ..., com.mountaya.geo/MapPaint = ..., com.mountaya.geo/GlyphSet = ..., com.mountaya.elements/Geolocation? = ..., kotlin/Function1<com.mountaya.elements/MapRequest, com.mountaya.elements/MapRequest>? = ...) // com.mountaya.elements/MapEngine.<init>|<init>(com.mountaya.client.Mountaya;com.mountaya.client.Url?;com.mountaya.client.generated.TileSchema.TerrainVariant;com.mountaya.geo.CameraPose;com.mountaya.client.generated.RestSchema.Language?;com.mountaya.geo.MapPaint;com.mountaya.geo.GlyphSet;com.mountaya.elements.Geolocation?;kotlin.Function1<com.mountaya.elements.MapRequest,com.mountaya.elements.MapRequest>?){}[0]
+
+    final val credits // com.mountaya.elements/MapEngine.credits|{}credits[0]
+        final fun <get-credits>(): kotlin.collections/List<kotlin/String> // com.mountaya.elements/MapEngine.credits.<get-credits>|<get-credits>(){}[0]
+    final val enrichments // com.mountaya.elements/MapEngine.enrichments|{}enrichments[0]
+        final fun <get-enrichments>(): kotlin.collections/List<kotlin/String> // com.mountaya.elements/MapEngine.enrichments.<get-enrichments>|<get-enrichments>(){}[0]
+    final val glyphs // com.mountaya.elements/MapEngine.glyphs|{}glyphs[0]
+        final fun <get-glyphs>(): com.mountaya.geo/GlyphSet // com.mountaya.elements/MapEngine.glyphs.<get-glyphs>|<get-glyphs>(){}[0]
+    final val organizationRead // com.mountaya.elements/MapEngine.organizationRead|{}organizationRead[0]
+        final fun <get-organizationRead>(): kotlinx.coroutines.flow/StateFlow<com.mountaya.geo/OrganizationRead> // com.mountaya.elements/MapEngine.organizationRead.<get-organizationRead>|<get-organizationRead>(){}[0]
+    final val paint // com.mountaya.elements/MapEngine.paint|{}paint[0]
+        final fun <get-paint>(): com.mountaya.geo/MapPaint // com.mountaya.elements/MapEngine.paint.<get-paint>|<get-paint>(){}[0]
+    final val specifications // com.mountaya.elements/MapEngine.specifications|{}specifications[0]
+        final fun <get-specifications>(): kotlin.collections/List<kotlin/String> // com.mountaya.elements/MapEngine.specifications.<get-specifications>|<get-specifications>(){}[0]
+    final val state // com.mountaya.elements/MapEngine.state|{}state[0]
+        final fun <get-state>(): kotlinx.coroutines.flow/StateFlow<com.mountaya.elements/MapState> // com.mountaya.elements/MapEngine.state.<get-state>|<get-state>(){}[0]
+    final val terrain // com.mountaya.elements/MapEngine.terrain|{}terrain[0]
+        final fun <get-terrain>(): kotlin/String? // com.mountaya.elements/MapEngine.terrain.<get-terrain>|<get-terrain>(){}[0]
+
+    final var instant // com.mountaya.elements/MapEngine.instant|{}instant[0]
+        final fun <get-instant>(): kotlin.time/Instant? // com.mountaya.elements/MapEngine.instant.<get-instant>|<get-instant>(){}[0]
+    final var isAccessRestrictionsVisible // com.mountaya.elements/MapEngine.isAccessRestrictionsVisible|{}isAccessRestrictionsVisible[0]
+        final fun <get-isAccessRestrictionsVisible>(): kotlin/Boolean // com.mountaya.elements/MapEngine.isAccessRestrictionsVisible.<get-isAccessRestrictionsVisible>|<get-isAccessRestrictionsVisible>(){}[0]
+    final var layersManifest // com.mountaya.elements/MapEngine.layersManifest|{}layersManifest[0]
+        final fun <get-layersManifest>(): com.mountaya.client.generated/TileSchema.Layers? // com.mountaya.elements/MapEngine.layersManifest.<get-layersManifest>|<get-layersManifest>(){}[0]
+    final var organization // com.mountaya.elements/MapEngine.organization|{}organization[0]
+        final fun <get-organization>(): com.mountaya.client.generated/RestSchema.Organization? // com.mountaya.elements/MapEngine.organization.<get-organization>|<get-organization>(){}[0]
+
+    final fun addLayer(com.mountaya.elements/MapLayer) // com.mountaya.elements/MapEngine.addLayer|addLayer(com.mountaya.elements.MapLayer){}[0]
+    final fun addMarker(com.mountaya.elements/MapMarker) // com.mountaya.elements/MapEngine.addMarker|addMarker(com.mountaya.elements.MapMarker){}[0]
+    final fun addSource(com.mountaya.elements/MapSource) // com.mountaya.elements/MapEngine.addSource|addSource(com.mountaya.elements.MapSource){}[0]
+    final fun beginWaypointEdit(kotlin/String, kotlin.collections/List<kotlin/Double>? = ...) // com.mountaya.elements/MapEngine.beginWaypointEdit|beginWaypointEdit(kotlin.String;kotlin.collections.List<kotlin.Double>?){}[0]
+    final fun clearCollection() // com.mountaya.elements/MapEngine.clearCollection|clearCollection(){}[0]
+    final fun clearDirections() // com.mountaya.elements/MapEngine.clearDirections|clearDirections(){}[0]
+    final fun clearEnrichments() // com.mountaya.elements/MapEngine.clearEnrichments|clearEnrichments(){}[0]
+    final fun clearGeometry(com.mountaya.elements/GeometrySlot) // com.mountaya.elements/MapEngine.clearGeometry|clearGeometry(com.mountaya.elements.GeometrySlot){}[0]
+    final fun clearIsochrones() // com.mountaya.elements/MapEngine.clearIsochrones|clearIsochrones(){}[0]
+    final fun clearItinerary() // com.mountaya.elements/MapEngine.clearItinerary|clearItinerary(){}[0]
+    final fun clearMarkers() // com.mountaya.elements/MapEngine.clearMarkers|clearMarkers(){}[0]
+    final fun clearMatrix() // com.mountaya.elements/MapEngine.clearMatrix|clearMatrix(){}[0]
+    final fun clearPlaces() // com.mountaya.elements/MapEngine.clearPlaces|clearPlaces(){}[0]
+    final fun clearPointsOfInterest() // com.mountaya.elements/MapEngine.clearPointsOfInterest|clearPointsOfInterest(){}[0]
+    final fun clearSpecifications() // com.mountaya.elements/MapEngine.clearSpecifications|clearSpecifications(){}[0]
+    final fun clearSuggestions() // com.mountaya.elements/MapEngine.clearSuggestions|clearSuggestions(){}[0]
+    final fun close() // com.mountaya.elements/MapEngine.close|close(){}[0]
+    final fun drawnLayerKeys(kotlin/Int? = ...): kotlin.collections/List<kotlin/String> // com.mountaya.elements/MapEngine.drawnLayerKeys|drawnLayerKeys(kotlin.Int?){}[0]
+    final fun ease(com.mountaya.elements/CameraTarget) // com.mountaya.elements/MapEngine.ease|ease(com.mountaya.elements.CameraTarget){}[0]
+    final fun easeIntoZoomRange(com.mountaya.geo/ZoomBounds) // com.mountaya.elements/MapEngine.easeIntoZoomRange|easeIntoZoomRange(com.mountaya.geo.ZoomBounds){}[0]
+    final fun editGeometry(com.mountaya.elements/GeometrySlot, com.mountaya.client/GeoJsonGeometry? = ..., kotlin/String? = ...) // com.mountaya.elements/MapEngine.editGeometry|editGeometry(com.mountaya.elements.GeometrySlot;com.mountaya.client.GeoJsonGeometry?;kotlin.String?){}[0]
+    final fun editLayer(kotlin/String, kotlin.collections/Map<kotlin/String, kotlinx.serialization.json/JsonElement?> = ..., kotlin.collections/Map<kotlin/String, kotlinx.serialization.json/JsonElement?> = ...) // com.mountaya.elements/MapEngine.editLayer|editLayer(kotlin.String;kotlin.collections.Map<kotlin.String,kotlinx.serialization.json.JsonElement?>;kotlin.collections.Map<kotlin.String,kotlinx.serialization.json.JsonElement?>){}[0]
+    final fun editMarker(kotlin/String, kotlin.collections/List<kotlin/Double>?, kotlin/String?, kotlin/String?, kotlin/String?) // com.mountaya.elements/MapEngine.editMarker|editMarker(kotlin.String;kotlin.collections.List<kotlin.Double>?;kotlin.String?;kotlin.String?;kotlin.String?){}[0]
+    final fun endWaypointEdit(): com.mountaya.elements/WaypointEdit? // com.mountaya.elements/MapEngine.endWaypointEdit|endWaypointEdit(){}[0]
+    final fun events(): kotlinx.coroutines.flow/Flow<com.mountaya.elements/MapEvent> // com.mountaya.elements/MapEngine.events|events(){}[0]
+    final fun featuresAt(kotlin.collections/List<kotlin/Double>): kotlin.collections/List<com.mountaya.elements/QueriedFeature> // com.mountaya.elements/MapEngine.featuresAt|featuresAt(kotlin.collections.List<kotlin.Double>){}[0]
+    final fun fitBounds(kotlin.collections/List<kotlin/Double>, com.mountaya.elements/CameraFit = ...) // com.mountaya.elements/MapEngine.fitBounds|fitBounds(kotlin.collections.List<kotlin.Double>;com.mountaya.elements.CameraFit){}[0]
+    final fun fly(com.mountaya.elements/CameraTarget) // com.mountaya.elements/MapEngine.fly|fly(com.mountaya.elements.CameraTarget){}[0]
+    final fun geometry(com.mountaya.elements/GeometrySlot): com.mountaya.elements/SlotGeometry // com.mountaya.elements/MapEngine.geometry|geometry(com.mountaya.elements.GeometrySlot){}[0]
+    final fun isKeyVisible(kotlin/String): kotlin/Boolean // com.mountaya.elements/MapEngine.isKeyVisible|isKeyVisible(kotlin.String){}[0]
+    final fun isLayerVisible(kotlin/String): kotlin/Boolean // com.mountaya.elements/MapEngine.isLayerVisible|isLayerVisible(kotlin.String){}[0]
+    final fun itinerariesAt(kotlin.collections/List<kotlin/Double>): kotlin.collections/List<com.mountaya.elements/QueriedFeature> // com.mountaya.elements/MapEngine.itinerariesAt|itinerariesAt(kotlin.collections.List<kotlin.Double>){}[0]
+    final fun jump(com.mountaya.elements/CameraTarget) // com.mountaya.elements/MapEngine.jump|jump(com.mountaya.elements.CameraTarget){}[0]
+    final fun layerIds(kotlin/String): kotlin.collections/List<kotlin/String> // com.mountaya.elements/MapEngine.layerIds|layerIds(kotlin.String){}[0]
+    final fun placeWaypoint(kotlin.collections/List<kotlin/Double>, com.mountaya.elements/ScreenProjection) // com.mountaya.elements/MapEngine.placeWaypoint|placeWaypoint(kotlin.collections.List<kotlin.Double>;com.mountaya.elements.ScreenProjection){}[0]
+    final fun poisAt(kotlin.collections/List<kotlin/Double>): kotlin.collections/List<com.mountaya.elements/QueriedFeature> // com.mountaya.elements/MapEngine.poisAt|poisAt(kotlin.collections.List<kotlin.Double>){}[0]
+    final fun project(kotlin.collections/List<kotlin/Double>): kotlin.collections/List<kotlin/Double> // com.mountaya.elements/MapEngine.project|project(kotlin.collections.List<kotlin.Double>){}[0]
+    final fun removeAnalysis(kotlin/String) // com.mountaya.elements/MapEngine.removeAnalysis|removeAnalysis(kotlin.String){}[0]
+    final fun removeLayer(kotlin/String) // com.mountaya.elements/MapEngine.removeLayer|removeLayer(kotlin.String){}[0]
+    final fun removeMarker(kotlin/String) // com.mountaya.elements/MapEngine.removeMarker|removeMarker(kotlin.String){}[0]
+    final fun removeSource(kotlin/String) // com.mountaya.elements/MapEngine.removeSource|removeSource(kotlin.String){}[0]
+    final fun removeSpecification(kotlin/String) // com.mountaya.elements/MapEngine.removeSpecification|removeSpecification(kotlin.String){}[0]
+    final fun resetNorth() // com.mountaya.elements/MapEngine.resetNorth|resetNorth(){}[0]
+    final fun setAccessRestrictionsVisibility(kotlin/Boolean) // com.mountaya.elements/MapEngine.setAccessRestrictionsVisibility|setAccessRestrictionsVisibility(kotlin.Boolean){}[0]
+    final fun setActiveSegments(kotlin.collections/List<kotlin.collections/List<kotlin.collections/List<kotlin/Double>>>) // com.mountaya.elements/MapEngine.setActiveSegments|setActiveSegments(kotlin.collections.List<kotlin.collections.List<kotlin.collections.List<kotlin.Double>>>){}[0]
+    final fun setGeometry(com.mountaya.client/GeoJsonGeometry?, com.mountaya.elements/GeometrySlot, kotlin/String?) // com.mountaya.elements/MapEngine.setGeometry|setGeometry(com.mountaya.client.GeoJsonGeometry?;com.mountaya.elements.GeometrySlot;kotlin.String?){}[0]
+    final fun setKeyVisibility(kotlin/String, kotlin/Boolean) // com.mountaya.elements/MapEngine.setKeyVisibility|setKeyVisibility(kotlin.String;kotlin.Boolean){}[0]
+    final fun setLabelLanguage(com.mountaya.client.generated/RestSchema.Language?) // com.mountaya.elements/MapEngine.setLabelLanguage|setLabelLanguage(com.mountaya.client.generated.RestSchema.Language?){}[0]
+    final fun setLayerVisibility(kotlin/String, kotlin/Boolean) // com.mountaya.elements/MapEngine.setLayerVisibility|setLayerVisibility(kotlin.String;kotlin.Boolean){}[0]
+    final fun setLayersOrganization(kotlin/String?) // com.mountaya.elements/MapEngine.setLayersOrganization|setLayersOrganization(kotlin.String?){}[0]
+    final fun setMaxBounds(kotlin.collections/List<kotlin/Double>?) // com.mountaya.elements/MapEngine.setMaxBounds|setMaxBounds(kotlin.collections.List<kotlin.Double>?){}[0]
+    final fun setSearchHighlight(com.mountaya.geo/SearchHighlight?, com.mountaya.geo/HexColor = ...) // com.mountaya.elements/MapEngine.setSearchHighlight|setSearchHighlight(com.mountaya.geo.SearchHighlight?;com.mountaya.geo.HexColor){}[0]
+    final fun setSpecification(com.mountaya.client.generated/TileSchema.TileSpecification, kotlin/String) // com.mountaya.elements/MapEngine.setSpecification|setSpecification(com.mountaya.client.generated.TileSchema.TileSpecification;kotlin.String){}[0]
+    final fun setStyle(com.mountaya.client/Url?) // com.mountaya.elements/MapEngine.setStyle|setStyle(com.mountaya.client.Url?){}[0]
+    final fun setZoomBounds(com.mountaya.elements/ZoomLimit = ..., com.mountaya.elements/ZoomLimit = ...) // com.mountaya.elements/MapEngine.setZoomBounds|setZoomBounds(com.mountaya.elements.ZoomLimit;com.mountaya.elements.ZoomLimit){}[0]
+    final fun unproject(kotlin.collections/List<kotlin/Double>): kotlin.collections/List<kotlin/Double> // com.mountaya.elements/MapEngine.unproject|unproject(kotlin.collections.List<kotlin.Double>){}[0]
+    final fun zonesAt(kotlin.collections/List<kotlin/Double>): kotlin.collections/List<com.mountaya.elements/QueriedFeature> // com.mountaya.elements/MapEngine.zonesAt|zonesAt(kotlin.collections.List<kotlin.Double>){}[0]
+    final fun zoomIn() // com.mountaya.elements/MapEngine.zoomIn|zoomIn(){}[0]
+    final fun zoomOut() // com.mountaya.elements/MapEngine.zoomOut|zoomOut(){}[0]
+    final suspend fun addDirections(com.mountaya.client.generated/DataSchema.DirectionsInput, com.mountaya.elements/CameraFit? = ...): com.mountaya.elements/AnalysisHandle<com.mountaya.client.generated/DataSchema.DirectionsResult> // com.mountaya.elements/MapEngine.addDirections|addDirections(com.mountaya.client.generated.DataSchema.DirectionsInput;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun addDirections(com.mountaya.client.generated/DataSchema.DirectionsResult, com.mountaya.elements/CameraFit? = ...): com.mountaya.elements/AnalysisHandle<com.mountaya.client.generated/DataSchema.DirectionsResult> // com.mountaya.elements/MapEngine.addDirections|addDirections(com.mountaya.client.generated.DataSchema.DirectionsResult;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun addEnrichment(kotlin/String) // com.mountaya.elements/MapEngine.addEnrichment|addEnrichment(kotlin.String){}[0]
+    final suspend fun addIsochrones(com.mountaya.client.generated/DataSchema.IsochronesInput, com.mountaya.elements/CameraFit? = ...): com.mountaya.elements/AnalysisHandle<com.mountaya.client.generated/DataSchema.IsochronesResult> // com.mountaya.elements/MapEngine.addIsochrones|addIsochrones(com.mountaya.client.generated.DataSchema.IsochronesInput;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun addIsochrones(com.mountaya.client.generated/DataSchema.IsochronesResult, com.mountaya.elements/CameraFit? = ...): com.mountaya.elements/AnalysisHandle<com.mountaya.client.generated/DataSchema.IsochronesResult> // com.mountaya.elements/MapEngine.addIsochrones|addIsochrones(com.mountaya.client.generated.DataSchema.IsochronesResult;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun addMatrix(com.mountaya.client.generated/DataSchema.MatrixInput, com.mountaya.client.generated/DataSchema.MatrixResult? = ..., com.mountaya.elements/CameraFit? = ...): com.mountaya.elements/AnalysisHandle<com.mountaya.client.generated/DataSchema.MatrixResult> // com.mountaya.elements/MapEngine.addMatrix|addMatrix(com.mountaya.client.generated.DataSchema.MatrixInput;com.mountaya.client.generated.DataSchema.MatrixResult?;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun addPlaces(com.mountaya.client.generated/DataSchema.GeocodeInput, com.mountaya.elements/CameraFit? = ...): com.mountaya.elements/AnalysisHandle<com.mountaya.client.generated/DataSchema.GeocodeResult> // com.mountaya.elements/MapEngine.addPlaces|addPlaces(com.mountaya.client.generated.DataSchema.GeocodeInput;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun addPlaces(com.mountaya.client.generated/DataSchema.GeocodeResult, com.mountaya.elements/CameraFit? = ...): com.mountaya.elements/AnalysisHandle<com.mountaya.client.generated/DataSchema.GeocodeResult> // com.mountaya.elements/MapEngine.addPlaces|addPlaces(com.mountaya.client.generated.DataSchema.GeocodeResult;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun addSuggestions(com.mountaya.client.generated/DataSchema.SuggestionsInput, kotlin/Int = ..., com.mountaya.elements/CameraFit? = ...): com.mountaya.elements/AnalysisHandle<com.mountaya.client.generated/DataSchema.SuggestionsResult> // com.mountaya.elements/MapEngine.addSuggestions|addSuggestions(com.mountaya.client.generated.DataSchema.SuggestionsInput;kotlin.Int;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun addSuggestions(com.mountaya.client.generated/DataSchema.SuggestionsResult, kotlin/Int = ..., com.mountaya.elements/CameraFit? = ...): com.mountaya.elements/AnalysisHandle<com.mountaya.client.generated/DataSchema.SuggestionsResult> // com.mountaya.elements/MapEngine.addSuggestions|addSuggestions(com.mountaya.client.generated.DataSchema.SuggestionsResult;kotlin.Int;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun clearOverlay() // com.mountaya.elements/MapEngine.clearOverlay|clearOverlay(){}[0]
+    final suspend fun editDirections(kotlin/String, kotlin/Function1<com.mountaya.client.generated/DataSchema.DirectionsInput, com.mountaya.client.generated/DataSchema.DirectionsInput>? = ..., com.mountaya.elements/CameraFit? = ...): com.mountaya.client.generated/DataSchema.DirectionsResult // com.mountaya.elements/MapEngine.editDirections|editDirections(kotlin.String;kotlin.Function1<com.mountaya.client.generated.DataSchema.DirectionsInput,com.mountaya.client.generated.DataSchema.DirectionsInput>?;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun editIsochrones(kotlin/String, kotlin/Function1<com.mountaya.client.generated/DataSchema.IsochronesInput, com.mountaya.client.generated/DataSchema.IsochronesInput>? = ..., com.mountaya.elements/CameraFit? = ...): com.mountaya.client.generated/DataSchema.IsochronesResult // com.mountaya.elements/MapEngine.editIsochrones|editIsochrones(kotlin.String;kotlin.Function1<com.mountaya.client.generated.DataSchema.IsochronesInput,com.mountaya.client.generated.DataSchema.IsochronesInput>?;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun editMatrix(kotlin/String, kotlin/Function1<com.mountaya.client.generated/DataSchema.MatrixInput, com.mountaya.client.generated/DataSchema.MatrixInput>? = ..., com.mountaya.elements/CameraFit? = ...): com.mountaya.client.generated/DataSchema.MatrixResult // com.mountaya.elements/MapEngine.editMatrix|editMatrix(kotlin.String;kotlin.Function1<com.mountaya.client.generated.DataSchema.MatrixInput,com.mountaya.client.generated.DataSchema.MatrixInput>?;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun editPlaces(kotlin/String, kotlin/Function1<com.mountaya.client.generated/DataSchema.GeocodeInput, com.mountaya.client.generated/DataSchema.GeocodeInput>? = ..., com.mountaya.elements/CameraFit? = ...): com.mountaya.client.generated/DataSchema.GeocodeResult // com.mountaya.elements/MapEngine.editPlaces|editPlaces(kotlin.String;kotlin.Function1<com.mountaya.client.generated.DataSchema.GeocodeInput,com.mountaya.client.generated.DataSchema.GeocodeInput>?;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun editPointsOfInterest(kotlin/Function1<com.mountaya.client.generated/DataSchema.PoisInput, com.mountaya.client.generated/DataSchema.PoisInput>? = ..., com.mountaya.elements/CameraFit? = ...): com.mountaya.client.generated/DataSchema.PoisResult // com.mountaya.elements/MapEngine.editPointsOfInterest|editPointsOfInterest(kotlin.Function1<com.mountaya.client.generated.DataSchema.PoisInput,com.mountaya.client.generated.DataSchema.PoisInput>?;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun editSuggestions(kotlin/String, kotlin/Function1<com.mountaya.client.generated/DataSchema.SuggestionsInput, com.mountaya.client.generated/DataSchema.SuggestionsInput>? = ..., kotlin/Int? = ..., com.mountaya.elements/CameraFit? = ...): com.mountaya.client.generated/DataSchema.SuggestionsResult // com.mountaya.elements/MapEngine.editSuggestions|editSuggestions(kotlin.String;kotlin.Function1<com.mountaya.client.generated.DataSchema.SuggestionsInput,com.mountaya.client.generated.DataSchema.SuggestionsInput>?;kotlin.Int?;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun elevationAt(kotlin.collections/List<kotlin/Double>): kotlin/Double? // com.mountaya.elements/MapEngine.elevationAt|elevationAt(kotlin.collections.List<kotlin.Double>){}[0]
+    final suspend fun isLocationRefused(): kotlin/Boolean // com.mountaya.elements/MapEngine.isLocationRefused|isLocationRefused(){}[0]
+    final suspend fun loadLayers(): com.mountaya.client.generated/TileSchema.Layers // com.mountaya.elements/MapEngine.loadLayers|loadLayers(){}[0]
+    final suspend fun loadOrganization(): com.mountaya.client.generated/RestSchema.Organization? // com.mountaya.elements/MapEngine.loadOrganization|loadOrganization(){}[0]
+    final suspend fun locate(): kotlin.collections/List<kotlin/Double> // com.mountaya.elements/MapEngine.locate|locate(){}[0]
+    final suspend fun removeEnrichment(kotlin/String) // com.mountaya.elements/MapEngine.removeEnrichment|removeEnrichment(kotlin.String){}[0]
+    final suspend fun setCollection(kotlin/String, com.mountaya.elements/CameraFit? = ...): kotlin/Boolean // com.mountaya.elements/MapEngine.setCollection|setCollection(kotlin.String;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun setInstant(kotlin.time/Instant?) // com.mountaya.elements/MapEngine.setInstant|setInstant(kotlin.time.Instant?){}[0]
+    final suspend fun setItineraries(kotlin/Boolean) // com.mountaya.elements/MapEngine.setItineraries|setItineraries(kotlin.Boolean){}[0]
+    final suspend fun setItinerary(kotlin/String, com.mountaya.elements/CameraFit? = ...): kotlin/Boolean // com.mountaya.elements/MapEngine.setItinerary|setItinerary(kotlin.String;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun setOverlay(kotlin/String) // com.mountaya.elements/MapEngine.setOverlay|setOverlay(kotlin.String){}[0]
+    final suspend fun setPointsOfInterest(com.mountaya.client.generated/DataSchema.PoisInput, com.mountaya.elements/CameraFit? = ...): com.mountaya.client.generated/DataSchema.PoisResult // com.mountaya.elements/MapEngine.setPointsOfInterest|setPointsOfInterest(com.mountaya.client.generated.DataSchema.PoisInput;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun setPointsOfInterest(com.mountaya.client.generated/DataSchema.PoisResult, com.mountaya.elements/CameraFit? = ...): com.mountaya.client.generated/DataSchema.PoisResult // com.mountaya.elements/MapEngine.setPointsOfInterest|setPointsOfInterest(com.mountaya.client.generated.DataSchema.PoisResult;com.mountaya.elements.CameraFit?){}[0]
+    final suspend fun setTerrain(kotlin/String?) // com.mountaya.elements/MapEngine.setTerrain|setTerrain(kotlin.String?){}[0]
+    final suspend fun setTerrainVariant(com.mountaya.client.generated/TileSchema.TerrainVariant) // com.mountaya.elements/MapEngine.setTerrainVariant|setTerrainVariant(com.mountaya.client.generated.TileSchema.TerrainVariant){}[0]
+    final suspend fun setZones(kotlin/Boolean) // com.mountaya.elements/MapEngine.setZones|setZones(kotlin.Boolean){}[0]
+
+    final object Companion { // com.mountaya.elements/MapEngine.Companion|null[0]
+        final val poisAnalysisId // com.mountaya.elements/MapEngine.Companion.poisAnalysisId|{}poisAnalysisId[0]
+            final fun <get-poisAnalysisId>(): kotlin/String // com.mountaya.elements/MapEngine.Companion.poisAnalysisId.<get-poisAnalysisId>|<get-poisAnalysisId>(){}[0]
+    }
+}
+
+final class com.mountaya.elements/MapException : kotlin/Exception { // com.mountaya.elements/MapException|null[0]
+    constructor <init>(com.mountaya.elements/MapException.Kind, kotlin/String, com.mountaya.elements/GeolocationRefusal? = ...) // com.mountaya.elements/MapException.<init>|<init>(com.mountaya.elements.MapException.Kind;kotlin.String;com.mountaya.elements.GeolocationRefusal?){}[0]
+
+    final val kind // com.mountaya.elements/MapException.kind|{}kind[0]
+        final fun <get-kind>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.kind.<get-kind>|<get-kind>(){}[0]
+    final val name // com.mountaya.elements/MapException.name|{}name[0]
+        final fun <get-name>(): kotlin/String // com.mountaya.elements/MapException.name.<get-name>|<get-name>(){}[0]
+    final val reason // com.mountaya.elements/MapException.reason|{}reason[0]
+        final fun <get-reason>(): com.mountaya.elements/GeolocationRefusal? // com.mountaya.elements/MapException.reason.<get-reason>|<get-reason>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapException.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/MapException.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/MapException.toString|toString(){}[0]
+
+    final value class Kind { // com.mountaya.elements/MapException.Kind|null[0]
+        final val value // com.mountaya.elements/MapException.Kind.value|{}value[0]
+            final fun <get-value>(): kotlin/String // com.mountaya.elements/MapException.Kind.value.<get-value>|<get-value>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapException.Kind.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/MapException.Kind.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/MapException.Kind.toString|toString(){}[0]
+
+        final object Companion { // com.mountaya.elements/MapException.Kind.Companion|null[0]
+            final val AnalysisNotFound // com.mountaya.elements/MapException.Kind.Companion.AnalysisNotFound|{}AnalysisNotFound[0]
+                final fun <get-AnalysisNotFound>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.AnalysisNotFound.<get-AnalysisNotFound>|<get-AnalysisNotFound>(){}[0]
+            final val Closed // com.mountaya.elements/MapException.Kind.Companion.Closed|{}Closed[0]
+                final fun <get-Closed>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.Closed.<get-Closed>|<get-Closed>(){}[0]
+            final val FixRefused // com.mountaya.elements/MapException.Kind.Companion.FixRefused|{}FixRefused[0]
+                final fun <get-FixRefused>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.FixRefused.<get-FixRefused>|<get-FixRefused>(){}[0]
+            final val KindMismatch // com.mountaya.elements/MapException.Kind.Companion.KindMismatch|{}KindMismatch[0]
+                final fun <get-KindMismatch>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.KindMismatch.<get-KindMismatch>|<get-KindMismatch>(){}[0]
+            final val LayerNotFound // com.mountaya.elements/MapException.Kind.Companion.LayerNotFound|{}LayerNotFound[0]
+                final fun <get-LayerNotFound>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.LayerNotFound.<get-LayerNotFound>|<get-LayerNotFound>(){}[0]
+            final val MarkerNotFound // com.mountaya.elements/MapException.Kind.Companion.MarkerNotFound|{}MarkerNotFound[0]
+                final fun <get-MarkerNotFound>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.MarkerNotFound.<get-MarkerNotFound>|<get-MarkerNotFound>(){}[0]
+            final val MaxBoundsRefused // com.mountaya.elements/MapException.Kind.Companion.MaxBoundsRefused|{}MaxBoundsRefused[0]
+                final fun <get-MaxBoundsRefused>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.MaxBoundsRefused.<get-MaxBoundsRefused>|<get-MaxBoundsRefused>(){}[0]
+            final val NoInput // com.mountaya.elements/MapException.Kind.Companion.NoInput|{}NoInput[0]
+                final fun <get-NoInput>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.NoInput.<get-NoInput>|<get-NoInput>(){}[0]
+            final val NumberRefused // com.mountaya.elements/MapException.Kind.Companion.NumberRefused|{}NumberRefused[0]
+                final fun <get-NumberRefused>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.NumberRefused.<get-NumberRefused>|<get-NumberRefused>(){}[0]
+            final val OverlayNotFound // com.mountaya.elements/MapException.Kind.Companion.OverlayNotFound|{}OverlayNotFound[0]
+                final fun <get-OverlayNotFound>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.OverlayNotFound.<get-OverlayNotFound>|<get-OverlayNotFound>(){}[0]
+            final val PositionRefused // com.mountaya.elements/MapException.Kind.Companion.PositionRefused|{}PositionRefused[0]
+                final fun <get-PositionRefused>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.PositionRefused.<get-PositionRefused>|<get-PositionRefused>(){}[0]
+            final val TerrainNotFound // com.mountaya.elements/MapException.Kind.Companion.TerrainNotFound|{}TerrainNotFound[0]
+                final fun <get-TerrainNotFound>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.TerrainNotFound.<get-TerrainNotFound>|<get-TerrainNotFound>(){}[0]
+            final val TypeRefused // com.mountaya.elements/MapException.Kind.Companion.TypeRefused|{}TypeRefused[0]
+                final fun <get-TypeRefused>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.TypeRefused.<get-TypeRefused>|<get-TypeRefused>(){}[0]
+            final val ZoomBoundsRefused // com.mountaya.elements/MapException.Kind.Companion.ZoomBoundsRefused|{}ZoomBoundsRefused[0]
+                final fun <get-ZoomBoundsRefused>(): com.mountaya.elements/MapException.Kind // com.mountaya.elements/MapException.Kind.Companion.ZoomBoundsRefused.<get-ZoomBoundsRefused>|<get-ZoomBoundsRefused>(){}[0]
+        }
+    }
+}
+
+final class com.mountaya.elements/MapLayer { // com.mountaya.elements/MapLayer|null[0]
+    constructor <init>(com.mountaya.client.generated/TileSchema.TileLayer, kotlin/String, kotlin.collections/Map<kotlin/String, kotlin/Int> = ...) // com.mountaya.elements/MapLayer.<init>|<init>(com.mountaya.client.generated.TileSchema.TileLayer;kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.Int>){}[0]
+    constructor <init>(kotlin/String, com.mountaya.client.generated/TileSchema.TileLayerType, kotlin/String, kotlin/String? = ..., kotlin/String? = ..., kotlin/Int, kotlin.collections/Map<kotlin/String, kotlinx.serialization.json/JsonElement> = ..., kotlin.collections/Map<kotlin/String, kotlinx.serialization.json/JsonElement> = ..., kotlinx.serialization.json/JsonElement? = ..., com.mountaya.geo/ZoomBounds? = ...) // com.mountaya.elements/MapLayer.<init>|<init>(kotlin.String;com.mountaya.client.generated.TileSchema.TileLayerType;kotlin.String;kotlin.String?;kotlin.String?;kotlin.Int;kotlin.collections.Map<kotlin.String,kotlinx.serialization.json.JsonElement>;kotlin.collections.Map<kotlin.String,kotlinx.serialization.json.JsonElement>;kotlinx.serialization.json.JsonElement?;com.mountaya.geo.ZoomBounds?){}[0]
+
+    final val filter // com.mountaya.elements/MapLayer.filter|{}filter[0]
+        final fun <get-filter>(): kotlinx.serialization.json/JsonElement? // com.mountaya.elements/MapLayer.filter.<get-filter>|<get-filter>(){}[0]
+    final val id // com.mountaya.elements/MapLayer.id|{}id[0]
+        final fun <get-id>(): kotlin/String // com.mountaya.elements/MapLayer.id.<get-id>|<get-id>(){}[0]
+    final val isHidden // com.mountaya.elements/MapLayer.isHidden|{}isHidden[0]
+        final fun <get-isHidden>(): kotlin/Boolean // com.mountaya.elements/MapLayer.isHidden.<get-isHidden>|<get-isHidden>(){}[0]
+    final val key // com.mountaya.elements/MapLayer.key|{}key[0]
+        final fun <get-key>(): kotlin/String? // com.mountaya.elements/MapLayer.key.<get-key>|<get-key>(){}[0]
+    final val layout // com.mountaya.elements/MapLayer.layout|{}layout[0]
+        final fun <get-layout>(): kotlin.collections/Map<kotlin/String, kotlinx.serialization.json/JsonElement> // com.mountaya.elements/MapLayer.layout.<get-layout>|<get-layout>(){}[0]
+    final val paint // com.mountaya.elements/MapLayer.paint|{}paint[0]
+        final fun <get-paint>(): kotlin.collections/Map<kotlin/String, kotlinx.serialization.json/JsonElement> // com.mountaya.elements/MapLayer.paint.<get-paint>|<get-paint>(){}[0]
+    final val rank // com.mountaya.elements/MapLayer.rank|{}rank[0]
+        final fun <get-rank>(): kotlin/Int // com.mountaya.elements/MapLayer.rank.<get-rank>|<get-rank>(){}[0]
+    final val source // com.mountaya.elements/MapLayer.source|{}source[0]
+        final fun <get-source>(): kotlin/String // com.mountaya.elements/MapLayer.source.<get-source>|<get-source>(){}[0]
+    final val sourceLayer // com.mountaya.elements/MapLayer.sourceLayer|{}sourceLayer[0]
+        final fun <get-sourceLayer>(): kotlin/String? // com.mountaya.elements/MapLayer.sourceLayer.<get-sourceLayer>|<get-sourceLayer>(){}[0]
+    final val type // com.mountaya.elements/MapLayer.type|{}type[0]
+        final fun <get-type>(): com.mountaya.client.generated/TileSchema.TileLayerType // com.mountaya.elements/MapLayer.type.<get-type>|<get-type>(){}[0]
+    final val zoom // com.mountaya.elements/MapLayer.zoom|{}zoom[0]
+        final fun <get-zoom>(): com.mountaya.geo/ZoomBounds? // com.mountaya.elements/MapLayer.zoom.<get-zoom>|<get-zoom>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapLayer.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/MapLayer.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/MapLayer.toString|toString(){}[0]
+}
+
+final class com.mountaya.elements/MapMarker { // com.mountaya.elements/MapMarker|null[0]
+    constructor <init>(kotlin/String, kotlin.collections/List<kotlin/Double>, kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ...) // com.mountaya.elements/MapMarker.<init>|<init>(kotlin.String;kotlin.collections.List<kotlin.Double>;kotlin.String?;kotlin.String?;kotlin.String?){}[0]
+
+    final val color // com.mountaya.elements/MapMarker.color|{}color[0]
+        final fun <get-color>(): kotlin/String? // com.mountaya.elements/MapMarker.color.<get-color>|<get-color>(){}[0]
+    final val glyph // com.mountaya.elements/MapMarker.glyph|{}glyph[0]
+        final fun <get-glyph>(): kotlin/String? // com.mountaya.elements/MapMarker.glyph.<get-glyph>|<get-glyph>(){}[0]
+    final val id // com.mountaya.elements/MapMarker.id|{}id[0]
+        final fun <get-id>(): kotlin/String // com.mountaya.elements/MapMarker.id.<get-id>|<get-id>(){}[0]
+    final val label // com.mountaya.elements/MapMarker.label|{}label[0]
+        final fun <get-label>(): kotlin/String? // com.mountaya.elements/MapMarker.label.<get-label>|<get-label>(){}[0]
+    final val position // com.mountaya.elements/MapMarker.position|{}position[0]
+        final fun <get-position>(): kotlin.collections/List<kotlin/Double> // com.mountaya.elements/MapMarker.position.<get-position>|<get-position>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapMarker.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/MapMarker.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/MapMarker.toString|toString(){}[0]
+}
+
+final class com.mountaya.elements/MapRequest { // com.mountaya.elements/MapRequest|null[0]
+    constructor <init>(com.mountaya.client/Url, kotlin.collections/Map<kotlin/String, kotlin/String> = ...) // com.mountaya.elements/MapRequest.<init>|<init>(com.mountaya.client.Url;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+
+    final val headers // com.mountaya.elements/MapRequest.headers|{}headers[0]
+        final fun <get-headers>(): kotlin.collections/Map<kotlin/String, kotlin/String> // com.mountaya.elements/MapRequest.headers.<get-headers>|<get-headers>(){}[0]
+    final val url // com.mountaya.elements/MapRequest.url|{}url[0]
+        final fun <get-url>(): com.mountaya.client/Url // com.mountaya.elements/MapRequest.url.<get-url>|<get-url>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapRequest.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/MapRequest.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/MapRequest.toString|toString(){}[0]
+}
+
+final class com.mountaya.elements/MapSource { // com.mountaya.elements/MapSource|null[0]
+    constructor <init>(com.mountaya.client.generated/TileSchema.TileSource) // com.mountaya.elements/MapSource.<init>|<init>(com.mountaya.client.generated.TileSchema.TileSource){}[0]
+    constructor <init>(kotlin/String, com.mountaya.elements/MapSource.Kind, kotlin/String? = ...) // com.mountaya.elements/MapSource.<init>|<init>(kotlin.String;com.mountaya.elements.MapSource.Kind;kotlin.String?){}[0]
+
+    final val attribution // com.mountaya.elements/MapSource.attribution|{}attribution[0]
+        final fun <get-attribution>(): kotlin/String? // com.mountaya.elements/MapSource.attribution.<get-attribution>|<get-attribution>(){}[0]
+    final val id // com.mountaya.elements/MapSource.id|{}id[0]
+        final fun <get-id>(): kotlin/String // com.mountaya.elements/MapSource.id.<get-id>|<get-id>(){}[0]
+    final val kind // com.mountaya.elements/MapSource.kind|{}kind[0]
+        final fun <get-kind>(): com.mountaya.elements/MapSource.Kind // com.mountaya.elements/MapSource.kind.<get-kind>|<get-kind>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapSource.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/MapSource.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/MapSource.toString|toString(){}[0]
+
+    sealed interface Kind { // com.mountaya.elements/MapSource.Kind|null[0]
+        final class GeoJson : com.mountaya.elements/MapSource.Kind { // com.mountaya.elements/MapSource.Kind.GeoJson|null[0]
+            constructor <init>(com.mountaya.geo/GeoJsonFeatureCollection) // com.mountaya.elements/MapSource.Kind.GeoJson.<init>|<init>(com.mountaya.geo.GeoJsonFeatureCollection){}[0]
+
+            final val features // com.mountaya.elements/MapSource.Kind.GeoJson.features|{}features[0]
+                final fun <get-features>(): com.mountaya.geo/GeoJsonFeatureCollection // com.mountaya.elements/MapSource.Kind.GeoJson.features.<get-features>|<get-features>(){}[0]
+
+            final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapSource.Kind.GeoJson.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // com.mountaya.elements/MapSource.Kind.GeoJson.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // com.mountaya.elements/MapSource.Kind.GeoJson.toString|toString(){}[0]
+        }
+
+        final class Raster : com.mountaya.elements/MapSource.Kind { // com.mountaya.elements/MapSource.Kind.Raster|null[0]
+            constructor <init>(kotlin.collections/List<kotlin/String>, kotlin/Int?, com.mountaya.geo/ZoomBounds) // com.mountaya.elements/MapSource.Kind.Raster.<init>|<init>(kotlin.collections.List<kotlin.String>;kotlin.Int?;com.mountaya.geo.ZoomBounds){}[0]
+
+            final val tileSize // com.mountaya.elements/MapSource.Kind.Raster.tileSize|{}tileSize[0]
+                final fun <get-tileSize>(): kotlin/Int? // com.mountaya.elements/MapSource.Kind.Raster.tileSize.<get-tileSize>|<get-tileSize>(){}[0]
+            final val tiles // com.mountaya.elements/MapSource.Kind.Raster.tiles|{}tiles[0]
+                final fun <get-tiles>(): kotlin.collections/List<kotlin/String> // com.mountaya.elements/MapSource.Kind.Raster.tiles.<get-tiles>|<get-tiles>(){}[0]
+            final val zoom // com.mountaya.elements/MapSource.Kind.Raster.zoom|{}zoom[0]
+                final fun <get-zoom>(): com.mountaya.geo/ZoomBounds // com.mountaya.elements/MapSource.Kind.Raster.zoom.<get-zoom>|<get-zoom>(){}[0]
+
+            final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapSource.Kind.Raster.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // com.mountaya.elements/MapSource.Kind.Raster.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // com.mountaya.elements/MapSource.Kind.Raster.toString|toString(){}[0]
+        }
+
+        final class RasterDem : com.mountaya.elements/MapSource.Kind { // com.mountaya.elements/MapSource.Kind.RasterDem|null[0]
+            constructor <init>(kotlin.collections/List<kotlin/String>, kotlin/Int?, com.mountaya.geo/ZoomBounds) // com.mountaya.elements/MapSource.Kind.RasterDem.<init>|<init>(kotlin.collections.List<kotlin.String>;kotlin.Int?;com.mountaya.geo.ZoomBounds){}[0]
+
+            final val tileSize // com.mountaya.elements/MapSource.Kind.RasterDem.tileSize|{}tileSize[0]
+                final fun <get-tileSize>(): kotlin/Int? // com.mountaya.elements/MapSource.Kind.RasterDem.tileSize.<get-tileSize>|<get-tileSize>(){}[0]
+            final val tiles // com.mountaya.elements/MapSource.Kind.RasterDem.tiles|{}tiles[0]
+                final fun <get-tiles>(): kotlin.collections/List<kotlin/String> // com.mountaya.elements/MapSource.Kind.RasterDem.tiles.<get-tiles>|<get-tiles>(){}[0]
+            final val zoom // com.mountaya.elements/MapSource.Kind.RasterDem.zoom|{}zoom[0]
+                final fun <get-zoom>(): com.mountaya.geo/ZoomBounds // com.mountaya.elements/MapSource.Kind.RasterDem.zoom.<get-zoom>|<get-zoom>(){}[0]
+
+            final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapSource.Kind.RasterDem.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // com.mountaya.elements/MapSource.Kind.RasterDem.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // com.mountaya.elements/MapSource.Kind.RasterDem.toString|toString(){}[0]
+        }
+
+        final class Vector : com.mountaya.elements/MapSource.Kind { // com.mountaya.elements/MapSource.Kind.Vector|null[0]
+            constructor <init>(kotlin.collections/List<kotlin/String>, com.mountaya.geo/ZoomBounds) // com.mountaya.elements/MapSource.Kind.Vector.<init>|<init>(kotlin.collections.List<kotlin.String>;com.mountaya.geo.ZoomBounds){}[0]
+
+            final val tiles // com.mountaya.elements/MapSource.Kind.Vector.tiles|{}tiles[0]
+                final fun <get-tiles>(): kotlin.collections/List<kotlin/String> // com.mountaya.elements/MapSource.Kind.Vector.tiles.<get-tiles>|<get-tiles>(){}[0]
+            final val zoom // com.mountaya.elements/MapSource.Kind.Vector.zoom|{}zoom[0]
+                final fun <get-zoom>(): com.mountaya.geo/ZoomBounds // com.mountaya.elements/MapSource.Kind.Vector.zoom.<get-zoom>|<get-zoom>(){}[0]
+
+            final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapSource.Kind.Vector.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // com.mountaya.elements/MapSource.Kind.Vector.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // com.mountaya.elements/MapSource.Kind.Vector.toString|toString(){}[0]
+        }
+    }
+}
+
+final class com.mountaya.elements/MapState { // com.mountaya.elements/MapState|null[0]
+    constructor <init>(com.mountaya.client/Url?, com.mountaya.geo/CameraPose, com.mountaya.client.generated/RestSchema.Language, kotlin.collections/List<com.mountaya.elements/MapSource> = ..., kotlin.collections/List<com.mountaya.elements/MapLayer> = ..., kotlin.collections/List<com.mountaya.elements/MapMarker> = ..., kotlin.collections/List<kotlin/Double>? = ..., com.mountaya.geo/ZoomBounds = ..., kotlin.collections/List<kotlin.collections/List<kotlin.collections/List<kotlin/Double>>> = ..., com.mountaya.elements/WaypointEdit? = ..., kotlin/Boolean = ..., kotlin/String? = ..., com.mountaya.client.generated/TileSchema.TerrainVariant = ...) // com.mountaya.elements/MapState.<init>|<init>(com.mountaya.client.Url?;com.mountaya.geo.CameraPose;com.mountaya.client.generated.RestSchema.Language;kotlin.collections.List<com.mountaya.elements.MapSource>;kotlin.collections.List<com.mountaya.elements.MapLayer>;kotlin.collections.List<com.mountaya.elements.MapMarker>;kotlin.collections.List<kotlin.Double>?;com.mountaya.geo.ZoomBounds;kotlin.collections.List<kotlin.collections.List<kotlin.collections.List<kotlin.Double>>>;com.mountaya.elements.WaypointEdit?;kotlin.Boolean;kotlin.String?;com.mountaya.client.generated.TileSchema.TerrainVariant){}[0]
+
+    final val activeSegments // com.mountaya.elements/MapState.activeSegments|{}activeSegments[0]
+        final fun <get-activeSegments>(): kotlin.collections/List<kotlin.collections/List<kotlin.collections/List<kotlin/Double>>> // com.mountaya.elements/MapState.activeSegments.<get-activeSegments>|<get-activeSegments>(){}[0]
+    final val camera // com.mountaya.elements/MapState.camera|{}camera[0]
+        final fun <get-camera>(): com.mountaya.geo/CameraPose // com.mountaya.elements/MapState.camera.<get-camera>|<get-camera>(){}[0]
+    final val isAccessRequired // com.mountaya.elements/MapState.isAccessRequired|{}isAccessRequired[0]
+        final fun <get-isAccessRequired>(): kotlin/Boolean // com.mountaya.elements/MapState.isAccessRequired.<get-isAccessRequired>|<get-isAccessRequired>(){}[0]
+    final val labelLanguage // com.mountaya.elements/MapState.labelLanguage|{}labelLanguage[0]
+        final fun <get-labelLanguage>(): com.mountaya.client.generated/RestSchema.Language // com.mountaya.elements/MapState.labelLanguage.<get-labelLanguage>|<get-labelLanguage>(){}[0]
+    final val layers // com.mountaya.elements/MapState.layers|{}layers[0]
+        final fun <get-layers>(): kotlin.collections/List<com.mountaya.elements/MapLayer> // com.mountaya.elements/MapState.layers.<get-layers>|<get-layers>(){}[0]
+    final val markers // com.mountaya.elements/MapState.markers|{}markers[0]
+        final fun <get-markers>(): kotlin.collections/List<com.mountaya.elements/MapMarker> // com.mountaya.elements/MapState.markers.<get-markers>|<get-markers>(){}[0]
+    final val maxBounds // com.mountaya.elements/MapState.maxBounds|{}maxBounds[0]
+        final fun <get-maxBounds>(): kotlin.collections/List<kotlin/Double>? // com.mountaya.elements/MapState.maxBounds.<get-maxBounds>|<get-maxBounds>(){}[0]
+    final val sources // com.mountaya.elements/MapState.sources|{}sources[0]
+        final fun <get-sources>(): kotlin.collections/List<com.mountaya.elements/MapSource> // com.mountaya.elements/MapState.sources.<get-sources>|<get-sources>(){}[0]
+    final val style // com.mountaya.elements/MapState.style|{}style[0]
+        final fun <get-style>(): com.mountaya.client/Url? // com.mountaya.elements/MapState.style.<get-style>|<get-style>(){}[0]
+    final val terrain // com.mountaya.elements/MapState.terrain|{}terrain[0]
+        final fun <get-terrain>(): kotlin/String? // com.mountaya.elements/MapState.terrain.<get-terrain>|<get-terrain>(){}[0]
+    final val terrainVariant // com.mountaya.elements/MapState.terrainVariant|{}terrainVariant[0]
+        final fun <get-terrainVariant>(): com.mountaya.client.generated/TileSchema.TerrainVariant // com.mountaya.elements/MapState.terrainVariant.<get-terrainVariant>|<get-terrainVariant>(){}[0]
+    final val waypointEdit // com.mountaya.elements/MapState.waypointEdit|{}waypointEdit[0]
+        final fun <get-waypointEdit>(): com.mountaya.elements/WaypointEdit? // com.mountaya.elements/MapState.waypointEdit.<get-waypointEdit>|<get-waypointEdit>(){}[0]
+    final val zoomBounds // com.mountaya.elements/MapState.zoomBounds|{}zoomBounds[0]
+        final fun <get-zoomBounds>(): com.mountaya.geo/ZoomBounds // com.mountaya.elements/MapState.zoomBounds.<get-zoomBounds>|<get-zoomBounds>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapState.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/MapState.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/MapState.toString|toString(){}[0]
+}
+
+final class com.mountaya.elements/MapTap { // com.mountaya.elements/MapTap|null[0]
+    constructor <init>(kotlin.collections/List<kotlin/Double>, kotlin.collections/List<kotlin/Double>, kotlin/String? = ...) // com.mountaya.elements/MapTap.<init>|<init>(kotlin.collections.List<kotlin.Double>;kotlin.collections.List<kotlin.Double>;kotlin.String?){}[0]
+
+    final val marker // com.mountaya.elements/MapTap.marker|{}marker[0]
+        final fun <get-marker>(): kotlin/String? // com.mountaya.elements/MapTap.marker.<get-marker>|<get-marker>(){}[0]
+    final val point // com.mountaya.elements/MapTap.point|{}point[0]
+        final fun <get-point>(): kotlin.collections/List<kotlin/Double> // com.mountaya.elements/MapTap.point.<get-point>|<get-point>(){}[0]
+    final val position // com.mountaya.elements/MapTap.position|{}position[0]
+        final fun <get-position>(): kotlin.collections/List<kotlin/Double> // com.mountaya.elements/MapTap.position.<get-position>|<get-position>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/MapTap.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/MapTap.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/MapTap.toString|toString(){}[0]
+}
+
+final class com.mountaya.elements/QueriedFeature { // com.mountaya.elements/QueriedFeature|null[0]
+    constructor <init>(kotlin.collections/Map<kotlin/String, kotlinx.serialization.json/JsonElement>, com.mountaya.client/GeoJsonGeometry, kotlin/String, kotlin/String? = ..., com.mountaya.elements/QueriedFeature.Id? = ...) // com.mountaya.elements/QueriedFeature.<init>|<init>(kotlin.collections.Map<kotlin.String,kotlinx.serialization.json.JsonElement>;com.mountaya.client.GeoJsonGeometry;kotlin.String;kotlin.String?;com.mountaya.elements.QueriedFeature.Id?){}[0]
+
+    final val geometry // com.mountaya.elements/QueriedFeature.geometry|{}geometry[0]
+        final fun <get-geometry>(): com.mountaya.client/GeoJsonGeometry // com.mountaya.elements/QueriedFeature.geometry.<get-geometry>|<get-geometry>(){}[0]
+    final val id // com.mountaya.elements/QueriedFeature.id|{}id[0]
+        final fun <get-id>(): com.mountaya.elements/QueriedFeature.Id? // com.mountaya.elements/QueriedFeature.id.<get-id>|<get-id>(){}[0]
+    final val layer // com.mountaya.elements/QueriedFeature.layer|{}layer[0]
+        final fun <get-layer>(): kotlin/String // com.mountaya.elements/QueriedFeature.layer.<get-layer>|<get-layer>(){}[0]
+    final val properties // com.mountaya.elements/QueriedFeature.properties|{}properties[0]
+        final fun <get-properties>(): kotlin.collections/Map<kotlin/String, kotlinx.serialization.json/JsonElement> // com.mountaya.elements/QueriedFeature.properties.<get-properties>|<get-properties>(){}[0]
+    final val sourceLayer // com.mountaya.elements/QueriedFeature.sourceLayer|{}sourceLayer[0]
+        final fun <get-sourceLayer>(): kotlin/String? // com.mountaya.elements/QueriedFeature.sourceLayer.<get-sourceLayer>|<get-sourceLayer>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/QueriedFeature.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/QueriedFeature.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/QueriedFeature.toString|toString(){}[0]
+
+    sealed interface Id { // com.mountaya.elements/QueriedFeature.Id|null[0]
+        final class Number : com.mountaya.elements/QueriedFeature.Id { // com.mountaya.elements/QueriedFeature.Id.Number|null[0]
+            constructor <init>(kotlin/Double) // com.mountaya.elements/QueriedFeature.Id.Number.<init>|<init>(kotlin.Double){}[0]
+
+            final val value // com.mountaya.elements/QueriedFeature.Id.Number.value|{}value[0]
+                final fun <get-value>(): kotlin/Double // com.mountaya.elements/QueriedFeature.Id.Number.value.<get-value>|<get-value>(){}[0]
+
+            final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/QueriedFeature.Id.Number.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // com.mountaya.elements/QueriedFeature.Id.Number.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // com.mountaya.elements/QueriedFeature.Id.Number.toString|toString(){}[0]
+        }
+
+        final class Text : com.mountaya.elements/QueriedFeature.Id { // com.mountaya.elements/QueriedFeature.Id.Text|null[0]
+            constructor <init>(kotlin/String) // com.mountaya.elements/QueriedFeature.Id.Text.<init>|<init>(kotlin.String){}[0]
+
+            final val value // com.mountaya.elements/QueriedFeature.Id.Text.value|{}value[0]
+                final fun <get-value>(): kotlin/String // com.mountaya.elements/QueriedFeature.Id.Text.value.<get-value>|<get-value>(){}[0]
+
+            final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/QueriedFeature.Id.Text.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // com.mountaya.elements/QueriedFeature.Id.Text.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // com.mountaya.elements/QueriedFeature.Id.Text.toString|toString(){}[0]
+        }
+    }
+}
+
+final class com.mountaya.elements/ScreenProjection { // com.mountaya.elements/ScreenProjection|null[0]
+    constructor <init>(kotlin/Function1<kotlin.collections/List<kotlin/Double>, kotlin.collections/List<kotlin/Double>>, kotlin/Function1<kotlin.collections/List<kotlin/Double>, kotlin.collections/List<kotlin/Double>>) // com.mountaya.elements/ScreenProjection.<init>|<init>(kotlin.Function1<kotlin.collections.List<kotlin.Double>,kotlin.collections.List<kotlin.Double>>;kotlin.Function1<kotlin.collections.List<kotlin.Double>,kotlin.collections.List<kotlin.Double>>){}[0]
+
+    final val point // com.mountaya.elements/ScreenProjection.point|{}point[0]
+        final fun <get-point>(): kotlin/Function1<kotlin.collections/List<kotlin/Double>, kotlin.collections/List<kotlin/Double>> // com.mountaya.elements/ScreenProjection.point.<get-point>|<get-point>(){}[0]
+    final val position // com.mountaya.elements/ScreenProjection.position|{}position[0]
+        final fun <get-position>(): kotlin/Function1<kotlin.collections/List<kotlin/Double>, kotlin.collections/List<kotlin/Double>> // com.mountaya.elements/ScreenProjection.position.<get-position>|<get-position>(){}[0]
+}
+
+final class com.mountaya.elements/ScriptedMapSurface { // com.mountaya.elements/ScriptedMapSurface|null[0]
+    constructor <init>(com.mountaya.elements/MapEngine, kotlin.collections/List<kotlin/Double> = ..., com.mountaya.geo/ZoomBounds = ...) // com.mountaya.elements/ScriptedMapSurface.<init>|<init>(com.mountaya.elements.MapEngine;kotlin.collections.List<kotlin.Double>;com.mountaya.geo.ZoomBounds){}[0]
+
+    final val frames // com.mountaya.elements/ScriptedMapSurface.frames|{}frames[0]
+        final fun <get-frames>(): kotlin.collections/List<com.mountaya.elements/ScriptedMapSurface.Frame> // com.mountaya.elements/ScriptedMapSurface.frames.<get-frames>|<get-frames>(){}[0]
+    final val moves // com.mountaya.elements/ScriptedMapSurface.moves|{}moves[0]
+        final fun <get-moves>(): kotlin.collections/List<com.mountaya.elements/ScriptedMapSurface.Move> // com.mountaya.elements/ScriptedMapSurface.moves.<get-moves>|<get-moves>(){}[0]
+    final val queries // com.mountaya.elements/ScriptedMapSurface.queries|{}queries[0]
+        final fun <get-queries>(): kotlin.collections/List<kotlin.collections/List<kotlin/String>> // com.mountaya.elements/ScriptedMapSurface.queries.<get-queries>|<get-queries>(){}[0]
+    final val relabelled // com.mountaya.elements/ScriptedMapSurface.relabelled|{}relabelled[0]
+        final fun <get-relabelled>(): kotlin.collections/List<kotlin/String> // com.mountaya.elements/ScriptedMapSurface.relabelled.<get-relabelled>|<get-relabelled>(){}[0]
+    final val zoomLimits // com.mountaya.elements/ScriptedMapSurface.zoomLimits|{}zoomLimits[0]
+        final fun <get-zoomLimits>(): com.mountaya.geo/ZoomBounds // com.mountaya.elements/ScriptedMapSurface.zoomLimits.<get-zoomLimits>|<get-zoomLimits>(){}[0]
+
+    final var baseLabels // com.mountaya.elements/ScriptedMapSurface.baseLabels|{}baseLabels[0]
+        final fun <get-baseLabels>(): kotlin.collections/List<com.mountaya.elements/ScriptedMapSurface.Label> // com.mountaya.elements/ScriptedMapSurface.baseLabels.<get-baseLabels>|<get-baseLabels>(){}[0]
+        final fun <set-baseLabels>(kotlin.collections/List<com.mountaya.elements/ScriptedMapSurface.Label>) // com.mountaya.elements/ScriptedMapSurface.baseLabels.<set-baseLabels>|<set-baseLabels>(kotlin.collections.List<com.mountaya.elements.ScriptedMapSurface.Label>){}[0]
+    final var baseSources // com.mountaya.elements/ScriptedMapSurface.baseSources|{}baseSources[0]
+        final fun <get-baseSources>(): kotlin.collections/List<com.mountaya.elements/ScriptedMapSurface.BaseSource> // com.mountaya.elements/ScriptedMapSurface.baseSources.<get-baseSources>|<get-baseSources>(){}[0]
+        final fun <set-baseSources>(kotlin.collections/List<com.mountaya.elements/ScriptedMapSurface.BaseSource>) // com.mountaya.elements/ScriptedMapSurface.baseSources.<set-baseSources>|<set-baseSources>(kotlin.collections.List<com.mountaya.elements.ScriptedMapSurface.BaseSource>){}[0]
+    final var canvas // com.mountaya.elements/ScriptedMapSurface.canvas|{}canvas[0]
+        final fun <get-canvas>(): kotlin.collections/List<kotlin/Double> // com.mountaya.elements/ScriptedMapSurface.canvas.<get-canvas>|<get-canvas>(){}[0]
+        final fun <set-canvas>(kotlin.collections/List<kotlin/Double>) // com.mountaya.elements/ScriptedMapSurface.canvas.<set-canvas>|<set-canvas>(kotlin.collections.List<kotlin.Double>){}[0]
+    final var heldSources // com.mountaya.elements/ScriptedMapSurface.heldSources|{}heldSources[0]
+        final fun <get-heldSources>(): kotlin.collections/List<kotlin/String>? // com.mountaya.elements/ScriptedMapSurface.heldSources.<get-heldSources>|<get-heldSources>(){}[0]
+        final fun <set-heldSources>(kotlin.collections/List<kotlin/String>?) // com.mountaya.elements/ScriptedMapSurface.heldSources.<set-heldSources>|<set-heldSources>(kotlin.collections.List<kotlin.String>?){}[0]
+    final var liveLayers // com.mountaya.elements/ScriptedMapSurface.liveLayers|{}liveLayers[0]
+        final fun <get-liveLayers>(): kotlin.collections/List<kotlin/String>? // com.mountaya.elements/ScriptedMapSurface.liveLayers.<get-liveLayers>|<get-liveLayers>(){}[0]
+        final fun <set-liveLayers>(kotlin.collections/List<kotlin/String>?) // com.mountaya.elements/ScriptedMapSurface.liveLayers.<set-liveLayers>|<set-liveLayers>(kotlin.collections.List<kotlin.String>?){}[0]
+    final var projection // com.mountaya.elements/ScriptedMapSurface.projection|{}projection[0]
+        final fun <get-projection>(): com.mountaya.elements/ScreenProjection // com.mountaya.elements/ScriptedMapSurface.projection.<get-projection>|<get-projection>(){}[0]
+        final fun <set-projection>(com.mountaya.elements/ScreenProjection) // com.mountaya.elements/ScriptedMapSurface.projection.<set-projection>|<set-projection>(com.mountaya.elements.ScreenProjection){}[0]
+    final var rendered // com.mountaya.elements/ScriptedMapSurface.rendered|{}rendered[0]
+        final fun <get-rendered>(): kotlin.collections/List<com.mountaya.elements/QueriedFeature> // com.mountaya.elements/ScriptedMapSurface.rendered.<get-rendered>|<get-rendered>(){}[0]
+        final fun <set-rendered>(kotlin.collections/List<com.mountaya.elements/QueriedFeature>) // com.mountaya.elements/ScriptedMapSurface.rendered.<set-rendered>|<set-rendered>(kotlin.collections.List<com.mountaya.elements.QueriedFeature>){}[0]
+
+    final fun click(kotlin.collections/List<kotlin/Double>, kotlin.collections/List<kotlin/Double>) // com.mountaya.elements/ScriptedMapSurface.click|click(kotlin.collections.List<kotlin.Double>;kotlin.collections.List<kotlin.Double>){}[0]
+    final fun drawFrame() // com.mountaya.elements/ScriptedMapSurface.drawFrame|drawFrame(){}[0]
+    final fun failRequest(kotlin/String?, kotlin/Int?, kotlin/String?, kotlin/Boolean = ..., kotlin/Throwable? = ...) // com.mountaya.elements/ScriptedMapSurface.failRequest|failRequest(kotlin.String?;kotlin.Int?;kotlin.String?;kotlin.Boolean;kotlin.Throwable?){}[0]
+    final fun failStyle() // com.mountaya.elements/ScriptedMapSurface.failStyle|failStyle(){}[0]
+    final fun hover(kotlin.collections/List<kotlin/Double>, kotlin.collections/List<kotlin/Double>) // com.mountaya.elements/ScriptedMapSurface.hover|hover(kotlin.collections.List<kotlin.Double>;kotlin.collections.List<kotlin.Double>){}[0]
+    final fun leave(kotlin.collections/List<kotlin/Double>, kotlin.collections/List<kotlin/Double>) // com.mountaya.elements/ScriptedMapSurface.leave|leave(kotlin.collections.List<kotlin.Double>;kotlin.collections.List<kotlin.Double>){}[0]
+    final fun loadStyle() // com.mountaya.elements/ScriptedMapSurface.loadStyle|loadStyle(){}[0]
+    final fun loadTile(kotlin/String) // com.mountaya.elements/ScriptedMapSurface.loadTile|loadTile(kotlin.String){}[0]
+    final fun longClick(kotlin.collections/List<kotlin/Double>, kotlin.collections/List<kotlin/Double>) // com.mountaya.elements/ScriptedMapSurface.longClick|longClick(kotlin.collections.List<kotlin.Double>;kotlin.collections.List<kotlin.Double>){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/ScriptedMapSurface.toString|toString(){}[0]
+
+    final class BaseSource { // com.mountaya.elements/ScriptedMapSurface.BaseSource|null[0]
+        constructor <init>(kotlin/String?, kotlin/Boolean) // com.mountaya.elements/ScriptedMapSurface.BaseSource.<init>|<init>(kotlin.String?;kotlin.Boolean){}[0]
+
+        final val attribution // com.mountaya.elements/ScriptedMapSurface.BaseSource.attribution|{}attribution[0]
+            final fun <get-attribution>(): kotlin/String? // com.mountaya.elements/ScriptedMapSurface.BaseSource.attribution.<get-attribution>|<get-attribution>(){}[0]
+        final val isDrawn // com.mountaya.elements/ScriptedMapSurface.BaseSource.isDrawn|{}isDrawn[0]
+            final fun <get-isDrawn>(): kotlin/Boolean // com.mountaya.elements/ScriptedMapSurface.BaseSource.isDrawn.<get-isDrawn>|<get-isDrawn>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/ScriptedMapSurface.BaseSource.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/ScriptedMapSurface.BaseSource.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/ScriptedMapSurface.BaseSource.toString|toString(){}[0]
+    }
+
+    final class Frame { // com.mountaya.elements/ScriptedMapSurface.Frame|null[0]
+        constructor <init>(kotlin.collections/List<kotlin/Double>, com.mountaya.elements/CameraFit) // com.mountaya.elements/ScriptedMapSurface.Frame.<init>|<init>(kotlin.collections.List<kotlin.Double>;com.mountaya.elements.CameraFit){}[0]
+
+        final val bounds // com.mountaya.elements/ScriptedMapSurface.Frame.bounds|{}bounds[0]
+            final fun <get-bounds>(): kotlin.collections/List<kotlin/Double> // com.mountaya.elements/ScriptedMapSurface.Frame.bounds.<get-bounds>|<get-bounds>(){}[0]
+        final val fit // com.mountaya.elements/ScriptedMapSurface.Frame.fit|{}fit[0]
+            final fun <get-fit>(): com.mountaya.elements/CameraFit // com.mountaya.elements/ScriptedMapSurface.Frame.fit.<get-fit>|<get-fit>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/ScriptedMapSurface.Frame.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/ScriptedMapSurface.Frame.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/ScriptedMapSurface.Frame.toString|toString(){}[0]
+    }
+
+    final class Label { // com.mountaya.elements/ScriptedMapSurface.Label|null[0]
+        constructor <init>(kotlin/String, kotlinx.serialization.json/JsonElement) // com.mountaya.elements/ScriptedMapSurface.Label.<init>|<init>(kotlin.String;kotlinx.serialization.json.JsonElement){}[0]
+
+        final val id // com.mountaya.elements/ScriptedMapSurface.Label.id|{}id[0]
+            final fun <get-id>(): kotlin/String // com.mountaya.elements/ScriptedMapSurface.Label.id.<get-id>|<get-id>(){}[0]
+        final val textField // com.mountaya.elements/ScriptedMapSurface.Label.textField|{}textField[0]
+            final fun <get-textField>(): kotlinx.serialization.json/JsonElement // com.mountaya.elements/ScriptedMapSurface.Label.textField.<get-textField>|<get-textField>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/ScriptedMapSurface.Label.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/ScriptedMapSurface.Label.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/ScriptedMapSurface.Label.toString|toString(){}[0]
+    }
+
+    final class Move { // com.mountaya.elements/ScriptedMapSurface.Move|null[0]
+        constructor <init>(com.mountaya.elements/CameraTarget, com.mountaya.elements/CameraMotion) // com.mountaya.elements/ScriptedMapSurface.Move.<init>|<init>(com.mountaya.elements.CameraTarget;com.mountaya.elements.CameraMotion){}[0]
+
+        final val motion // com.mountaya.elements/ScriptedMapSurface.Move.motion|{}motion[0]
+            final fun <get-motion>(): com.mountaya.elements/CameraMotion // com.mountaya.elements/ScriptedMapSurface.Move.motion.<get-motion>|<get-motion>(){}[0]
+        final val target // com.mountaya.elements/ScriptedMapSurface.Move.target|{}target[0]
+            final fun <get-target>(): com.mountaya.elements/CameraTarget // com.mountaya.elements/ScriptedMapSurface.Move.target.<get-target>|<get-target>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/ScriptedMapSurface.Move.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.mountaya.elements/ScriptedMapSurface.Move.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.mountaya.elements/ScriptedMapSurface.Move.toString|toString(){}[0]
+    }
+}
+
+final class com.mountaya.elements/SlotGeometry { // com.mountaya.elements/SlotGeometry|null[0]
+    constructor <init>(com.mountaya.client/GeoJsonGeometry?, kotlin/String) // com.mountaya.elements/SlotGeometry.<init>|<init>(com.mountaya.client.GeoJsonGeometry?;kotlin.String){}[0]
+
+    final val color // com.mountaya.elements/SlotGeometry.color|{}color[0]
+        final fun <get-color>(): kotlin/String // com.mountaya.elements/SlotGeometry.color.<get-color>|<get-color>(){}[0]
+    final val geometry // com.mountaya.elements/SlotGeometry.geometry|{}geometry[0]
+        final fun <get-geometry>(): com.mountaya.client/GeoJsonGeometry? // com.mountaya.elements/SlotGeometry.geometry.<get-geometry>|<get-geometry>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/SlotGeometry.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/SlotGeometry.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/SlotGeometry.toString|toString(){}[0]
+}
+
+final class com.mountaya.elements/WaypointEdit { // com.mountaya.elements/WaypointEdit|null[0]
+    constructor <init>(kotlin/String, kotlin.collections/List<kotlin/Double>? = ..., kotlin/Boolean = ...) // com.mountaya.elements/WaypointEdit.<init>|<init>(kotlin.String;kotlin.collections.List<kotlin.Double>?;kotlin.Boolean){}[0]
+
+    final val isSnapped // com.mountaya.elements/WaypointEdit.isSnapped|{}isSnapped[0]
+        final fun <get-isSnapped>(): kotlin/Boolean // com.mountaya.elements/WaypointEdit.isSnapped.<get-isSnapped>|<get-isSnapped>(){}[0]
+    final val position // com.mountaya.elements/WaypointEdit.position|{}position[0]
+        final fun <get-position>(): kotlin.collections/List<kotlin/Double>? // com.mountaya.elements/WaypointEdit.position.<get-position>|<get-position>(){}[0]
+    final val waypointId // com.mountaya.elements/WaypointEdit.waypointId|{}waypointId[0]
+        final fun <get-waypointId>(): kotlin/String // com.mountaya.elements/WaypointEdit.waypointId.<get-waypointId>|<get-waypointId>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.mountaya.elements/WaypointEdit.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.mountaya.elements/WaypointEdit.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.mountaya.elements/WaypointEdit.toString|toString(){}[0]
+}
+
+final const val com.mountaya.elements/CURSOR_MARKER_GLYPH // com.mountaya.elements/CURSOR_MARKER_GLYPH|{}CURSOR_MARKER_GLYPH[0]
+    final fun <get-CURSOR_MARKER_GLYPH>(): kotlin/String // com.mountaya.elements/CURSOR_MARKER_GLYPH.<get-CURSOR_MARKER_GLYPH>|<get-CURSOR_MARKER_GLYPH>(){}[0]
+final const val com.mountaya.elements/PROFILE_CURSOR_MARKER_ID // com.mountaya.elements/PROFILE_CURSOR_MARKER_ID|{}PROFILE_CURSOR_MARKER_ID[0]
+    final fun <get-PROFILE_CURSOR_MARKER_ID>(): kotlin/String // com.mountaya.elements/PROFILE_CURSOR_MARKER_ID.<get-PROFILE_CURSOR_MARKER_ID>|<get-PROFILE_CURSOR_MARKER_ID>(){}[0]
+final const val com.mountaya.elements/SEGMENT_TABLE_CURSOR_MARKER_ID // com.mountaya.elements/SEGMENT_TABLE_CURSOR_MARKER_ID|{}SEGMENT_TABLE_CURSOR_MARKER_ID[0]
+    final fun <get-SEGMENT_TABLE_CURSOR_MARKER_ID>(): kotlin/String // com.mountaya.elements/SEGMENT_TABLE_CURSOR_MARKER_ID.<get-SEGMENT_TABLE_CURSOR_MARKER_ID>|<get-SEGMENT_TABLE_CURSOR_MARKER_ID>(){}[0]
+final const val com.mountaya.elements/WAYPOINT_TABLE_CURSOR_MARKER_ID // com.mountaya.elements/WAYPOINT_TABLE_CURSOR_MARKER_ID|{}WAYPOINT_TABLE_CURSOR_MARKER_ID[0]
+    final fun <get-WAYPOINT_TABLE_CURSOR_MARKER_ID>(): kotlin/String // com.mountaya.elements/WAYPOINT_TABLE_CURSOR_MARKER_ID.<get-WAYPOINT_TABLE_CURSOR_MARKER_ID>|<get-WAYPOINT_TABLE_CURSOR_MARKER_ID>(){}[0]
+
+final val com.mountaya.elements/locateFixWait // com.mountaya.elements/locateFixWait|{}locateFixWait[0]
+    final fun <get-locateFixWait>(): kotlin.time/Duration // com.mountaya.elements/locateFixWait.<get-locateFixWait>|<get-locateFixWait>(){}[0]
+final val com.mountaya.elements/locateMaxFixAge // com.mountaya.elements/locateMaxFixAge|{}locateMaxFixAge[0]
+    final fun <get-locateMaxFixAge>(): kotlin.time/Duration // com.mountaya.elements/locateMaxFixAge.<get-locateMaxFixAge>|<get-locateMaxFixAge>(){}[0]
+
+final fun com.mountaya.elements/hideCursorMarker(com.mountaya.elements/CursorMarkerTarget, com.mountaya.elements/CursorMarkerPin?, kotlin/String) // com.mountaya.elements/hideCursorMarker|hideCursorMarker(com.mountaya.elements.CursorMarkerTarget;com.mountaya.elements.CursorMarkerPin?;kotlin.String){}[0]
+final fun com.mountaya.elements/showCursorMarker(com.mountaya.elements/CursorMarkerTarget, com.mountaya.elements/CursorMarkerPin?, com.mountaya.elements/CursorMarkerPoint): com.mountaya.elements/CursorMarkerPin // com.mountaya.elements/showCursorMarker|showCursorMarker(com.mountaya.elements.CursorMarkerTarget;com.mountaya.elements.CursorMarkerPin?;com.mountaya.elements.CursorMarkerPoint){}[0]
+final fun com.mountaya.elements/writeLegEmphasis(com.mountaya.elements/LegEmphasisTarget, kotlin/Boolean, com.mountaya.client/GeoJsonGeometry?, kotlin/String? = ...): kotlin/Boolean // com.mountaya.elements/writeLegEmphasis|writeLegEmphasis(com.mountaya.elements.LegEmphasisTarget;kotlin.Boolean;com.mountaya.client.GeoJsonGeometry?;kotlin.String?){}[0]

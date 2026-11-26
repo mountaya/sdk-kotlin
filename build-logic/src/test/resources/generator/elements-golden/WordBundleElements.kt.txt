@@ -1,0 +1,74 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew :mountaya-geo:generateElements` from sdk/elements/words.json of
+// mountaya/schemas, contract v0.8.0, model digest
+// 6c1cf0ef10563c2bb2d6c6250bbb734b976eeea9bcbd280d67325516b4deb15c.
+// A value that is wrong here is a defect in the contract's table, and the next print overwrites
+// any edit.
+
+package com.mountaya.geo.generated
+
+import com.mountaya.client.generated.RestSchema
+import com.mountaya.geo.WordBundle
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.put
+import kotlinx.serialization.json.putJsonObject
+
+/** The elements' words in the language `en`. */
+private val wordsEn: JsonObject =
+    buildJsonObject {
+        putJsonObject("controls") {
+            put("close", "Close")
+            put("quote", "Say \"hi\"\\now")
+        }
+        putJsonObject("search") {
+            putJsonObject("resultCount") {
+                put("one", "{count} result")
+                put("other", "{count} results")
+            }
+        }
+        putJsonObject("tooltips") {
+            putJsonObject("zoomIn") {
+                put("description", "Zoom in by one level.")
+                put("title", "Zoom in")
+            }
+        }
+    }
+
+/** The elements' words in the language `fr`. */
+private val wordsFr: JsonObject =
+    buildJsonObject {
+        putJsonObject("controls") {
+            put("close", "Fermer")
+            put("quote", "Dire \u00ab salut \u00bb")
+        }
+        putJsonObject("search") {
+            putJsonObject("resultCount") {
+                put("one", "{count} r\u00e9sultat")
+                put("other", "{count} r\u00e9sultats")
+            }
+        }
+        putJsonObject("tooltips") {
+            putJsonObject("zoomIn") {
+                put("description", "Zoomer d'un niveau.")
+                put("title", "Zoomer")
+            }
+        }
+    }
+
+/**
+ * elementsWordBundle is the words the elements put on screen, by section, as the contract's words
+ * table holds them: English, which every language falls back to, and the translations it carries
+ * (fr). A word is a string, a template a string holding `{name}` placeholders, and a counted word
+ * an object of the forms CLDR's plural rules name, `other` among them. `WordBundle.elements`
+ * publishes it, and a consumer's own words are folded over it by `resolveBundle`.
+ */
+internal val elementsWordBundle: WordBundle =
+    WordBundle(
+        english = wordsEn,
+        translations =
+            mapOf(
+                RestSchema.Language("fr") to wordsFr,
+            ),
+    )

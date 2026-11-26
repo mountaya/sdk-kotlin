@@ -1,0 +1,32 @@
+P d 13714	16215	1753002	<TOTAL>
+P d 5394	5394	734178	androidx
+P d 3946	3946	556968	androidx.compose
+P d 2090	2090	278614	com
+P d 1646	1646	218364	com.mountaya
+P d 1086	1086	129879	com.mountaya.client
+P d 775	775	91816	com.mountaya.client.generated
+P d 250	250	44494	com.mountaya.elements
+P d 237	237	36322	com.mountaya.geo
+P d 63	63	10925	com.mountaya.geo.generated
+P d 73	73	7669	com.mountaya.navigation
+P d 5	5	2110	com.example
+P d 5	5	2110	com.example.navigation
+P d 1848	1865	153858	org
+P d 1775	1779	147130	org.maplibre
+P d 1428	1432	116326	org.maplibre.android
+P d 1380	1381	150196	kotlinx
+P d 663	663	59418	kotlinx.serialization
+P d 284	284	29346	kotlinx.serialization.json
+P d 652	653	82705	kotlinx.coroutines
+P d 1070	1070	117942	kotlin
+P d 933	933	133954	io
+P d 933	933	133954	io.ktor
+P d 384	384	60901	io.ktor.client
+P d 718	718	117353	okhttp3
+P d 580	580	93545	okhttp3.internal
+P d 201	201	25117	okio
+C d 171	171	26503	androidx.compose.ui.platform.AndroidComposeView
+C d 70	70	19197	androidx.compose.ui.platform.AndroidComposeView_androidKt
+M d 1	1	48	androidx.compose.ui.platform.AndroidComposeView <clinit>()
+M d 1	1	1523	androidx.compose.ui.platform.AndroidComposeView <init>(android.content.Context,androidx.compose.ui.platform.ComposeViewContext)
+F d 0	0	11	androidx.compose.ui.platform.AndroidComposeView java.lang.Class systemPropertiesClass

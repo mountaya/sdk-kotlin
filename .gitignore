@@ -1,0 +1,35 @@
+# Gradle's own state and every module's outputs. The output directories are anchored, because
+# a bare `build/` also matches the `com/mountaya/build` package the build logic is written in.
+.gradle/
+.kotlin/
+/build/
+/*/build/
+/build-logic/*/build/
+/consumer/*/build/
+/examples/*/build/
+/examples/*/*/build/
+
+# Trail's settings, a developer's publishable key among them: never committed, its `.example` is.
+/examples/trail/.env
+
+# Where the Android SDK is on one machine. mise exports ANDROID_HOME, so nothing needs it.
+local.properties
+
+# Editors.
+.idea/
+*.iml
+
+# >>> mountaya-ai: local agent state, rendered by ai/scripts/apply.mjs
+.claude/settings.local.json
+.claude/worktrees/
+.claude/.flags/
+.claude/.logs/
+.entire/agent-guide.md
+.playwright-mcp/
+.DS_Store
+.env
+.env.*
+!.env.example
+.claude/scheduled_tasks.lock
+/*/**/.claude/
+# <<< mountaya-ai

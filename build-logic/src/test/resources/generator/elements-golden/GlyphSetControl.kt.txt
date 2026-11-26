@@ -1,0 +1,46 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew :mountaya-geo:generateElements` from sdk/elements/glyphs.json of
+// mountaya/schemas, contract v0.8.0, model digest
+// 6c1cf0ef10563c2bb2d6c6250bbb734b976eeea9bcbd280d67325516b4deb15c.
+// A value that is wrong here is a defect in the contract's table, and the next print overwrites
+// any edit.
+//
+// The markup is that of icons from Lucide, read from lucide-static at version 1.75.0, and
+// carries the licences `sdk/elements/NOTICE` reproduces:
+//
+// ISC License
+//
+// Copyright (c) 2026 Lucide Icons and Contributors
+//
+// Permission to use, copy, modify, and/or distribute this software for any purpose.
+//
+// ---
+//
+// The following Lucide icons are derived from the Feather project:
+//
+// airplay, alert-circle, alert-octagon
+//
+// The MIT License (MIT) (for the icons listed above)
+//
+// Copyright (c) 2013-present Cole Bemis
+
+package com.mountaya.geo.generated
+
+import com.mountaya.geo.GlyphSet
+
+/**
+ * controlGlyphSet is the control set of the contract's glyph table, drawn from lucide-static
+ * 1.75.0: 1 glyphs, by name. `GlyphSet.control` publishes it.
+ */
+internal val controlGlyphSet: GlyphSet =
+    GlyphSet(
+        name = "control",
+        paint = GlyphSet.Paint.Stroke,
+        strokeWidth = 2.0,
+        viewBox = 24.0,
+        markup =
+            mapOf(
+                "zoom-in" to "<path d=\"M5 12h14\" /><path d=\"M12 5v14\" />",
+            ),
+    )

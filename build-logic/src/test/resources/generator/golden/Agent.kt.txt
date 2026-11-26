@@ -1,0 +1,84 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+package com.mountaya.client.generated
+
+/** Agent is the `agent` operations of the REST API, one property per resource. */
+public class Agent internal constructor(
+    sender: com.mountaya.client.OperationSender,
+) {
+    /** The `agent.signals` operations. */
+    public val signals: Agent.Signals = Agent.Signals(sender)
+
+    /** Signals is the `agent.signals` operations of the REST API. */
+    public class Signals internal constructor(
+        private val sender: com.mountaya.client.OperationSender,
+    ) {
+        /**
+         * Sends a signal. Use streams instead.
+         *
+         * @param body The request body, in one of the media types the operation accepts.
+         * @param options What this call overrides of its client's configuration.
+         * @param parameters Sets the optional parameters, each by assigning it.
+         */
+        @kotlin.Deprecated("Sends a signal.")
+        public suspend fun postSignal(
+            body: RestSchema.PostSignalBody,
+            options: com.mountaya.client.RequestOptions = com.mountaya.client.RequestOptions(),
+            parameters: RestSchema.PostSignalParameters.() -> kotlin.Unit = {},
+        ): com.mountaya.client.Response<kotlinx.serialization.json.JsonElement, kotlinx.serialization.json.JsonObject?> {
+            val given = RestSchema.PostSignalParameters().apply(parameters)
+            val call =
+                com.mountaya.client.OperationCall(
+                    facts = OperationTable.Rest.postSignal,
+                    path = "/v1/signals",
+                    query = kotlin.collections.emptyList(),
+                    headers = kotlin.collections.emptyList(),
+                    body = 
+                        when (body) {
+                            is RestSchema.PostSignalBody.Multipart -> com.mountaya.client.RequestBody.Multipart(
+                                kotlin.collections.buildList {
+                                    add(com.mountaya.client.MultipartPart.File("file", body.value.file, contentType = "application/gpx+xml"))
+                                    body.value.season?.let { add(com.mountaya.client.MultipartPart.Text("season", it.value)) }
+                                    body.value.caption?.let { add(com.mountaya.client.MultipartPart.Text("caption", it)) }
+                                },
+                            )
+                            is RestSchema.PostSignalBody.Json -> com.mountaya.client.RequestBody.Json(com.mountaya.client.wireJson.encodeToString(RestSchema.Signal.serializer(), body.value))
+                            else -> throw kotlin.IllegalArgumentException("RestSchema.PostSignalBody has no media type of this class.")
+                        },
+                    idempotencyKey = given.idempotencyKeySlot,
+                    options = options,
+                )
+            return sender.send(call, kotlinx.serialization.json.JsonElement.serializer(), com.mountaya.client.nullableSerializer(kotlinx.serialization.json.JsonObject.serializer()))
+        }
+
+        /**
+         * @param options What this call overrides of its client's configuration.
+         * @param parameters Sets the optional parameters, each by assigning it.
+         */
+        public fun getSignals(
+            options: com.mountaya.client.RequestOptions = com.mountaya.client.RequestOptions(),
+            parameters: RestSchema.GetSignalsParameters.() -> kotlin.Unit = {},
+        ): com.mountaya.client.EventStream<RestSchema.Signal> {
+            val given = RestSchema.GetSignalsParameters().apply(parameters)
+            val call =
+                com.mountaya.client.OperationCall(
+                    facts = OperationTable.Rest.getSignals,
+                    path = "/v1/signals",
+                    query = kotlin.collections.emptyList(),
+                    headers =
+                        kotlin.collections.buildList {
+                            given.slot0?.let { add("X-Trace" to it) }
+                        },
+                    body = com.mountaya.client.RequestBody.Empty,
+                    options = options,
+                )
+            return sender.stream(call, RestSchema.Signal.serializer())
+        }
+    }
+}

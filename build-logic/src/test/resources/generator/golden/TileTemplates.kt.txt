@@ -1,0 +1,43 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+package com.mountaya.client.generated
+
+/**
+ * TileTemplates is the routes of the Tile API a map renderer fetches on its own, the tiles and the
+ * base map's style, TileJSON, sprite and glyph documents: URL templates resolved against the
+ * surface's origin, which no method binds.
+ */
+public object TileTemplates {
+    /** `getTile` */
+    public val getTile: com.mountaya.client.UrlTemplate =
+        com.mountaya.client.UrlTemplate(
+            operationId = "getTile",
+            path = "/v1/{z}/{x}/{y}",
+            pathParameters = kotlin.collections.listOf("z", "x", "y"),
+            queryParameters = kotlin.collections.emptyList(),
+            mediaTypes = kotlin.collections.listOf("application/x-protobuf"),
+        )
+
+    /** `getTileJson` */
+    public val getTileJson: com.mountaya.client.UrlTemplate =
+        com.mountaya.client.UrlTemplate(
+            operationId = "getTileJson",
+            path = "/v1/tiles.json",
+            pathParameters = kotlin.collections.emptyList(),
+            queryParameters = kotlin.collections.emptyList(),
+            mediaTypes = kotlin.collections.listOf("application/json"),
+        )
+
+    /** Every route of the Tile API a map renderer fetches on its own, in the model's order. */
+    public val all: kotlin.collections.List<com.mountaya.client.UrlTemplate> =
+        kotlin.collections.listOf(
+            getTile,
+            getTileJson,
+        )
+}

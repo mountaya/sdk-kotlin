@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trail declares what it reads: the network, and the device's location at full accuracy while it is in use, which it
+     asks for only when Start is pressed with Replay off. It declares no background location and no foreground service:
+     the README says how an app opts into navigating with the screen off. Speech needs nothing here, since
+     mountaya-navigation's manifest declares the text-to-speech query the build merges in. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:label="Trail"
+        android:supportsRtl="true">
+        <activity
+            android:name=".TrailActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

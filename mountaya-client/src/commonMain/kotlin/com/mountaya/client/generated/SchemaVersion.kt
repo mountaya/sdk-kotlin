@@ -1,0 +1,22 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.9.0, model digest f9ded6dd4ca71cb8f89c6974c42adec77509ee9a19e5afd01c31b6ea9dcc33ea.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+package com.mountaya.client.generated
+
+/**
+ * SCHEMA_VERSION is the contract tag this surface was printed from, which `VERSION` in
+ * mountaya/schemas names.
+ */
+public const val SCHEMA_VERSION: kotlin.String = "v0.9.0"
+
+/**
+ * MODEL_DIGEST is the digest of the files this surface and the elements' data were printed from,
+ * `modelDigest` in mountaya/schemas: the model and the elements' tables, named exactly where the tag
+ * names a release and the files move between two. A conformance report carries the same digest.
+ */
+public const val MODEL_DIGEST: kotlin.String = "f9ded6dd4ca71cb8f89c6974c42adec77509ee9a19e5afd01c31b6ea9dcc33ea"

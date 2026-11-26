@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The library declares no location permission: asking for location access, and whether to read it
+  with the screen off, are the app's decisions, written in its own manifest (SPEC.md section 8).
+  The one entry is the query Android 11 and later need before an app may bind the platform's
+  text-to-speech service, which SpeechNavigationVoice speaks through: without it, an app targeting
+  API 30 or later sees no speech engine, and the voice never starts.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+</manifest>

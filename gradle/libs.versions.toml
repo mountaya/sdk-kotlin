@@ -1,0 +1,136 @@
+# What the build RESOLVES: plugins, libraries, and the floors a consumer's own build must meet.
+# What RUNS the build (the JDK, Gradle, the Android SDK tools) is pinned in mise.toml instead.
+#
+# A platform floor lives here and nowhere else. Prose names the reason for a floor, never its
+# number, so a number copied into a sentence is not a second copy the next bump leaves behind.
+#
+# Every other version is the newest stable release that works. A floor is not one of those: it
+# moves only when the reason written beside it does.
+
+[versions]
+# This SDK's own version: every module is published at it, one version across the repository,
+# and the consumer build depends on the modules at it (SPEC.md section 10).
+mountaya = "0.1.0"
+
+# The compiler the build runs.
+kotlin = "2.4.21"
+# The floor: the oldest Kotlin a consumer may compile against these modules with. It is the
+# first release in which `kotlin.time.Instant` and `kotlin.uuid.Uuid` are both stable. The
+# language and API level track it, and so does the standard library the artifacts depend on.
+kotlin-floor = "2.4"
+kotlin-floor-libraries = "2.4.0"
+# The bytecode level of the jvm and android artifacts. The build itself runs on a newer JDK.
+jvm-target = "17"
+
+# Android. The plugin is its newest release, which can be ahead of the range a Kotlin release
+# lists as tested; this repository's gate is what shows the pair builds. The build tools are
+# named rather than left to the plugin's default, so they too are the newest release.
+agp = "9.5.1"
+android-buildTools = "37.0.0"
+# Two floors. The plugin writes compileSdk into every AAR as the lowest compileSdk an app may
+# build with, so it moves when a module, or a library a module carries, needs a newer platform's
+# API, and not because a newer platform exists. It is OkHttp's: its Android artifact, the engine
+# `mountaya-client`'s platform exchange sends through on android, asks every app that carries it
+# to compile against the platform it names. minSdk is the lowest API level the modules run on: the
+# first release that carries the platform's ICU, `android.icu`, which `mountaya-geo` writes an instant
+# through, so a time keeps the locale's own clock and a date and a time are joined as the locale joins
+# them on every device (sdk/SPEC.md section 7), where the `java.text` of the release before follows
+# the device's clock and joins them with a space. It is above the floors of the libraries the modules
+# carry, Compose's, AndroidX's and MapLibre Native's, and of the runtime permissions the device's
+# location sources read location access through; OkHttp's Android artifact asks for less, and the
+# kotlinx libraries are plain jars that name no floor. One floor holds every module, so none raises
+# what an app carrying another may target.
+android-compileSdk = "37"
+android-minSdk = "24"
+
+kotlinx-coroutines = "1.11.0"
+
+# The renderer `mountaya-elements`' map draws on, MapLibre Native's Android SDK. It is a range,
+# because a consumer's MapLibre is theirs (SPEC.md section 10), and a bounded one: Maven's `latest`
+# and `release` fields name a pre-release of another numbering, `2026.11.2-globe`, which an open
+# range or `latest.release` would take. Never strict.
+maplibre = "[13.7.1,14.0)"
+
+# The map view is Compose: its UI runtime, which `Modifier` and `@Composable` are, its foundation, which the
+# controls and panels are laid out on, and the lifecycle owner a MapLibre map is driven by. The consumer's app
+# hosts it through `setContent`.
+androidx-compose = "1.12.1"
+androidx-lifecycle = "2.11.0"
+# The window's own insets the map's safe area is read off, `ViewCompat.getRootWindowInsets`, at the release Compose's UI
+# requires, so naming it resolves nothing an app does not carry already.
+androidx-core = "1.16.0"
+androidx-activity = "1.13.0"
+
+# Device tests only: the instrumentation runner every module's device tests run under on an emulator.
+androidx-test-runner = "1.7.0"
+# Device tests only: the Espresso a composable's test waits for idle through. Compose's test names an
+# older one, whose event injector reflects on `InputManager.getInstance()`, which API 37 no longer
+# has, so every test of a composable fails there; this one reads it only below API 23.
+androidx-test-espresso = "3.7.0"
+kotlinx-serialization = "1.13.0"
+
+# The HTTP stack the platform's exchange sends through (SPEC.md section 4): Ktor's client, over
+# OkHttp on the jvm and android and over URLSession on iOS. OkHttp is named at the release Ktor's
+# engine is built against, since the exchange builds the OkHttp client itself. The map's request hook
+# is an OkHttp interceptor on the client MapLibre fetches with, at the same release, which an Android
+# app carrying the client resolves for MapLibre too.
+ktor = "3.6.1"
+okhttp = "5.5.1"
+
+# The formatter. `ktlintCheck` reports and `ktlintFormat` repairs, and only the first is a gate.
+ktlint = "1.8.0"
+ktlint-gradle = "14.2.0"
+
+# Build logic only. Neither reaches a module's classpath.
+snakeyaml-engine = "3.2"
+
+[libraries]
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test-runner" }
+maplibre-android = { module = "org.maplibre.gl:android-sdk", version.ref = "maplibre" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "androidx-compose" }
+# The controls and panels lay out, press and write their words with Compose's foundation, never Material.
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "androidx-compose" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+androidx-core = { module = "androidx.core:core", version.ref = "androidx-core" }
+# Trail's alone (examples/trail): the activity a composable is set as the content of, and the Activity Result API it asks
+# for location access through.
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+# Device tests only, the modules' and Trail's journey: a composable mounted in a test's own activity.
+androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "androidx-compose" }
+androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidx-compose" }
+androidx-test-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "androidx-test-espresso" }
+# Tests only: the sockets of the local server the platform's exchange is tested against, which
+# writes each answer byte for byte, on the jvm and on iOS alike.
+ktor-network = { module = "io.ktor:ktor-network", version.ref = "ktor" }
+
+# The plugins the convention plugins apply, as the artifacts build logic compiles against.
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-serialization-plugin = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+kotlin-compiler-embeddable = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable", version.ref = "kotlin" }
+kotlin-compose-plugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+android-kmp-library-plugin = { module = "com.android.kotlin.multiplatform.library:com.android.kotlin.multiplatform.library.gradle.plugin", version.ref = "agp" }
+ktlint-gradle-plugin = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "ktlint-gradle" }
+snakeyaml-engine = { module = "org.snakeyaml:snakeyaml-engine", version.ref = "snakeyaml-engine" }
+
+[plugins]
+# Applied by build logic to itself and by the consumer build. Modules get it through their
+# convention plugin instead.
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint-gradle" }
+# Applied by the consumer build alone, as an app's own build applies them: the modules get both
+# through their convention plugin.
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+android-kmp-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
+# Applied by Trail alone (examples/trail), as an app's own build applies it.
+android-application = { id = "com.android.application", version.ref = "agp" }
+# Applied by Trail's session server alone, a JVM program, as a server's own build applies it.
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+# Applied by the consumer build, whose Android code calls the map's composable, as an app's own build
+# applies it: `mountaya-elements` gets it through build logic.
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

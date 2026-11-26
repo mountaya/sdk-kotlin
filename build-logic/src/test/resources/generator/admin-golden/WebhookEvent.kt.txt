@@ -1,0 +1,632 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+@file:kotlin.OptIn(com.mountaya.client.InternalMountayaApi::class)
+@file:kotlinx.serialization.UseSerializers(com.mountaya.client.TimestampSerializer::class)
+
+package com.mountaya.admin.generated
+
+/**
+ * WebhookEvent is a webhook event as Mountaya delivers it to an endpoint, typed by its `type`: one
+ * class to each public type the contract's `webhooks` lists, carrying every member of the envelope,
+ * the object the type carries at `data.object` and, at `data.previous_attributes`, the former value
+ * of each field its change moved.
+ *
+ * An event this build cannot type is [Unknown], holding the contract's envelope,
+ * `AdminSchema.WebhookEvent`: one of a type it does not know, which a later contract adds, or one
+ * whose payload its types do not read. It is delivered rather than refused, so a receiver still
+ * acknowledges it and deduplicates it by its `id`, and every member of the envelope is read off
+ * every event alike. A type the contract adds is one more class, so a `when` over an event ends in
+ * `else`.
+ */
+@kotlinx.serialization.Serializable(with = WebhookEvent.Serializer::class)
+public abstract class WebhookEvent internal constructor() {
+    /** The event's type, as the wire spells it. */
+    public abstract val type: AdminSchema.WebhookEventType
+
+    /** Identifier of the event. */
+    public abstract val id: kotlin.String
+
+    /** Always `webhook_event`. */
+    public abstract val `object`: kotlin.String
+
+    /** When the change was made. */
+    public abstract val created_at: kotlin.time.Instant
+
+    /** The request that made the change, null for a change made on its own. */
+    public abstract val request_id: kotlin.String?
+
+    /** Whether the change was made in a live organization. */
+    public abstract val livemode: kotlin.Boolean?
+
+    /** The former identifier of the event. Use `id` instead. */
+    @kotlin.Deprecated("The former identifier of the event.")
+    public abstract val legacy_id: kotlin.String?
+
+    /**
+     * Typed is an event of a type this build knows: every member of the contract's envelope,
+     * `AdminSchema.WebhookEvent`, but its `type`, which its class names, held in its [payload],
+     * with the [data] that type carries.
+     *
+     * `Object` is the object the type carries at `data.object`, and `PreviousAttributes` the former
+     * value of each field its change moved, `Nothing` for a type whose change moves none.
+     */
+    public abstract class Typed<Object : kotlin.Any, PreviousAttributes : kotlin.Any> internal constructor(
+        /** The event as it was delivered, but its `type`, which its class names. */
+        public val payload: WebhookEvent.Payload<Object, PreviousAttributes>,
+    ) : WebhookEvent() {
+        /** The object, and what the change moved. */
+        public val data: WebhookEvent.PayloadData<Object, PreviousAttributes>
+            get() = payload.data
+
+        override val id: kotlin.String
+            get() = payload.id
+
+        override val `object`: kotlin.String
+            get() = payload.`object`
+
+        override val created_at: kotlin.time.Instant
+            get() = payload.created_at
+
+        override val request_id: kotlin.String?
+            get() = payload.request_id
+
+        override val livemode: kotlin.Boolean?
+            get() = payload.livemode
+
+        @kotlin.Deprecated("The former identifier of the event.")
+        @kotlin.Suppress("DEPRECATION")
+        override val legacy_id: kotlin.String?
+            get() = payload.legacy_id
+
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is WebhookEvent.Typed<*, *> && other.type == this.type && other.payload == this.payload
+
+        override fun hashCode(): kotlin.Int = 31 * this.type.hashCode() + this.payload.hashCode()
+
+        override fun toString(): kotlin.String =
+            "WebhookEvent(type=" + this.type + ", payload=" + this.payload + ")"
+    }
+
+    /** `hut.created`: A hut was created. */
+    public class HutCreated(
+        payload: WebhookEvent.Payload<AdminSchema.HutEventObject, kotlin.Nothing>,
+    ) : WebhookEvent.Typed<AdminSchema.HutEventObject, kotlin.Nothing>(payload) {
+        override val type: AdminSchema.WebhookEventType
+            get() = AdminSchema.WebhookEventType("hut.created")
+    }
+
+    /** `hut.updated`: A hut's count, update time, season or former name changed. */
+    public class HutUpdated(
+        payload: WebhookEvent.Payload<AdminSchema.HutEventObject, WebhookEvent.HutUpdatedPreviousAttributes>,
+    ) : WebhookEvent.Typed<AdminSchema.HutEventObject, WebhookEvent.HutUpdatedPreviousAttributes>(payload) {
+        override val type: AdminSchema.WebhookEventType
+            get() = AdminSchema.WebhookEventType("hut.updated")
+    }
+
+    /**
+     * Unknown is an event this build cannot type: a type it does not know, or a payload its types
+     * do not read, as the envelope holds it.
+     */
+    public class Unknown(
+        /** The event as the contract's envelope holds it. */
+        public val event: AdminSchema.WebhookEvent,
+    ) : WebhookEvent() {
+        override val type: AdminSchema.WebhookEventType
+            get() = event.type
+
+        override val id: kotlin.String
+            get() = event.id
+
+        override val `object`: kotlin.String
+            get() = event.`object`
+
+        override val created_at: kotlin.time.Instant
+            get() = event.created_at
+
+        override val request_id: kotlin.String?
+            get() = event.request_id
+
+        override val livemode: kotlin.Boolean?
+            get() = event.livemode
+
+        @kotlin.Deprecated("The former identifier of the event.")
+        @kotlin.Suppress("DEPRECATION")
+        override val legacy_id: kotlin.String?
+            get() = event.legacy_id
+
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is WebhookEvent.Unknown && other.event == this.event
+
+        override fun hashCode(): kotlin.Int = this.event.hashCode()
+
+        override fun toString(): kotlin.String = "Unknown(" + this.event + ")"
+    }
+
+    /**
+     * Payload is an event of a type this build knows, as it was delivered: every member of the
+     * contract's envelope, `AdminSchema.WebhookEvent`, but its `type`, which the event's class
+     * names, with the `data` that type carries.
+     *
+     * `Object` is the object the type carries at `data.object`, and `PreviousAttributes` the former
+     * value of each field its change moved, `Nothing` for a type whose change moves none.
+     */
+    @kotlinx.serialization.Serializable
+    public class Payload<Object : kotlin.Any, PreviousAttributes : kotlin.Any> private constructor(
+        /** Identifier of the event. */
+        public val id: kotlin.String,
+        /** Always `webhook_event`. */
+        @kotlinx.serialization.EncodeDefault(kotlinx.serialization.EncodeDefault.Mode.ALWAYS)
+        public val `object`: kotlin.String = "webhook_event",
+        /** When the change was made. */
+        public val created_at: kotlin.time.Instant,
+        /** The object, and what the change moved. */
+        public val data: WebhookEvent.PayloadData<Object, PreviousAttributes>,
+        /** The request that made the change, null for a change made on its own. */
+        @kotlinx.serialization.EncodeDefault(kotlinx.serialization.EncodeDefault.Mode.ALWAYS)
+        public val request_id: kotlin.String? = null,
+        /** Whether the change was made in a live organization. */
+        public val livemode: kotlin.Boolean? = null,
+        /** The former identifier of the event. Use `id` instead. */
+        @kotlin.Deprecated("The former identifier of the event.")
+        public val legacy_id: kotlin.String? = null,
+    ) {
+        @kotlin.Suppress("DEPRECATION")
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is WebhookEvent.Payload<*, *> &&
+                other.id == this.id &&
+                other.`object` == this.`object` &&
+                other.created_at == this.created_at &&
+                other.data == this.data &&
+                other.request_id == this.request_id &&
+                other.livemode == this.livemode &&
+                other.legacy_id == this.legacy_id
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.id.hashCode()
+            hash = 31 * hash + this.`object`.hashCode()
+            hash = 31 * hash + this.created_at.hashCode()
+            hash = 31 * hash + this.data.hashCode()
+            hash = 31 * hash + (this.request_id?.hashCode() ?: 0)
+            hash = 31 * hash + (this.livemode?.hashCode() ?: 0)
+            hash = 31 * hash + (this.legacy_id?.hashCode() ?: 0)
+            return hash
+        }
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun toString(): kotlin.String =
+            "Payload(" +
+                "id=" + this.id +
+                ", object=" + this.`object` +
+                ", created_at=" + this.created_at +
+                ", data=" + this.data +
+                ", request_id=" + this.request_id +
+                ", livemode=" + this.livemode +
+                ", legacy_id=" + this.legacy_id +
+                ")"
+
+        /** Builder sets the optional properties of a [WebhookEvent.Payload], each by assigning it. */
+        public class Builder<Object : kotlin.Any, PreviousAttributes : kotlin.Any> internal constructor() {
+            internal var slot5: kotlin.Boolean? = null
+            internal var slot6: kotlin.String? = null
+
+            /** Whether the change was made in a live organization. */
+            public var livemode: kotlin.Boolean
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot5 = value
+                }
+
+            /** The former identifier of the event. Use `id` instead. */
+            @kotlin.Deprecated("The former identifier of the event.")
+            public var legacy_id: kotlin.String
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot6 = value
+                }
+        }
+
+        /** Builds a [WebhookEvent.Payload]. */
+        public companion object {
+            /** Returns a [WebhookEvent.Payload] of the required properties given here and the optional ones [optional] sets. */
+            @kotlin.Suppress("DEPRECATION")
+            public operator fun <Object : kotlin.Any, PreviousAttributes : kotlin.Any> invoke(
+                id: kotlin.String,
+                created_at: kotlin.time.Instant,
+                data: WebhookEvent.PayloadData<Object, PreviousAttributes>,
+                request_id: kotlin.String?,
+                optional: WebhookEvent.Payload.Builder<Object, PreviousAttributes>.() -> kotlin.Unit = {},
+            ): WebhookEvent.Payload<Object, PreviousAttributes> {
+                val given = WebhookEvent.Payload.Builder<Object, PreviousAttributes>().apply(optional)
+                return WebhookEvent.Payload<Object, PreviousAttributes>(
+                    id = id,
+                    created_at = created_at,
+                    data = data,
+                    request_id = request_id,
+                    livemode = given.slot5,
+                    legacy_id = given.slot6,
+                )
+            }
+        }
+    }
+
+    /**
+     * PayloadData is what an event of a type this build knows says about its object: the object as
+     * the type carries it, and the former value of each field its change moved.
+     */
+    @kotlinx.serialization.Serializable
+    public class PayloadData<Object : kotlin.Any, PreviousAttributes : kotlin.Any> private constructor(
+        /** The object once the change was made. */
+        public val `object`: Object,
+        /**
+         * The fields of `data.object` the change moved, each with the value it held before.
+         *
+         * It is always null where `PreviousAttributes` is `Nothing`, a type whose change moves no
+         * field: a `previous_attributes` such an event carries is not read, as a key this build
+         * does not know is not.
+         */
+        public val previous_attributes: PreviousAttributes? = null,
+    ) {
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is WebhookEvent.PayloadData<*, *> &&
+                other.`object` == this.`object` &&
+                other.previous_attributes == this.previous_attributes
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.`object`.hashCode()
+            hash = 31 * hash + (this.previous_attributes?.hashCode() ?: 0)
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "PayloadData(" +
+                "object=" + this.`object` +
+                ", previous_attributes=" + this.previous_attributes +
+                ")"
+
+        /** Builder sets the optional properties of a [WebhookEvent.PayloadData], each by assigning it. */
+        public class Builder<Object : kotlin.Any, PreviousAttributes : kotlin.Any> internal constructor() {
+            internal var slot1: PreviousAttributes? = null
+
+            /**
+             * The fields of `data.object` the change moved, each with the value it held before.
+             *
+             * It is always null where `PreviousAttributes` is `Nothing`, a type whose change moves no
+             * field: a `previous_attributes` such an event carries is not read, as a key this build
+             * does not know is not.
+             */
+            public var previous_attributes: PreviousAttributes
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot1 = value
+                }
+        }
+
+        /** Builds a [WebhookEvent.PayloadData]. */
+        public companion object {
+            /** Returns a [WebhookEvent.PayloadData] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun <Object : kotlin.Any, PreviousAttributes : kotlin.Any> invoke(
+                `object`: Object,
+                optional: WebhookEvent.PayloadData.Builder<Object, PreviousAttributes>.() -> kotlin.Unit = {},
+            ): WebhookEvent.PayloadData<Object, PreviousAttributes> {
+                val given = WebhookEvent.PayloadData.Builder<Object, PreviousAttributes>().apply(optional)
+                return WebhookEvent.PayloadData<Object, PreviousAttributes>(
+                    `object` = `object`,
+                    previous_attributes = given.slot1,
+                )
+            }
+        }
+    }
+
+    /**
+     * HutUpdatedPreviousAttributes is the former value of each field a `hut.updated` event's change
+     * moved, as its `data.previous_attributes` carries them, each typed as
+     * `AdminSchema.HutEventObject` types it: a field the change did not move is null.
+     */
+    @kotlinx.serialization.Serializable
+    public class HutUpdatedPreviousAttributes private constructor(
+        /**
+         * The contract's `count`.
+         *
+         * The value it held before the change, and null where the change did not move it.
+         */
+        public val count: kotlin.Long? = null,
+        @kotlinx.serialization.SerialName("updated_at")
+        private val settable1: com.mountaya.client.Settable<kotlin.time.Instant?> = com.mountaya.client.Settable.Absent,
+        /**
+         * The contract's `season`.
+         *
+         * The value it held before the change, and null where the change did not move it.
+         */
+        public val season: com.mountaya.client.generated.RestSchema.Season? = null,
+        /**
+         * The former name. Use `id` instead.
+         *
+         * The value it held before the change, and null where the change did not move it.
+         */
+        @kotlin.Deprecated("The former name.")
+        public val old: kotlin.String? = null,
+    ) {
+        /**
+         * The contract's `updated_at`.
+         *
+         * The value it held before the change, a `Stated` holding null where it held null, and null
+         * where the change did not move it.
+         */
+        public val updated_at: com.mountaya.client.Stated<kotlin.time.Instant?>?
+            get() = settable1.stated
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is WebhookEvent.HutUpdatedPreviousAttributes &&
+                other.count == this.count &&
+                other.settable1 == this.settable1 &&
+                other.season == this.season &&
+                other.old == this.old
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + (this.count?.hashCode() ?: 0)
+            hash = 31 * hash + this.settable1.hashCode()
+            hash = 31 * hash + (this.season?.hashCode() ?: 0)
+            hash = 31 * hash + (this.old?.hashCode() ?: 0)
+            return hash
+        }
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun toString(): kotlin.String =
+            "HutUpdatedPreviousAttributes(" +
+                "count=" + this.count +
+                ", updated_at=" + this.updated_at +
+                ", season=" + this.season +
+                ", old=" + this.old +
+                ")"
+
+        /** Builder sets the optional properties of a [WebhookEvent.HutUpdatedPreviousAttributes], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot0: kotlin.Long? = null
+            internal var slot1: com.mountaya.client.Settable<kotlin.time.Instant?> = com.mountaya.client.Settable.Absent
+            internal var slot2: com.mountaya.client.generated.RestSchema.Season? = null
+            internal var slot3: kotlin.String? = null
+
+            /**
+             * The contract's `count`.
+             *
+             * The value it held before the change, and null where the change did not move it.
+             */
+            public var count: kotlin.Long
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot0 = value
+                }
+
+            /**
+             * The contract's `updated_at`.
+             *
+             * The value it held before the change, a `Stated` holding null where it held null, and null
+             * where the change did not move it.
+             *
+             * Left unset it states nothing; set to `null` it states that it held `null`.
+             */
+            public var updated_at: kotlin.time.Instant?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot1 = com.mountaya.client.Settable.Present(value)
+                }
+
+            /**
+             * The contract's `season`.
+             *
+             * The value it held before the change, and null where the change did not move it.
+             */
+            public var season: com.mountaya.client.generated.RestSchema.Season
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot2 = value
+                }
+
+            /**
+             * The former name. Use `id` instead.
+             *
+             * The value it held before the change, and null where the change did not move it.
+             */
+            @kotlin.Deprecated("The former name.")
+            public var old: kotlin.String
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot3 = value
+                }
+        }
+
+        /** Builds a [WebhookEvent.HutUpdatedPreviousAttributes]. */
+        public companion object {
+            /** Returns a [WebhookEvent.HutUpdatedPreviousAttributes] of the required properties given here and the optional ones [optional] sets. */
+            @kotlin.Suppress("DEPRECATION")
+            public operator fun invoke(
+                optional: WebhookEvent.HutUpdatedPreviousAttributes.Builder.() -> kotlin.Unit = {},
+            ): WebhookEvent.HutUpdatedPreviousAttributes {
+                val given = WebhookEvent.HutUpdatedPreviousAttributes.Builder().apply(optional)
+                return WebhookEvent.HutUpdatedPreviousAttributes(
+                    count = given.slot0,
+                    settable1 = given.slot1,
+                    season = given.slot2,
+                    old = given.slot3,
+                )
+            }
+        }
+    }
+
+    /**
+     * Serializer reads an event as the class its `type` names, or as [Unknown] for a type this
+     * build does not know and for a payload the class's types do not read, and writes it as the
+     * envelope it was delivered in.
+     */
+    internal object Serializer : kotlinx.serialization.KSerializer<WebhookEvent> {
+        /**
+         * The envelope's members in the order the contract declares them, which an event is written
+         * in.
+         */
+        private val order: kotlin.collections.List<kotlin.String> =
+            kotlin.collections.listOf("id", "object", "type", "created_at", "data", "request_id", "livemode", "legacy_id")
+
+        override val descriptor: kotlinx.serialization.descriptors.SerialDescriptor =
+            kotlinx.serialization.descriptors.buildClassSerialDescriptor("com.mountaya.admin.generated.WebhookEvent")
+
+        override fun serialize(
+            encoder: kotlinx.serialization.encoding.Encoder,
+            value: WebhookEvent,
+        ) {
+            val output =
+                encoder as? kotlinx.serialization.json.JsonEncoder
+                    ?: throw kotlinx.serialization.SerializationException("WebhookEvent is written to JSON only.")
+            val written =
+                when (value) {
+                    is WebhookEvent.HutCreated ->
+                        output.json.encodeToJsonElement(WebhookEvent.Payload.serializer(AdminSchema.HutEventObject.serializer(), Unread), value.payload)
+                    is WebhookEvent.HutUpdated ->
+                        output.json.encodeToJsonElement(WebhookEvent.Payload.serializer(AdminSchema.HutEventObject.serializer(), WebhookEvent.HutUpdatedPreviousAttributes.serializer()), value.payload)
+                    is WebhookEvent.Unknown -> {
+                        output.encodeJsonElement(output.json.encodeToJsonElement(AdminSchema.WebhookEvent.serializer(), value.event))
+                        return
+                    }
+                    else -> throw kotlinx.serialization.SerializationException("WebhookEvent has no class of this kind.")
+                }
+            val members =
+                written as? kotlinx.serialization.json.JsonObject
+                    ?: throw kotlinx.serialization.SerializationException("A webhook event is written as a JSON object.")
+            val type = output.json.encodeToJsonElement(AdminSchema.WebhookEventType.serializer(), value.type)
+            output.encodeJsonElement(
+                kotlinx.serialization.json.JsonObject(
+                    kotlin.collections.buildMap<kotlin.String, kotlinx.serialization.json.JsonElement> {
+                        for (name in order) {
+                            if (name == "type") put(name, type) else members[name]?.let { put(name, it) }
+                        }
+                    },
+                ),
+            )
+        }
+
+        override fun deserialize(decoder: kotlinx.serialization.encoding.Decoder): WebhookEvent {
+            val input =
+                decoder as? kotlinx.serialization.json.JsonDecoder
+                    ?: throw kotlinx.serialization.SerializationException("WebhookEvent is read from JSON only.")
+            val json =
+                input.decodeJsonElement() as? kotlinx.serialization.json.JsonObject
+                    ?: throw kotlinx.serialization.SerializationException("A webhook event is a JSON object.")
+            val type =
+                (json["type"] as? kotlinx.serialization.json.JsonPrimitive)?.takeIf { it.isString }?.content
+                    ?: throw kotlinx.serialization.SerializationException("A webhook event names its type in a string `type`.")
+            val typed =
+                when (type) {
+                    "hut.created" ->
+                        readOrNull {
+                            WebhookEvent.HutCreated(
+                                input.json.decodeFromJsonElement(WebhookEvent.Payload.serializer(AdminSchema.HutEventObject.serializer(), Unread), unread(json)),
+                            )
+                        }
+                    "hut.updated" ->
+                        readOrNull {
+                            WebhookEvent.HutUpdated(
+                                input.json.decodeFromJsonElement(WebhookEvent.Payload.serializer(AdminSchema.HutEventObject.serializer(), WebhookEvent.HutUpdatedPreviousAttributes.serializer()), json),
+                            )
+                        }
+                    else -> null
+                }
+            return typed ?: WebhookEvent.Unknown(untyped(input, json, type))
+        }
+
+        /** Returns the event [read] reads, or null where its payload does not read as its types say. */
+        private inline fun readOrNull(read: () -> WebhookEvent): WebhookEvent? =
+            try {
+                read()
+            } catch (unread: kotlin.IllegalArgumentException) {
+                null
+            }
+
+        /**
+         * Returns [event] without its `data.previous_attributes`, which a type whose change moves
+         * no field never reads.
+         */
+        private fun unread(event: kotlinx.serialization.json.JsonObject): kotlinx.serialization.json.JsonObject {
+            val data = event["data"] as? kotlinx.serialization.json.JsonObject ?: return event
+            if ("previous_attributes" !in data) return event
+            return kotlinx.serialization.json.JsonObject(event + ("data" to kotlinx.serialization.json.JsonObject(data - "previous_attributes")))
+        }
+
+        /**
+         * Returns an event this build cannot type as the envelope: as the envelope's own types read
+         * it, or, where they do not read its object either, with its object and its previous
+         * attributes as they arrived. It throws where the body holds no envelope at all.
+         */
+        @kotlin.Suppress("DEPRECATION")
+        private fun untyped(
+            input: kotlinx.serialization.json.JsonDecoder,
+            json: kotlinx.serialization.json.JsonObject,
+            type: kotlin.String,
+        ): AdminSchema.WebhookEvent {
+            try {
+                return input.json.decodeFromJsonElement(AdminSchema.WebhookEvent.serializer(), json)
+            } catch (unread: kotlin.IllegalArgumentException) {
+            }
+            val payload =
+                input.json.decodeFromJsonElement(
+                    WebhookEvent.Payload.serializer(
+                        kotlinx.serialization.json.JsonElement.serializer(),
+                        kotlinx.serialization.builtins.MapSerializer(kotlinx.serialization.serializer<kotlin.String>(), kotlinx.serialization.json.JsonElement.serializer()),
+                    ),
+                    json,
+                )
+            val arrived =
+                payload.data.`object` as? kotlinx.serialization.json.JsonObject
+                    ?: throw kotlinx.serialization.SerializationException("A webhook event's object is a JSON object.")
+            val data =
+                AdminSchema.WebhookEventData(`object` = AdminSchema.WebhookEventObject.Unknown(arrived)) {
+                    payload.data.previous_attributes?.let { this.previous_attributes = it }
+                }
+            return AdminSchema.WebhookEvent(
+                id = payload.id,
+                type = AdminSchema.WebhookEventType(type),
+                created_at = payload.created_at,
+                data = data,
+                request_id = payload.request_id,
+            ) {
+                payload.livemode?.let { this.livemode = it }
+                payload.legacy_id?.let { this.legacy_id = it }
+            }
+        }
+
+        /**
+         * Unread is what a type whose change moves no field reads its previous attributes with:
+         * nothing, since they are never read.
+         */
+        private object Unread : kotlinx.serialization.KSerializer<kotlin.Nothing> {
+            override val descriptor: kotlinx.serialization.descriptors.SerialDescriptor =
+                kotlinx.serialization.descriptors.buildClassSerialDescriptor("kotlin.Nothing")
+
+            override fun serialize(
+                encoder: kotlinx.serialization.encoding.Encoder,
+                value: kotlin.Nothing,
+            ) {
+            }
+
+            override fun deserialize(decoder: kotlinx.serialization.encoding.Decoder): kotlin.Nothing =
+                throw kotlinx.serialization.SerializationException("A type whose change moves no field reads no previous attributes.")
+        }
+    }
+}

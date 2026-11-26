@@ -1,0 +1,128 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew :mountaya-geo:generateElements` from sdk/elements/tokens.json of
+// mountaya/schemas, contract v0.8.0, model digest
+// 6c1cf0ef10563c2bb2d6c6250bbb734b976eeea9bcbd280d67325516b4deb15c.
+// A value that is wrong here is a defect in the contract's table, and the next print overwrites
+// any edit.
+
+package com.mountaya.geo.generated
+
+import com.mountaya.geo.HexColor
+import com.mountaya.geo.ThemeToken
+import kotlin.reflect.KProperty1
+
+/**
+ * ElementTokens is every colour and dash the elements are drawn with, as the contract's tokens
+ * table names them, each spelled in camel case: `control-bg` is `controlBg`. The sizes, the radii,
+ * the fonts and the geometry of the shadows are each platform's own and are not here.
+ *
+ * A consumer restyles the elements by copying [standard], every token as the table states it, with
+ * the tokens it changes: `ElementTokens.standard.copy { accent = ... }`. Two are equal where every
+ * token is.
+ */
+public class ElementTokens private constructor(
+    /** accent is the colour token `accent`. */
+    public val accent: ThemeToken<HexColor>,
+    /** controlBg is the colour token `control-bg`. */
+    public val controlBg: ThemeToken<HexColor>,
+    /** profileLitFill is the colour token `profile-lit-fill`. */
+    public val profileLitFill: ThemeToken<HexColor>,
+    /** controlShadow is the shadow token `control-shadow`: each layer's colour, in drawing order. */
+    public val controlShadow: ThemeToken<List<HexColor>>,
+    /**
+     * profileCursorDash is the dash token `profile-cursor-dash`: lengths, alternately drawn and
+     * skipped.
+     */
+    public val profileCursorDash: ThemeToken<List<Double>>,
+) {
+    /** copy answers these tokens with the ones [edit] sets on the [Builder] it is handed, every other kept. */
+    public fun copy(edit: Builder.() -> Unit): ElementTokens = Builder(this).apply(edit).build()
+
+    /** Builder holds every token of the tokens [copy] starts from, each one settable. */
+    public class Builder internal constructor(
+        tokens: ElementTokens,
+    ) {
+        /** accent is the colour token `accent`. */
+        public var accent: ThemeToken<HexColor> = tokens.accent
+        /** controlBg is the colour token `control-bg`. */
+        public var controlBg: ThemeToken<HexColor> = tokens.controlBg
+        /** profileLitFill is the colour token `profile-lit-fill`. */
+        public var profileLitFill: ThemeToken<HexColor> = tokens.profileLitFill
+        /** controlShadow is the shadow token `control-shadow`: each layer's colour, in drawing order. */
+        public var controlShadow: ThemeToken<List<HexColor>> = tokens.controlShadow
+        /**
+         * profileCursorDash is the dash token `profile-cursor-dash`: lengths, alternately drawn and
+         * skipped.
+         */
+        public var profileCursorDash: ThemeToken<List<Double>> = tokens.profileCursorDash
+
+        internal fun build(): ElementTokens =
+            ElementTokens(
+                accent = accent,
+                controlBg = controlBg,
+                profileLitFill = profileLitFill,
+                controlShadow = controlShadow,
+                profileCursorDash = profileCursorDash,
+            )
+    }
+
+    override fun equals(other: Any?): Boolean =
+        other is ElementTokens &&
+            accent == other.accent &&
+            controlBg == other.controlBg &&
+            profileLitFill == other.profileLitFill &&
+            controlShadow == other.controlShadow &&
+            profileCursorDash == other.profileCursorDash
+
+    override fun hashCode(): Int {
+        var hash = 0
+        hash = 31 * hash + accent.hashCode()
+        hash = 31 * hash + controlBg.hashCode()
+        hash = 31 * hash + profileLitFill.hashCode()
+        hash = 31 * hash + controlShadow.hashCode()
+        hash = 31 * hash + profileCursorDash.hashCode()
+        return hash
+    }
+
+    override fun toString(): String =
+        "ElementTokens(" +
+            "accent=" + accent +
+            ", controlBg=" + controlBg +
+            ", profileLitFill=" + profileLitFill +
+            ", controlShadow=" + controlShadow +
+            ", profileCursorDash=" + profileCursorDash +
+            ")"
+
+    public companion object {
+        /** standard is every token as the contract's tokens table states it. */
+        public val standard: ElementTokens =
+            ElementTokens(
+                accent = ThemeToken(light = HexColor(hex = "#1c7ed6")),
+                controlBg = ThemeToken(light = HexColor(hex = "#ffffff"), dark = HexColor(hex = "#25262b")),
+                profileLitFill = ThemeToken(light = HexColor(hex = "#e9501e", opacity = 0.12)),
+                controlShadow = ThemeToken(light = listOf(HexColor(hex = "#000000", opacity = 0.05), HexColor(hex = "#000000", opacity = 0.1))),
+                profileCursorDash = ThemeToken(light = listOf(3.0, 3.5)),
+            )
+
+        /** colorTokens is each colour token's member, by the name the table gives it. */
+        internal val colorTokens: Map<String, KProperty1<ElementTokens, ThemeToken<HexColor>>> =
+            mapOf(
+                "accent" to ElementTokens::accent,
+                "control-bg" to ElementTokens::controlBg,
+                "profile-lit-fill" to ElementTokens::profileLitFill,
+            )
+
+        /** shadowTokens is each shadow token's member, by the name the table gives it. */
+        internal val shadowTokens: Map<String, KProperty1<ElementTokens, ThemeToken<List<HexColor>>>> =
+            mapOf(
+                "control-shadow" to ElementTokens::controlShadow,
+            )
+
+        /** dashTokens is each dash token's member, by the name the table gives it. */
+        internal val dashTokens: Map<String, KProperty1<ElementTokens, ThemeToken<List<Double>>>> =
+            mapOf(
+                "profile-cursor-dash" to ElementTokens::profileCursorDash,
+            )
+    }
+}

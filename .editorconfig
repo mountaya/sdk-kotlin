@@ -1,0 +1,28 @@
+# >>> mountaya-ai: editor defaults, rendered by ai/scripts/apply.mjs
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{diff,md}]
+trim_trailing_whitespace = false
+
+[*.go]
+indent_style = tab
+
+[Makefile]
+indent_style = tab
+# <<< mountaya-ai
+
+# ktlint reads its style from here.
+[*.{kt,kts}]
+indent_size = 4
+max_line_length = 120
+ktlint_code_style = ktlint_official
+# A composable is named after what it draws, as Compose names its own: `MapView`.
+ktlint_function_naming_ignore_when_annotated_with = Composable

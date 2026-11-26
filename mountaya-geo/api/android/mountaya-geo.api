@@ -1,0 +1,4147 @@
+public final class com/mountaya/geo/AccuracyBoundsKt {
+	public static final field LOCATE_MAX_ZOOM D
+	public static final fun accuracyBounds (Ljava/util/List;D)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/ActivityMarkerGlyphKt {
+	public static final field ACTIVITY_MARKER_PREFIX Ljava/lang/String;
+	public static final fun activityMarkerGlyph-q8Fr0-I (Ljava/lang/String;Lcom/mountaya/geo/GlyphSet;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/AltitudeRange {
+	public fun <init> (DD)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMax ()D
+	public final fun getMin ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/AltitudeToZoomKt {
+	public static final fun altitudeToZoom (DDD)D
+	public static synthetic fun altitudeToZoom$default (DDDILjava/lang/Object;)D
+}
+
+public final class com/mountaya/geo/AmenityFilter {
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAvailable ()Ljava/util/List;
+	public final fun getShown ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/AmenityFilterKt {
+	public static final fun amenityFilter (Ljava/util/List;Ljava/util/List;Lcom/mountaya/geo/ElementsScope;)Lcom/mountaya/geo/AmenityFilter;
+}
+
+public final class com/mountaya/geo/AmenityGlyphKt {
+	public static final field AMENITY_GLYPH_PREFIX Ljava/lang/String;
+	public static final fun amenityGlyph-IfE82Ic (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun getWaypointAmenities ()Ljava/util/List;
+}
+
+public final class com/mountaya/geo/AmenityNameKt {
+	public static final fun amenityName-cEIPMeY (Ljava/lang/String;Lcom/mountaya/geo/ElementsScope;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/AmenityStack {
+	public fun <init> (Lcom/mountaya/geo/CurvePin;Ljava/util/List;ILjava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCounted ()I
+	public final fun getNamed ()Ljava/util/List;
+	public final fun getPin ()Lcom/mountaya/geo/CurvePin;
+	public final fun getShown ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/AmenityStacksKt {
+	public static final field DEFAULT_AMENITY_STACK_MAX D
+	public static final fun amenityStacks (Ljava/util/List;D)Ljava/util/List;
+	public static synthetic fun amenityStacks$default (Ljava/util/List;DILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/AnchoredDomainKt {
+	public static final fun anchoredDomain (Lcom/mountaya/geo/ElevationSeries;Lcom/mountaya/geo/ProfileAnchor;Lcom/mountaya/geo/ProfileRange;)Lcom/mountaya/geo/ElevationDomain;
+	public static synthetic fun anchoredDomain$default (Lcom/mountaya/geo/ElevationSeries;Lcom/mountaya/geo/ProfileAnchor;Lcom/mountaya/geo/ProfileRange;ILjava/lang/Object;)Lcom/mountaya/geo/ElevationDomain;
+}
+
+public final class com/mountaya/geo/AngleUnit : java/lang/Enum {
+	public static final field Degree Lcom/mountaya/geo/AngleUnit;
+	public static final field Radian Lcom/mountaya/geo/AngleUnit;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/AngleUnit;
+	public static fun values ()[Lcom/mountaya/geo/AngleUnit;
+}
+
+public final class com/mountaya/geo/ApplySegmentGroupsKt {
+	public static final field SEGMENT_GROUP_ID_PREFIX Ljava/lang/String;
+	public static final fun applySegmentGroups (Ljava/util/List;Ljava/util/List;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/AspectCardinal : java/lang/Enum {
+	public static final field East Lcom/mountaya/geo/AspectCardinal;
+	public static final field North Lcom/mountaya/geo/AspectCardinal;
+	public static final field NorthEast Lcom/mountaya/geo/AspectCardinal;
+	public static final field NorthWest Lcom/mountaya/geo/AspectCardinal;
+	public static final field South Lcom/mountaya/geo/AspectCardinal;
+	public static final field SouthEast Lcom/mountaya/geo/AspectCardinal;
+	public static final field SouthWest Lcom/mountaya/geo/AspectCardinal;
+	public static final field West Lcom/mountaya/geo/AspectCardinal;
+	public final fun getCode ()Ljava/lang/String;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getHeading ()D
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/AspectCardinal;
+	public static fun values ()[Lcom/mountaya/geo/AspectCardinal;
+}
+
+public final class com/mountaya/geo/AspectCardinalKt {
+	public static final fun aspectCardinal (D)Lcom/mountaya/geo/AspectCardinal;
+}
+
+public final class com/mountaya/geo/AssignDistinctColorsKt {
+	public static final fun assignDistinctColors (ILjava/util/List;Ljava/util/List;)Ljava/util/List;
+	public static synthetic fun assignDistinctColors$default (ILjava/util/List;Ljava/util/List;ILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/AxisLabelBox {
+	public fun <init> (Ljava/lang/String;DD)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getLeft ()D
+	public final fun getRight ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/BadgeFallbackKt {
+	public static final fun badgeFallback (Ljava/lang/String;Lcom/mountaya/geo/BadgeSurface;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/BadgeSurface : java/lang/Enum {
+	public static final field Cell Lcom/mountaya/geo/BadgeSurface;
+	public static final field Labelled Lcom/mountaya/geo/BadgeSurface;
+	public static final field Stack Lcom/mountaya/geo/BadgeSurface;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/BadgeSurface;
+	public static fun values ()[Lcom/mountaya/geo/BadgeSurface;
+}
+
+public final class com/mountaya/geo/BearingDegreesKt {
+	public static final fun bearingDegrees (Ljava/util/List;Ljava/util/List;)D
+}
+
+public final class com/mountaya/geo/BoundsOfKt {
+	public static final fun boundsOf (Ljava/util/List;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/BoundsWithPixelPaddingKt {
+	public static final fun boundsWithPixelPadding (Ljava/util/List;Lcom/mountaya/geo/PixelPadding;DD)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/BuildElevationSeriesKt {
+	public static final field MAX_PROFILE_POINTS I
+	public static final fun buildElevationSeries (Lcom/mountaya/client/GeoJsonGeometry;I)Lcom/mountaya/geo/ElevationSeries;
+	public static synthetic fun buildElevationSeries$default (Lcom/mountaya/client/GeoJsonGeometry;IILjava/lang/Object;)Lcom/mountaya/geo/ElevationSeries;
+}
+
+public final class com/mountaya/geo/BuildInfoBandsKt {
+	public static final fun buildInfoBands (Ljava/util/List;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/CameraForBoundsKt {
+	public static final fun cameraForBounds (Ljava/util/List;Ljava/util/List;Lcom/mountaya/geo/ZoomBounds;Lcom/mountaya/geo/PixelPadding;Ljava/lang/Double;)Lcom/mountaya/geo/MapViewport;
+	public static synthetic fun cameraForBounds$default (Ljava/util/List;Ljava/util/List;Lcom/mountaya/geo/ZoomBounds;Lcom/mountaya/geo/PixelPadding;Ljava/lang/Double;ILjava/lang/Object;)Lcom/mountaya/geo/MapViewport;
+}
+
+public final class com/mountaya/geo/CameraPose {
+	public fun <init> (Ljava/util/List;DDD)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBearing ()D
+	public final fun getCenter ()Ljava/util/List;
+	public final fun getPitch ()D
+	public final fun getZoom ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/CapturesSweptViewportsKt {
+	public static final fun capturesSweptViewports (Ljava/util/List;Ljava/util/List;)Z
+}
+
+public final class com/mountaya/geo/ChainGeometryKt {
+	public static final fun chainGeometry (Ljava/util/List;)Lcom/mountaya/client/GeoJsonGeometry;
+}
+
+public final class com/mountaya/geo/ClampRangeKt {
+	public static final field MIN_RANGE_SPAN_METERS D
+	public static final fun clampRange (Lcom/mountaya/geo/ProfileRange;D)Lcom/mountaya/geo/ProfileRange;
+}
+
+public final class com/mountaya/geo/ClassifySteepnessKt {
+	public static final field STEEPNESS_OVERLAY_SLUG Ljava/lang/String;
+	public static final fun classifySteepness (D)Lcom/mountaya/geo/SteepnessClass;
+}
+
+public final class com/mountaya/geo/Climb {
+	public fun <init> (DDDDLcom/mountaya/geo/ClimbCategory;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAvgGradePercent ()D
+	public final fun getCategory ()Lcom/mountaya/geo/ClimbCategory;
+	public final fun getEndKm ()D
+	public final fun getPeakElevation ()D
+	public final fun getStartKm ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ClimbCategory : java/lang/Enum {
+	public static final field Category1 Lcom/mountaya/geo/ClimbCategory;
+	public static final field Category2 Lcom/mountaya/geo/ClimbCategory;
+	public static final field Category3 Lcom/mountaya/geo/ClimbCategory;
+	public static final field Category4 Lcom/mountaya/geo/ClimbCategory;
+	public static final field HorsCategorie Lcom/mountaya/geo/ClimbCategory;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMinimumScore ()D
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/ClimbCategory;
+	public static fun values ()[Lcom/mountaya/geo/ClimbCategory;
+}
+
+public final class com/mountaya/geo/ClimbCategoryForKt {
+	public static final field MIN_CLIMB_GRADE_PERCENT D
+	public static final fun climbCategoryFor (DD)Lcom/mountaya/geo/ClimbCategory;
+}
+
+public final class com/mountaya/geo/CollectionRowKt {
+	public static final fun collectionRow (Lcom/mountaya/client/generated/DataSchema$CollectionSearchResult;Ljava/lang/String;)Lcom/mountaya/geo/SearchRow;
+}
+
+public final class com/mountaya/geo/CommittedPaceKt {
+	public static final fun committedPace (Ljava/util/List;)Ljava/lang/Double;
+}
+
+public final class com/mountaya/geo/ConvertAngleKt {
+	public static final fun convertAngle (DLcom/mountaya/geo/AngleUnit;Lcom/mountaya/geo/AngleUnit;)D
+}
+
+public final class com/mountaya/geo/ConvertDataSizeKt {
+	public static final fun convertDataSize (DLcom/mountaya/geo/DataSizeUnit;Lcom/mountaya/geo/DataSizeUnit;)D
+}
+
+public final class com/mountaya/geo/ConvertDurationKt {
+	public static final fun convertDuration (DLcom/mountaya/geo/DurationUnit;Lcom/mountaya/geo/DurationUnit;)D
+}
+
+public final class com/mountaya/geo/ConvertLengthKt {
+	public static final fun convertLength (DLcom/mountaya/geo/LengthUnit;Lcom/mountaya/geo/LengthUnit;)D
+}
+
+public final class com/mountaya/geo/ConvertProportionKt {
+	public static final fun convertProportion (DLcom/mountaya/geo/ProportionUnit;Lcom/mountaya/geo/ProportionUnit;)D
+}
+
+public final class com/mountaya/geo/ConvertSlopeKt {
+	public static final fun convertSlope (DLcom/mountaya/geo/SlopeUnit;Lcom/mountaya/geo/SlopeUnit;)D
+}
+
+public final class com/mountaya/geo/ConvertSpeedKt {
+	public static final fun convertSpeed (DLcom/mountaya/geo/SpeedUnit;Lcom/mountaya/geo/SpeedUnit;)D
+}
+
+public final class com/mountaya/geo/ConvertTemperatureKt {
+	public static final fun convertTemperature (DLcom/mountaya/geo/TemperatureUnit;Lcom/mountaya/geo/TemperatureUnit;)D
+}
+
+public final class com/mountaya/geo/CountedTextKt {
+	public static final fun countedText-4iIbNF4 (Lkotlinx/serialization/json/JsonElement;ILjava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/CullCrowdedLabelsKt {
+	public static final field AXIS_LABEL_GUTTER D
+	public static final fun cullCrowdedLabels (Ljava/util/List;D)Ljava/util/List;
+	public static synthetic fun cullCrowdedLabels$default (Ljava/util/List;DILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/CumulativeMetersKt {
+	public static final fun cumulativeMeters (Ljava/util/List;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/CurveColor : com/mountaya/geo/ProfileSpan {
+	public fun <init> (DDLjava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public fun getFrom ()D
+	public fun getTo ()D
+	public fun hashCode ()I
+	public fun spanning (DD)Lcom/mountaya/geo/CurveColor;
+	public synthetic fun spanning (DD)Lcom/mountaya/geo/ProfileSpan;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/CurveCutoff {
+	public fun <init> (Ljava/lang/String;Lcom/mountaya/geo/ProfilePlace;DDLkotlin/time/Instant;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCutoffAt ()Lkotlin/time/Instant;
+	public final fun getDistance ()D
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getPlace ()Lcom/mountaya/geo/ProfilePlace;
+	public final fun getX ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/CurveDivider {
+	public fun <init> (Ljava/lang/String;Lcom/mountaya/geo/ProfilePlace;DDLjava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDistance ()D
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getPlace ()Lcom/mountaya/geo/ProfilePlace;
+	public final fun getX ()D
+	public final fun getY ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/CurvePin {
+	public fun <init> (Ljava/lang/String;Lcom/mountaya/geo/ProfilePlace;DDDD)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAltitude ()D
+	public final fun getDistance ()D
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getPlace ()Lcom/mountaya/geo/ProfilePlace;
+	public final fun getX ()D
+	public final fun getY ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/CurvePlacement {
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCutoffs ()Ljava/util/List;
+	public final fun getDividers ()Ljava/util/List;
+	public final fun getPins ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/CurveStop {
+	public fun <init> (DLjava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getOffset ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/CurveStopsKt {
+	public static final fun curveStops (Ljava/util/List;DLcom/mountaya/geo/ProfileRange;)Ljava/util/List;
+	public static synthetic fun curveStops$default (Ljava/util/List;DLcom/mountaya/geo/ProfileRange;ILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/DataLanguageForKt {
+	public static final fun dataLanguageFor (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/DataSizeUnit : java/lang/Enum {
+	public static final field Bit Lcom/mountaya/geo/DataSizeUnit;
+	public static final field Byte Lcom/mountaya/geo/DataSizeUnit;
+	public static final field Kibibyte Lcom/mountaya/geo/DataSizeUnit;
+	public static final field Kilobit Lcom/mountaya/geo/DataSizeUnit;
+	public static final field Kilobyte Lcom/mountaya/geo/DataSizeUnit;
+	public static final field Mebibyte Lcom/mountaya/geo/DataSizeUnit;
+	public static final field Megabit Lcom/mountaya/geo/DataSizeUnit;
+	public static final field Megabyte Lcom/mountaya/geo/DataSizeUnit;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/DataSizeUnit;
+	public static fun values ()[Lcom/mountaya/geo/DataSizeUnit;
+}
+
+public final class com/mountaya/geo/DateLength : java/lang/Enum {
+	public static final field Full Lcom/mountaya/geo/DateLength;
+	public static final field Long Lcom/mountaya/geo/DateLength;
+	public static final field Medium Lcom/mountaya/geo/DateLength;
+	public static final field Short Lcom/mountaya/geo/DateLength;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/DateLength;
+	public static fun values ()[Lcom/mountaya/geo/DateLength;
+}
+
+public final class com/mountaya/geo/DecodeElevationKt {
+	public static final fun decodeElevation-DM6dKJI (ILjava/lang/String;)Ljava/lang/Double;
+}
+
+public final class com/mountaya/geo/DescribePlaceKt {
+	public static final fun describePlace (Lcom/mountaya/client/generated/DataSchema$Place;Lcom/mountaya/geo/SearchWording;)Ljava/lang/String;
+	public static synthetic fun describePlace$default (Lcom/mountaya/client/generated/DataSchema$Place;Lcom/mountaya/geo/SearchWording;ILjava/lang/Object;)Ljava/lang/String;
+	public static final fun describePoi (Lcom/mountaya/client/generated/DataSchema$POI;Lcom/mountaya/geo/SearchWording;)Ljava/lang/String;
+	public static synthetic fun describePoi$default (Lcom/mountaya/client/generated/DataSchema$POI;Lcom/mountaya/geo/SearchWording;ILjava/lang/Object;)Ljava/lang/String;
+	public static final fun describeWay (Lcom/mountaya/client/generated/DataSchema$Way;Lcom/mountaya/geo/SearchWording;)Ljava/lang/String;
+	public static synthetic fun describeWay$default (Lcom/mountaya/client/generated/DataSchema$Way;Lcom/mountaya/geo/SearchWording;ILjava/lang/Object;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/DetectClimbsKt {
+	public static final field CLIMB_CLOSE_GRADE_PERCENT D
+	public static final field CLIMB_CLOSE_WINDOW_KM D
+	public static final field CLIMB_OPEN_GRADE_PERCENT D
+	public static final field CLIMB_OPEN_WINDOW_KM D
+	public static final field MIN_CLIMB_LENGTH_KM D
+	public static final fun detectClimbs (Ljava/util/List;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/DirectionsGeoJsonKt {
+	public static final fun directionsGeoJson (Lcom/mountaya/client/generated/DataSchema$DirectionsResult;)Lcom/mountaya/geo/GeoJsonFeatureCollection;
+}
+
+public final class com/mountaya/geo/DistanceTick {
+	public fun <init> (DDI)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFractionDigits ()I
+	public final fun getMeters ()D
+	public final fun getValue ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/DistanceTicksKt {
+	public static final field DEFAULT_DISTANCE_TICK_COUNT I
+	public static final fun distanceTicks-kPD7RAs (DDLjava/lang/String;I)Ljava/util/List;
+	public static synthetic fun distanceTicks-kPD7RAs$default (DDLjava/lang/String;IILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/DistanceToSegmentKt {
+	public static final fun distanceToSegment (Ljava/util/List;Ljava/util/List;Ljava/util/List;)D
+}
+
+public final class com/mountaya/geo/DomainRoundingStep {
+	public fun <init> (DLjava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStepMeters ()D
+	public final fun getUptoSpanMeters ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/DomainTicksKt {
+	public static final fun domainTicks (Lcom/mountaya/geo/ElevationDomain;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/DuePromptKt {
+	public static final field PROMPT_SLACK_METERS D
+	public static final fun duePrompt (Lcom/mountaya/geo/GuidancePlan;Lcom/mountaya/geo/NavigationProgress;)Lcom/mountaya/geo/GuidancePrompt;
+}
+
+public final class com/mountaya/geo/DurationSplit {
+	public fun <init> (JI)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHours ()J
+	public final fun getMinutes ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/DurationUnit : java/lang/Enum {
+	public static final field Day Lcom/mountaya/geo/DurationUnit;
+	public static final field Hour Lcom/mountaya/geo/DurationUnit;
+	public static final field Millisecond Lcom/mountaya/geo/DurationUnit;
+	public static final field Minute Lcom/mountaya/geo/DurationUnit;
+	public static final field Second Lcom/mountaya/geo/DurationUnit;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/DurationUnit;
+	public static fun values ()[Lcom/mountaya/geo/DurationUnit;
+}
+
+public final class com/mountaya/geo/EffectiveZoomBoundsKt {
+	public static final fun effectiveZoomBounds (DD)Lcom/mountaya/geo/ZoomBounds;
+}
+
+public final class com/mountaya/geo/ElementsScope {
+	public static final field Companion Lcom/mountaya/geo/ElementsScope$Companion;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getControlGlyphs ()Lcom/mountaya/geo/GlyphSet;
+	public final fun getLanguage-kv_CogA ()Ljava/lang/String;
+	public final fun getLocale ()Ljava/lang/String;
+	public final fun getMarkerGlyphs ()Lcom/mountaya/geo/GlyphSet;
+	public final fun getWords ()Lkotlinx/serialization/json/JsonObject;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun word (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ElementsScope$Companion {
+	public final fun getStandard ()Lcom/mountaya/geo/ElementsScope;
+}
+
+public final class com/mountaya/geo/ElementsScopeStatement {
+	public fun <init> ()V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/geo/WordOverrides;Lcom/mountaya/geo/GlyphSet;Lcom/mountaya/geo/GlyphSet;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/geo/WordOverrides;Lcom/mountaya/geo/GlyphSet;Lcom/mountaya/geo/GlyphSet;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getControlGlyphs ()Lcom/mountaya/geo/GlyphSet;
+	public final fun getLanguage-P9uqyHg ()Ljava/lang/String;
+	public final fun getLocale ()Ljava/lang/String;
+	public final fun getMarkerGlyphs ()Lcom/mountaya/geo/GlyphSet;
+	public final fun getWords ()Lcom/mountaya/geo/WordOverrides;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ElevationDomain {
+	public fun <init> (DD)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMax ()D
+	public final fun getMin ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ElevationEncoding {
+	public static final field Companion Lcom/mountaya/geo/ElevationEncoding$Companion;
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lcom/mountaya/geo/ElevationEncoding;
+	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/lang/String;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ElevationEncoding$Companion {
+	public final fun getMapbox-UgFkazo ()Ljava/lang/String;
+	public final fun getTerrarium-UgFkazo ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ElevationPoint {
+	public fun <init> (DDLjava/util/List;I)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDistance ()D
+	public final fun getElevation ()D
+	public final fun getIndex ()I
+	public final fun getLngLat ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ElevationSeries {
+	public fun <init> (Ljava/util/List;DLjava/lang/Double;Ljava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHasElevation ()Z
+	public final fun getMaxElevation ()Ljava/lang/Double;
+	public final fun getMinElevation ()Ljava/lang/Double;
+	public final fun getPoints ()Ljava/util/List;
+	public final fun getTotalDistance ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ElevationSource {
+	public synthetic fun <init> (Ljava/lang/String;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEncoding-QRiYqSs ()Ljava/lang/String;
+	public final fun getTileSize ()I
+	public final fun getZoom ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ElevationTile {
+	public fun <init> (Lcom/mountaya/geo/ElevationTile$Address;I[I)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAddress ()Lcom/mountaya/geo/ElevationTile$Address;
+	public final fun getPixels ()[I
+	public final fun getSize ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ElevationTile$Address {
+	public fun <init> (III)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getX ()I
+	public final fun getY ()I
+	public final fun getZ ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ElevationTilesAtKt {
+	public static final field ELEVATION_NEIGHBOUR_DEGREES D
+	public static final fun elevationTilesAt (Ljava/util/List;Lcom/mountaya/geo/ElevationSource;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/ExtentDomainKt {
+	public static final field MIN_DOMAIN_SPAN_METERS D
+	public static final fun extentDomain (Ljava/lang/Double;Ljava/lang/Double;)Lcom/mountaya/geo/ElevationDomain;
+	public static final fun getDomainRoundingSteps ()Ljava/util/List;
+	public static final fun getEmptyElevationDomain ()Lcom/mountaya/geo/ElevationDomain;
+}
+
+public final class com/mountaya/geo/FeaturePropertiesKt {
+	public static final field FEATURE_COLOR_PROPERTY Ljava/lang/String;
+	public static final field FEATURE_INDEX_PROPERTY Ljava/lang/String;
+	public static final field FEATURE_KIND_PROPERTY Ljava/lang/String;
+	public static final field FEATURE_WIDTH_PROPERTY Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FilledTextKt {
+	public static final fun filledText (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public static final fun filledText (Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FindOverlayKt {
+	public static final field ENRICHMENT_CATEGORY_SLUG Ljava/lang/String;
+	public static final fun findOverlay (Lcom/mountaya/client/generated/TileSchema$Layers;Ljava/lang/String;Lcom/mountaya/geo/OverlayKind;)Lcom/mountaya/client/generated/TileSchema$Overlay;
+	public static synthetic fun findOverlay$default (Lcom/mountaya/client/generated/TileSchema$Layers;Ljava/lang/String;Lcom/mountaya/geo/OverlayKind;ILjava/lang/Object;)Lcom/mountaya/client/generated/TileSchema$Overlay;
+	public static final fun overlayKindOf (Lcom/mountaya/client/generated/TileSchema$CategoryOverlays;)Lcom/mountaya/geo/OverlayKind;
+}
+
+public final class com/mountaya/geo/FollowedRoute {
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLine ()Ljava/util/List;
+	public final fun getMeasured ()Ljava/util/List;
+	public final fun getSteps ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FollowedRouteOfKt {
+	public static final fun followedRouteOf (Lcom/mountaya/geo/NavigationRoute;)Lcom/mountaya/geo/FollowedRoute;
+}
+
+public final class com/mountaya/geo/FormatAltitudeRangeKt {
+	public static final fun formatAltitudeRange (Ljava/lang/Double;Ljava/lang/Double;Lcom/mountaya/geo/UnitPreferences;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatDateTimeKt {
+	public static final fun formatDateTime (Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/geo/DateLength;Lcom/mountaya/geo/TimeLength;)Ljava/lang/String;
+	public static synthetic fun formatDateTime$default (Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/geo/DateLength;Lcom/mountaya/geo/TimeLength;ILjava/lang/Object;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatDistanceKt {
+	public static final fun formatDistance (Ljava/lang/Double;Lcom/mountaya/geo/UnitPreferences;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatDistanceTickKt {
+	public static final fun formatDistanceTick (Lcom/mountaya/geo/DistanceTick;Lcom/mountaya/geo/UnitPreferences;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatDurationKt {
+	public static final fun formatDuration (Ljava/lang/Double;Lcom/mountaya/geo/UnitPreferences;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatElevationKt {
+	public static final fun formatElevation (Ljava/lang/Double;Lcom/mountaya/geo/UnitPreferences;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatHumidityKt {
+	public static final fun formatHumidity (Ljava/lang/Double;Lcom/mountaya/geo/UnitPreferences;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatLngLatKt {
+	public static final fun formatLngLat (Ljava/util/List;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatNumberKt {
+	public static final fun formatNumber (DLjava/lang/String;I)Ljava/lang/String;
+	public static synthetic fun formatNumber$default (DLjava/lang/String;IILjava/lang/Object;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatPaceClockKt {
+	public static final fun formatPaceClock (Ljava/lang/Double;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatSlopeKt {
+	public static final fun formatSlope (Ljava/lang/Double;Lcom/mountaya/geo/UnitPreferences;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatSnowfallKt {
+	public static final fun formatSnowfall (Ljava/lang/Double;Lcom/mountaya/geo/UnitPreferences;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatSpeedKt {
+	public static final fun formatSpeed (Ljava/lang/Double;Lcom/mountaya/geo/UnitPreferences;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/FormatTemperatureKt {
+	public static final fun formatTemperature (Ljava/lang/Double;Lcom/mountaya/geo/UnitPreferences;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GeoJsonFeature {
+	public fun <init> (Lcom/mountaya/client/GeoJsonGeometry;Lkotlinx/serialization/json/JsonObject;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGeometry ()Lcom/mountaya/client/GeoJsonGeometry;
+	public final fun getProperties ()Lkotlinx/serialization/json/JsonObject;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GeoJsonFeatureCollection {
+	public fun <init> (Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFeatures ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GeolocateControlEngine : java/lang/AutoCloseable {
+	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mountaya/geo/GeolocateControlTarget;)V
+	public synthetic fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mountaya/geo/GeolocateControlTarget;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun configure (Lcom/mountaya/geo/GeolocateControlTarget;)V
+	public final fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun locate (Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun locate$default (Lcom/mountaya/geo/GeolocateControlEngine;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+}
+
+public final class com/mountaya/geo/GeolocateControlState {
+	public fun <init> ()V
+	public fun <init> (ZZZ)V
+	public synthetic fun <init> (ZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public final fun isBlocked ()Z
+	public final fun isBusy ()Z
+	public final fun isLive ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/GeolocateControlTarget {
+	public abstract fun isLocationRefused (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun locate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/mountaya/geo/GlyphDrawing {
+	public static final field Companion Lcom/mountaya/geo/GlyphDrawing$Companion;
+	public fun <init> (Ljava/util/List;Ljava/util/List;DLcom/mountaya/geo/GlyphDrawing$Shadow;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;DLcom/mountaya/geo/GlyphDrawing$Shadow;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOpacity ()D
+	public final fun getShadow ()Lcom/mountaya/geo/GlyphDrawing$Shadow;
+	public final fun getShapes ()Ljava/util/List;
+	public final fun getViewBox ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GlyphDrawing$Companion {
+	public final fun getArtwork ()Ljava/util/Map;
+}
+
+public final class com/mountaya/geo/GlyphDrawing$GradientStop {
+	public fun <init> (DLcom/mountaya/geo/HexColor;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Lcom/mountaya/geo/HexColor;
+	public final fun getOffset ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/GlyphDrawing$Paint {
+}
+
+public final class com/mountaya/geo/GlyphDrawing$Paint$Color : com/mountaya/geo/GlyphDrawing$Paint {
+	public fun <init> (Lcom/mountaya/geo/HexColor;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Lcom/mountaya/geo/HexColor;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GlyphDrawing$Paint$LinearGradient : com/mountaya/geo/GlyphDrawing$Paint {
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFrom ()Ljava/util/List;
+	public final fun getStops ()Ljava/util/List;
+	public final fun getTo ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GlyphDrawing$Paint$Token : com/mountaya/geo/GlyphDrawing$Paint {
+	public fun <init> (Lkotlin/reflect/KProperty1;D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOpacity ()D
+	public final fun getToken ()Lkotlin/reflect/KProperty1;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GlyphDrawing$PaintedShape {
+	public fun <init> (Ljava/lang/String;Lcom/mountaya/geo/GlyphDrawing$Paint;Lcom/mountaya/geo/GlyphDrawing$Paint;Ljava/lang/Double;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/mountaya/geo/GlyphDrawing$Paint;Lcom/mountaya/geo/GlyphDrawing$Paint;Ljava/lang/Double;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFill ()Lcom/mountaya/geo/GlyphDrawing$Paint;
+	public final fun getMarkup ()Ljava/lang/String;
+	public final fun getStroke ()Lcom/mountaya/geo/GlyphDrawing$Paint;
+	public final fun getStrokeWidth ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GlyphDrawing$Shadow {
+	public fun <init> (DDDLcom/mountaya/geo/HexColor;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBlur ()D
+	public final fun getColor ()Lcom/mountaya/geo/HexColor;
+	public final fun getDx ()D
+	public final fun getDy ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GlyphPaintKt {
+	public static final fun glyphPaint (Lcom/mountaya/geo/GlyphShape;Lcom/mountaya/geo/GlyphSet;)Lcom/mountaya/geo/ShapePaint;
+}
+
+public final class com/mountaya/geo/GlyphSet {
+	public static final field Companion Lcom/mountaya/geo/GlyphSet$Companion;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMarkup ()Ljava/util/Map;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getPaint ()Lcom/mountaya/geo/GlyphSet$Paint;
+	public final fun getStrokeWidth ()D
+	public final fun getViewBox ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GlyphSet$Companion {
+	public final fun chaining (Ljava/util/List;)Lcom/mountaya/geo/GlyphSet;
+	public final fun getControl ()Lcom/mountaya/geo/GlyphSet;
+	public final fun getMarker ()Lcom/mountaya/geo/GlyphSet;
+	public final fun of (Ljava/lang/String;Lcom/mountaya/geo/GlyphSet$Paint;DDLjava/util/Map;)Lcom/mountaya/geo/GlyphSet;
+	public static synthetic fun of$default (Lcom/mountaya/geo/GlyphSet$Companion;Ljava/lang/String;Lcom/mountaya/geo/GlyphSet$Paint;DDLjava/util/Map;ILjava/lang/Object;)Lcom/mountaya/geo/GlyphSet;
+}
+
+public final class com/mountaya/geo/GlyphSet$Paint : java/lang/Enum {
+	public static final field Fill Lcom/mountaya/geo/GlyphSet$Paint;
+	public static final field Stroke Lcom/mountaya/geo/GlyphSet$Paint;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/GlyphSet$Paint;
+	public static fun values ()[Lcom/mountaya/geo/GlyphSet$Paint;
+}
+
+public final class com/mountaya/geo/GlyphShape {
+	public fun <init> (Ljava/lang/String;Ljava/util/Map;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAttributes ()Ljava/util/Map;
+	public final fun getTag ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GradeAtKt {
+	public static final fun gradeAt (Ljava/util/List;D)Ljava/lang/Double;
+}
+
+public final class com/mountaya/geo/GroundMetersPerPixelKt {
+	public static final field WEB_MERCATOR_CIRCUMFERENCE_METERS D
+	public static final field WEB_MERCATOR_MAX_LATITUDE D
+	public static final field WEB_MERCATOR_TILE_SIZE_PIXELS D
+	public static final fun groundMetersPerPixel (DD)D
+}
+
+public final class com/mountaya/geo/GuidancePlan {
+	public fun <init> (Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSteps ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GuidancePlanOfKt {
+	public static final field PROMPT_METERS D
+	public static final fun guidancePlanOf (Lcom/mountaya/geo/FollowedRoute;)Lcom/mountaya/geo/GuidancePlan;
+}
+
+public final class com/mountaya/geo/GuidancePrompt {
+	public fun <init> (ILcom/mountaya/geo/NavigationInstruction;D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()I
+	public final fun getInstruction ()Lcom/mountaya/geo/NavigationInstruction;
+	public final fun getMeters ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/GuidanceStep {
+	public fun <init> (DLcom/mountaya/geo/NavigationInstruction;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getInstruction ()Lcom/mountaya/geo/NavigationInstruction;
+	public final fun getMeters ()D
+	public final fun getPrompts ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/HaversineMetersKt {
+	public static final field EARTH_RADIUS_METERS D
+	public static final field METERS_PER_DEGREE_MEAN_SPHERE D
+	public static final fun haversineMeters (Ljava/util/List;Ljava/util/List;)D
+}
+
+public final class com/mountaya/geo/HexColor {
+	public fun <init> (Ljava/lang/String;D)V
+	public synthetic fun <init> (Ljava/lang/String;DILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHex ()Ljava/lang/String;
+	public final fun getOpacity ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/HighlightPart {
+	public fun <init> (Ljava/lang/String;Z)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMatch ()Z
+	public final fun getText ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/HighlightPartsKt {
+	public static final fun highlightParts (Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/HighlightRangesKt {
+	public static final fun highlightRanges (Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/HoveredItinerary {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSegmentId ()Ljava/lang/String;
+	public final fun getWaypointId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/HoveredItineraryKt {
+	public static final fun hoveredItinerary (Ljava/util/List;)Lcom/mountaya/geo/HoveredItinerary;
+}
+
+public final class com/mountaya/geo/InfoBand {
+	public fun <init> (DDLjava/lang/Object;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEndKm ()D
+	public final fun getStartKm ()D
+	public final fun getValue ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/InfoRange {
+	public fun <init> (IILjava/lang/Object;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFromIndex ()I
+	public final fun getToIndex ()I
+	public final fun getValue ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/IsOffRouteKt {
+	public static final field OFF_ROUTE_METERS D
+	public static final fun isOffRoute (D)Z
+	public static final fun isOffRouteAt (Ljava/util/List;Ljava/util/List;)Z
+}
+
+public final class com/mountaya/geo/IsSearchLimitKt {
+	public static final field SEARCH_LIMIT_MAX I
+	public static final fun isSearchLimit (I)Z
+}
+
+public final class com/mountaya/geo/IsSearchListShownKt {
+	public static final fun isSearchListShown (ZLjava/lang/String;Z)Z
+}
+
+public final class com/mountaya/geo/IsWatermarkKeptClearKt {
+	public static final fun isWatermarkKeptClear (Lcom/mountaya/geo/OrganizationRead;)Z
+}
+
+public final class com/mountaya/geo/IsWebAddressKt {
+	public static final fun isWebAddress (Ljava/lang/String;)Z
+}
+
+public final class com/mountaya/geo/IsochronesGeoJsonKt {
+	public static final fun getIsochroneRamp ()Ljava/util/List;
+	public static final fun isochroneColor (I)Ljava/lang/String;
+	public static final fun isochronesGeoJson (Lcom/mountaya/client/generated/DataSchema$IsochronesResult;)Lcom/mountaya/geo/GeoJsonFeatureCollection;
+}
+
+public final class com/mountaya/geo/ItineraryBoundsKt {
+	public static final fun itineraryBounds (Ljava/util/List;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/ItineraryGeometryKt {
+	public static final fun itineraryGeometry (Ljava/util/List;)Lcom/mountaya/client/GeoJsonGeometry;
+}
+
+public final class com/mountaya/geo/ItineraryLeg {
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/client/GeoJsonGeometry;Ljava/lang/Double;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Double;Ljava/lang/Integer;Ljava/lang/Integer;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/client/GeoJsonGeometry;Ljava/lang/Double;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Double;Ljava/lang/Integer;Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAltitudeMax ()Ljava/lang/Integer;
+	public final fun getAltitudeMin ()Ljava/lang/Integer;
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getDuration ()Ljava/lang/Double;
+	public final fun getGeometry ()Lcom/mountaya/client/GeoJsonGeometry;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMemberIds ()Ljava/util/List;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getSectionAscent ()Ljava/lang/Integer;
+	public final fun getSectionDescent ()Ljava/lang/Integer;
+	public final fun getSectionDistance ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ItineraryPlace {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/geo/WaypointDetails;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/geo/WaypointDetails;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getDetails ()Lcom/mountaya/geo/WaypointDetails;
+	public final fun getGlyph-yHVuoUE ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLngLat ()Ljava/util/List;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/ItineraryResource {
+}
+
+public final class com/mountaya/geo/ItineraryResource$Failed : com/mountaya/geo/ItineraryResource {
+	public fun <init> (Ljava/lang/Throwable;)V
+	public final fun getCause ()Ljava/lang/Throwable;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ItineraryResource$Idle : com/mountaya/geo/ItineraryResource {
+	public static final field INSTANCE Lcom/mountaya/geo/ItineraryResource$Idle;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ItineraryResource$Resolved : com/mountaya/geo/ItineraryResource {
+	public fun <init> (Lcom/mountaya/geo/ResolvedItinerary;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItinerary ()Lcom/mountaya/geo/ResolvedItinerary;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ItineraryResource$Resolving : com/mountaya/geo/ItineraryResource {
+	public static final field INSTANCE Lcom/mountaya/geo/ItineraryResource$Resolving;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ItineraryResourceCache {
+	public static final field Companion Lcom/mountaya/geo/ItineraryResourceCache$Companion;
+	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mountaya/geo/ItinerarySource;)V
+	public final fun invalidate (Ljava/lang/String;)V
+	public static synthetic fun invalidate$default (Lcom/mountaya/geo/ItineraryResourceCache;Ljava/lang/String;ILjava/lang/Object;)V
+}
+
+public final class com/mountaya/geo/ItineraryResourceCache$Companion {
+	public final fun getCapacity ()I
+}
+
+public final class com/mountaya/geo/ItineraryResourceEngine : java/lang/AutoCloseable {
+	public synthetic fun <init> (Lcom/mountaya/geo/ItineraryResourceCache;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/mountaya/geo/ItineraryResourceCache;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun configure-hpv0DCs (Lcom/mountaya/geo/ItineraryResourceCache;Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun configure-hpv0DCs$default (Lcom/mountaya/geo/ItineraryResourceEngine;Lcom/mountaya/geo/ItineraryResourceCache;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public final fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+}
+
+public final class com/mountaya/geo/ItineraryRouteKt {
+	public static final fun itineraryRoute (Ljava/util/List;Ljava/lang/String;)Lcom/mountaya/geo/RouteGeometry;
+	public static synthetic fun itineraryRoute$default (Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lcom/mountaya/geo/RouteGeometry;
+}
+
+public final class com/mountaya/geo/ItineraryRowKt {
+	public static final fun itineraryRow (Lcom/mountaya/client/generated/DataSchema$ItinerarySearchResult;Ljava/lang/String;)Lcom/mountaya/geo/SearchRow;
+}
+
+public final class com/mountaya/geo/ItinerarySegmentRow : com/mountaya/geo/ProfileSpan {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;IDDLcom/mountaya/geo/ItinerarySegmentRowMetrics;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;IDDLcom/mountaya/geo/ItinerarySegmentRowMetrics;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public fun getFrom ()D
+	public final fun getId ()Ljava/lang/String;
+	public final fun getIndex ()I
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getMemberIds ()Ljava/util/List;
+	public final fun getMetrics ()Lcom/mountaya/geo/ItinerarySegmentRowMetrics;
+	public final fun getName ()Ljava/lang/String;
+	public fun getTo ()D
+	public fun hashCode ()I
+	public fun spanning (DD)Lcom/mountaya/geo/ItinerarySegmentRow;
+	public synthetic fun spanning (DD)Lcom/mountaya/geo/ProfileSpan;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ItinerarySegmentRowMetrics {
+	public fun <init> ()V
+	public synthetic fun <init> (Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAltitudeMax ()Ljava/lang/Double;
+	public final fun getAltitudeMin ()Ljava/lang/Double;
+	public final fun getAscent ()Ljava/lang/Double;
+	public final fun getDescent ()Ljava/lang/Double;
+	public final fun getDifficulty-cN8BAPU ()Ljava/lang/String;
+	public final fun getDistance ()Ljava/lang/Double;
+	public final fun getDuration ()Ljava/lang/Double;
+	public final fun getSectionAscent ()Ljava/lang/Double;
+	public final fun getSectionDescent ()Ljava/lang/Double;
+	public final fun getSectionDistance ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ItinerarySegmentRowsKt {
+	public static final fun itinerarySegmentRows (Lcom/mountaya/geo/ElevationSeries;Ljava/util/List;Ljava/util/Map;)Ljava/util/List;
+	public static synthetic fun itinerarySegmentRows$default (Lcom/mountaya/geo/ElevationSeries;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/ItinerarySegmentsKt {
+	public static final fun itinerarySegments (Ljava/util/List;Ljava/util/List;)Ljava/util/List;
+}
+
+public abstract interface class com/mountaya/geo/ItinerarySource {
+	public abstract fun read-xmmiINo (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class com/mountaya/geo/ItineraryStroke {
+}
+
+public final class com/mountaya/geo/ItineraryStroke$Casing : com/mountaya/geo/ItineraryStroke {
+	public static final field INSTANCE Lcom/mountaya/geo/ItineraryStroke$Casing;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ItineraryStroke$Dashed : com/mountaya/geo/ItineraryStroke {
+	public fun <init> (Lkotlinx/serialization/json/JsonElement;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Lkotlinx/serialization/json/JsonElement;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ItineraryStroke$Line : com/mountaya/geo/ItineraryStroke {
+	public fun <init> (Lkotlinx/serialization/json/JsonElement;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Lkotlinx/serialization/json/JsonElement;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ItineraryStrokeStyleKt {
+	public static final fun itineraryStrokeStyle (Lcom/mountaya/geo/ItineraryStroke;Lcom/mountaya/geo/MapPaint;)Lcom/mountaya/geo/LineLayerStyle;
+	public static synthetic fun itineraryStrokeStyle$default (Lcom/mountaya/geo/ItineraryStroke;Lcom/mountaya/geo/MapPaint;ILjava/lang/Object;)Lcom/mountaya/geo/LineLayerStyle;
+}
+
+public final class com/mountaya/geo/ItineraryWaypointRow : com/mountaya/geo/ProfileSpan {
+	public fun <init> (Ljava/lang/String;Lcom/mountaya/geo/ProfilePlace;IDDLcom/mountaya/geo/ItineraryWaypointRowMetrics;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getFrom ()D
+	public final fun getIndex ()I
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getMetrics ()Lcom/mountaya/geo/ItineraryWaypointRowMetrics;
+	public final fun getPlace ()Lcom/mountaya/geo/ProfilePlace;
+	public fun getTo ()D
+	public fun hashCode ()I
+	public fun spanning (DD)Lcom/mountaya/geo/ItineraryWaypointRow;
+	public synthetic fun spanning (DD)Lcom/mountaya/geo/ProfileSpan;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ItineraryWaypointRowMetrics {
+	public fun <init> (DLjava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;)V
+	public synthetic fun <init> (DLjava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAltitude ()Ljava/lang/Double;
+	public final fun getAscent ()Ljava/lang/Double;
+	public final fun getDescent ()Ljava/lang/Double;
+	public final fun getDistance ()D
+	public final fun getSectionAscent ()Ljava/lang/Double;
+	public final fun getSectionDescent ()Ljava/lang/Double;
+	public final fun getSectionDistance ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ItineraryWaypointRowsKt {
+	public static final fun itineraryWaypointRows (Lcom/mountaya/geo/ElevationSeries;Lcom/mountaya/client/GeoJsonGeometry;Ljava/util/List;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/ItineraryWaypointsKt {
+	public static final fun itineraryWaypoints (Ljava/util/List;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/LabelLanguageKt {
+	public static final fun getLabelLanguages ()Ljava/util/List;
+	public static final fun labelLanguage (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/LayerRank : java/lang/Enum {
+	public static final field Chrome Lcom/mountaya/geo/LayerRank;
+	public static final field Hillshade Lcom/mountaya/geo/LayerRank;
+	public static final field ItineraryDirection Lcom/mountaya/geo/LayerRank;
+	public static final field ItineraryFocus Lcom/mountaya/geo/LayerRank;
+	public static final field ItineraryLine Lcom/mountaya/geo/LayerRank;
+	public static final field ItineraryPoint Lcom/mountaya/geo/LayerRank;
+	public static final field ItineraryRestriction Lcom/mountaya/geo/LayerRank;
+	public static final field Overlay Lcom/mountaya/geo/LayerRank;
+	public static final field Poi Lcom/mountaya/geo/LayerRank;
+	public static final field StreetviewCorridor Lcom/mountaya/geo/LayerRank;
+	public static final field StreetviewCoverage Lcom/mountaya/geo/LayerRank;
+	public static final field Zone Lcom/mountaya/geo/LayerRank;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getRank ()I
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/LayerRank;
+	public static fun values ()[Lcom/mountaya/geo/LayerRank;
+}
+
+public final class com/mountaya/geo/LayersPanelCategory {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun getSlug ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/LayersPanelChoice : java/lang/Enum {
+	public static final field Enrichment Lcom/mountaya/geo/LayersPanelChoice;
+	public static final field Overlay Lcom/mountaya/geo/LayersPanelChoice;
+	public static final field Terrain Lcom/mountaya/geo/LayersPanelChoice;
+	public static final field Time Lcom/mountaya/geo/LayersPanelChoice;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/LayersPanelChoice;
+	public static fun values ()[Lcom/mountaya/geo/LayersPanelChoice;
+}
+
+public final class com/mountaya/geo/LayersPanelHeading {
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getWord ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/LayersPanelMark : java/lang/Enum {
+	public static final field Lock Lcom/mountaya/geo/LayersPanelMark;
+	public static final field Tick Lcom/mountaya/geo/LayersPanelMark;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/LayersPanelMark;
+	public static fun values ()[Lcom/mountaya/geo/LayersPanelMark;
+}
+
+public abstract interface class com/mountaya/geo/LayersPanelPress {
+}
+
+public final class com/mountaya/geo/LayersPanelPress$Command : com/mountaya/geo/LayersPanelPress {
+	public fun <init> (Lcom/mountaya/geo/LayersPanelChoice;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChoice ()Lcom/mountaya/geo/LayersPanelChoice;
+	public final fun getSlug ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/LayersPanelPress$Locked : com/mountaya/geo/LayersPanelPress {
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSlug ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/LayersPanelPressKt {
+	public static final fun layersPanelPress (Lcom/mountaya/geo/LayersPanelChoice;Lcom/mountaya/geo/LayersPanelRow;)Lcom/mountaya/geo/LayersPanelPress;
+}
+
+public final class com/mountaya/geo/LayersPanelRow {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;ZLcom/mountaya/geo/LayersPanelMark;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getMark ()Lcom/mountaya/geo/LayersPanelMark;
+	public final fun getSlug ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isChecked ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/LayersPanelSection {
+	public fun <init> (Lcom/mountaya/geo/LayersPanelHeading;Lcom/mountaya/geo/LayersPanelChoice;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Lcom/mountaya/geo/LayersPanelHeading;Lcom/mountaya/geo/LayersPanelChoice;Ljava/lang/String;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategories ()Ljava/util/List;
+	public final fun getCategory ()Ljava/lang/String;
+	public final fun getChoice ()Lcom/mountaya/geo/LayersPanelChoice;
+	public final fun getHeading ()Lcom/mountaya/geo/LayersPanelHeading;
+	public final fun getRows ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/LayersPanelSectionsKt {
+	public static final field POIS_OVERLAY_SLUG Ljava/lang/String;
+	public static final fun layersPanelSections (Lcom/mountaya/geo/LayersSelection;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Ljava/lang/String;Z)Ljava/util/List;
+	public static synthetic fun layersPanelSections$default (Lcom/mountaya/geo/LayersSelection;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Ljava/lang/String;ZILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/LayersSelection {
+	public fun <init> ()V
+	public fun <init> (Lcom/mountaya/client/generated/TileSchema$Layers;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Throwable;Lkotlin/time/Instant;)V
+	public synthetic fun <init> (Lcom/mountaya/client/generated/TileSchema$Layers;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Throwable;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCatalogue ()Lcom/mountaya/client/generated/TileSchema$Layers;
+	public final fun getEnrichments ()Ljava/util/List;
+	public final fun getInstant ()Lkotlin/time/Instant;
+	public final fun getOverlay ()Ljava/lang/String;
+	public final fun getRefusal ()Ljava/lang/Throwable;
+	public final fun getTerrain ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/LayersSelectionEngine : java/lang/AutoCloseable {
+	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mountaya/geo/LayersSelectionTarget;)V
+	public synthetic fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mountaya/geo/LayersSelectionTarget;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun configure (Lcom/mountaya/geo/LayersSelectionTarget;)V
+	public final fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun setInstant (Lkotlin/time/Instant;)V
+	public final fun setOverlay (Ljava/lang/String;)V
+	public final fun setTerrain (Ljava/lang/String;)V
+	public final fun toggleEnrichment (Ljava/lang/String;)V
+}
+
+public abstract interface class com/mountaya/geo/LayersSelectionTarget {
+	public abstract fun addEnrichment (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun clearOverlay (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getTerrain ()Ljava/lang/String;
+	public abstract fun loadLayers (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun removeEnrichment (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun setInstant (Lkotlin/time/Instant;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun setOverlay (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun setTerrain (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun setTerrain$default (Lcom/mountaya/geo/LayersSelectionTarget;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/mountaya/geo/LengthUnit : java/lang/Enum {
+	public static final field Centimeter Lcom/mountaya/geo/LengthUnit;
+	public static final field Foot Lcom/mountaya/geo/LengthUnit;
+	public static final field Inch Lcom/mountaya/geo/LengthUnit;
+	public static final field Kilometer Lcom/mountaya/geo/LengthUnit;
+	public static final field Meter Lcom/mountaya/geo/LengthUnit;
+	public static final field Mile Lcom/mountaya/geo/LengthUnit;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/LengthUnit;
+	public static fun values ()[Lcom/mountaya/geo/LengthUnit;
+}
+
+public final class com/mountaya/geo/LineBetweenKt {
+	public static final fun lineBetween (Ljava/util/List;DD)Lcom/mountaya/client/GeoJsonGeometry;
+}
+
+public final class com/mountaya/geo/LineLayerStyle {
+	public fun <init> (Ljava/util/Map;Ljava/util/Map;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLayout ()Ljava/util/Map;
+	public final fun getPaint ()Ljava/util/Map;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/LinkedWebAddressKt {
+	public static final fun linkedWebAddress (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/LocalizedNameKt {
+	public static final fun localizedName (Lcom/mountaya/client/generated/RestSchema$Locales;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public static final fun localizedName (Lcom/mountaya/client/generated/TileSchema$Locales;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/LongitudeDeltaKt {
+	public static final fun longitudeDelta (DD)D
+}
+
+public final class com/mountaya/geo/ManeuverOfKt {
+	public static final fun getWaypointManeuver ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/MapPaint {
+	public static final field Companion Lcom/mountaya/geo/MapPaint$Companion;
+	public final fun copy (Lkotlin/jvm/functions/Function1;)Lcom/mountaya/geo/MapPaint;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItinerary ()Lcom/mountaya/geo/MapPaint$Itinerary;
+	public final fun getLayerRanks ()Ljava/util/Map;
+	public final fun getSegments ()Lcom/mountaya/geo/MapPaint$Segments;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/MapPaint$Builder {
+	public final fun getItinerary ()Lcom/mountaya/geo/MapPaint$Itinerary$Builder;
+	public final fun getLayerRanks ()Ljava/util/Map;
+	public final fun getSegments ()Lcom/mountaya/geo/MapPaint$Segments$Builder;
+	public final fun setLayerRanks (Ljava/util/Map;)V
+}
+
+public final class com/mountaya/geo/MapPaint$Companion {
+	public final fun getStandard ()Lcom/mountaya/geo/MapPaint;
+}
+
+public final class com/mountaya/geo/MapPaint$Itinerary {
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCasingColor ()Ljava/lang/String;
+	public final fun getCasingOpacity ()D
+	public final fun getCasingWidthStops ()Ljava/util/List;
+	public final fun getDashArray ()Ljava/util/List;
+	public final fun getDashedOpacity ()D
+	public final fun getLineWidthStops ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/MapPaint$Itinerary$Builder {
+	public final fun getCasingColor ()Ljava/lang/String;
+	public final fun getCasingOpacity ()D
+	public final fun getCasingWidthStops ()Ljava/util/List;
+	public final fun getDashArray ()Ljava/util/List;
+	public final fun getDashedOpacity ()D
+	public final fun getLineWidthStops ()Ljava/util/List;
+	public final fun setCasingColor (Ljava/lang/String;)V
+	public final fun setCasingOpacity (D)V
+	public final fun setCasingWidthStops (Ljava/util/List;)V
+	public final fun setDashArray (Ljava/util/List;)V
+	public final fun setDashedOpacity (D)V
+	public final fun setLineWidthStops (Ljava/util/List;)V
+}
+
+public final class com/mountaya/geo/MapPaint$Segments {
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDefaultColor ()Ljava/lang/String;
+	public final fun getPalette ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/MapPaint$Segments$Builder {
+	public final fun getDefaultColor ()Ljava/lang/String;
+	public final fun getPalette ()Ljava/util/List;
+	public final fun setDefaultColor (Ljava/lang/String;)V
+	public final fun setPalette (Ljava/util/List;)V
+}
+
+public final class com/mountaya/geo/MapViewport {
+	public fun <init> (Ljava/util/List;D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCenter ()Ljava/util/List;
+	public final fun getZoom ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/MapWatermark {
+	public fun <init> (Lcom/mountaya/geo/GlyphDrawing;DDDDLjava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDrawing ()Lcom/mountaya/geo/GlyphDrawing;
+	public final fun getHeight ()D
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getLink ()Ljava/lang/String;
+	public final fun getWidth ()D
+	public final fun getX ()D
+	public final fun getY ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/MatrixGeoJsonKt {
+	public static final field MATRIX_LINE_MAX_WIDTH D
+	public static final field MATRIX_LINE_MIN_WIDTH D
+	public static final fun matrixGeoJson (Lcom/mountaya/client/generated/DataSchema$MatrixInput;Lcom/mountaya/client/generated/DataSchema$MatrixResult;)Lcom/mountaya/geo/GeoJsonFeatureCollection;
+	public static final fun matrixLineWidth (DDD)D
+}
+
+public final class com/mountaya/geo/MaxBoundsLongitudesKt {
+	public static final fun maxBoundsLongitudes (DD)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/MetersToRouteKt {
+	public static final fun metersToRoute (Ljava/util/List;Ljava/util/List;)D
+}
+
+public abstract interface class com/mountaya/geo/NavigationEngine : java/lang/AutoCloseable {
+	public abstract fun close ()V
+	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun reroute (Ljava/lang/Object;)V
+	public abstract fun setPosition (Ljava/util/List;)V
+	public abstract fun start (Ljava/lang/Object;)V
+	public abstract fun stop ()V
+}
+
+public abstract class com/mountaya/geo/NavigationError {
+}
+
+public final class com/mountaya/geo/NavigationError$EmptyRoute : com/mountaya/geo/NavigationError {
+	public fun <init> ()V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/NavigationError$RouteFailed : com/mountaya/geo/NavigationError {
+	public fun <init> (Ljava/lang/Throwable;)V
+	public final fun getCause ()Ljava/lang/Throwable;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/NavigationInstruction {
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExit ()Ljava/lang/Integer;
+	public final fun getKey ()Lcom/mountaya/geo/NavigationInstructionKey;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/NavigationInstructionArgument : java/lang/Enum {
+	public static final field Exit Lcom/mountaya/geo/NavigationInstructionArgument;
+	public static final field Name Lcom/mountaya/geo/NavigationInstructionArgument;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/NavigationInstructionArgument;
+	public static fun values ()[Lcom/mountaya/geo/NavigationInstructionArgument;
+}
+
+public final class com/mountaya/geo/NavigationInstructionKey : java/lang/Enum {
+	public static final field Continue Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field ContinuePlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field Depart Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field DepartPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field EnterRoundabout Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field EnterRoundaboutPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field ExitRoundabout Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field ExitRoundaboutPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field Goal Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field GoalPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field KeepLeft Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field KeepLeftPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field KeepRight Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field KeepRightPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field RoundaboutExit Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field RoundaboutExitPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field SharpLeft Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field SharpLeftPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field SharpRight Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field SharpRightPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field SlightLeft Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field SlightLeftPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field SlightRight Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field SlightRightPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field TurnLeft Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field TurnLeftPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field TurnRight Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field TurnRightPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field Unknown Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field UnknownPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field Uturn Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field UturnPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field Waypoint Lcom/mountaya/geo/NavigationInstructionKey;
+	public static final field WaypointPlain Lcom/mountaya/geo/NavigationInstructionKey;
+	public final fun getArguments ()Ljava/util/List;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/NavigationInstructionKey;
+	public static fun values ()[Lcom/mountaya/geo/NavigationInstructionKey;
+}
+
+public final class com/mountaya/geo/NavigationProgress {
+	public fun <init> (DILjava/lang/Integer;Lcom/mountaya/geo/NavigationRemainder;Lcom/mountaya/geo/NavigationRemainder;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlong ()D
+	public final fun getNext ()Ljava/lang/Integer;
+	public final fun getStep ()I
+	public final fun getToArrival ()Lcom/mountaya/geo/NavigationRemainder;
+	public final fun getToManeuver ()Lcom/mountaya/geo/NavigationRemainder;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/NavigationProgressAtKt {
+	public static final fun navigationProgressAt (Lcom/mountaya/geo/FollowedRoute;Ljava/util/List;D)Lcom/mountaya/geo/NavigationProgress;
+}
+
+public final class com/mountaya/geo/NavigationRemainder {
+	public fun <init> (DLjava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDistance ()D
+	public final fun getDuration ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/NavigationRoute {
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Double;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Double;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDuration ()Ljava/lang/Double;
+	public final fun getLine ()Ljava/util/List;
+	public final fun getSteps ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/NavigationRouteSource {
+	public abstract fun route (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/mountaya/geo/NavigationState {
+	public static final field Companion Lcom/mountaya/geo/NavigationState$Companion;
+	public fun <init> (Lcom/mountaya/geo/NavigationStatus;Lcom/mountaya/geo/FollowedRoute;Lcom/mountaya/geo/NavigationProgress;Lcom/mountaya/geo/NavigationError;)V
+	public synthetic fun <init> (Lcom/mountaya/geo/NavigationStatus;Lcom/mountaya/geo/FollowedRoute;Lcom/mountaya/geo/NavigationProgress;Lcom/mountaya/geo/NavigationError;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Lcom/mountaya/geo/NavigationError;
+	public final fun getProgress ()Lcom/mountaya/geo/NavigationProgress;
+	public final fun getRoute ()Lcom/mountaya/geo/FollowedRoute;
+	public final fun getStatus ()Lcom/mountaya/geo/NavigationStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/NavigationState$Companion {
+	public final fun getIdle ()Lcom/mountaya/geo/NavigationState;
+}
+
+public final class com/mountaya/geo/NavigationStatus : java/lang/Enum {
+	public static final field Arrived Lcom/mountaya/geo/NavigationStatus;
+	public static final field Failed Lcom/mountaya/geo/NavigationStatus;
+	public static final field Idle Lcom/mountaya/geo/NavigationStatus;
+	public static final field Navigating Lcom/mountaya/geo/NavigationStatus;
+	public static final field OffRoute Lcom/mountaya/geo/NavigationStatus;
+	public static final field Rerouting Lcom/mountaya/geo/NavigationStatus;
+	public static final field Routing Lcom/mountaya/geo/NavigationStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/NavigationStatus;
+	public static fun values ()[Lcom/mountaya/geo/NavigationStatus;
+}
+
+public final class com/mountaya/geo/NavigationStep {
+	public synthetic fun <init> (IILjava/lang/String;Ljava/lang/String;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (IILjava/lang/String;Ljava/lang/String;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Integer;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDistance ()Ljava/lang/Double;
+	public final fun getDuration ()Ljava/lang/Double;
+	public final fun getExitNumber ()Ljava/lang/Integer;
+	public final fun getFromIndex ()I
+	public final fun getManeuver-zOtVklk ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getToIndex ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/NavigationStepsReading {
+	public fun <init> (ZLjava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRefused ()Z
+	public final fun getSteps ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/NearestSampleIndexKt {
+	public static final fun nearestSampleIndex (Ljava/util/List;D)Ljava/lang/Integer;
+}
+
+public final class com/mountaya/geo/NormalizeBoundingBoxKt {
+	public static final fun normalizeBoundingBox (Ljava/util/List;)Ljava/util/List;
+}
+
+public abstract interface class com/mountaya/geo/OrganizationRead {
+}
+
+public final class com/mountaya/geo/OrganizationRead$Answered : com/mountaya/geo/OrganizationRead {
+	public fun <init> (Z)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getWhiteLabel ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/OrganizationRead$Failed : com/mountaya/geo/OrganizationRead {
+	public static final field INSTANCE Lcom/mountaya/geo/OrganizationRead$Failed;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/OrganizationRead$NoKey : com/mountaya/geo/OrganizationRead {
+	public static final field INSTANCE Lcom/mountaya/geo/OrganizationRead$NoKey;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/OrganizationRead$TimedOut : com/mountaya/geo/OrganizationRead {
+	public static final field INSTANCE Lcom/mountaya/geo/OrganizationRead$TimedOut;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/OrganizationRead$Waiting : com/mountaya/geo/OrganizationRead {
+	public static final field INSTANCE Lcom/mountaya/geo/OrganizationRead$Waiting;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/OverlayInstantKt {
+	public static final fun overlayInstant (Lkotlin/time/Instant;Lkotlin/time/Instant;)Lkotlin/time/Instant;
+}
+
+public final class com/mountaya/geo/OverlayKind : java/lang/Enum {
+	public static final field Classic Lcom/mountaya/geo/OverlayKind;
+	public static final field Enrichment Lcom/mountaya/geo/OverlayKind;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/OverlayKind;
+	public static fun values ()[Lcom/mountaya/geo/OverlayKind;
+}
+
+public final class com/mountaya/geo/PaceClockNumberToMinutesKt {
+	public static final fun paceClockNumberToMinutes (Ljava/lang/Double;)Ljava/lang/Double;
+}
+
+public final class com/mountaya/geo/PaceMinutesToClockNumberKt {
+	public static final fun paceMinutesToClockNumber (Ljava/lang/Double;)Ljava/lang/Double;
+}
+
+public final class com/mountaya/geo/PaintZoomRangeKt {
+	public static final fun paintZoomRange (Ljava/util/List;)Lcom/mountaya/geo/ZoomBounds;
+}
+
+public final class com/mountaya/geo/PanelLayout {
+	public fun <init> (Ljava/lang/Double;ZDDII)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFill ()Z
+	public final fun getLayerCardColumns ()I
+	public final fun getMaxHeight ()D
+	public final fun getPictureHeight ()D
+	public final fun getPreferenceCardColumns ()I
+	public final fun getWidth ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PanelLayoutOfKt {
+	public static final fun panelLayoutOf (DDD)Lcom/mountaya/geo/PanelLayout;
+}
+
+public final class com/mountaya/geo/ParseGlyphKt {
+	public static final fun getGlyphAttributes ()Ljava/util/Set;
+	public static final fun getGlyphShapeTags ()Ljava/util/Set;
+	public static final fun parseGlyph (Ljava/lang/String;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/ParsePaceClockKt {
+	public static final fun parsePaceClock (Ljava/lang/String;)Ljava/lang/Double;
+}
+
+public final class com/mountaya/geo/PickTargetKt {
+	public static final field POINT_ZOOM D
+	public static final fun pickTarget (Lcom/mountaya/geo/SearchRowPayload;)Lcom/mountaya/geo/SearchPick;
+}
+
+public final class com/mountaya/geo/PixelPadding {
+	public fun <init> (D)V
+	public fun <init> (DDDD)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBottom ()D
+	public final fun getLeft ()D
+	public final fun getRight ()D
+	public final fun getTop ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PlaceGlyphKt {
+	public static final fun placeGlyph (Ljava/lang/String;Lcom/mountaya/geo/GlyphSet;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PlaceOnCurveKt {
+	public static final fun placeOnCurve (Lcom/mountaya/geo/ElevationSeries;Lcom/mountaya/client/GeoJsonGeometry;Lcom/mountaya/geo/ElevationDomain;Lcom/mountaya/geo/ProfileRange;Ljava/util/List;)Lcom/mountaya/geo/CurvePlacement;
+}
+
+public final class com/mountaya/geo/PlaceRowKt {
+	public static final fun placeRow (Lcom/mountaya/client/generated/DataSchema$Place;Ljava/lang/String;Lcom/mountaya/geo/SearchWording;)Lcom/mountaya/geo/SearchRow;
+	public static synthetic fun placeRow$default (Lcom/mountaya/client/generated/DataSchema$Place;Ljava/lang/String;Lcom/mountaya/geo/SearchWording;ILjava/lang/Object;)Lcom/mountaya/geo/SearchRow;
+}
+
+public final class com/mountaya/geo/PlaceSpansKt {
+	public static final fun placeSpans (Ljava/util/List;DLcom/mountaya/geo/ProfileRange;)Ljava/util/List;
+	public static synthetic fun placeSpans$default (Ljava/util/List;DLcom/mountaya/geo/ProfileRange;ILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/PlacedSpan {
+	public fun <init> (Lcom/mountaya/geo/ProfileSpan;IDDDD)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEnd ()D
+	public final fun getFrom ()D
+	public final fun getIndex ()I
+	public final fun getSpan ()Lcom/mountaya/geo/ProfileSpan;
+	public final fun getStart ()D
+	public final fun getTo ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PlacedWaypoint {
+	public fun <init> (Ljava/lang/String;Lcom/mountaya/geo/ProfileWaypoint;D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDistance ()D
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getWaypoint ()Lcom/mountaya/geo/ProfileWaypoint;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PlacesGeoJsonKt {
+	public static final field PLACE_POINT_COLOR Ljava/lang/String;
+	public static final fun placesGeoJson (Lcom/mountaya/client/generated/DataSchema$GeocodeResult;)Lcom/mountaya/geo/GeoJsonFeatureCollection;
+}
+
+public abstract interface class com/mountaya/geo/PlotCommand {
+}
+
+public final class com/mountaya/geo/PlotCommand$Close : com/mountaya/geo/PlotCommand {
+	public static final field INSTANCE Lcom/mountaya/geo/PlotCommand$Close;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PlotCommand$Line : com/mountaya/geo/PlotCommand {
+	public fun <init> (Lcom/mountaya/geo/PlotPoint;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPoint ()Lcom/mountaya/geo/PlotPoint;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PlotCommand$Move : com/mountaya/geo/PlotCommand {
+	public fun <init> (Lcom/mountaya/geo/PlotPoint;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPoint ()Lcom/mountaya/geo/PlotPoint;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PlotPoint {
+	public fun <init> (DD)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getX ()D
+	public final fun getY ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PoiCategoryOfKt {
+	public static final fun getPoiTileCategories ()Ljava/util/Map;
+	public static final fun poiCategoryOf (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PoiPanelGroup {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGlyph ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getKeys ()Ljava/util/List;
+	public final fun getLabel ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PoiPanelRow {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGlyph ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getKeys ()Ljava/util/List;
+	public final fun getLabel ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isVisible ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PoiPanelRows {
+	public fun <init> (Ljava/util/List;Z)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRows ()Ljava/util/List;
+	public fun hashCode ()I
+	public final fun isAnyVisible ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PoiPanelRowsKt {
+	public static final fun poiPanelNoteZoom (Ljava/lang/Double;)D
+	public static final fun poiPanelRows (Ljava/util/List;Lkotlin/jvm/functions/Function1;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/Map;)Lcom/mountaya/geo/PoiPanelRows;
+	public static synthetic fun poiPanelRows$default (Ljava/util/List;Lkotlin/jvm/functions/Function1;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lcom/mountaya/geo/PoiPanelRows;
+}
+
+public final class com/mountaya/geo/PoiRowKt {
+	public static final fun poiRow (Lcom/mountaya/client/generated/DataSchema$POI;Ljava/lang/String;Lcom/mountaya/geo/SearchWording;)Lcom/mountaya/geo/SearchRow;
+	public static synthetic fun poiRow$default (Lcom/mountaya/client/generated/DataSchema$POI;Ljava/lang/String;Lcom/mountaya/geo/SearchWording;ILjava/lang/Object;)Lcom/mountaya/geo/SearchRow;
+}
+
+public final class com/mountaya/geo/PoiStyle {
+	public fun <init> (Ljava/lang/String;Lcom/mountaya/geo/HexColor;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Lcom/mountaya/geo/HexColor;
+	public final fun getGlyph ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PoiStyleOfKt {
+	public static final fun getPoiCategoryStyles ()Ljava/util/Map;
+	public static final fun poiStyleOf-MQZmaf0 (Ljava/lang/String;)Lcom/mountaya/geo/PoiStyle;
+}
+
+public final class com/mountaya/geo/PoisGeoJsonKt {
+	public static final field POI_RESULT_POINT_COLOR Ljava/lang/String;
+	public static final fun poisGeoJson (Lcom/mountaya/client/generated/DataSchema$PoisResult;)Lcom/mountaya/geo/GeoJsonFeatureCollection;
+}
+
+public final class com/mountaya/geo/PositionAtMetersKt {
+	public static final fun positionAtMeters (Lcom/mountaya/geo/FollowedRoute;D)Ljava/util/List;
+	public static final fun positionAtMeters (Ljava/util/List;D)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/PreferenceChoice {
+	public fun <init> (Lcom/mountaya/geo/PreferenceField;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getField ()Lcom/mountaya/geo/PreferenceField;
+	public final fun getOptions ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PreferenceChoicesKt {
+	public static final fun preferenceChoices (Lcom/mountaya/geo/UnitPreferences;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/PreferenceField : java/lang/Enum {
+	public static final field Language Lcom/mountaya/geo/PreferenceField;
+	public static final field Length Lcom/mountaya/geo/PreferenceField;
+	public static final field Pace Lcom/mountaya/geo/PreferenceField;
+	public static final field Slope Lcom/mountaya/geo/PreferenceField;
+	public static final field Temperature Lcom/mountaya/geo/PreferenceField;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/PreferenceField;
+	public static fun values ()[Lcom/mountaya/geo/PreferenceField;
+}
+
+public abstract interface class com/mountaya/geo/PreferenceLabel {
+}
+
+public final class com/mountaya/geo/PreferenceLabel$Name : com/mountaya/geo/PreferenceLabel {
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PreferenceLabel$Word : com/mountaya/geo/PreferenceLabel {
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getWord ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PreferenceOption {
+	public fun <init> (Lcom/mountaya/geo/PreferenceValue;Lcom/mountaya/geo/PreferenceLabel;Z)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLabel ()Lcom/mountaya/geo/PreferenceLabel;
+	public final fun getValue ()Lcom/mountaya/geo/PreferenceValue;
+	public fun hashCode ()I
+	public final fun isChecked ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PreferencePress {
+	public synthetic fun <init> (Lcom/mountaya/geo/UnitPreferences;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getNext ()Lcom/mountaya/geo/UnitPreferences;
+	public final fun getRelabel-P9uqyHg ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PreferencePressKt {
+	public static final fun preferencePress (Lcom/mountaya/geo/UnitPreferences;Lcom/mountaya/geo/PreferenceValue;)Lcom/mountaya/geo/PreferencePress;
+}
+
+public abstract interface class com/mountaya/geo/PreferenceValue {
+	public abstract fun getField ()Lcom/mountaya/geo/PreferenceField;
+	public abstract fun getId ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PreferenceValue$Language : com/mountaya/geo/PreferenceValue {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getField ()Lcom/mountaya/geo/PreferenceField;
+	public fun getId ()Ljava/lang/String;
+	public final fun getValue-kv_CogA ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PreferenceValue$Length : com/mountaya/geo/PreferenceValue {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getField ()Lcom/mountaya/geo/PreferenceField;
+	public fun getId ()Ljava/lang/String;
+	public final fun getValue-DFwtY0M ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PreferenceValue$Pace : com/mountaya/geo/PreferenceValue {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getField ()Lcom/mountaya/geo/PreferenceField;
+	public fun getId ()Ljava/lang/String;
+	public final fun getValue-Z2jnCeU ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PreferenceValue$Slope : com/mountaya/geo/PreferenceValue {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getField ()Lcom/mountaya/geo/PreferenceField;
+	public fun getId ()Ljava/lang/String;
+	public final fun getValue-0vvqxVg ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/PreferenceValue$Temperature : com/mountaya/geo/PreferenceValue {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getField ()Lcom/mountaya/geo/PreferenceField;
+	public fun getId ()Ljava/lang/String;
+	public final fun getValue-pdkclcs ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ProfileAnchor : java/lang/Enum {
+	public static final field Route Lcom/mountaya/geo/ProfileAnchor;
+	public static final field SeaLevel Lcom/mountaya/geo/ProfileAnchor;
+	public static final field Window Lcom/mountaya/geo/ProfileAnchor;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/ProfileAnchor;
+	public static fun values ()[Lcom/mountaya/geo/ProfileAnchor;
+}
+
+public final class com/mountaya/geo/ProfileAreaPathKt {
+	public static final fun profileAreaPath (Lcom/mountaya/geo/ElevationSeries;Lcom/mountaya/geo/ElevationDomain;Lcom/mountaya/geo/ProfileRange;)Ljava/util/List;
+	public static synthetic fun profileAreaPath$default (Lcom/mountaya/geo/ElevationSeries;Lcom/mountaya/geo/ElevationDomain;Lcom/mountaya/geo/ProfileRange;ILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/ProfileCharacteristics {
+	public synthetic fun <init> (Ljava/lang/Double;Ljava/lang/Double;ZLjava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAltitudeMax ()Ljava/lang/Integer;
+	public final fun getAltitudeMin ()Ljava/lang/Integer;
+	public final fun getAscent ()Ljava/lang/Integer;
+	public final fun getDescent ()Ljava/lang/Integer;
+	public final fun getDistance ()Ljava/lang/Double;
+	public final fun getDuration ()Ljava/lang/Double;
+	public final fun getDurationPartial ()Z
+	public final fun getSlopeMax ()Ljava/lang/Double;
+	public final fun getSlopeMin ()Ljava/lang/Double;
+	public final fun getStopDuration ()Ljava/lang/Integer;
+	public final fun getTrailDifficultyMax-cN8BAPU ()Ljava/lang/String;
+	public final fun getTrailDifficultyMin-cN8BAPU ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ProfileCharacteristicsKt {
+	public static final fun profileCharacteristics (Ljava/util/List;Ljava/util/List;)Lcom/mountaya/geo/ProfileCharacteristics;
+	public static synthetic fun profileCharacteristics$default (Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lcom/mountaya/geo/ProfileCharacteristics;
+}
+
+public final class com/mountaya/geo/ProfileClass : com/mountaya/geo/ProfileSpan {
+	public fun <init> (DDLjava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public fun getFrom ()D
+	public final fun getLabel ()Ljava/lang/String;
+	public fun getTo ()D
+	public fun hashCode ()I
+	public fun spanning (DD)Lcom/mountaya/geo/ProfileClass;
+	public synthetic fun spanning (DD)Lcom/mountaya/geo/ProfileSpan;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ProfileDomainKt {
+	public static final fun profileDomain (Lcom/mountaya/geo/ElevationSeries;Lcom/mountaya/geo/ProfileRange;)Lcom/mountaya/geo/ElevationDomain;
+	public static synthetic fun profileDomain$default (Lcom/mountaya/geo/ElevationSeries;Lcom/mountaya/geo/ProfileRange;ILjava/lang/Object;)Lcom/mountaya/geo/ElevationDomain;
+}
+
+public final class com/mountaya/geo/ProfilePlace {
+	public fun <init> (Lcom/mountaya/geo/ItineraryPlace;)V
+	public synthetic fun <init> (Lcom/mountaya/geo/ProfileWaypoint;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ZLcom/mountaya/geo/ItinerarySegmentRowMetrics;Lcom/mountaya/geo/WaypointDetails;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/mountaya/geo/ProfileWaypoint;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ZLcom/mountaya/geo/ItinerarySegmentRowMetrics;Lcom/mountaya/geo/WaypointDetails;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getDetails ()Lcom/mountaya/geo/WaypointDetails;
+	public final fun getDivides ()Ljava/lang/Boolean;
+	public final fun getDividesRoute ()Z
+	public final fun getGlyph-yHVuoUE ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMetrics ()Lcom/mountaya/geo/ItinerarySegmentRowMetrics;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getPlacement ()Lcom/mountaya/geo/ProfileWaypoint;
+	public fun hashCode ()I
+	public final fun isPinned ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ProfilePolylineKt {
+	public static final fun profilePolyline (Lcom/mountaya/geo/ElevationSeries;Lcom/mountaya/geo/ElevationDomain;Lcom/mountaya/geo/ProfileRange;)Ljava/util/List;
+	public static synthetic fun profilePolyline$default (Lcom/mountaya/geo/ElevationSeries;Lcom/mountaya/geo/ElevationDomain;Lcom/mountaya/geo/ProfileRange;ILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/ProfileRange : com/mountaya/geo/ProfileSpan {
+	public fun <init> (DD)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getFrom ()D
+	public fun getTo ()D
+	public fun hashCode ()I
+	public fun spanning (DD)Lcom/mountaya/geo/ProfileRange;
+	public synthetic fun spanning (DD)Lcom/mountaya/geo/ProfileSpan;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ProfileReadout {
+	public fun <init> (Ljava/util/List;Ljava/lang/Double;Lcom/mountaya/geo/ProfileClass;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCells ()Ljava/util/List;
+	public final fun getGrade ()Ljava/lang/Double;
+	public final fun getStretch ()Lcom/mountaya/geo/ProfileClass;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ProfileReadoutKt {
+	public static final fun getDefaultReadoutStats ()Ljava/util/List;
+	public static final fun profileReadout (Lcom/mountaya/geo/ElevationSeries;Lcom/mountaya/geo/ElevationPoint;Ljava/util/List;Ljava/util/List;)Lcom/mountaya/geo/ProfileReadout;
+	public static synthetic fun profileReadout$default (Lcom/mountaya/geo/ElevationSeries;Lcom/mountaya/geo/ElevationPoint;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lcom/mountaya/geo/ProfileReadout;
+}
+
+public abstract interface class com/mountaya/geo/ProfileSpan {
+	public abstract fun getFrom ()D
+	public abstract fun getTo ()D
+	public abstract fun spanning (DD)Lcom/mountaya/geo/ProfileSpan;
+}
+
+public final class com/mountaya/geo/ProfileTotals {
+	public fun <init> (DLjava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAscent ()Ljava/lang/Double;
+	public final fun getDescent ()Ljava/lang/Double;
+	public final fun getDistance ()D
+	public final fun getElevationMax ()Ljava/lang/Double;
+	public final fun getElevationMin ()Ljava/lang/Double;
+	public final fun getGradeMax ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ProfileTotalsKt {
+	public static final field ELEVATION_NOISE_THRESHOLD_METERS D
+	public static final field GRADE_WINDOW_METERS D
+	public static final fun profileTotals (Lcom/mountaya/geo/ElevationSeries;)Lcom/mountaya/geo/ProfileTotals;
+}
+
+public abstract class com/mountaya/geo/ProfileWaypoint {
+	public abstract fun getId ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ProfileWaypoint$AtDistance : com/mountaya/geo/ProfileWaypoint {
+	public fun <init> (Ljava/lang/String;D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDistance ()D
+	public fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ProfileWaypoint$AtPosition : com/mountaya/geo/ProfileWaypoint {
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getId ()Ljava/lang/String;
+	public final fun getPosition ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ProfileXKt {
+	public static final field PROFILE_BASELINE D
+	public static final field PROFILE_BOTTOM_INSET D
+	public static final field PROFILE_TOP_INSET D
+	public static final field PROFILE_VIEW_BOX D
+	public static final fun profileX (DDLcom/mountaya/geo/ProfileRange;)D
+	public static synthetic fun profileX$default (DDLcom/mountaya/geo/ProfileRange;ILjava/lang/Object;)D
+}
+
+public final class com/mountaya/geo/ProfileYKt {
+	public static final fun profileY (DLcom/mountaya/geo/ElevationDomain;)D
+}
+
+public final class com/mountaya/geo/ProportionUnit : java/lang/Enum {
+	public static final field Percent Lcom/mountaya/geo/ProportionUnit;
+	public static final field Ratio Lcom/mountaya/geo/ProportionUnit;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/ProportionUnit;
+	public static fun values ()[Lcom/mountaya/geo/ProportionUnit;
+}
+
+public final class com/mountaya/geo/RangeTotalsKt {
+	public static final fun rangeTotals (Lcom/mountaya/geo/ElevationSeries;DD)Lcom/mountaya/geo/ProfileTotals;
+}
+
+public final class com/mountaya/geo/ReadDirectionsStepsKt {
+	public static final fun readDirectionsSteps (Ljava/util/List;I)Lcom/mountaya/geo/NavigationStepsReading;
+}
+
+public final class com/mountaya/geo/ReadItineraryDirectionsStepsKt {
+	public static final fun readItineraryDirectionsSteps (Ljava/util/List;I)Lcom/mountaya/geo/NavigationStepsReading;
+}
+
+public final class com/mountaya/geo/ReadItineraryRouteKt {
+	public static final fun readItineraryRoute (Ljava/util/List;Ljava/util/List;)Lcom/mountaya/geo/NavigationRoute;
+}
+
+public final class com/mountaya/geo/ReadoutCell {
+	public fun <init> (Lcom/mountaya/geo/ReadoutStat;D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStat ()Lcom/mountaya/geo/ReadoutStat;
+	public final fun getValue ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutMeasure : java/lang/Enum {
+	public static final field Distance Lcom/mountaya/geo/ReadoutMeasure;
+	public static final field Humidity Lcom/mountaya/geo/ReadoutMeasure;
+	public static final field Snowfall Lcom/mountaya/geo/ReadoutMeasure;
+	public static final field Speed Lcom/mountaya/geo/ReadoutMeasure;
+	public static final field Temperature Lcom/mountaya/geo/ReadoutMeasure;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/ReadoutMeasure;
+	public static fun values ()[Lcom/mountaya/geo/ReadoutMeasure;
+}
+
+public final class com/mountaya/geo/ReadoutPoint {
+	public fun <init> (Ljava/util/List;DLcom/mountaya/geo/ReadoutPoint$Terrain;Lcom/mountaya/geo/ReadoutPoint$Poi;Lcom/mountaya/geo/ReadoutPoint$Zone;Lcom/mountaya/geo/ReadoutPoint$Overlay;Lcom/mountaya/geo/ReadoutPoint$Band;Lkotlin/time/Instant;)V
+	public synthetic fun <init> (Ljava/util/List;DLcom/mountaya/geo/ReadoutPoint$Terrain;Lcom/mountaya/geo/ReadoutPoint$Poi;Lcom/mountaya/geo/ReadoutPoint$Zone;Lcom/mountaya/geo/ReadoutPoint$Overlay;Lcom/mountaya/geo/ReadoutPoint$Band;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBand ()Lcom/mountaya/geo/ReadoutPoint$Band;
+	public final fun getInstant ()Lkotlin/time/Instant;
+	public final fun getOverlay ()Lcom/mountaya/geo/ReadoutPoint$Overlay;
+	public final fun getPoi ()Lcom/mountaya/geo/ReadoutPoint$Poi;
+	public final fun getPosition ()Ljava/util/List;
+	public final fun getTerrain ()Lcom/mountaya/geo/ReadoutPoint$Terrain;
+	public final fun getZone ()Lcom/mountaya/geo/ReadoutPoint$Zone;
+	public final fun getZoom ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutPoint$Band {
+	public fun <init> (Ljava/lang/Double;Ljava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMax ()Ljava/lang/Double;
+	public final fun getMin ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutPoint$Overlay {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Z)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun getSlug ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isVector ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutPoint$Poi {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategory ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutPoint$Terrain {
+	public fun <init> (Lcom/mountaya/geo/TerrainReading;)V
+	public fun <init> (Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAspect ()Ljava/lang/Double;
+	public final fun getElevation ()Ljava/lang/Double;
+	public final fun getSlope ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutPoint$Zone {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getEnd ()Lkotlin/time/Instant;
+	public final fun getLevel-Tb-o590 ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getStart ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/ReadoutRow {
+}
+
+public final class com/mountaya/geo/ReadoutRow$Band : com/mountaya/geo/ReadoutRow {
+	public synthetic fun <init> (Ljava/lang/String;Lcom/mountaya/geo/ReadoutMeasure;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Lcom/mountaya/geo/ReadoutRow$Moment;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMeasure ()Lcom/mountaya/geo/ReadoutMeasure;
+	public final fun getOverlay ()Ljava/lang/String;
+	public final fun getPace-vEQCA-c ()Ljava/lang/String;
+	public final fun getTime ()Lcom/mountaya/geo/ReadoutRow$Moment;
+	public final fun getValues ()Ljava/util/List;
+	public final fun getWord ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutRow$Coordinates : com/mountaya/geo/ReadoutRow {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCopy ()Ljava/lang/String;
+	public final fun getText ()Ljava/lang/String;
+	public final fun getWord ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutRow$Moment : com/mountaya/geo/ReadoutRow {
+	public fun <init> (Lkotlin/time/Instant;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMoment ()Lkotlin/time/Instant;
+	public final fun getWord ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutRow$Poi : com/mountaya/geo/ReadoutRow {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategory-43aC-hA ()Ljava/lang/String;
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutRow$Terrain : com/mountaya/geo/ReadoutRow {
+	public fun <init> (Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReadings ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutRow$Terrain$Reading {
+	public fun <init> (Lcom/mountaya/geo/ReadoutRow$Terrain$Reading$Kind;DLjava/lang/String;Ljava/lang/String;Lcom/mountaya/geo/AspectCardinal;Ljava/lang/String;)V
+	public synthetic fun <init> (Lcom/mountaya/geo/ReadoutRow$Terrain$Reading$Kind;DLjava/lang/String;Ljava/lang/String;Lcom/mountaya/geo/AspectCardinal;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCardinal ()Lcom/mountaya/geo/AspectCardinal;
+	public final fun getCardinalWord ()Ljava/lang/String;
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getKind ()Lcom/mountaya/geo/ReadoutRow$Terrain$Reading$Kind;
+	public final fun getValue ()D
+	public final fun getWord ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutRow$Terrain$Reading$Kind : java/lang/Enum {
+	public static final field Altitude Lcom/mountaya/geo/ReadoutRow$Terrain$Reading$Kind;
+	public static final field Aspect Lcom/mountaya/geo/ReadoutRow$Terrain$Reading$Kind;
+	public static final field Slope Lcom/mountaya/geo/ReadoutRow$Terrain$Reading$Kind;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/ReadoutRow$Terrain$Reading$Kind;
+	public static fun values ()[Lcom/mountaya/geo/ReadoutRow$Terrain$Reading$Kind;
+}
+
+public final class com/mountaya/geo/ReadoutRow$Zone : com/mountaya/geo/ReadoutRow {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/mountaya/geo/ReadoutRow$Zone$Window;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getLevel-Tb-o590 ()Ljava/lang/String;
+	public final fun getLevelWord ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getWindow ()Lcom/mountaya/geo/ReadoutRow$Zone$Window;
+	public final fun getWord ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutRow$Zone$Window {
+	public fun <init> (Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEnd ()Lkotlin/time/Instant;
+	public final fun getStart ()Lkotlin/time/Instant;
+	public final fun getWord ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutRow$ZoomIn : com/mountaya/geo/ReadoutRow {
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getWord ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ReadoutRowsKt {
+	public static final field READOUT_DETAIL_ZOOM D
+	public static final fun readoutRows (Lcom/mountaya/geo/ReadoutPoint;Lcom/mountaya/geo/SearchWording;)Ljava/util/List;
+	public static synthetic fun readoutRows$default (Lcom/mountaya/geo/ReadoutPoint;Lcom/mountaya/geo/SearchWording;ILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/ReadoutStat : java/lang/Enum {
+	public static final field Ascent Lcom/mountaya/geo/ReadoutStat;
+	public static final field Descent Lcom/mountaya/geo/ReadoutStat;
+	public static final field Distance Lcom/mountaya/geo/ReadoutStat;
+	public static final field Elevation Lcom/mountaya/geo/ReadoutStat;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/ReadoutStat;
+	public static fun values ()[Lcom/mountaya/geo/ReadoutStat;
+}
+
+public final class com/mountaya/geo/RefusesMaxBoundsKt {
+	public static final fun refusesMaxBounds (Ljava/util/List;)Z
+}
+
+public final class com/mountaya/geo/RelabelTextFieldKt {
+	public static final field MAX_LABEL_DEPTH I
+	public static final fun relabelTextField-vakSVXA (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;)Lkotlinx/serialization/json/JsonElement;
+}
+
+public final class com/mountaya/geo/ResolveBundleKt {
+	public static final fun resolveBundle-O94jejs (Lcom/mountaya/geo/WordBundle;Ljava/lang/String;Lcom/mountaya/geo/WordOverrides;Ljava/util/Map;)Lkotlinx/serialization/json/JsonObject;
+	public static synthetic fun resolveBundle-O94jejs$default (Lcom/mountaya/geo/WordBundle;Ljava/lang/String;Lcom/mountaya/geo/WordOverrides;Ljava/util/Map;ILjava/lang/Object;)Lkotlinx/serialization/json/JsonObject;
+}
+
+public final class com/mountaya/geo/ResolveCharacteristicsKt {
+	public static final fun resolveCharacteristics (Lcom/mountaya/geo/ProfileTotals;Lcom/mountaya/geo/ProfileCharacteristics;)Lcom/mountaya/geo/ResolvedCharacteristics;
+}
+
+public final class com/mountaya/geo/ResolveWaypointsKt {
+	public static final field WAYPOINT_BELONGING_METERS D
+	public static final field WAYPOINT_PROXIMITY_METERS D
+	public static final fun resolveWaypoints (Lcom/mountaya/client/GeoJsonGeometry;Ljava/util/List;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/ResolvedCharacteristics {
+	public fun <init> ()V
+	public synthetic fun <init> (Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAltitudeMax ()Ljava/lang/Double;
+	public final fun getAltitudeMin ()Ljava/lang/Double;
+	public final fun getAscent ()Ljava/lang/Double;
+	public final fun getDescent ()Ljava/lang/Double;
+	public final fun getDistance ()Ljava/lang/Double;
+	public final fun getDuration ()Ljava/lang/Double;
+	public final fun getSlopeMax ()Ljava/lang/Double;
+	public final fun getSlopeMin ()Ljava/lang/Double;
+	public final fun getTrailDifficultyMax-cN8BAPU ()Ljava/lang/String;
+	public final fun getTrailDifficultyMin-cN8BAPU ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ResolvedItinerary {
+	public fun <init> (Lcom/mountaya/client/generated/RestSchema$ItineraryWithDetails;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCharacteristics ()Lcom/mountaya/geo/ProfileCharacteristics;
+	public final fun getGeometry ()Lcom/mountaya/client/GeoJsonGeometry;
+	public final fun getLegs ()Ljava/util/List;
+	public final fun getWaypoints ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/RoadAccessColorKt {
+	public static final fun roadAccessColor (Lcom/mountaya/geo/RoadAccessKind;)Lcom/mountaya/geo/HexColor;
+}
+
+public final class com/mountaya/geo/RoadAccessFeaturesKt {
+	public static final fun roadAccessFeatures (Lcom/mountaya/client/GeoJsonGeometry;Ljava/util/List;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/RoadAccessGlyphKt {
+	public static final fun roadAccessGlyph (Lcom/mountaya/geo/RoadAccessKind;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/RoadAccessKind : java/lang/Enum {
+	public static final field Forbidden Lcom/mountaya/geo/RoadAccessKind;
+	public static final field LocalAccess Lcom/mountaya/geo/RoadAccessKind;
+	public static final field Permit Lcom/mountaya/geo/RoadAccessKind;
+	public static final field Private Lcom/mountaya/geo/RoadAccessKind;
+	public static final field Restricted Lcom/mountaya/geo/RoadAccessKind;
+	public static final field Service Lcom/mountaya/geo/RoadAccessKind;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/RoadAccessKind;
+	public static fun values ()[Lcom/mountaya/geo/RoadAccessKind;
+}
+
+public final class com/mountaya/geo/RoadAccessKindOfKt {
+	public static final fun getRoadAccessValueKinds ()Ljava/util/Map;
+	public static final fun roadAccessKindOf (Ljava/util/List;)Lcom/mountaya/geo/RoadAccessKind;
+	public static final fun roadAccessKindOfDataApi (Ljava/util/List;)Lcom/mountaya/geo/RoadAccessKind;
+}
+
+public final class com/mountaya/geo/RouteFollowingEngine : com/mountaya/geo/NavigationEngine {
+	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mountaya/geo/NavigationRouteSource;)V
+	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mountaya/geo/NavigationRouteSource;Lkotlin/jvm/functions/Function1;)V
+	public fun close ()V
+	public fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public fun reroute (Ljava/lang/Object;)V
+	public fun setPosition (Ljava/util/List;)V
+	public fun start (Ljava/lang/Object;)V
+	public fun stop ()V
+}
+
+public final class com/mountaya/geo/RouteGeometry {
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getElevations ()Ljava/util/List;
+	public final fun getJumps ()Ljava/util/List;
+	public final fun getLine ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/RouteLengthMetersKt {
+	public static final fun routeLengthMeters (Ljava/util/List;)D
+}
+
+public final class com/mountaya/geo/RouteProfilePoint {
+	public fun <init> (DD)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDistanceKm ()D
+	public final fun getElevation ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/RowAtKt {
+	public static final fun rowAt (Ljava/util/List;D)Lcom/mountaya/geo/ProfileSpan;
+}
+
+public final class com/mountaya/geo/RowStandsForKt {
+	public static final fun rowStandsFor (Lcom/mountaya/geo/ItinerarySegmentRow;Ljava/lang/String;)Z
+}
+
+public final class com/mountaya/geo/ScopeOfKt {
+	public static final fun scopeOf (Lcom/mountaya/geo/ElementsScope;Lcom/mountaya/geo/ElementsScopeStatement;)Lcom/mountaya/geo/ElementsScope;
+}
+
+public final class com/mountaya/geo/ScriptedNavigationEngine : com/mountaya/geo/NavigationEngine {
+	public fun <init> ()V
+	public fun close ()V
+	public final fun getSent ()Ljava/util/List;
+	public fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public fun reroute (Ljava/lang/Object;)V
+	public fun setPosition (Ljava/util/List;)V
+	public fun start (Ljava/lang/Object;)V
+	public fun stop ()V
+}
+
+public final class com/mountaya/geo/ScriptedRouteRequest {
+	public final fun answer (Lcom/mountaya/geo/NavigationRoute;)V
+	public final fun fail (Ljava/lang/Throwable;)V
+	public final fun getRequest ()Ljava/lang/Object;
+	public final fun isAbandoned ()Z
+	public final fun isAnswered ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ScrubGridKt {
+	public static final field PROFILE_SCRUB_COLUMNS I
+	public static final fun scrubDistance (ILcom/mountaya/geo/ProfileRange;)D
+	public static final fun scrubGrid (Ljava/util/List;Lcom/mountaya/geo/ProfileRange;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/SearchBranchException : java/lang/Exception {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode-c_9AIWM ()Ljava/lang/String;
+	public final fun getTarget-eWHzAuE ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchConfiguration {
+	public fun <init> ()V
+	public synthetic fun <init> (Lcom/mountaya/geo/SearchFetch;Ljava/lang/String;Lcom/mountaya/geo/SearchLimit;Ljava/util/List;Lcom/mountaya/geo/SearchWording;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/mountaya/geo/SearchFetch;Ljava/lang/String;Lcom/mountaya/geo/SearchLimit;Ljava/util/List;Lcom/mountaya/geo/SearchWording;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFetch ()Lcom/mountaya/geo/SearchFetch;
+	public final fun getLanguage-qsbE2M8 ()Ljava/lang/String;
+	public final fun getLimit-ObtSWZc ()Lcom/mountaya/geo/SearchLimit;
+	public final fun getOnError ()Lkotlin/jvm/functions/Function1;
+	public final fun getTargets ()Ljava/util/List;
+	public final fun getWording ()Lcom/mountaya/geo/SearchWording;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchConfigurationKt {
+	public static final fun getSearchSectionOrder ()Ljava/util/List;
+}
+
+public final class com/mountaya/geo/SearchEngine : java/lang/AutoCloseable {
+	public synthetic fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mountaya/geo/SearchConfiguration;Ljava/lang/String;Lcom/mountaya/geo/MapViewport;ZZJJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lkotlinx/coroutines/CoroutineScope;Lcom/mountaya/geo/SearchConfiguration;Ljava/lang/String;Lcom/mountaya/geo/MapViewport;ZZJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun configure (Lcom/mountaya/geo/SearchConfiguration;)V
+	public final fun getCamera ()Lcom/mountaya/geo/MapViewport;
+	public final fun getConfiguration ()Lcom/mountaya/geo/SearchConfiguration;
+	public final fun getQuery ()Ljava/lang/String;
+	public final fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun isConfined ()Z
+	public final fun isOpen ()Z
+	public final fun retry ()V
+	public final fun setCamera (Lcom/mountaya/geo/MapViewport;)V
+	public final fun setConfined (Z)V
+	public final fun setOpen (Z)V
+	public final fun setQuery (Ljava/lang/String;)V
+}
+
+public final class com/mountaya/geo/SearchEngineKt {
+	public static final fun getSearchTypingPause ()J
+	public static final fun getSearchViewportRefreshPause ()J
+}
+
+public abstract interface class com/mountaya/geo/SearchFetch {
+	public abstract fun search (Lcom/mountaya/client/generated/DataSchema$SearchInput;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/mountaya/geo/SearchFilter : java/lang/Enum {
+	public static final field All Lcom/mountaya/geo/SearchFilter;
+	public static final field Itineraries Lcom/mountaya/geo/SearchFilter;
+	public static final field Places Lcom/mountaya/geo/SearchFilter;
+	public static final field Zones Lcom/mountaya/geo/SearchFilter;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getTargets ()Ljava/util/Set;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/SearchFilter;
+	public static fun values ()[Lcom/mountaya/geo/SearchFilter;
+}
+
+public abstract interface class com/mountaya/geo/SearchHighlight {
+}
+
+public final class com/mountaya/geo/SearchHighlight$Place : com/mountaya/geo/SearchHighlight {
+	public fun <init> (Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPoint ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchHighlight$Poi : com/mountaya/geo/SearchHighlight {
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategory-43aC-hA ()Ljava/lang/String;
+	public final fun getPoint ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchHighlight$Way : com/mountaya/geo/SearchHighlight {
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAnchor ()Ljava/util/List;
+	public final fun getBounds ()Ljava/util/List;
+	public final fun getCoordinates ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/SearchLabel {
+}
+
+public final class com/mountaya/geo/SearchLabel$Highway : com/mountaya/geo/SearchLabel {
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchLabel$PlaceCategory : com/mountaya/geo/SearchLabel {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue-W9v4fHo ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchLabel$PoiCategory : com/mountaya/geo/SearchLabel {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue-3RQjCfE ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchLabel$SacScale : com/mountaya/geo/SearchLabel {
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchLabel$Surface : com/mountaya/geo/SearchLabel {
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchLimit {
+	public static final field Companion Lcom/mountaya/geo/SearchLimit$Companion;
+	public static final synthetic fun box-impl (I)Lcom/mountaya/geo/SearchLimit;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (ILjava/lang/Object;)Z
+	public static final fun equals-impl0 (II)Z
+	public final fun getValue ()I
+	public fun hashCode ()I
+	public static fun hashCode-impl (I)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (I)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()I
+}
+
+public final class com/mountaya/geo/SearchLimit$Companion {
+	public final fun of-AkEHdgo (I)Lcom/mountaya/geo/SearchLimit;
+}
+
+public final class com/mountaya/geo/SearchListState {
+	public fun <init> (Ljava/util/List;Ljava/util/List;ZZLcom/mountaya/geo/SearchListStatus;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFailed ()Ljava/util/List;
+	public final fun getHasFallbackNote ()Z
+	public final fun getRows ()Ljava/util/List;
+	public final fun getStatus ()Lcom/mountaya/geo/SearchListStatus;
+	public fun hashCode ()I
+	public final fun isNothingFound ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchListStateKt {
+	public static final fun searchListState (Lcom/mountaya/geo/SearchSnapshot;Lcom/mountaya/geo/SearchFilter;)Lcom/mountaya/geo/SearchListState;
+}
+
+public abstract interface class com/mountaya/geo/SearchListStatus {
+	public abstract fun getKey ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchListStatus$EmptyTitle : com/mountaya/geo/SearchListStatus {
+	public static final field INSTANCE Lcom/mountaya/geo/SearchListStatus$EmptyTitle;
+	public fun getKey ()Ljava/lang/String;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchListStatus$Error : com/mountaya/geo/SearchListStatus {
+	public static final field INSTANCE Lcom/mountaya/geo/SearchListStatus$Error;
+	public fun getKey ()Ljava/lang/String;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchListStatus$ResultCount : com/mountaya/geo/SearchListStatus {
+	public fun <init> (I)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCount ()I
+	public fun getKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchPause {
+	public static final field Companion Lcom/mountaya/geo/SearchPause$Companion;
+	public static final synthetic fun box-impl (J)Lcom/mountaya/geo/SearchPause;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (JLjava/lang/Object;)Z
+	public static final fun equals-impl0 (JJ)Z
+	public final fun getDuration-UwyO8pc ()J
+	public fun hashCode ()I
+	public static fun hashCode-impl (J)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (J)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()J
+}
+
+public final class com/mountaya/geo/SearchPause$Companion {
+	public final fun getStandard-qidbmOg ()J
+	public final fun of-1_MM5I0 (J)Lcom/mountaya/geo/SearchPause;
+}
+
+public final class com/mountaya/geo/SearchPick {
+	public fun <init> (Lcom/mountaya/geo/SearchPickCamera;Lcom/mountaya/geo/SearchHighlight;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCamera ()Lcom/mountaya/geo/SearchPickCamera;
+	public final fun getMark ()Lcom/mountaya/geo/SearchHighlight;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/SearchPickCamera {
+}
+
+public final class com/mountaya/geo/SearchPickCamera$Fit : com/mountaya/geo/SearchPickCamera {
+	public fun <init> (Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBounds ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchPickCamera$Fly : com/mountaya/geo/SearchPickCamera {
+	public fun <init> (Ljava/util/List;D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCenter ()Ljava/util/List;
+	public final fun getZoom ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/SearchQueryChange {
+}
+
+public final class com/mountaya/geo/SearchQueryChange$Ask : com/mountaya/geo/SearchQueryChange {
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getQuery ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchQueryChange$Clear : com/mountaya/geo/SearchQueryChange {
+	public static final field INSTANCE Lcom/mountaya/geo/SearchQueryChange$Clear;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchQueryChange$Unchanged : com/mountaya/geo/SearchQueryChange {
+	public static final field INSTANCE Lcom/mountaya/geo/SearchQueryChange$Unchanged;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchQueryChangeOfKt {
+	public static final fun searchQueryChangeOf (Ljava/lang/String;Ljava/lang/String;)Lcom/mountaya/geo/SearchQueryChange;
+}
+
+public final class com/mountaya/geo/SearchRow {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lcom/mountaya/geo/SearchRowSecondary;Ljava/util/List;Lcom/mountaya/geo/SearchRowPayload;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivities ()Ljava/util/List;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMatched ()Ljava/util/List;
+	public final fun getParts ()Ljava/util/List;
+	public final fun getPayload ()Lcom/mountaya/geo/SearchRowPayload;
+	public final fun getSecondary ()Lcom/mountaya/geo/SearchRowSecondary;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/SearchRowPayload {
+}
+
+public final class com/mountaya/geo/SearchRowPayload$Collection : com/mountaya/geo/SearchRowPayload {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollectionId ()Ljava/lang/String;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isPrivate ()Ljava/lang/Boolean;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchRowPayload$Itinerary : com/mountaya/geo/SearchRowPayload {
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBounds ()Ljava/util/List;
+	public final fun getItineraryId ()Ljava/lang/String;
+	public final fun getStart ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchRowPayload$Place : com/mountaya/geo/SearchRowPayload {
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBounds ()Ljava/util/List;
+	public final fun getPoint ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchRowPayload$Poi : com/mountaya/geo/SearchRowPayload {
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategory-43aC-hA ()Ljava/lang/String;
+	public final fun getPoint ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchRowPayload$Way : com/mountaya/geo/SearchRowPayload {
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAnchor ()Ljava/util/List;
+	public final fun getBounds ()Ljava/util/List;
+	public final fun getCoordinates ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchRowPayload$Zone : com/mountaya/geo/SearchRowPayload {
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBounds ()Ljava/util/List;
+	public final fun getPoint ()Ljava/util/List;
+	public final fun getZoneId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/SearchRowSecondary {
+}
+
+public final class com/mountaya/geo/SearchRowSecondary$Count : com/mountaya/geo/SearchRowSecondary {
+	public fun <init> (Ljava/lang/Integer;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItineraries ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchRowSecondary$Metric : com/mountaya/geo/SearchRowSecondary {
+	public fun <init> (Ljava/lang/Double;Ljava/lang/Integer;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAscent ()Ljava/lang/Integer;
+	public final fun getDistance ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchRowSecondary$Text : com/mountaya/geo/SearchRowSecondary {
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getText ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchSection {
+	public synthetic fun <init> (Ljava/lang/String;Lcom/mountaya/geo/SearchSectionState;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/mountaya/geo/SearchSectionState;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId-eWHzAuE ()Ljava/lang/String;
+	public final fun getRows ()Ljava/util/List;
+	public final fun getState ()Lcom/mountaya/geo/SearchSectionState;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/SearchSectionState {
+	public fun getFailure ()Ljava/lang/Throwable;
+	public fun isLoading ()Z
+	public fun isSettled ()Z
+}
+
+public final class com/mountaya/geo/SearchSectionState$Failed : com/mountaya/geo/SearchSectionState {
+	public fun <init> (Ljava/lang/Throwable;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getFailure ()Ljava/lang/Throwable;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchSectionState$Loading : com/mountaya/geo/SearchSectionState {
+	public static final field INSTANCE Lcom/mountaya/geo/SearchSectionState$Loading;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchSectionState$Settled : com/mountaya/geo/SearchSectionState {
+	public static final field INSTANCE Lcom/mountaya/geo/SearchSectionState$Settled;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchSnapshot {
+	public fun <init> (Ljava/lang/String;ZZZLjava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;ZZZLjava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHasFallenBack ()Z
+	public final fun getQuery ()Ljava/lang/String;
+	public final fun getSections ()Ljava/util/List;
+	public fun hashCode ()I
+	public final fun isSearching ()Z
+	public final fun isSettled ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SearchViewportBoundsKt {
+	public static final field SEARCH_BOUNDS_COSINE_FLOOR D
+	public static final field SEARCH_BOUNDS_MAX_SPAN_DEGREES D
+	public static final fun searchViewportBounds (Ljava/util/List;D)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/SearchWording {
+	public fun <init> ()V
+	public fun <init> (Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getResolveLabel ()Lkotlin/jvm/functions/Function1;
+	public final fun getUnits ()Lcom/mountaya/geo/UnitPreferences;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SectionChipCell {
+	public fun <init> (Lcom/mountaya/geo/SectionChipStat;D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStat ()Lcom/mountaya/geo/SectionChipStat;
+	public final fun getValue ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SectionChipCellsKt {
+	public static final fun getDefaultSectionChipStats ()Ljava/util/List;
+	public static final fun sectionChipCells (Lcom/mountaya/geo/ItinerarySegmentRowMetrics;Ljava/util/List;)Ljava/util/List;
+	public static synthetic fun sectionChipCells$default (Lcom/mountaya/geo/ItinerarySegmentRowMetrics;Ljava/util/List;ILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/SectionChipStat : java/lang/Enum {
+	public static final field Ascent Lcom/mountaya/geo/SectionChipStat;
+	public static final field Descent Lcom/mountaya/geo/SectionChipStat;
+	public static final field Distance Lcom/mountaya/geo/SectionChipStat;
+	public static final field Grade Lcom/mountaya/geo/SectionChipStat;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/SectionChipStat;
+	public static fun values ()[Lcom/mountaya/geo/SectionChipStat;
+}
+
+public final class com/mountaya/geo/SectionGradeKt {
+	public static final fun sectionGrade (Lcom/mountaya/geo/ItinerarySegmentRowMetrics;)Ljava/lang/Double;
+}
+
+public final class com/mountaya/geo/SectionsForFilterKt {
+	public static final fun sectionsForFilter (Ljava/util/List;Lcom/mountaya/geo/SearchFilter;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/SegmentColorAtKt {
+	public static final field DEFAULT_SEGMENT_COLOR Ljava/lang/String;
+	public static final fun getLivelyPalette ()Ljava/util/List;
+	public static final fun segmentColorAt (DLjava/util/List;)Ljava/lang/String;
+	public static final fun segmentColorAt (ILjava/util/List;)Ljava/lang/String;
+	public static synthetic fun segmentColorAt$default (DLjava/util/List;ILjava/lang/Object;)Ljava/lang/String;
+	public static synthetic fun segmentColorAt$default (ILjava/util/List;ILjava/lang/Object;)Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/SegmentRowCell {
+	public abstract fun getColumn ()Lcom/mountaya/geo/SegmentTableColumn;
+}
+
+public final class com/mountaya/geo/SegmentRowCell$Altitude : com/mountaya/geo/SegmentRowCell {
+	public fun <init> (Lcom/mountaya/geo/AltitudeRange;Ljava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBand ()Lcom/mountaya/geo/AltitudeRange;
+	public fun getColumn ()Lcom/mountaya/geo/SegmentTableColumn;
+	public final fun getSingle ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SegmentRowCell$Difficulty : com/mountaya/geo/SegmentRowCell {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getColumn ()Lcom/mountaya/geo/SegmentTableColumn;
+	public final fun getText-cN8BAPU ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SegmentRowCell$Distance : com/mountaya/geo/SegmentRowCell {
+	public fun <init> (Ljava/lang/Double;Ljava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getColumn ()Lcom/mountaya/geo/SegmentTableColumn;
+	public final fun getLeg ()Ljava/lang/Double;
+	public final fun getTotal ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SegmentRowCell$Duration : com/mountaya/geo/SegmentRowCell {
+	public fun <init> (Ljava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getColumn ()Lcom/mountaya/geo/SegmentTableColumn;
+	public final fun getSeconds ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SegmentRowCell$Elevation : com/mountaya/geo/SegmentRowCell {
+	public fun <init> (Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAscent ()Ljava/lang/Double;
+	public fun getColumn ()Lcom/mountaya/geo/SegmentTableColumn;
+	public final fun getDescent ()Ljava/lang/Double;
+	public final fun getTotalAscent ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SegmentRowCell$Profile : com/mountaya/geo/SegmentRowCell {
+	public fun <init> (Lcom/mountaya/geo/ProfileRange;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public fun getColumn ()Lcom/mountaya/geo/SegmentTableColumn;
+	public final fun getLit ()Lcom/mountaya/geo/ProfileRange;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SegmentRowCell$Segment : com/mountaya/geo/SegmentRowCell {
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getColumn ()Lcom/mountaya/geo/SegmentTableColumn;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SegmentRowCellKt {
+	public static final fun getDefaultSegmentTableColumns ()Ljava/util/List;
+	public static final fun segmentRowCell (Lcom/mountaya/geo/ItinerarySegmentRow;Lcom/mountaya/geo/SegmentTableColumn;)Lcom/mountaya/geo/SegmentRowCell;
+}
+
+public final class com/mountaya/geo/SegmentTableColumn : java/lang/Enum {
+	public static final field Altitude Lcom/mountaya/geo/SegmentTableColumn;
+	public static final field Difficulty Lcom/mountaya/geo/SegmentTableColumn;
+	public static final field Distance Lcom/mountaya/geo/SegmentTableColumn;
+	public static final field Duration Lcom/mountaya/geo/SegmentTableColumn;
+	public static final field Elevation Lcom/mountaya/geo/SegmentTableColumn;
+	public static final field Profile Lcom/mountaya/geo/SegmentTableColumn;
+	public static final field Segment Lcom/mountaya/geo/SegmentTableColumn;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/SegmentTableColumn;
+	public static fun values ()[Lcom/mountaya/geo/SegmentTableColumn;
+}
+
+public final class com/mountaya/geo/SelectBoundaryKt {
+	public static final fun selectBoundary (Ljava/util/List;Ljava/util/List;)Lcom/mountaya/client/generated/RestSchema$Boundaries;
+}
+
+public final class com/mountaya/geo/ShapePaint {
+	public fun <init> (ZZDLcom/mountaya/geo/ShapePaint$LineCap;Lcom/mountaya/geo/ShapePaint$LineJoin;DLcom/mountaya/geo/ShapePaint$FillRule;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFillRule ()Lcom/mountaya/geo/ShapePaint$FillRule;
+	public final fun getLineCap ()Lcom/mountaya/geo/ShapePaint$LineCap;
+	public final fun getLineJoin ()Lcom/mountaya/geo/ShapePaint$LineJoin;
+	public final fun getMiterLimit ()D
+	public final fun getStrokeWidth ()D
+	public fun hashCode ()I
+	public final fun isFilled ()Z
+	public final fun isStroked ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ShapePaint$FillRule : java/lang/Enum {
+	public static final field EvenOdd Lcom/mountaya/geo/ShapePaint$FillRule;
+	public static final field NonZero Lcom/mountaya/geo/ShapePaint$FillRule;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/ShapePaint$FillRule;
+	public static fun values ()[Lcom/mountaya/geo/ShapePaint$FillRule;
+}
+
+public final class com/mountaya/geo/ShapePaint$LineCap : java/lang/Enum {
+	public static final field Butt Lcom/mountaya/geo/ShapePaint$LineCap;
+	public static final field Round Lcom/mountaya/geo/ShapePaint$LineCap;
+	public static final field Square Lcom/mountaya/geo/ShapePaint$LineCap;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/ShapePaint$LineCap;
+	public static fun values ()[Lcom/mountaya/geo/ShapePaint$LineCap;
+}
+
+public final class com/mountaya/geo/ShapePaint$LineJoin : java/lang/Enum {
+	public static final field Arcs Lcom/mountaya/geo/ShapePaint$LineJoin;
+	public static final field Bevel Lcom/mountaya/geo/ShapePaint$LineJoin;
+	public static final field Miter Lcom/mountaya/geo/ShapePaint$LineJoin;
+	public static final field MiterClip Lcom/mountaya/geo/ShapePaint$LineJoin;
+	public static final field Round Lcom/mountaya/geo/ShapePaint$LineJoin;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/ShapePaint$LineJoin;
+	public static fun values ()[Lcom/mountaya/geo/ShapePaint$LineJoin;
+}
+
+public final class com/mountaya/geo/SlopeAspect {
+	public fun <init> (DLjava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAspect ()Ljava/lang/Double;
+	public final fun getSlope ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SlopeAspectFromNeighboursKt {
+	public static final fun slopeAspectFromNeighbours (Lcom/mountaya/geo/TerrainNeighbours;DD)Lcom/mountaya/geo/SlopeAspect;
+}
+
+public final class com/mountaya/geo/SlopeBucket {
+	public fun <init> (DLjava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getFrom ()D
+	public final fun getKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SlopeRampColorKt {
+	public static final fun getAscentSlopeRamp ()Ljava/util/List;
+	public static final fun getDescentSlopeRamp ()Ljava/util/List;
+	public static final fun slopeRampColor (D)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SlopeRampStop {
+	public fun <init> (Ljava/lang/String;D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Ljava/lang/String;
+	public final fun getDegrees ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/SlopeStretchesKt {
+	public static final fun getSlopeBuckets ()Ljava/util/List;
+	public static final fun slopeStretches (Ljava/util/List;Ljava/util/List;)Ljava/util/List;
+	public static synthetic fun slopeStretches$default (Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/SlopeUnit : java/lang/Enum {
+	public static final field Degrees Lcom/mountaya/geo/SlopeUnit;
+	public static final field Percentage Lcom/mountaya/geo/SlopeUnit;
+	public static final field Ratio Lcom/mountaya/geo/SlopeUnit;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/SlopeUnit;
+	public static fun values ()[Lcom/mountaya/geo/SlopeUnit;
+}
+
+public final class com/mountaya/geo/SpecificationBoundsKt {
+	public static final fun specificationBounds (Ljava/util/List;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/SpeedUnit : java/lang/Enum {
+	public static final field KilometerPerHour Lcom/mountaya/geo/SpeedUnit;
+	public static final field MeterPerSecond Lcom/mountaya/geo/SpeedUnit;
+	public static final field MilePerHour Lcom/mountaya/geo/SpeedUnit;
+	public static final field MinutePerKilometer Lcom/mountaya/geo/SpeedUnit;
+	public static final field MinutePerMile Lcom/mountaya/geo/SpeedUnit;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/SpeedUnit;
+	public static fun values ()[Lcom/mountaya/geo/SpeedUnit;
+}
+
+public final class com/mountaya/geo/SplitDurationKt {
+	public static final fun splitDuration (Ljava/lang/Double;)Lcom/mountaya/geo/DurationSplit;
+}
+
+public abstract interface class com/mountaya/geo/StatStripCell {
+	public abstract fun getNumber ()Ljava/lang/Double;
+	public abstract fun getStat ()Lcom/mountaya/geo/StatStripStat;
+}
+
+public final class com/mountaya/geo/StatStripCell$Ascent : com/mountaya/geo/StatStripCell {
+	public fun <init> (D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getNumber ()Ljava/lang/Double;
+	public fun getStat ()Lcom/mountaya/geo/StatStripStat;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/StatStripCell$Descent : com/mountaya/geo/StatStripCell {
+	public fun <init> (D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getNumber ()Ljava/lang/Double;
+	public fun getStat ()Lcom/mountaya/geo/StatStripStat;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/StatStripCell$Difficulty : com/mountaya/geo/StatStripCell {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDifficulty-fp7p7ec ()Ljava/lang/String;
+	public fun getNumber ()Ljava/lang/Double;
+	public fun getStat ()Lcom/mountaya/geo/StatStripStat;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/StatStripCell$Distance : com/mountaya/geo/StatStripCell {
+	public fun <init> (D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getNumber ()Ljava/lang/Double;
+	public fun getStat ()Lcom/mountaya/geo/StatStripStat;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/StatStripCell$Duration : com/mountaya/geo/StatStripCell {
+	public fun <init> (D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getNumber ()Ljava/lang/Double;
+	public fun getStat ()Lcom/mountaya/geo/StatStripStat;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/StatStripCell$Elevation : com/mountaya/geo/StatStripCell {
+	public fun <init> (D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getNumber ()Ljava/lang/Double;
+	public fun getStat ()Lcom/mountaya/geo/StatStripStat;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/StatStripCell$Grade : com/mountaya/geo/StatStripCell {
+	public fun <init> (D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getNumber ()Ljava/lang/Double;
+	public fun getStat ()Lcom/mountaya/geo/StatStripStat;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/StatStripCellsKt {
+	public static final fun getDefaultStatStripStats ()Ljava/util/List;
+	public static final fun statStripCells (Lcom/mountaya/geo/ResolvedCharacteristics;Lcom/mountaya/geo/StatStripCursor;Ljava/util/List;)Ljava/util/List;
+	public static synthetic fun statStripCells$default (Lcom/mountaya/geo/ResolvedCharacteristics;Lcom/mountaya/geo/StatStripCursor;Ljava/util/List;ILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/StatStripCursor {
+	public fun <init> (DDLjava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDistance ()D
+	public final fun getElevation ()D
+	public final fun getGrade ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/StatStripStat : java/lang/Enum {
+	public static final field Ascent Lcom/mountaya/geo/StatStripStat;
+	public static final field Descent Lcom/mountaya/geo/StatStripStat;
+	public static final field Difficulty Lcom/mountaya/geo/StatStripStat;
+	public static final field Distance Lcom/mountaya/geo/StatStripStat;
+	public static final field Duration Lcom/mountaya/geo/StatStripStat;
+	public static final field Elevation Lcom/mountaya/geo/StatStripStat;
+	public static final field Grade Lcom/mountaya/geo/StatStripStat;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/StatStripStat;
+	public static fun values ()[Lcom/mountaya/geo/StatStripStat;
+}
+
+public final class com/mountaya/geo/SteepnessClass : java/lang/Enum {
+	public static final field From25To30 Lcom/mountaya/geo/SteepnessClass;
+	public static final field From30To35 Lcom/mountaya/geo/SteepnessClass;
+	public static final field From35To40 Lcom/mountaya/geo/SteepnessClass;
+	public static final field From40To45 Lcom/mountaya/geo/SteepnessClass;
+	public static final field From45 Lcom/mountaya/geo/SteepnessClass;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getFromDegrees ()D
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/SteepnessClass;
+	public static fun values ()[Lcom/mountaya/geo/SteepnessClass;
+}
+
+public final class com/mountaya/geo/StepInstructionKt {
+	public static final fun stepInstruction (Lcom/mountaya/geo/NavigationStep;)Lcom/mountaya/geo/NavigationInstruction;
+}
+
+public final class com/mountaya/geo/StretchAtKt {
+	public static final fun stretchAt (Ljava/util/List;D)Lcom/mountaya/geo/ProfileSpan;
+}
+
+public final class com/mountaya/geo/SuggestionsGeoJsonKt {
+	public static final field SUGGESTION_ALTERNATIVE_COLOR Ljava/lang/String;
+	public static final field SUGGESTION_CHOSEN_COLOR Ljava/lang/String;
+	public static final fun suggestionsGeoJson (Lcom/mountaya/client/generated/DataSchema$SuggestionsResult;I)Lcom/mountaya/geo/GeoJsonFeatureCollection;
+	public static synthetic fun suggestionsGeoJson$default (Lcom/mountaya/client/generated/DataSchema$SuggestionsResult;IILjava/lang/Object;)Lcom/mountaya/geo/GeoJsonFeatureCollection;
+}
+
+public final class com/mountaya/geo/SurfaceColorKt {
+	public static final fun getSurfaceColors ()Ljava/util/Map;
+	public static final fun getUnclassifiedColor ()Lcom/mountaya/geo/HexColor;
+	public static final fun surfaceColor-tL_zaIk (Ljava/lang/String;)Lcom/mountaya/geo/HexColor;
+}
+
+public final class com/mountaya/geo/TemperatureUnit : java/lang/Enum {
+	public static final field Celsius Lcom/mountaya/geo/TemperatureUnit;
+	public static final field Fahrenheit Lcom/mountaya/geo/TemperatureUnit;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/TemperatureUnit;
+	public static fun values ()[Lcom/mountaya/geo/TemperatureUnit;
+}
+
+public final class com/mountaya/geo/TerrainFromElevationTilesKt {
+	public static final fun terrainFromElevationTiles (Ljava/util/List;Lcom/mountaya/geo/ElevationSource;Ljava/util/List;)Lcom/mountaya/geo/TerrainReading;
+}
+
+public final class com/mountaya/geo/TerrainNeighbours {
+	public fun <init> (DDDD)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEast ()D
+	public final fun getNorth ()D
+	public final fun getSouth ()D
+	public final fun getWest ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/TerrainReading {
+	public fun <init> (DDLjava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAspect ()Ljava/lang/Double;
+	public final fun getElevation ()D
+	public final fun getSlope ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ThemeScheme : java/lang/Enum {
+	public static final field Dark Lcom/mountaya/geo/ThemeScheme;
+	public static final field Light Lcom/mountaya/geo/ThemeScheme;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/ThemeScheme;
+	public static fun values ()[Lcom/mountaya/geo/ThemeScheme;
+}
+
+public final class com/mountaya/geo/ThemeToken {
+	public fun <init> (Ljava/lang/Object;Ljava/lang/Object;)V
+	public synthetic fun <init> (Ljava/lang/Object;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDark ()Ljava/lang/Object;
+	public final fun getLight ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ThemeTokenValueKt {
+	public static final fun themeTokenValue (Lcom/mountaya/geo/ThemeToken;Lcom/mountaya/geo/ThemeScheme;)Ljava/lang/Object;
+}
+
+public final class com/mountaya/geo/TileLayerRankKt {
+	public static final fun getPoiSourceLayers ()Ljava/util/List;
+	public static final fun getTileSourceLayerRanks ()Ljava/util/Map;
+	public static final fun tileLayerRank (Lcom/mountaya/client/generated/TileSchema$TileLayer;Ljava/util/Map;)I
+	public static synthetic fun tileLayerRank$default (Lcom/mountaya/client/generated/TileSchema$TileLayer;Ljava/util/Map;ILjava/lang/Object;)I
+}
+
+public final class com/mountaya/geo/TimeLength : java/lang/Enum {
+	public static final field Medium Lcom/mountaya/geo/TimeLength;
+	public static final field Short Lcom/mountaya/geo/TimeLength;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/TimeLength;
+	public static fun values ()[Lcom/mountaya/geo/TimeLength;
+}
+
+public final class com/mountaya/geo/TimeSliderReadout {
+	public fun <init> (Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/Integer;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCount ()Ljava/lang/Integer;
+	public final fun getInstant ()Lkotlin/time/Instant;
+	public final fun getWord ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/TimeSliderReadoutKt {
+	public static final fun timeSliderReadout (Lcom/mountaya/geo/TimeSliderWindow;I)Lcom/mountaya/geo/TimeSliderReadout;
+}
+
+public final class com/mountaya/geo/TimeSliderRelease {
+	public fun <init> (Lkotlin/time/Instant;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPin ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/TimeSliderReleaseKt {
+	public static final fun timeSliderRelease (Lcom/mountaya/geo/TimeSliderWindow;I)Lcom/mountaya/geo/TimeSliderRelease;
+}
+
+public final class com/mountaya/geo/TimeSliderTick {
+	public fun <init> (ILjava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()I
+	public final fun getWord ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/TimeSliderTicksKt {
+	public static final fun timeSliderTicks (Lcom/mountaya/geo/TimeSliderWindow;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/TimeSliderWindow {
+	public final fun dateAt (I)Lkotlin/time/Instant;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMaxValue ()I
+	public final fun getNowValue ()I
+	public final fun getStart ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun valueAt (Lkotlin/time/Instant;)I
+}
+
+public final class com/mountaya/geo/TimeSliderWindowKt {
+	public static final field TIME_WINDOW_FUTURE_HOURS I
+	public static final field TIME_WINDOW_PAST_HOURS I
+	public static final fun timeSliderWindow (Lkotlin/time/Instant;)Lcom/mountaya/geo/TimeSliderWindow;
+}
+
+public final class com/mountaya/geo/TimeZoneViewportKt {
+	public static final fun timeZoneViewport (Ljava/lang/String;)Lcom/mountaya/geo/MapViewport;
+}
+
+public final class com/mountaya/geo/TimestampedSource {
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSourceId ()Ljava/lang/String;
+	public final fun getTiles ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/TimestampedSourcesKt {
+	public static final field TIMESTAMP_PARAMETER Ljava/lang/String;
+	public static final fun timestampedSources (Lcom/mountaya/client/generated/TileSchema$Layers;Ljava/lang/String;Lkotlin/time/Instant;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/ToggleAmenityKt {
+	public static final fun toggleAmenity-3SvTdzU (Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
+}
+
+public final class com/mountaya/geo/TrailDifficultyRankKt {
+	public static final fun trailDifficultyRank-BmLYOAk (Ljava/lang/String;)Ljava/lang/Integer;
+}
+
+public final class com/mountaya/geo/TrimWhiteSpaceKt {
+	public static final fun trimWhiteSpace (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/UnitPreferences {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLanguage ()Ljava/lang/String;
+	public final fun getLength-DFwtY0M ()Ljava/lang/String;
+	public final fun getPace-Z2jnCeU ()Ljava/lang/String;
+	public final fun getSlope-0vvqxVg ()Ljava/lang/String;
+	public final fun getTemperature-pdkclcs ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WatermarkOfKt {
+	public static final fun getWatermarkClearance ()D
+	public static final fun getWatermarkHeight ()D
+	public static final fun getWatermarkInset ()D
+	public static final fun getWatermarkWidth ()D
+	public static final fun watermarkOf-vakSVXA (Lcom/mountaya/geo/OrganizationRead;Ljava/lang/String;)Lcom/mountaya/geo/MapWatermark;
+}
+
+public final class com/mountaya/geo/WayRowKt {
+	public static final fun wayRow (Lcom/mountaya/client/generated/DataSchema$Way;Ljava/lang/String;Lcom/mountaya/geo/SearchWording;)Lcom/mountaya/geo/SearchRow;
+	public static synthetic fun wayRow$default (Lcom/mountaya/client/generated/DataSchema$Way;Ljava/lang/String;Lcom/mountaya/geo/SearchWording;ILjava/lang/Object;)Lcom/mountaya/geo/SearchRow;
+}
+
+public final class com/mountaya/geo/WayTypeColorKt {
+	public static final fun getWayTypeColors ()Ljava/util/Map;
+	public static final fun wayTypeColor-N-RKEPw (Ljava/lang/String;)Lcom/mountaya/geo/HexColor;
+}
+
+public final class com/mountaya/geo/WaypointCardFacts {
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Z)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContact ()Ljava/util/List;
+	public final fun getFields ()Ljava/util/List;
+	public final fun getHeadline ()Ljava/lang/String;
+	public final fun getLinks ()Ljava/util/List;
+	public final fun getPhotos ()Ljava/util/List;
+	public final fun getServices ()Ljava/util/List;
+	public final fun getTiming ()Ljava/util/List;
+	public fun hashCode ()I
+	public final fun isEmpty ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointCardFacts$Line {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHref ()Ljava/lang/String;
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isExternal ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointCardFacts$MediaLink {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHref ()Ljava/lang/String;
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointCardFacts$Service {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmenity-WtIxpLE ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointCardKt {
+	public static final fun waypointCard (Lcom/mountaya/geo/WaypointDetails;Lcom/mountaya/geo/ElementsScope;Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;)Lcom/mountaya/geo/WaypointCardFacts;
+	public static synthetic fun waypointCard$default (Lcom/mountaya/geo/WaypointDetails;Lcom/mountaya/geo/ElementsScope;Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/mountaya/geo/WaypointCardFacts;
+}
+
+public final class com/mountaya/geo/WaypointDeclaresNothingKt {
+	public static final fun waypointDeclaresNothing (Lcom/mountaya/client/generated/RestSchema$ItineraryWaypoint;)Z
+}
+
+public final class com/mountaya/geo/WaypointDetails {
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;Ljava/lang/String;Lcom/mountaya/geo/WaypointDetails$Timing;Lcom/mountaya/geo/WaypointDetails$Contact;Lcom/mountaya/geo/WaypointDetails$Media;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Lcom/mountaya/geo/WaypointDetails$Timing;Lcom/mountaya/geo/WaypointDetails$Contact;Lcom/mountaya/geo/WaypointDetails$Media;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmenities ()Ljava/util/List;
+	public final fun getContact ()Lcom/mountaya/geo/WaypointDetails$Contact;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getMedia ()Lcom/mountaya/geo/WaypointDetails$Media;
+	public final fun getProperties ()Ljava/util/List;
+	public final fun getTiming ()Lcom/mountaya/geo/WaypointDetails$Timing;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointDetails$Contact {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAddress ()Ljava/lang/String;
+	public final fun getBookingUrl ()Ljava/lang/String;
+	public final fun getEmail ()Ljava/lang/String;
+	public final fun getOpeningHours ()Ljava/lang/String;
+	public final fun getPhone ()Ljava/lang/String;
+	public final fun getWebsite ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointDetails$Link {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointDetails$Media {
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLinks ()Ljava/util/List;
+	public final fun getPhotos ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointDetails$Photo {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCaption ()Ljava/lang/String;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointDetails$Property {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFormat-JZcsRy8 ()Ljava/lang/String;
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointDetails$Timing {
+	public fun <init> ()V
+	public fun <init> (Lkotlin/time/Instant;Ljava/lang/Integer;)V
+	public synthetic fun <init> (Lkotlin/time/Instant;Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCutoffAt ()Lkotlin/time/Instant;
+	public final fun getStopDuration ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointField {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHref ()Ljava/lang/String;
+	public final fun getKey ()Ljava/lang/String;
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointHeadlineKt {
+	public static final fun waypointHeadline (Lcom/mountaya/client/generated/RestSchema$ItineraryWaypoint;Lcom/mountaya/geo/WaypointSummaryWords;Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
+	public static synthetic fun waypointHeadline$default (Lcom/mountaya/client/generated/RestSchema$ItineraryWaypoint;Lcom/mountaya/geo/WaypointSummaryWords;Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointPropertyLinkKt {
+	public static final fun waypointPropertyLink (Lcom/mountaya/geo/WaypointDetails$Property;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointPropertyValueKt {
+	public static final fun waypointPropertyValue (Lcom/mountaya/geo/WaypointDetails$Property;Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
+	public static synthetic fun waypointPropertyValue$default (Lcom/mountaya/geo/WaypointDetails$Property;Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/String;
+}
+
+public abstract interface class com/mountaya/geo/WaypointRowCell {
+	public abstract fun getColumn ()Lcom/mountaya/geo/WaypointTableColumn;
+}
+
+public final class com/mountaya/geo/WaypointRowCell$Altitude : com/mountaya/geo/WaypointRowCell {
+	public fun <init> (Ljava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAltitude ()Ljava/lang/Double;
+	public fun getColumn ()Lcom/mountaya/geo/WaypointTableColumn;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointRowCell$Amenities : com/mountaya/geo/WaypointRowCell {
+	public fun <init> (Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmenities ()Ljava/util/List;
+	public fun getColumn ()Lcom/mountaya/geo/WaypointTableColumn;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointRowCell$Cutoff : com/mountaya/geo/WaypointRowCell {
+	public fun <init> (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getColumn ()Lcom/mountaya/geo/WaypointTableColumn;
+	public final fun getMoment ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointRowCell$Distance : com/mountaya/geo/WaypointRowCell {
+	public fun <init> (D)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getColumn ()Lcom/mountaya/geo/WaypointTableColumn;
+	public final fun getTotal ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointRowCell$Elevation : com/mountaya/geo/WaypointRowCell {
+	public fun <init> (Ljava/lang/Double;Ljava/lang/Double;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAscent ()Ljava/lang/Double;
+	public fun getColumn ()Lcom/mountaya/geo/WaypointTableColumn;
+	public final fun getDescent ()Ljava/lang/Double;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointRowCell$Profile : com/mountaya/geo/WaypointRowCell {
+	public fun <init> (Lcom/mountaya/geo/ProfileRange;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getColumn ()Lcom/mountaya/geo/WaypointTableColumn;
+	public final fun getLit ()Lcom/mountaya/geo/ProfileRange;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointRowCell$Properties : com/mountaya/geo/WaypointRowCell {
+	public fun <init> (Ljava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getColumn ()Lcom/mountaya/geo/WaypointTableColumn;
+	public final fun getFields ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointRowCell$Waypoint : com/mountaya/geo/WaypointRowCell {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getColumn ()Lcom/mountaya/geo/WaypointTableColumn;
+	public final fun getGlyph ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointRowCellKt {
+	public static final fun getDefaultWaypointTableColumns ()Ljava/util/List;
+	public static final fun waypointRowCell (Lcom/mountaya/geo/ItineraryWaypointRow;Lcom/mountaya/geo/WaypointTableColumn;Lcom/mountaya/geo/GlyphSet;Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;)Lcom/mountaya/geo/WaypointRowCell;
+	public static synthetic fun waypointRowCell$default (Lcom/mountaya/geo/ItineraryWaypointRow;Lcom/mountaya/geo/WaypointTableColumn;Lcom/mountaya/geo/GlyphSet;Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/mountaya/geo/WaypointRowCell;
+}
+
+public final class com/mountaya/geo/WaypointSpriteIdKt {
+	public static final field DEFAULT_WAYPOINT_COLOR Ljava/lang/String;
+	public static final field WAYPOINT_FALLBACK_GLYPH Ljava/lang/String;
+	public static final field WAYPOINT_ICON_PREFIX Ljava/lang/String;
+	public static final fun getDefaultWaypointIcon ()Ljava/lang/String;
+	public static final fun waypointSpriteId-gxOr-m8 (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointSummaryKt {
+	public static final fun waypointSummary (Lcom/mountaya/client/generated/RestSchema$ItineraryWaypoint;Lcom/mountaya/geo/WaypointSummaryWords;Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
+	public static synthetic fun waypointSummary$default (Lcom/mountaya/client/generated/RestSchema$ItineraryWaypoint;Lcom/mountaya/geo/WaypointSummaryWords;Lcom/mountaya/geo/UnitPreferences;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointSummaryWords {
+	public fun <init> (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmenities ()Ljava/lang/String;
+	public final fun getCutoffAt ()Lkotlin/jvm/functions/Function1;
+	public final fun getOpeningHours ()Lkotlin/jvm/functions/Function1;
+	public final fun getStop ()Lkotlin/jvm/functions/Function1;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WaypointTableColumn : java/lang/Enum {
+	public static final field Altitude Lcom/mountaya/geo/WaypointTableColumn;
+	public static final field Amenities Lcom/mountaya/geo/WaypointTableColumn;
+	public static final field Cutoff Lcom/mountaya/geo/WaypointTableColumn;
+	public static final field Distance Lcom/mountaya/geo/WaypointTableColumn;
+	public static final field Elevation Lcom/mountaya/geo/WaypointTableColumn;
+	public static final field Profile Lcom/mountaya/geo/WaypointTableColumn;
+	public static final field Properties Lcom/mountaya/geo/WaypointTableColumn;
+	public static final field Waypoint Lcom/mountaya/geo/WaypointTableColumn;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/WaypointTableColumn;
+	public static fun values ()[Lcom/mountaya/geo/WaypointTableColumn;
+}
+
+public final class com/mountaya/geo/WordBundle {
+	public static final field Companion Lcom/mountaya/geo/WordBundle$Companion;
+	public fun <init> (Lkotlinx/serialization/json/JsonObject;Ljava/util/Map;Ljava/util/Map;)V
+	public synthetic fun <init> (Lkotlinx/serialization/json/JsonObject;Ljava/util/Map;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEnglish ()Lkotlinx/serialization/json/JsonObject;
+	public final fun getPartial ()Ljava/util/Map;
+	public final fun getTranslations ()Ljava/util/Map;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WordBundle$Companion {
+	public final fun getElements ()Lcom/mountaya/geo/WordBundle;
+}
+
+public abstract interface class com/mountaya/geo/WordOverrides {
+}
+
+public final class com/mountaya/geo/WordOverrides$ByLanguage : com/mountaya/geo/WordOverrides {
+	public fun <init> (Ljava/util/Map;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getWords ()Ljava/util/Map;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WordOverrides$BySection : com/mountaya/geo/WordOverrides {
+	public fun <init> (Lkotlinx/serialization/json/JsonObject;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getWords ()Lkotlinx/serialization/json/JsonObject;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/WordOverridesOfKt {
+	public static final fun wordOverridesOf (Lkotlinx/serialization/json/JsonObject;)Lcom/mountaya/geo/WordOverrides;
+}
+
+public final class com/mountaya/geo/WrapLongitudeKt {
+	public static final fun wrapLongitude (D)D
+}
+
+public final class com/mountaya/geo/WrapLongitudePastRangeKt {
+	public static final fun wrapLongitudePastRange (D)D
+}
+
+public final class com/mountaya/geo/ZoneRowKt {
+	public static final fun zoneRow (Lcom/mountaya/client/generated/DataSchema$ZoneSearchResult;Ljava/lang/String;)Lcom/mountaya/geo/SearchRow;
+}
+
+public final class com/mountaya/geo/ZoomBounds {
+	public fun <init> (DD)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMaxZoom ()D
+	public final fun getMinZoom ()D
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/ZoomIntoRangeKt {
+	public static final fun zoomIntoRange (DLcom/mountaya/geo/ZoomBounds;)Ljava/lang/Double;
+}
+
+public final class com/mountaya/geo/ZoomLimitReachedKt {
+	public static final fun zoomControlsDisabled (Lcom/mountaya/geo/ZoomWindowEnd;)Ljava/util/List;
+	public static final fun zoomLimitReached (DLcom/mountaya/geo/ZoomBounds;)Lcom/mountaya/geo/ZoomWindowEnd;
+}
+
+public final class com/mountaya/geo/ZoomStep : java/lang/Enum {
+	public static final field ZoomIn Lcom/mountaya/geo/ZoomStep;
+	public static final field ZoomOut Lcom/mountaya/geo/ZoomStep;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/ZoomStep;
+	public static fun values ()[Lcom/mountaya/geo/ZoomStep;
+}
+
+public final class com/mountaya/geo/ZoomToAltitudeKt {
+	public static final fun zoomToAltitude (DDD)D
+	public static synthetic fun zoomToAltitude$default (DDDILjava/lang/Object;)D
+}
+
+public final class com/mountaya/geo/ZoomWindowEnd : java/lang/Enum {
+	public static final field Both Lcom/mountaya/geo/ZoomWindowEnd;
+	public static final field Ceiling Lcom/mountaya/geo/ZoomWindowEnd;
+	public static final field Floor Lcom/mountaya/geo/ZoomWindowEnd;
+	public static final field None Lcom/mountaya/geo/ZoomWindowEnd;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getId ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/mountaya/geo/ZoomWindowEnd;
+	public static fun values ()[Lcom/mountaya/geo/ZoomWindowEnd;
+}
+
+public final class com/mountaya/geo/generated/ElementLayout {
+	public static final field INSTANCE Lcom/mountaya/geo/generated/ElementLayout;
+	public final fun getPanelLayerCardColumns ()I
+	public final fun getPanelLayerCardHeight ()D
+	public final fun getPanelLayerCardWidth ()D
+	public final fun getPanelNarrowBottomInset ()D
+	public final fun getPanelNarrowMapWidth ()D
+	public final fun getPanelPictureHeight ()D
+	public final fun getPanelPictureHeightNarrow ()D
+	public final fun getPanelPreferenceCardColumns ()I
+	public final fun getPanelPreferenceCardHeight ()D
+	public final fun getPanelPreferenceCardWidth ()D
+	public final fun getPanelWidth ()D
+	public final fun getReadoutWidth ()D
+	public final fun getWatermarkInset ()D
+	public final fun getWatermarkWidth ()D
+}
+
+public final class com/mountaya/geo/generated/ElementTokens {
+	public static final field Companion Lcom/mountaya/geo/generated/ElementTokens$Companion;
+	public final fun copy (Lkotlin/jvm/functions/Function1;)Lcom/mountaya/geo/generated/ElementTokens;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccent ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getControlBg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getControlBgHover ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getControlFg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getControlFgDisabled ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getControlShadow ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getDimmed ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getFocusRing ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getPanelBg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getPanelBorder ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getPanelFg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileCursor ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileCursorDash ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileGridColor ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileLitFill ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileNavigatorHandle ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileNavigatorVeil ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileTooltipBg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileTooltipFg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileTooltipShadow ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileWaypointColor ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileWaypointLine ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getTableBorder ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getTableRowHover ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getTableSparkBase ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getTooltipBg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getTooltipFg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getWaypointCardMarkColor ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getWaypointCardMarkFg ()Lcom/mountaya/geo/ThemeToken;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/mountaya/geo/generated/ElementTokens$Builder {
+	public final fun getAccent ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getControlBg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getControlBgHover ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getControlFg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getControlFgDisabled ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getControlShadow ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getDimmed ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getFocusRing ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getPanelBg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getPanelBorder ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getPanelFg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileCursor ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileCursorDash ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileGridColor ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileLitFill ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileNavigatorHandle ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileNavigatorVeil ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileTooltipBg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileTooltipFg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileTooltipShadow ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileWaypointColor ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getProfileWaypointLine ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getTableBorder ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getTableRowHover ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getTableSparkBase ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getTooltipBg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getTooltipFg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getWaypointCardMarkColor ()Lcom/mountaya/geo/ThemeToken;
+	public final fun getWaypointCardMarkFg ()Lcom/mountaya/geo/ThemeToken;
+	public final fun setAccent (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setControlBg (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setControlBgHover (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setControlFg (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setControlFgDisabled (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setControlShadow (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setDimmed (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setFocusRing (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setPanelBg (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setPanelBorder (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setPanelFg (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setProfileCursor (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setProfileCursorDash (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setProfileGridColor (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setProfileLitFill (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setProfileNavigatorHandle (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setProfileNavigatorVeil (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setProfileTooltipBg (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setProfileTooltipFg (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setProfileTooltipShadow (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setProfileWaypointColor (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setProfileWaypointLine (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setTableBorder (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setTableRowHover (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setTableSparkBase (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setTooltipBg (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setTooltipFg (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setWaypointCardMarkColor (Lcom/mountaya/geo/ThemeToken;)V
+	public final fun setWaypointCardMarkFg (Lcom/mountaya/geo/ThemeToken;)V
+}
+
+public final class com/mountaya/geo/generated/ElementTokens$Companion {
+	public final fun getStandard ()Lcom/mountaya/geo/generated/ElementTokens;
+}
+
+public final class com/mountaya/geo/generated/LanguageEndonymsKt {
+	public static final fun getLanguageEndonyms ()Ljava/util/Map;
+}
+

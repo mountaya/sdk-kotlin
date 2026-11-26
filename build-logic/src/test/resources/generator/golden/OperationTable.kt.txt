@@ -1,0 +1,332 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+package com.mountaya.client.generated
+
+/** OperationTable is what the contract declares about each printed operation, one property per operation and nothing inferred from a method. A test holds it to `sdk/model.json` fact by fact. */
+internal object OperationTable {
+    /** The operations of the REST API, in the model's order. */
+    internal object Rest {
+        val getHut: com.mountaya.client.OperationFacts =
+            com.mountaya.client.OperationFacts(
+                surface = com.mountaya.client.Surface.Rest,
+                operationId = "getHut",
+                method = "GET",
+                path = "/v1/huts/{hut_id}/seasons/{season}",
+                idempotent = true,
+                credentials =
+                    com.mountaya.client.CredentialDeclaration(
+                        actingUser = com.mountaya.client.CredentialDeclaration.ActingUser.Optional,
+                        acceptsShareToken = true,
+                        requiresSession = false,
+                        requiresSecretKey = false,
+                        takesNoCredential = false,
+                        pendingInvitee = true,
+                        read = false,
+                    ),
+                timeoutMs = 30000,
+                declaresIdempotencyKey = false,
+                isConditional = false,
+                answersNotModified = true,
+                pagination = null,
+                success = com.mountaya.client.SuccessKind.Envelope,
+                successResponses =
+                    kotlin.collections.listOf(
+                        com.mountaya.client.SuccessResponse(200, kotlin.collections.listOf("ETag")),
+                    ),
+                errorStatuses = kotlin.collections.listOf(404, 500),
+                tasks = kotlin.collections.emptyList(),
+            )
+
+        val listHuts: com.mountaya.client.OperationFacts =
+            com.mountaya.client.OperationFacts(
+                surface = com.mountaya.client.Surface.Rest,
+                operationId = "listHuts",
+                method = "GET",
+                path = "/v1/huts",
+                idempotent = true,
+                credentials =
+                    com.mountaya.client.CredentialDeclaration(
+                        actingUser = com.mountaya.client.CredentialDeclaration.ActingUser.None,
+                        acceptsShareToken = false,
+                        requiresSession = false,
+                        requiresSecretKey = false,
+                        takesNoCredential = false,
+                        pendingInvitee = false,
+                        read = false,
+                    ),
+                timeoutMs = 10000,
+                declaresIdempotencyKey = false,
+                isConditional = false,
+                answersNotModified = false,
+                pagination =
+                    com.mountaya.client.Pagination(
+                        sort = kotlin.collections.listOf("name", "-name"),
+                        defaultSort = "name",
+                    ),
+                success = com.mountaya.client.SuccessKind.Envelope,
+                successResponses =
+                    kotlin.collections.listOf(
+                        com.mountaya.client.SuccessResponse(200, kotlin.collections.emptyList()),
+                    ),
+                errorStatuses = kotlin.collections.listOf(400),
+                tasks = kotlin.collections.emptyList(),
+            )
+
+        val postSignal: com.mountaya.client.OperationFacts =
+            com.mountaya.client.OperationFacts(
+                surface = com.mountaya.client.Surface.Rest,
+                operationId = "postSignal",
+                method = "POST",
+                path = "/v1/signals",
+                idempotent = false,
+                credentials =
+                    com.mountaya.client.CredentialDeclaration(
+                        actingUser = com.mountaya.client.CredentialDeclaration.ActingUser.Required,
+                        acceptsShareToken = false,
+                        requiresSession = true,
+                        requiresSecretKey = false,
+                        takesNoCredential = false,
+                        pendingInvitee = false,
+                        read = false,
+                    ),
+                timeoutMs = 30000,
+                declaresIdempotencyKey = true,
+                isConditional = false,
+                answersNotModified = false,
+                pagination = null,
+                success = com.mountaya.client.SuccessKind.Envelope,
+                successResponses =
+                    kotlin.collections.listOf(
+                        com.mountaya.client.SuccessResponse(201, kotlin.collections.listOf("Location")),
+                        com.mountaya.client.SuccessResponse(200, kotlin.collections.emptyList()),
+                    ),
+                errorStatuses = kotlin.collections.listOf(409),
+                tasks = kotlin.collections.listOf("signal.post", "signal.record"),
+            )
+
+        val getSignals: com.mountaya.client.OperationFacts =
+            com.mountaya.client.OperationFacts(
+                surface = com.mountaya.client.Surface.Rest,
+                operationId = "getSignals",
+                method = "GET",
+                path = "/v1/signals",
+                idempotent = true,
+                credentials =
+                    com.mountaya.client.CredentialDeclaration(
+                        actingUser = com.mountaya.client.CredentialDeclaration.ActingUser.Required,
+                        acceptsShareToken = false,
+                        requiresSession = true,
+                        requiresSecretKey = false,
+                        takesNoCredential = false,
+                        pendingInvitee = false,
+                        read = false,
+                    ),
+                timeoutMs = null,
+                declaresIdempotencyKey = false,
+                isConditional = false,
+                answersNotModified = false,
+                pagination = null,
+                success = com.mountaya.client.SuccessKind.EventStream,
+                successResponses =
+                    kotlin.collections.listOf(
+                        com.mountaya.client.SuccessResponse(200, kotlin.collections.emptyList()),
+                    ),
+                errorStatuses = kotlin.collections.listOf(401),
+                tasks = kotlin.collections.emptyList(),
+            )
+
+        val patchHut: com.mountaya.client.OperationFacts =
+            com.mountaya.client.OperationFacts(
+                surface = com.mountaya.client.Surface.Rest,
+                operationId = "patchHut",
+                method = "PATCH",
+                path = "/v1/huts/{hut_id}",
+                idempotent = true,
+                credentials =
+                    com.mountaya.client.CredentialDeclaration(
+                        actingUser = com.mountaya.client.CredentialDeclaration.ActingUser.Required,
+                        acceptsShareToken = false,
+                        requiresSession = false,
+                        requiresSecretKey = false,
+                        takesNoCredential = false,
+                        pendingInvitee = false,
+                        read = false,
+                    ),
+                timeoutMs = 30000,
+                declaresIdempotencyKey = true,
+                isConditional = true,
+                answersNotModified = false,
+                pagination = null,
+                success = com.mountaya.client.SuccessKind.Envelope,
+                successResponses =
+                    kotlin.collections.listOf(
+                        com.mountaya.client.SuccessResponse(200, kotlin.collections.emptyList()),
+                    ),
+                errorStatuses = kotlin.collections.listOf(404, 412),
+                tasks = kotlin.collections.listOf("hut.update"),
+            )
+
+        val deleteHut: com.mountaya.client.OperationFacts =
+            com.mountaya.client.OperationFacts(
+                surface = com.mountaya.client.Surface.Rest,
+                operationId = "deleteHut",
+                method = "DELETE",
+                path = "/v1/huts/{hut_id}",
+                idempotent = true,
+                credentials =
+                    com.mountaya.client.CredentialDeclaration(
+                        actingUser = com.mountaya.client.CredentialDeclaration.ActingUser.Required,
+                        acceptsShareToken = false,
+                        requiresSession = true,
+                        requiresSecretKey = false,
+                        takesNoCredential = false,
+                        pendingInvitee = false,
+                        read = false,
+                    ),
+                timeoutMs = 30000,
+                declaresIdempotencyKey = true,
+                isConditional = true,
+                answersNotModified = false,
+                pagination = null,
+                success = com.mountaya.client.SuccessKind.Envelope,
+                successResponses =
+                    kotlin.collections.listOf(
+                        com.mountaya.client.SuccessResponse(200, kotlin.collections.listOf("Idempotent-Replayed")),
+                    ),
+                errorStatuses = kotlin.collections.listOf(404, 409),
+                tasks = kotlin.collections.listOf("hut.delete"),
+            )
+
+        val getExport: com.mountaya.client.OperationFacts =
+            com.mountaya.client.OperationFacts(
+                surface = com.mountaya.client.Surface.Rest,
+                operationId = "getExport",
+                method = "GET",
+                path = "/v1/export",
+                idempotent = true,
+                credentials =
+                    com.mountaya.client.CredentialDeclaration(
+                        actingUser = com.mountaya.client.CredentialDeclaration.ActingUser.None,
+                        acceptsShareToken = false,
+                        requiresSession = false,
+                        requiresSecretKey = false,
+                        takesNoCredential = true,
+                        pendingInvitee = false,
+                        read = false,
+                    ),
+                timeoutMs = 60000,
+                declaresIdempotencyKey = false,
+                isConditional = false,
+                answersNotModified = false,
+                pagination = null,
+                success = com.mountaya.client.SuccessKind.Binary,
+                successResponses =
+                    kotlin.collections.listOf(
+                        com.mountaya.client.SuccessResponse(200, kotlin.collections.emptyList()),
+                    ),
+                errorStatuses = kotlin.collections.listOf(),
+                tasks = kotlin.collections.emptyList(),
+            )
+    }
+
+    /** The operations of the Tile API, in the model's order. */
+    internal object Tiles {
+        val getSpec: com.mountaya.client.OperationFacts =
+            com.mountaya.client.OperationFacts(
+                surface = com.mountaya.client.Surface.Tiles,
+                operationId = "getSpec",
+                method = "GET",
+                path = "/v1/spec",
+                idempotent = true,
+                credentials =
+                    com.mountaya.client.CredentialDeclaration(
+                        actingUser = com.mountaya.client.CredentialDeclaration.ActingUser.None,
+                        acceptsShareToken = true,
+                        requiresSession = false,
+                        requiresSecretKey = false,
+                        takesNoCredential = false,
+                        pendingInvitee = false,
+                        read = false,
+                    ),
+                timeoutMs = 30000,
+                declaresIdempotencyKey = false,
+                isConditional = false,
+                answersNotModified = false,
+                pagination = null,
+                success = com.mountaya.client.SuccessKind.Envelope,
+                successResponses =
+                    kotlin.collections.listOf(
+                        com.mountaya.client.SuccessResponse(200, kotlin.collections.emptyList()),
+                    ),
+                errorStatuses = kotlin.collections.listOf(404),
+                tasks = kotlin.collections.emptyList(),
+            )
+    }
+
+    /** The operations of the Data API, in the model's order. */
+    internal object Data {
+        val route: com.mountaya.client.OperationFacts =
+            com.mountaya.client.OperationFacts(
+                surface = com.mountaya.client.Surface.Data,
+                operationId = "route",
+                method = "POST",
+                path = "/graphql",
+                idempotent = true,
+                credentials =
+                    com.mountaya.client.CredentialDeclaration(
+                        actingUser = com.mountaya.client.CredentialDeclaration.ActingUser.None,
+                        acceptsShareToken = false,
+                        requiresSession = true,
+                        requiresSecretKey = false,
+                        takesNoCredential = false,
+                        pendingInvitee = false,
+                        read = true,
+                    ),
+                timeoutMs = 30000,
+                declaresIdempotencyKey = false,
+                isConditional = false,
+                answersNotModified = false,
+                pagination = null,
+                success = com.mountaya.client.SuccessKind.Graphql,
+                successResponses =
+                    kotlin.collections.listOf(
+                        com.mountaya.client.SuccessResponse(200, kotlin.collections.emptyList()),
+                    ),
+                errorStatuses = kotlin.collections.emptyList(),
+                tasks = kotlin.collections.emptyList(),
+            )
+    }
+
+    /** The path every Data API operation is sent to under the Data API's origin, a call by declaration's included. */
+    val dataEndpoint: kotlin.String = "/graphql"
+
+    /** Every operation of the REST API the core prints, in the model's order. */
+    val restOperations: kotlin.collections.List<com.mountaya.client.OperationFacts> =
+        kotlin.collections.listOf(
+            Rest.getHut,
+            Rest.listHuts,
+            Rest.postSignal,
+            Rest.getSignals,
+            Rest.patchHut,
+            Rest.deleteHut,
+            Rest.getExport,
+        )
+
+    /** Every operation of the Tile API, in the model's order. */
+    val tileOperations: kotlin.collections.List<com.mountaya.client.OperationFacts> =
+        kotlin.collections.listOf(
+            Tiles.getSpec,
+        )
+
+    /** Every operation of the Data API, in the model's order. */
+    val dataOperations: kotlin.collections.List<com.mountaya.client.OperationFacts> =
+        kotlin.collections.listOf(
+            Data.route,
+        )
+}

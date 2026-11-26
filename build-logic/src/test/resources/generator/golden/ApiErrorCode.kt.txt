@@ -1,0 +1,45 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+package com.mountaya.client.generated
+
+/**
+ * ApiErrorCode is the code an error's entry carries under `extensions.code`, on every surface the
+ * client calls: one vocabulary, the union of the codes the REST API's and the Tile API's
+ * `ErrorExtensionsCode` and the Data API's `ErrorCode` declare, which an error's `code`, each of its
+ * entries' `code` and its `hasCode` take. A code a later release of the API sends is kept exactly as
+ * sent and never refused.
+ *
+ * It is open: a value the contract adds after this build decodes as itself, and the constants below are the values it names today.
+ */
+@kotlinx.serialization.Serializable
+@kotlin.jvm.JvmInline
+public value class ApiErrorCode(
+    /** The value, exactly as the wire carries it. */
+    public val value: kotlin.String,
+) {
+    override fun toString(): kotlin.String = value
+
+    /** The values the contract names. */
+    public companion object {
+        /** The `BAD_REQUEST` code, which the REST API, the Tile API and the Data API declare. */
+        public val BadRequest: ApiErrorCode = ApiErrorCode("BAD_REQUEST")
+
+        /** The `LIMIT_REACHED` code, which the REST API declares. */
+        public val LimitReached: ApiErrorCode = ApiErrorCode("LIMIT_REACHED")
+
+        /** The `NOT_FOUND` code, which the REST API, the Tile API and the Data API declare. */
+        public val NotFound: ApiErrorCode = ApiErrorCode("NOT_FOUND")
+
+        /** The `TILE_TOO_DEEP` code, which the Tile API declares. */
+        public val TileTooDeep: ApiErrorCode = ApiErrorCode("TILE_TOO_DEEP")
+
+        /** The `GATEWAY_TIMEOUT` code, which the Data API declares. */
+        public val GatewayTimeout: ApiErrorCode = ApiErrorCode("GATEWAY_TIMEOUT")
+    }
+}

@@ -1,0 +1,39 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+package com.mountaya.client.generated
+
+/** Data is the operations of the Data API, which is un-namespaced. Each returns its result type whole, and a field the caller did not select is null in it. */
+public class Data internal constructor(
+    private val sender: com.mountaya.client.OperationSender,
+) {
+    /**
+     * Routes between two points.
+     *
+     * @param input The operation's input.
+     * @param select The fields to fetch, checked against the operation's field tree before anything is sent, or null for every field.
+     * @param options What this call overrides of its client's configuration.
+     */
+    @kotlin.Deprecated("Routes between two points.")
+    public suspend fun route(
+        input: DataSchema.RouteInput,
+        select: com.mountaya.client.FieldSelection? = null,
+        options: com.mountaya.client.RequestOptions = com.mountaya.client.RequestOptions(),
+    ): DataSchema.RouteResult {
+        val operation = DataOperations.route
+        val call =
+            com.mountaya.client.DataCall(
+                facts = OperationTable.Data.route,
+                operation = operation,
+                document = operation.document(select),
+                input = com.mountaya.client.wireJson.encodeToString(DataSchema.RouteInput.serializer(), input),
+                options = options,
+            )
+        return sender.query(call, DataSchema.RouteResult.serializer())
+    }
+}

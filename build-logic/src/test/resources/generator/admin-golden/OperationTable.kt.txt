@@ -1,0 +1,90 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+@file:kotlin.OptIn(com.mountaya.client.InternalMountayaApi::class)
+
+package com.mountaya.admin.generated
+
+/** OperationTable is what the contract declares about each printed operation, one property per operation and nothing inferred from a method. A test holds it to `sdk/model.json` fact by fact. */
+internal object OperationTable {
+    /** The operations of the REST API, in the model's order. */
+    internal object Rest {
+        val listKeys: com.mountaya.client.OperationFacts =
+            com.mountaya.client.OperationFacts(
+                surface = com.mountaya.client.Surface.Rest,
+                operationId = "listKeys",
+                method = "GET",
+                path = "/v1/organizations/{organization_id}/keys",
+                idempotent = true,
+                credentials =
+                    com.mountaya.client.CredentialDeclaration(
+                        actingUser = com.mountaya.client.CredentialDeclaration.ActingUser.Required,
+                        acceptsShareToken = false,
+                        requiresSession = true,
+                        requiresSecretKey = false,
+                        takesNoCredential = false,
+                        pendingInvitee = false,
+                        read = false,
+                    ),
+                timeoutMs = 10000,
+                declaresIdempotencyKey = false,
+                isConditional = false,
+                answersNotModified = false,
+                pagination =
+                    com.mountaya.client.Pagination(
+                        sort = kotlin.collections.listOf("created_at", "-created_at"),
+                        defaultSort = "-created_at",
+                    ),
+                success = com.mountaya.client.SuccessKind.Envelope,
+                successResponses =
+                    kotlin.collections.listOf(
+                        com.mountaya.client.SuccessResponse(200, kotlin.collections.emptyList()),
+                    ),
+                errorStatuses = kotlin.collections.listOf(403),
+                tasks = kotlin.collections.emptyList(),
+            )
+
+        val postKey: com.mountaya.client.OperationFacts =
+            com.mountaya.client.OperationFacts(
+                surface = com.mountaya.client.Surface.Rest,
+                operationId = "postKey",
+                method = "POST",
+                path = "/v1/keys",
+                idempotent = false,
+                credentials =
+                    com.mountaya.client.CredentialDeclaration(
+                        actingUser = com.mountaya.client.CredentialDeclaration.ActingUser.None,
+                        acceptsShareToken = false,
+                        requiresSession = false,
+                        requiresSecretKey = true,
+                        takesNoCredential = false,
+                        pendingInvitee = false,
+                        read = false,
+                    ),
+                timeoutMs = 30000,
+                declaresIdempotencyKey = true,
+                isConditional = false,
+                answersNotModified = false,
+                pagination = null,
+                success = com.mountaya.client.SuccessKind.Envelope,
+                successResponses =
+                    kotlin.collections.listOf(
+                        com.mountaya.client.SuccessResponse(201, kotlin.collections.listOf("Location")),
+                    ),
+                errorStatuses = kotlin.collections.listOf(401, 409),
+                tasks = kotlin.collections.listOf("key.create"),
+            )
+    }
+
+    /** Every operation of the REST API the admin unit prints, in the model's order. */
+    val restOperations: kotlin.collections.List<com.mountaya.client.OperationFacts> =
+        kotlin.collections.listOf(
+            Rest.listKeys,
+            Rest.postKey,
+        )
+}

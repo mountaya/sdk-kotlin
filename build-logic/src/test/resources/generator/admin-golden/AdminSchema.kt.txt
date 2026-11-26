@@ -1,0 +1,665 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+@file:kotlin.OptIn(com.mountaya.client.InternalMountayaApi::class)
+@file:kotlinx.serialization.UseSerializers(com.mountaya.client.TimestampSerializer::class)
+
+package com.mountaya.admin.generated
+
+/**
+ * AdminSchema is the types of the REST API only its admin unit reaches, through its `admin`
+ * operations and its webhook events, as the contract names them. A type the core holds too is
+ * `RestSchema`'s, in `mountaya-client`.
+ */
+public object AdminSchema {
+    /** A change recorded, as it is delivered to an endpoint. */
+    @kotlinx.serialization.Serializable
+    public class WebhookEvent private constructor(
+        /** Identifier of the event. */
+        public val id: kotlin.String,
+        /** Always `webhook_event`. */
+        @kotlinx.serialization.EncodeDefault(kotlinx.serialization.EncodeDefault.Mode.ALWAYS)
+        public val `object`: kotlin.String = "webhook_event",
+        /** What happened. */
+        public val type: AdminSchema.WebhookEventType,
+        /** When the change was made. */
+        public val created_at: kotlin.time.Instant,
+        /** The object, and what the change moved. */
+        public val data: AdminSchema.WebhookEventData,
+        /** The request that made the change, null for a change made on its own. */
+        @kotlinx.serialization.EncodeDefault(kotlinx.serialization.EncodeDefault.Mode.ALWAYS)
+        public val request_id: kotlin.String? = null,
+        /** Whether the change was made in a live organization. */
+        public val livemode: kotlin.Boolean? = null,
+        /** The former identifier of the event. Use `id` instead. */
+        @kotlin.Deprecated("The former identifier of the event.")
+        public val legacy_id: kotlin.String? = null,
+    ) {
+        @kotlin.Suppress("DEPRECATION")
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is AdminSchema.WebhookEvent &&
+                other.id == this.id &&
+                other.`object` == this.`object` &&
+                other.type == this.type &&
+                other.created_at == this.created_at &&
+                other.data == this.data &&
+                other.request_id == this.request_id &&
+                other.livemode == this.livemode &&
+                other.legacy_id == this.legacy_id
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.id.hashCode()
+            hash = 31 * hash + this.`object`.hashCode()
+            hash = 31 * hash + this.type.hashCode()
+            hash = 31 * hash + this.created_at.hashCode()
+            hash = 31 * hash + this.data.hashCode()
+            hash = 31 * hash + (this.request_id?.hashCode() ?: 0)
+            hash = 31 * hash + (this.livemode?.hashCode() ?: 0)
+            hash = 31 * hash + (this.legacy_id?.hashCode() ?: 0)
+            return hash
+        }
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun toString(): kotlin.String =
+            "WebhookEvent(" +
+                "id=" + this.id +
+                ", object=" + this.`object` +
+                ", type=" + this.type +
+                ", created_at=" + this.created_at +
+                ", data=" + this.data +
+                ", request_id=" + this.request_id +
+                ", livemode=" + this.livemode +
+                ", legacy_id=" + this.legacy_id +
+                ")"
+
+        /** Builder sets the optional properties of a [AdminSchema.WebhookEvent], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot6: kotlin.Boolean? = null
+            internal var slot7: kotlin.String? = null
+
+            /** Whether the change was made in a live organization. */
+            public var livemode: kotlin.Boolean
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot6 = value
+                }
+
+            /** The former identifier of the event. Use `id` instead. */
+            @kotlin.Deprecated("The former identifier of the event.")
+            public var legacy_id: kotlin.String
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot7 = value
+                }
+        }
+
+        /** Builds a [AdminSchema.WebhookEvent]. */
+        public companion object {
+            /** Returns a [AdminSchema.WebhookEvent] of the required properties given here and the optional ones [optional] sets. */
+            @kotlin.Suppress("DEPRECATION")
+            public operator fun invoke(
+                id: kotlin.String,
+                type: AdminSchema.WebhookEventType,
+                created_at: kotlin.time.Instant,
+                data: AdminSchema.WebhookEventData,
+                request_id: kotlin.String?,
+                optional: AdminSchema.WebhookEvent.Builder.() -> kotlin.Unit = {},
+            ): AdminSchema.WebhookEvent {
+                val given = AdminSchema.WebhookEvent.Builder().apply(optional)
+                return AdminSchema.WebhookEvent(
+                    id = id,
+                    type = type,
+                    created_at = created_at,
+                    data = data,
+                    request_id = request_id,
+                    livemode = given.slot6,
+                    legacy_id = given.slot7,
+                )
+            }
+        }
+    }
+
+    /** What a webhook event says about its object. */
+    @kotlinx.serialization.Serializable
+    public class WebhookEventData private constructor(
+        /** The object once the change was made. */
+        public val `object`: AdminSchema.WebhookEventObject,
+        /** The fields of `data.object` the change moved, each with the value it held before. */
+        public val previous_attributes: kotlin.collections.Map<kotlin.String, kotlinx.serialization.json.JsonElement>? = null,
+    ) {
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is AdminSchema.WebhookEventData &&
+                other.`object` == this.`object` &&
+                other.previous_attributes == this.previous_attributes
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.`object`.hashCode()
+            hash = 31 * hash + (this.previous_attributes?.hashCode() ?: 0)
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "WebhookEventData(" +
+                "object=" + this.`object` +
+                ", previous_attributes=" + this.previous_attributes +
+                ")"
+
+        /** Builder sets the optional properties of a [AdminSchema.WebhookEventData], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot1: kotlin.collections.Map<kotlin.String, kotlinx.serialization.json.JsonElement>? = null
+
+            /** The fields of `data.object` the change moved, each with the value it held before. */
+            public var previous_attributes: kotlin.collections.Map<kotlin.String, kotlinx.serialization.json.JsonElement>
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot1 = value
+                }
+        }
+
+        /** Builds a [AdminSchema.WebhookEventData]. */
+        public companion object {
+            /** Returns a [AdminSchema.WebhookEventData] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                `object`: AdminSchema.WebhookEventObject,
+                optional: AdminSchema.WebhookEventData.Builder.() -> kotlin.Unit = {},
+            ): AdminSchema.WebhookEventData {
+                val given = AdminSchema.WebhookEventData.Builder().apply(optional)
+                return AdminSchema.WebhookEventData(
+                    `object` = `object`,
+                    previous_attributes = given.slot1,
+                )
+            }
+        }
+    }
+
+    /**
+     * The object a webhook event carries, told apart by its `object`.
+     *
+     * Each member extends it and is told apart by `object`. It is open: a member the contract adds after this build decodes as [Unknown], so a `when` over it ends in `else`.
+     */
+    @kotlinx.serialization.Serializable(with = AdminSchema.WebhookEventObject.Serializer::class)
+    public abstract class WebhookEventObject internal constructor() {
+        /** Unknown is a member this build does not know, holding the object that arrived. */
+        public class Unknown(
+            /** The member as it arrived. */
+            public val json: kotlinx.serialization.json.JsonObject,
+        ) : AdminSchema.WebhookEventObject() {
+            override fun equals(other: kotlin.Any?): kotlin.Boolean = other is AdminSchema.WebhookEventObject.Unknown && other.json == json
+
+            override fun hashCode(): kotlin.Int = json.hashCode()
+
+            override fun toString(): kotlin.String = "Unknown(" + json + ")"
+        }
+
+        internal object Serializer : kotlinx.serialization.KSerializer<AdminSchema.WebhookEventObject> {
+            override val descriptor: kotlinx.serialization.descriptors.SerialDescriptor =
+                kotlinx.serialization.descriptors.buildClassSerialDescriptor("com.mountaya.admin.generated.AdminSchema.WebhookEventObject")
+
+            override fun serialize(
+                encoder: kotlinx.serialization.encoding.Encoder,
+                value: AdminSchema.WebhookEventObject,
+            ) {
+                when (value) {
+                    is AdminSchema.HutEventObject -> encoder.encodeSerializableValue(AdminSchema.HutEventObject.serializer(), value)
+                    is AdminSchema.WebhookEventObject.Unknown -> encoder.encodeSerializableValue(kotlinx.serialization.json.JsonObject.serializer(), value.json)
+                    else -> throw kotlinx.serialization.SerializationException("AdminSchema.WebhookEventObject has no member of this class.")
+                }
+            }
+
+            override fun deserialize(decoder: kotlinx.serialization.encoding.Decoder): AdminSchema.WebhookEventObject {
+                val input =
+                    decoder as? kotlinx.serialization.json.JsonDecoder
+                        ?: throw kotlinx.serialization.SerializationException("AdminSchema.WebhookEventObject is read from JSON only.")
+                val json =
+                    input.decodeJsonElement() as? kotlinx.serialization.json.JsonObject
+                        ?: throw kotlinx.serialization.SerializationException("AdminSchema.WebhookEventObject is a JSON object.")
+                val discriminator = json["object"] as? kotlinx.serialization.json.JsonPrimitive
+                return when (if (discriminator != null && discriminator.isString) discriminator.content else null) {
+                    "hut" -> input.json.decodeFromJsonElement(AdminSchema.HutEventObject.serializer(), json)
+                    else -> AdminSchema.WebhookEventObject.Unknown(json)
+                }
+            }
+        }
+    }
+
+    /** A hut as a webhook event carries it. */
+    @kotlinx.serialization.Serializable
+    public class HutEventObject private constructor(
+        /** Always `hut`. */
+        @kotlinx.serialization.EncodeDefault(kotlinx.serialization.EncodeDefault.Mode.ALWAYS)
+        public val `object`: kotlin.String = "hut",
+        /** Its identifier. */
+        public val id: kotlin.String,
+        public val count: kotlin.Long,
+        @kotlinx.serialization.EncodeDefault(kotlinx.serialization.EncodeDefault.Mode.ALWAYS)
+        public val updated_at: kotlin.time.Instant? = null,
+        public val season: com.mountaya.client.generated.RestSchema.Season,
+        /** The former name. Use `id` instead. */
+        @kotlin.Deprecated("The former name.")
+        public val old: kotlin.String? = null,
+    ) : AdminSchema.WebhookEventObject() {
+        @kotlin.Suppress("DEPRECATION")
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is AdminSchema.HutEventObject &&
+                other.`object` == this.`object` &&
+                other.id == this.id &&
+                other.count == this.count &&
+                other.updated_at == this.updated_at &&
+                other.season == this.season &&
+                other.old == this.old
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.`object`.hashCode()
+            hash = 31 * hash + this.id.hashCode()
+            hash = 31 * hash + this.count.hashCode()
+            hash = 31 * hash + (this.updated_at?.hashCode() ?: 0)
+            hash = 31 * hash + this.season.hashCode()
+            hash = 31 * hash + (this.old?.hashCode() ?: 0)
+            return hash
+        }
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun toString(): kotlin.String =
+            "HutEventObject(" +
+                "object=" + this.`object` +
+                ", id=" + this.id +
+                ", count=" + this.count +
+                ", updated_at=" + this.updated_at +
+                ", season=" + this.season +
+                ", old=" + this.old +
+                ")"
+
+        /** Builder sets the optional properties of a [AdminSchema.HutEventObject], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot5: kotlin.String? = null
+
+            /** The former name. Use `id` instead. */
+            @kotlin.Deprecated("The former name.")
+            public var old: kotlin.String
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot5 = value
+                }
+        }
+
+        /** Builds a [AdminSchema.HutEventObject]. */
+        public companion object {
+            /** Returns a [AdminSchema.HutEventObject] of the required properties given here and the optional ones [optional] sets. */
+            @kotlin.Suppress("DEPRECATION")
+            public operator fun invoke(
+                id: kotlin.String,
+                count: kotlin.Long,
+                updated_at: kotlin.time.Instant?,
+                season: com.mountaya.client.generated.RestSchema.Season,
+                optional: AdminSchema.HutEventObject.Builder.() -> kotlin.Unit = {},
+            ): AdminSchema.HutEventObject {
+                val given = AdminSchema.HutEventObject.Builder().apply(optional)
+                return AdminSchema.HutEventObject(
+                    id = id,
+                    count = count,
+                    updated_at = updated_at,
+                    season = season,
+                    old = given.slot5,
+                )
+            }
+        }
+    }
+
+    /**
+     * What happened.
+     *
+     * It is open: a value the contract adds after this build decodes as itself, and the constants below are the values it names today.
+     */
+    @kotlinx.serialization.Serializable
+    @kotlin.jvm.JvmInline
+    public value class WebhookEventType(
+        /** The value, exactly as the wire carries it. */
+        public val value: kotlin.String,
+    ) {
+        override fun toString(): kotlin.String = value
+
+        /** The values the contract names. */
+        public companion object {
+            public val HutCreated: WebhookEventType = WebhookEventType("hut.created")
+
+            public val HutUpdated: WebhookEventType = WebhookEventType("hut.updated")
+        }
+    }
+
+    /**
+     * A key, as the admin unit answers it.
+     *
+     * Its `toString` prints every property but its secrets, each printed as `<redacted>`, so a log never carries one, and each secret stays readable.
+     */
+    @kotlinx.serialization.Serializable
+    public class Key private constructor(
+        /** The key. */
+        public val id: kotlin.String,
+        /** The season it opens, a component of the core. */
+        public val season: com.mountaya.client.generated.RestSchema.Season,
+        public val scopes: kotlin.collections.List<AdminSchema.KeyScope>,
+        /** Its labels, an alias the core declares. */
+        public val labels: com.mountaya.client.generated.RestSchema.Labels? = null,
+        /**
+         * Shown once.
+         *
+         * It is a secret: its class's `toString` prints it as `<redacted>`, and it stays readable here.
+         */
+        public val secret: kotlin.String? = null,
+        public val created_at: kotlin.time.Instant,
+    ) {
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is AdminSchema.Key &&
+                other.id == this.id &&
+                other.season == this.season &&
+                other.scopes == this.scopes &&
+                other.labels == this.labels &&
+                other.secret == this.secret &&
+                other.created_at == this.created_at
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.id.hashCode()
+            hash = 31 * hash + this.season.hashCode()
+            hash = 31 * hash + this.scopes.hashCode()
+            hash = 31 * hash + (this.labels?.hashCode() ?: 0)
+            hash = 31 * hash + (this.secret?.hashCode() ?: 0)
+            hash = 31 * hash + this.created_at.hashCode()
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "Key(" +
+                "id=" + this.id +
+                ", season=" + this.season +
+                ", scopes=" + this.scopes +
+                ", labels=" + this.labels +
+                ", secret=" + "<redacted>" +
+                ", created_at=" + this.created_at +
+                ")"
+
+        /** Builder sets the optional properties of a [AdminSchema.Key], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot3: com.mountaya.client.generated.RestSchema.Labels? = null
+            internal var slot4: kotlin.String? = null
+
+            /** Its labels, an alias the core declares. */
+            public var labels: com.mountaya.client.generated.RestSchema.Labels
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot3 = value
+                }
+
+            /**
+             * Shown once.
+             *
+             * It is a secret: its class's `toString` prints it as `<redacted>`, and it stays readable here.
+             */
+            public var secret: kotlin.String
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot4 = value
+                }
+        }
+
+        /** Builds a [AdminSchema.Key]. */
+        public companion object {
+            /** Returns a [AdminSchema.Key] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                id: kotlin.String,
+                season: com.mountaya.client.generated.RestSchema.Season,
+                scopes: kotlin.collections.List<AdminSchema.KeyScope>,
+                created_at: kotlin.time.Instant,
+                optional: AdminSchema.Key.Builder.() -> kotlin.Unit = {},
+            ): AdminSchema.Key {
+                val given = AdminSchema.Key.Builder().apply(optional)
+                return AdminSchema.Key(
+                    id = id,
+                    season = season,
+                    scopes = scopes,
+                    labels = given.slot3,
+                    secret = given.slot4,
+                    created_at = created_at,
+                )
+            }
+        }
+    }
+
+    /** It is open: a value the contract adds after this build decodes as itself, and the constants below are the values it names today. */
+    @kotlinx.serialization.Serializable
+    @kotlin.jvm.JvmInline
+    public value class KeyScope(
+        /** The value, exactly as the wire carries it. */
+        public val value: kotlin.String,
+    ) {
+        override fun toString(): kotlin.String = value
+
+        /** The values the contract names. */
+        public companion object {
+            public val Read: KeyScope = KeyScope("read")
+
+            /** It includes `read`: a key carrying it reaches what that scope reaches. */
+            public val Write: KeyScope = KeyScope("write")
+        }
+    }
+
+    @kotlinx.serialization.Serializable
+    public class KeyCreateParams private constructor(
+        public val name: kotlin.String,
+        public val season: com.mountaya.client.generated.RestSchema.Season? = null,
+        @kotlinx.serialization.SerialName("note")
+        private val settable2: com.mountaya.client.Settable<kotlin.String?> = com.mountaya.client.Settable.Absent,
+        public val website: @kotlinx.serialization.Serializable(with = com.mountaya.client.SentUrlSerializer::class) com.mountaya.client.Url? = null,
+        public val expires_at: kotlin.time.Instant? = null,
+        public val where: com.mountaya.client.generated.RestSchema.GeoJSONPoint? = null,
+    ) {
+        /** Null clears it. */
+        public val note: kotlin.String?
+            get() = settable2.valueOrNull
+
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is AdminSchema.KeyCreateParams &&
+                other.name == this.name &&
+                other.season == this.season &&
+                other.settable2 == this.settable2 &&
+                other.website == this.website &&
+                other.expires_at == this.expires_at &&
+                other.where == this.where
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.name.hashCode()
+            hash = 31 * hash + (this.season?.hashCode() ?: 0)
+            hash = 31 * hash + this.settable2.hashCode()
+            hash = 31 * hash + (this.website?.hashCode() ?: 0)
+            hash = 31 * hash + (this.expires_at?.hashCode() ?: 0)
+            hash = 31 * hash + (this.where?.hashCode() ?: 0)
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "KeyCreateParams(" +
+                "name=" + this.name +
+                ", season=" + this.season +
+                ", note=" + this.note +
+                ", website=" + this.website +
+                ", expires_at=" + this.expires_at +
+                ", where=" + this.where +
+                ")"
+
+        /** Builder sets the optional properties of a [AdminSchema.KeyCreateParams], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot1: com.mountaya.client.generated.RestSchema.Season? = null
+            internal var slot2: com.mountaya.client.Settable<kotlin.String?> = com.mountaya.client.Settable.Absent
+            internal var slot3: com.mountaya.client.Url? = null
+            internal var slot4: kotlin.time.Instant? = null
+            internal var slot5: com.mountaya.client.generated.RestSchema.GeoJSONPoint? = null
+
+            public var season: com.mountaya.client.generated.RestSchema.Season
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot1 = value
+                }
+
+            /**
+             * Null clears it.
+             *
+             * Left unset it is not sent and the stored value is untouched; set to `null` it is sent as `null`, which clears it.
+             */
+            public var note: kotlin.String?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot2 = com.mountaya.client.Settable.Present(value)
+                }
+
+            public var website: com.mountaya.client.Url
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot3 = value
+                }
+
+            public var expires_at: kotlin.time.Instant
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot4 = value
+                }
+
+            public var where: com.mountaya.client.generated.RestSchema.GeoJSONPoint
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot5 = value
+                }
+        }
+
+        /** Builds a [AdminSchema.KeyCreateParams]. */
+        public companion object {
+            /** Returns a [AdminSchema.KeyCreateParams] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                name: kotlin.String,
+                optional: AdminSchema.KeyCreateParams.Builder.() -> kotlin.Unit = {},
+            ): AdminSchema.KeyCreateParams {
+                val given = AdminSchema.KeyCreateParams.Builder().apply(optional)
+                return AdminSchema.KeyCreateParams(
+                    name = name,
+                    season = given.slot1,
+                    settable2 = given.slot2,
+                    website = given.slot3,
+                    expires_at = given.slot4,
+                    where = given.slot5,
+                )
+            }
+        }
+    }
+
+    /** It is open: a value the contract adds after this build decodes as itself, and the constants below are the values it names today. */
+    @kotlinx.serialization.Serializable
+    @kotlin.jvm.JvmInline
+    public value class ListKeysSort(
+        /** The value, exactly as the wire carries it. */
+        public val value: kotlin.String,
+    ) {
+        override fun toString(): kotlin.String = value
+
+        /** The values the contract names. */
+        public companion object {
+            /** Sent as `created_at`. */
+            public val CreatedAt: ListKeysSort = ListKeysSort("created_at")
+
+            /** Sent as `-created_at`. */
+            public val CreatedAtDescending: ListKeysSort = ListKeysSort("-created_at")
+        }
+    }
+
+    /** ListKeysParameters sets the optional parameters of `listKeys`, each by assigning it. Every operation takes one, even with nothing in it, so a parameter the contract adds changes no call site. */
+    public class ListKeysParameters internal constructor() : com.mountaya.client.PagedParameters() {
+        internal var slot0: kotlin.String? = null
+        internal var slot1: kotlin.Int? = null
+        internal var slot2: com.mountaya.client.generated.RestSchema.Season? = null
+        internal var slot3: kotlin.time.Instant? = null
+        internal var slot4: AdminSchema.ListKeysSort? = null
+
+        @com.mountaya.client.InternalMountayaApi
+        override var pageCursor: kotlin.String?
+            get() = slot0
+            set(value) {
+                slot0 = value
+            }
+
+        @com.mountaya.client.InternalMountayaApi
+        override var pageLimit: kotlin.Int?
+            get() = slot1
+            set(value) {
+                slot1 = value
+            }
+
+        public var cursor: kotlin.String
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                slot0 = value
+            }
+
+        /** Left out, the server applies its default: `50`. */
+        public var limit: kotlin.Int
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                slot1 = value
+            }
+
+        public var season: com.mountaya.client.generated.RestSchema.Season
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                slot2 = value
+            }
+
+        public var since: kotlin.time.Instant
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                slot3 = value
+            }
+
+        public var sort: AdminSchema.ListKeysSort
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                slot4 = value
+            }
+    }
+
+    /** PostKeyParameters sets the optional parameters of `postKey`, each by assigning it. Every operation takes one, even with nothing in it, so a parameter the contract adds changes no call site. */
+    public class PostKeyParameters internal constructor() {
+        internal var idempotencyKeySlot: kotlin.String? = null
+
+        /** The `Idempotency-Key` every attempt of the call sends: the caller's, which makes two of its calls one write, or, left unset, one the client draws once. */
+        public var idempotencyKey: kotlin.String
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                idempotencyKeySlot = value
+            }
+    }
+}

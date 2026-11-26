@@ -1,0 +1,1029 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+@file:kotlinx.serialization.UseSerializers(com.mountaya.client.TimestampSerializer::class)
+
+package com.mountaya.client.generated
+
+/**
+ * RestSchema is the types of the REST API, as the contract names them, but those only its admin
+ * unit reaches, which `mountaya-admin` prints into `AdminSchema`.
+ */
+public object RestSchema {
+    /** A mountain hut. */
+    @kotlinx.serialization.Serializable
+    public class Hut private constructor(
+        /** The hut. */
+        public val id: kotlin.String,
+        @kotlinx.serialization.EncodeDefault(kotlinx.serialization.EncodeDefault.Mode.ALWAYS)
+        public val opened_at: kotlin.time.Instant? = null,
+        /** Left out, the server applies its default: `20`. */
+        public val beds: kotlin.Int? = null,
+        @kotlinx.serialization.SerialName("note")
+        private val settable3: com.mountaya.client.Settable<kotlin.String?> = com.mountaya.client.Settable.Absent,
+        @kotlinx.serialization.SerialName("website")
+        private val settable4: com.mountaya.client.Settable<@kotlinx.serialization.Serializable(with = com.mountaya.client.SentUrlSerializer::class) com.mountaya.client.Url?> = com.mountaya.client.Settable.Absent,
+        @kotlinx.serialization.EncodeDefault(kotlinx.serialization.EncodeDefault.Mode.ALWAYS)
+        public val kind: kotlin.String = "Feature",
+        /** Use beds. It goes in the next major. */
+        @kotlin.Deprecated("Use beds.")
+        public val `in`: kotlin.Long? = null,
+        public val tags: kotlin.collections.Map<RestSchema.Season, kotlin.Boolean>? = null,
+        public val extra: kotlinx.serialization.json.JsonElement? = null,
+        public val site: @kotlinx.serialization.Serializable(with = com.mountaya.client.SentUrlSerializer::class) com.mountaya.client.Url? = null,
+        public val where: RestSchema.GeoJSONPoint? = null,
+        public val contact: RestSchema.HutContact? = null,
+        public val level: RestSchema.HutLevel? = null,
+        public val path: kotlin.collections.List<RestSchema.HutPathItem>? = null,
+    ) {
+        /** Null clears it. */
+        public val note: kotlin.String?
+            get() = settable3.valueOrNull
+
+        /** Its web site, kept as written. */
+        public val website: com.mountaya.client.Url?
+            get() = settable4.valueOrNull
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is RestSchema.Hut &&
+                other.id == this.id &&
+                other.opened_at == this.opened_at &&
+                other.beds == this.beds &&
+                other.settable3 == this.settable3 &&
+                other.settable4 == this.settable4 &&
+                other.kind == this.kind &&
+                other.`in` == this.`in` &&
+                other.tags == this.tags &&
+                other.extra == this.extra &&
+                other.site == this.site &&
+                other.where == this.where &&
+                other.contact == this.contact &&
+                other.level == this.level &&
+                other.path == this.path
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.id.hashCode()
+            hash = 31 * hash + (this.opened_at?.hashCode() ?: 0)
+            hash = 31 * hash + (this.beds?.hashCode() ?: 0)
+            hash = 31 * hash + this.settable3.hashCode()
+            hash = 31 * hash + this.settable4.hashCode()
+            hash = 31 * hash + this.kind.hashCode()
+            hash = 31 * hash + (this.`in`?.hashCode() ?: 0)
+            hash = 31 * hash + (this.tags?.hashCode() ?: 0)
+            hash = 31 * hash + (this.extra?.hashCode() ?: 0)
+            hash = 31 * hash + (this.site?.hashCode() ?: 0)
+            hash = 31 * hash + (this.where?.hashCode() ?: 0)
+            hash = 31 * hash + (this.contact?.hashCode() ?: 0)
+            hash = 31 * hash + (this.level?.hashCode() ?: 0)
+            hash = 31 * hash + (this.path?.hashCode() ?: 0)
+            return hash
+        }
+
+        @kotlin.Suppress("DEPRECATION")
+        override fun toString(): kotlin.String =
+            "Hut(" +
+                "id=" + this.id +
+                ", opened_at=" + this.opened_at +
+                ", beds=" + this.beds +
+                ", note=" + this.note +
+                ", website=" + this.website +
+                ", kind=" + this.kind +
+                ", in=" + this.`in` +
+                ", tags=" + this.tags +
+                ", extra=" + this.extra +
+                ", site=" + this.site +
+                ", where=" + this.where +
+                ", contact=" + this.contact +
+                ", level=" + this.level +
+                ", path=" + this.path +
+                ")"
+
+        /** Builder sets the optional properties of a [RestSchema.Hut], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot2: kotlin.Int? = null
+            internal var slot3: com.mountaya.client.Settable<kotlin.String?> = com.mountaya.client.Settable.Absent
+            internal var slot4: com.mountaya.client.Settable<@kotlinx.serialization.Serializable(with = com.mountaya.client.SentUrlSerializer::class) com.mountaya.client.Url?> = com.mountaya.client.Settable.Absent
+            internal var slot6: kotlin.Long? = null
+            internal var slot7: kotlin.collections.Map<RestSchema.Season, kotlin.Boolean>? = null
+            internal var slot8: kotlinx.serialization.json.JsonElement? = null
+            internal var slot9: com.mountaya.client.Url? = null
+            internal var slot10: RestSchema.GeoJSONPoint? = null
+            internal var slot11: RestSchema.HutContact? = null
+            internal var slot12: RestSchema.HutLevel? = null
+            internal var slot13: kotlin.collections.List<RestSchema.HutPathItem>? = null
+
+            /** Left out, the server applies its default: `20`. */
+            public var beds: kotlin.Int
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot2 = value
+                }
+
+            /**
+             * Null clears it.
+             *
+             * Left unset it is not sent and the stored value is untouched; set to `null` it is sent as `null`, which clears it.
+             */
+            public var note: kotlin.String?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot3 = com.mountaya.client.Settable.Present(value)
+                }
+
+            /**
+             * Its web site, kept as written.
+             *
+             * Left unset it is not sent and the stored value is untouched; set to `null` it is sent as `null`, which clears it.
+             */
+            public var website: com.mountaya.client.Url?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot4 = com.mountaya.client.Settable.Present(value)
+                }
+
+            /** Use beds. It goes in the next major. */
+            @kotlin.Deprecated("Use beds.")
+            public var `in`: kotlin.Long
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot6 = value
+                }
+
+            public var tags: kotlin.collections.Map<RestSchema.Season, kotlin.Boolean>
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot7 = value
+                }
+
+            public var extra: kotlinx.serialization.json.JsonElement
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot8 = value
+                }
+
+            public var site: com.mountaya.client.Url
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot9 = value
+                }
+
+            public var where: RestSchema.GeoJSONPoint
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot10 = value
+                }
+
+            public var contact: RestSchema.HutContact
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot11 = value
+                }
+
+            public var level: RestSchema.HutLevel
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot12 = value
+                }
+
+            public var path: kotlin.collections.List<RestSchema.HutPathItem>
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot13 = value
+                }
+        }
+
+        /** Builds a [RestSchema.Hut]. */
+        public companion object {
+            /** Returns a [RestSchema.Hut] of the required properties given here and the optional ones [optional] sets. */
+            @kotlin.Suppress("DEPRECATION")
+            public operator fun invoke(
+                id: kotlin.String,
+                opened_at: kotlin.time.Instant?,
+                optional: RestSchema.Hut.Builder.() -> kotlin.Unit = {},
+            ): RestSchema.Hut {
+                val given = RestSchema.Hut.Builder().apply(optional)
+                return RestSchema.Hut(
+                    id = id,
+                    opened_at = opened_at,
+                    beds = given.slot2,
+                    settable3 = given.slot3,
+                    settable4 = given.slot4,
+                    `in` = given.slot6,
+                    tags = given.slot7,
+                    extra = given.slot8,
+                    site = given.slot9,
+                    where = given.slot10,
+                    contact = given.slot11,
+                    level = given.slot12,
+                    path = given.slot13,
+                )
+            }
+        }
+    }
+
+    /** A hut as a listing shows it. */
+    @kotlinx.serialization.Serializable
+    public class HutSummary private constructor(
+        public val id: kotlin.String,
+        /** The server writes it, and a request never sends it. */
+        public val rating: kotlin.Double? = null,
+    ) {
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is RestSchema.HutSummary &&
+                other.id == this.id &&
+                other.rating == this.rating
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.id.hashCode()
+            hash = 31 * hash + (this.rating?.hashCode() ?: 0)
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "HutSummary(" +
+                "id=" + this.id +
+                ", rating=" + this.rating +
+                ")"
+
+        /** Builder sets the optional properties of a [RestSchema.HutSummary], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot1: kotlin.Double? = null
+
+            /** The server writes it, and a request never sends it. */
+            public var rating: kotlin.Double?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot1 = value
+                }
+        }
+
+        /** Builds a [RestSchema.HutSummary]. */
+        public companion object {
+            /** Returns a [RestSchema.HutSummary] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                id: kotlin.String,
+                optional: RestSchema.HutSummary.Builder.() -> kotlin.Unit = {},
+            ): RestSchema.HutSummary {
+                val given = RestSchema.HutSummary.Builder().apply(optional)
+                return RestSchema.HutSummary(
+                    id = id,
+                    rating = given.slot1,
+                )
+            }
+        }
+    }
+
+    /** It is open: a value the contract adds after this build decodes as itself, and the constants below are the values it names today. */
+    @kotlinx.serialization.Serializable
+    @kotlin.jvm.JvmInline
+    public value class Season(
+        /** The value, exactly as the wire carries it. */
+        public val value: kotlin.String,
+    ) {
+        override fun toString(): kotlin.String = value
+
+        /** The values the contract names. */
+        public companion object {
+            /** June to September. */
+            public val Summer: Season = Season("summer")
+
+            @kotlin.Deprecated("The contract deprecates this, and a later major removes it.")
+            public val Winter: Season = Season("winter")
+
+            /** Open the whole year. */
+            public val AllYear: Season = Season("all-year")
+        }
+    }
+
+    /** It is open: a value the contract adds after this build decodes as itself, and the constants below are the values it names today. */
+    @kotlinx.serialization.Serializable
+    @kotlin.jvm.JvmInline
+    public value class HutScope(
+        /** The value, exactly as the wire carries it. */
+        public val value: kotlin.String,
+    ) {
+        override fun toString(): kotlin.String = value
+
+        /** The values the contract names. */
+        public companion object {
+            /** Reads huts. */
+            public val Read: HutScope = HutScope("read")
+
+            /**
+             * Writes huts.
+             *
+             * It includes `read`: a key carrying it reaches what that scope reaches.
+             */
+            public val Write: HutScope = HutScope("write")
+
+            /**
+             * Runs huts.
+             *
+             * It includes `read` and `write`: a key carrying it reaches what those scopes reach.
+             *
+             * A key carrying it carries `read` and `write` beside it.
+             */
+            public val Admin: HutScope = HutScope("admin")
+        }
+    }
+
+    /** It is open: a value the contract adds after this build decodes as itself, and the constants below are the values it names today. */
+    @kotlinx.serialization.Serializable
+    @kotlin.jvm.JvmInline
+    public value class TileSize(
+        /** The value, exactly as the wire carries it. */
+        public val value: kotlin.Int,
+    ) {
+        override fun toString(): kotlin.String = value.toString()
+
+        /** The values the contract names. */
+        public companion object {
+            public val Size512: TileSize = TileSize(512)
+        }
+    }
+
+    /** Each member extends it and is told apart by `type`. It is open: a member the contract adds after this build decodes as [Unknown], so a `when` over it ends in `else`. */
+    @kotlinx.serialization.Serializable(with = RestSchema.Signal.Serializer::class)
+    public abstract class Signal internal constructor() {
+        /** Unknown is a member this build does not know, holding the object that arrived. */
+        public class Unknown(
+            /** The member as it arrived. */
+            public val json: kotlinx.serialization.json.JsonObject,
+        ) : RestSchema.Signal() {
+            override fun equals(other: kotlin.Any?): kotlin.Boolean = other is RestSchema.Signal.Unknown && other.json == json
+
+            override fun hashCode(): kotlin.Int = json.hashCode()
+
+            override fun toString(): kotlin.String = "Unknown(" + json + ")"
+        }
+
+        internal object Serializer : kotlinx.serialization.KSerializer<RestSchema.Signal> {
+            override val descriptor: kotlinx.serialization.descriptors.SerialDescriptor =
+                kotlinx.serialization.descriptors.buildClassSerialDescriptor("com.mountaya.client.generated.RestSchema.Signal")
+
+            override fun serialize(
+                encoder: kotlinx.serialization.encoding.Encoder,
+                value: RestSchema.Signal,
+            ) {
+                when (value) {
+                    is RestSchema.PingSignal -> encoder.encodeSerializableValue(RestSchema.PingSignal.serializer(), value)
+                    is RestSchema.Signal.Unknown -> encoder.encodeSerializableValue(kotlinx.serialization.json.JsonObject.serializer(), value.json)
+                    else -> throw kotlinx.serialization.SerializationException("RestSchema.Signal has no member of this class.")
+                }
+            }
+
+            override fun deserialize(decoder: kotlinx.serialization.encoding.Decoder): RestSchema.Signal {
+                val input =
+                    decoder as? kotlinx.serialization.json.JsonDecoder
+                        ?: throw kotlinx.serialization.SerializationException("RestSchema.Signal is read from JSON only.")
+                val json =
+                    input.decodeJsonElement() as? kotlinx.serialization.json.JsonObject
+                        ?: throw kotlinx.serialization.SerializationException("RestSchema.Signal is a JSON object.")
+                val discriminator = json["type"] as? kotlinx.serialization.json.JsonPrimitive
+                return when (if (discriminator != null && discriminator.isString) discriminator.content else null) {
+                    "ping" -> input.json.decodeFromJsonElement(RestSchema.PingSignal.serializer(), json)
+                    else -> RestSchema.Signal.Unknown(json)
+                }
+            }
+        }
+    }
+
+    /** Its `toString` prints every property but its secrets, each printed as `<redacted>`, so a log never carries one, and each secret stays readable. */
+    @kotlinx.serialization.Serializable
+    public class PingSignal private constructor(
+        @kotlinx.serialization.EncodeDefault(kotlinx.serialization.EncodeDefault.Mode.ALWAYS)
+        public val type: RestSchema.SignalType = RestSchema.SignalType("ping"),
+        public val payload: kotlin.ByteArray,
+        @kotlinx.serialization.SerialName("secret")
+        private val settable2: com.mountaya.client.Settable<kotlin.String?> = com.mountaya.client.Settable.Absent,
+    ) : RestSchema.Signal() {
+        /**
+         * What the ping carries.
+         *
+         * A request sends it, and the server never answers it.
+         *
+         * It is a secret: its class's `toString` prints it as `<redacted>`, and it stays readable here.
+         */
+        public val secret: kotlin.String?
+            get() = settable2.valueOrNull
+
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is RestSchema.PingSignal &&
+                other.type == this.type &&
+                other.payload.contentEquals(this.payload) &&
+                other.settable2 == this.settable2
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.type.hashCode()
+            hash = 31 * hash + this.payload.contentHashCode()
+            hash = 31 * hash + this.settable2.hashCode()
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "PingSignal(" +
+                "type=" + this.type +
+                ", payload=" + this.payload.size + " bytes" +
+                ", secret=" + "<redacted>" +
+                ")"
+
+        /** Builder sets the optional properties of a [RestSchema.PingSignal], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot2: com.mountaya.client.Settable<kotlin.String?> = com.mountaya.client.Settable.Absent
+
+            /**
+             * What the ping carries.
+             *
+             * A request sends it, and the server never answers it.
+             *
+             * It is a secret: its class's `toString` prints it as `<redacted>`, and it stays readable here.
+             *
+             * Left unset it is not sent and the stored value is untouched; set to `null` it is sent as `null`, which clears it.
+             */
+            public var secret: kotlin.String?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot2 = com.mountaya.client.Settable.Present(value)
+                }
+        }
+
+        /** Builds a [RestSchema.PingSignal]. */
+        public companion object {
+            /** Returns a [RestSchema.PingSignal] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                payload: kotlin.ByteArray,
+                optional: RestSchema.PingSignal.Builder.() -> kotlin.Unit = {},
+            ): RestSchema.PingSignal {
+                val given = RestSchema.PingSignal.Builder().apply(optional)
+                return RestSchema.PingSignal(
+                    payload = payload,
+                    settable2 = given.slot2,
+                )
+            }
+        }
+    }
+
+    /** It is open: a value the contract adds after this build decodes as itself, and the constants below are the values it names today. */
+    @kotlinx.serialization.Serializable
+    @kotlin.jvm.JvmInline
+    public value class SignalType(
+        /** The value, exactly as the wire carries it. */
+        public val value: kotlin.String,
+    ) {
+        override fun toString(): kotlin.String = value
+
+        /** The values the contract names. */
+        public companion object {
+            public val Ping: SignalType = SignalType("ping")
+        }
+    }
+
+    public typealias Labels = kotlin.collections.Map<kotlin.String, kotlin.String?>
+
+    public typealias GeoJSONPoint = com.mountaya.client.GeoJsonPoint
+
+    @kotlinx.serialization.Serializable
+    public class Page private constructor(
+        public val total: kotlin.Int,
+        public val next_cursor: kotlin.String? = null,
+    ) {
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is RestSchema.Page &&
+                other.total == this.total &&
+                other.next_cursor == this.next_cursor
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.total.hashCode()
+            hash = 31 * hash + (this.next_cursor?.hashCode() ?: 0)
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "Page(" +
+                "total=" + this.total +
+                ", next_cursor=" + this.next_cursor +
+                ")"
+
+        /** Builder sets the optional properties of a [RestSchema.Page], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot1: kotlin.String? = null
+
+            public var next_cursor: kotlin.String?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot1 = value
+                }
+        }
+
+        /** Builds a [RestSchema.Page]. */
+        public companion object {
+            /** Returns a [RestSchema.Page] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                total: kotlin.Int,
+                optional: RestSchema.Page.Builder.() -> kotlin.Unit = {},
+            ): RestSchema.Page {
+                val given = RestSchema.Page.Builder().apply(optional)
+                return RestSchema.Page(
+                    total = total,
+                    next_cursor = given.slot1,
+                )
+            }
+        }
+    }
+
+    @kotlinx.serialization.Serializable
+    public class ListMetadata private constructor(
+        public val pagination: RestSchema.PaginationMetadata,
+    ) {
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is RestSchema.ListMetadata &&
+                other.pagination == this.pagination
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.pagination.hashCode()
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "ListMetadata(" +
+                "pagination=" + this.pagination +
+                ")"
+
+        /** Builder sets the optional properties of a [RestSchema.ListMetadata], each by assigning it. */
+        public class Builder internal constructor() {
+        }
+
+        /** Builds a [RestSchema.ListMetadata]. */
+        public companion object {
+            /** Returns a [RestSchema.ListMetadata] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                pagination: RestSchema.PaginationMetadata,
+                optional: RestSchema.ListMetadata.Builder.() -> kotlin.Unit = {},
+            ): RestSchema.ListMetadata {
+                val given = RestSchema.ListMetadata.Builder().apply(optional)
+                return RestSchema.ListMetadata(
+                    pagination = pagination,
+                )
+            }
+        }
+    }
+
+    @kotlinx.serialization.Serializable
+    public class PaginationMetadata private constructor(
+        public val limit: kotlin.Int,
+        @kotlinx.serialization.EncodeDefault(kotlinx.serialization.EncodeDefault.Mode.ALWAYS)
+        public val next_cursor: kotlin.String? = null,
+    ) {
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is RestSchema.PaginationMetadata &&
+                other.limit == this.limit &&
+                other.next_cursor == this.next_cursor
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.limit.hashCode()
+            hash = 31 * hash + (this.next_cursor?.hashCode() ?: 0)
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "PaginationMetadata(" +
+                "limit=" + this.limit +
+                ", next_cursor=" + this.next_cursor +
+                ")"
+
+        /** Builder sets the optional properties of a [RestSchema.PaginationMetadata], each by assigning it. */
+        public class Builder internal constructor() {
+        }
+
+        /** Builds a [RestSchema.PaginationMetadata]. */
+        public companion object {
+            /** Returns a [RestSchema.PaginationMetadata] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                limit: kotlin.Int,
+                next_cursor: kotlin.String?,
+                optional: RestSchema.PaginationMetadata.Builder.() -> kotlin.Unit = {},
+            ): RestSchema.PaginationMetadata {
+                val given = RestSchema.PaginationMetadata.Builder().apply(optional)
+                return RestSchema.PaginationMetadata(
+                    limit = limit,
+                    next_cursor = next_cursor,
+                )
+            }
+        }
+    }
+
+    @kotlinx.serialization.Serializable
+    public class HutContact private constructor(
+        public val phone: kotlin.String,
+        @kotlinx.serialization.SerialName("email")
+        private val settable1: com.mountaya.client.Settable<kotlin.String?> = com.mountaya.client.Settable.Absent,
+    ) {
+        /** Null clears it. */
+        public val email: kotlin.String?
+            get() = settable1.valueOrNull
+
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is RestSchema.HutContact &&
+                other.phone == this.phone &&
+                other.settable1 == this.settable1
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.phone.hashCode()
+            hash = 31 * hash + this.settable1.hashCode()
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "HutContact(" +
+                "phone=" + this.phone +
+                ", email=" + this.email +
+                ")"
+
+        /** Builder sets the optional properties of a [RestSchema.HutContact], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot1: com.mountaya.client.Settable<kotlin.String?> = com.mountaya.client.Settable.Absent
+
+            /**
+             * Null clears it.
+             *
+             * Left unset it is not sent and the stored value is untouched; set to `null` it is sent as `null`, which clears it.
+             */
+            public var email: kotlin.String?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot1 = com.mountaya.client.Settable.Present(value)
+                }
+        }
+
+        /** Builds a [RestSchema.HutContact]. */
+        public companion object {
+            /** Returns a [RestSchema.HutContact] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                phone: kotlin.String,
+                optional: RestSchema.HutContact.Builder.() -> kotlin.Unit = {},
+            ): RestSchema.HutContact {
+                val given = RestSchema.HutContact.Builder().apply(optional)
+                return RestSchema.HutContact(
+                    phone = phone,
+                    settable1 = given.slot1,
+                )
+            }
+        }
+    }
+
+    /** It is open: a value the contract adds after this build decodes as itself, and the constants below are the values it names today. */
+    @kotlinx.serialization.Serializable
+    @kotlin.jvm.JvmInline
+    public value class HutLevel(
+        /** The value, exactly as the wire carries it. */
+        public val value: kotlin.String,
+    ) {
+        override fun toString(): kotlin.String = value
+
+        /** The values the contract names. */
+        public companion object {
+            public val low: HutLevel = HutLevel("low")
+
+            public val high: HutLevel = HutLevel("high")
+        }
+    }
+
+    /** RestSchema.HutPathItem is one of several shapes the contract does not tell apart by a discriminator. Each branch is tried in the contract's order, the first that reads winning, and [Unknown] holds a value no branch reads. */
+    @kotlinx.serialization.Serializable(with = RestSchema.HutPathItem.Serializer::class)
+    public abstract class HutPathItem internal constructor() {
+        /** StringValue is the branch that is a `kotlin.String`. */
+        public class StringValue(
+            /** The value. */
+            public val value: kotlin.String,
+        ) : RestSchema.HutPathItem() {
+            override fun equals(other: kotlin.Any?): kotlin.Boolean = other is RestSchema.HutPathItem.StringValue && other.value == value
+
+            override fun hashCode(): kotlin.Int = value.hashCode()
+
+            override fun toString(): kotlin.String = "StringValue(" + value + ")"
+        }
+
+        /** IntegerValue is the branch that is a `kotlin.Int`. */
+        public class IntegerValue(
+            /** The value. */
+            public val value: kotlin.Int,
+        ) : RestSchema.HutPathItem() {
+            override fun equals(other: kotlin.Any?): kotlin.Boolean = other is RestSchema.HutPathItem.IntegerValue && other.value == value
+
+            override fun hashCode(): kotlin.Int = value.hashCode()
+
+            override fun toString(): kotlin.String = "IntegerValue(" + value + ")"
+        }
+
+        /** Unknown is a value no branch reads, as it arrived. */
+        public class Unknown(
+            /** The value as it arrived. */
+            public val json: kotlinx.serialization.json.JsonElement,
+        ) : RestSchema.HutPathItem() {
+            override fun equals(other: kotlin.Any?): kotlin.Boolean = other is RestSchema.HutPathItem.Unknown && other.json == json
+
+            override fun hashCode(): kotlin.Int = json.hashCode()
+
+            override fun toString(): kotlin.String = "Unknown(" + json + ")"
+        }
+
+        internal object Serializer : kotlinx.serialization.KSerializer<RestSchema.HutPathItem> {
+            override val descriptor: kotlinx.serialization.descriptors.SerialDescriptor =
+                kotlinx.serialization.descriptors.buildClassSerialDescriptor("com.mountaya.client.generated.RestSchema.HutPathItem")
+
+            override fun serialize(
+                encoder: kotlinx.serialization.encoding.Encoder,
+                value: RestSchema.HutPathItem,
+            ) {
+                when (value) {
+                    is RestSchema.HutPathItem.StringValue -> encoder.encodeSerializableValue(kotlinx.serialization.serializer<kotlin.String>(), value.value)
+                    is RestSchema.HutPathItem.IntegerValue -> encoder.encodeSerializableValue(kotlinx.serialization.serializer<kotlin.Int>(), value.value)
+                    is RestSchema.HutPathItem.Unknown -> encoder.encodeSerializableValue(kotlinx.serialization.json.JsonElement.serializer(), value.json)
+                    else -> throw kotlinx.serialization.SerializationException("RestSchema.HutPathItem has no branch of this class.")
+                }
+            }
+
+            override fun deserialize(decoder: kotlinx.serialization.encoding.Decoder): RestSchema.HutPathItem {
+                val input =
+                    decoder as? kotlinx.serialization.json.JsonDecoder
+                        ?: throw kotlinx.serialization.SerializationException("RestSchema.HutPathItem is read from JSON only.")
+                val json = input.decodeJsonElement()
+                try {
+                    return RestSchema.HutPathItem.StringValue(input.json.decodeFromJsonElement(kotlinx.serialization.serializer<kotlin.String>(), json))
+                } catch (unread: kotlin.IllegalArgumentException) {
+                }
+                try {
+                    return RestSchema.HutPathItem.IntegerValue(input.json.decodeFromJsonElement(kotlinx.serialization.serializer<kotlin.Int>(), json))
+                } catch (unread: kotlin.IllegalArgumentException) {
+                }
+                return RestSchema.HutPathItem.Unknown(json)
+            }
+        }
+    }
+
+    /** It is open: a value the contract adds after this build decodes as itself, and the constants below are the values it names today. */
+    @kotlinx.serialization.Serializable
+    @kotlin.jvm.JvmInline
+    public value class ListHutsSort(
+        /** The value, exactly as the wire carries it. */
+        public val value: kotlin.String,
+    ) {
+        override fun toString(): kotlin.String = value
+
+        /** The values the contract names. */
+        public companion object {
+            public val name: ListHutsSort = ListHutsSort("name")
+
+            public val `-name`: ListHutsSort = ListHutsSort("-name")
+        }
+    }
+
+    @kotlinx.serialization.Serializable
+    public class PostSignalMultipartBody private constructor(
+        public val file: kotlin.ByteArray,
+        public val season: RestSchema.Season? = null,
+        public val caption: kotlin.String? = null,
+    ) {
+        override fun equals(other: kotlin.Any?): kotlin.Boolean =
+            other is RestSchema.PostSignalMultipartBody &&
+                other.file.contentEquals(this.file) &&
+                other.season == this.season &&
+                other.caption == this.caption
+
+        override fun hashCode(): kotlin.Int {
+            var hash = 0
+            hash = 31 * hash + this.file.contentHashCode()
+            hash = 31 * hash + (this.season?.hashCode() ?: 0)
+            hash = 31 * hash + (this.caption?.hashCode() ?: 0)
+            return hash
+        }
+
+        override fun toString(): kotlin.String =
+            "PostSignalMultipartBody(" +
+                "file=" + this.file.size + " bytes" +
+                ", season=" + this.season +
+                ", caption=" + this.caption +
+                ")"
+
+        /** Builder sets the optional properties of a [RestSchema.PostSignalMultipartBody], each by assigning it. */
+        public class Builder internal constructor() {
+            internal var slot1: RestSchema.Season? = null
+            internal var slot2: kotlin.String? = null
+
+            public var season: RestSchema.Season
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot1 = value
+                }
+
+            public var caption: kotlin.String?
+                @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+                get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+                set(value) {
+                    slot2 = value
+                }
+        }
+
+        /** Builds a [RestSchema.PostSignalMultipartBody]. */
+        public companion object {
+            /** Returns a [RestSchema.PostSignalMultipartBody] of the required properties given here and the optional ones [optional] sets. */
+            public operator fun invoke(
+                file: kotlin.ByteArray,
+                optional: RestSchema.PostSignalMultipartBody.Builder.() -> kotlin.Unit = {},
+            ): RestSchema.PostSignalMultipartBody {
+                val given = RestSchema.PostSignalMultipartBody.Builder().apply(optional)
+                return RestSchema.PostSignalMultipartBody(
+                    file = file,
+                    season = given.slot1,
+                    caption = given.slot2,
+                )
+            }
+        }
+    }
+
+    /** GetHutParameters sets the optional parameters of `getHut`, each by assigning it. Every operation takes one, even with nothing in it, so a parameter the contract adds changes no call site. */
+    public class GetHutParameters internal constructor() {
+        internal var slot0: kotlin.Int? = null
+
+        /** Left out, the server applies its default: `10`. */
+        public var limit: kotlin.Int
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                slot0 = value
+            }
+    }
+
+    /** ListHutsParameters sets the optional parameters of `listHuts`, each by assigning it. Every operation takes one, even with nothing in it, so a parameter the contract adds changes no call site. */
+    public class ListHutsParameters internal constructor() : com.mountaya.client.PagedParameters() {
+        internal var slot0: kotlin.String? = null
+        internal var slot1: kotlin.Int? = null
+        internal var slot2: RestSchema.ListHutsSort? = null
+
+        @com.mountaya.client.InternalMountayaApi
+        override var pageCursor: kotlin.String?
+            get() = slot0
+            set(value) {
+                slot0 = value
+            }
+
+        @com.mountaya.client.InternalMountayaApi
+        override var pageLimit: kotlin.Int?
+            get() = slot1
+            set(value) {
+                slot1 = value
+            }
+
+        public var cursor: kotlin.String
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                slot0 = value
+            }
+
+        /** Left out, the server applies its default: `50`. */
+        public var limit: kotlin.Int
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                slot1 = value
+            }
+
+        public var sort: RestSchema.ListHutsSort
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                slot2 = value
+            }
+    }
+
+    /** PostSignalBody is the body of `postSignal`, which the contract accepts in more than one media type: one subclass per media type, each carrying the body sent as that type. */
+    public abstract class PostSignalBody internal constructor() {
+        /** Multipart is the body sent as `multipart/form-data`. */
+        public class Multipart(
+            /** The body. */
+            public val value: RestSchema.PostSignalMultipartBody,
+        ) : RestSchema.PostSignalBody() {
+            override fun equals(other: kotlin.Any?): kotlin.Boolean = other is RestSchema.PostSignalBody.Multipart && other.value == this.value
+
+            override fun hashCode(): kotlin.Int = this.value.hashCode()
+
+            override fun toString(): kotlin.String = "Multipart(" + this.value + ")"
+        }
+
+        /** Json is the body sent as `application/json`. */
+        public class Json(
+            /** The body. */
+            public val value: RestSchema.Signal,
+        ) : RestSchema.PostSignalBody() {
+            override fun equals(other: kotlin.Any?): kotlin.Boolean = other is RestSchema.PostSignalBody.Json && other.value == this.value
+
+            override fun hashCode(): kotlin.Int = this.value.hashCode()
+
+            override fun toString(): kotlin.String = "Json(" + this.value + ")"
+        }
+    }
+
+    /** PostSignalParameters sets the optional parameters of `postSignal`, each by assigning it. Every operation takes one, even with nothing in it, so a parameter the contract adds changes no call site. */
+    public class PostSignalParameters internal constructor() {
+        internal var idempotencyKeySlot: kotlin.String? = null
+
+        /** The `Idempotency-Key` every attempt of the call sends: the caller's, which makes two of its calls one write, or, left unset, one the client draws once. */
+        public var idempotencyKey: kotlin.String
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                idempotencyKeySlot = value
+            }
+    }
+
+    /** GetSignalsParameters sets the optional parameters of `getSignals`, each by assigning it. Every operation takes one, even with nothing in it, so a parameter the contract adds changes no call site. */
+    public class GetSignalsParameters internal constructor() {
+        internal var slot0: kotlin.String? = null
+
+        public var `X-Trace`: kotlin.String
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                slot0 = value
+            }
+    }
+
+    /** PatchHutParameters sets the optional parameters of `patchHut`, each by assigning it. Every operation takes one, even with nothing in it, so a parameter the contract adds changes no call site. */
+    public class PatchHutParameters internal constructor() {
+        internal var idempotencyKeySlot: kotlin.String? = null
+        internal var ifMatchSlot: kotlin.String? = null
+
+        /** The `Idempotency-Key` every attempt of the call sends: the caller's, which makes two of its calls one write, or, left unset, one the client draws once. */
+        public var idempotencyKey: kotlin.String
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                idempotencyKeySlot = value
+            }
+
+        /** The `etag` the caller read the resource under, or `"*"`, sent as `If-Match` exactly as given, and nothing is sent where it is left unset. */
+        public var ifMatch: kotlin.String
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                ifMatchSlot = value
+            }
+    }
+
+    /** DeleteHutParameters sets the optional parameters of `deleteHut`, each by assigning it. Every operation takes one, even with nothing in it, so a parameter the contract adds changes no call site. */
+    public class DeleteHutParameters internal constructor() {
+        internal var idempotencyKeySlot: kotlin.String? = null
+        internal var ifMatchSlot: kotlin.String? = null
+
+        /** The `Idempotency-Key` every attempt of the call sends: the caller's, which makes two of its calls one write, or, left unset, one the client draws once. */
+        public var idempotencyKey: kotlin.String
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                idempotencyKeySlot = value
+            }
+
+        /** The `etag` the caller read the resource under, or `"*"`, sent as `If-Match` exactly as given, and nothing is sent where it is left unset. */
+        public var ifMatch: kotlin.String
+            @kotlin.Deprecated("A builder is written, never read back.", level = kotlin.DeprecationLevel.HIDDEN)
+            get() = throw kotlin.UnsupportedOperationException("A builder is written, never read back.")
+            set(value) {
+                ifMatchSlot = value
+            }
+    }
+
+    /** GetExportParameters sets the optional parameters of `getExport`, each by assigning it. Every operation takes one, even with nothing in it, so a parameter the contract adds changes no call site. */
+    public class GetExportParameters internal constructor() {
+    }
+}

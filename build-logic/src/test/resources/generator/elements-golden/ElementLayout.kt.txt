@@ -1,0 +1,30 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew :mountaya-geo:generateElements` from sdk/elements/tokens.json of
+// mountaya/schemas, contract v0.8.0, model digest
+// 6c1cf0ef10563c2bb2d6c6250bbb734b976eeea9bcbd280d67325516b4deb15c.
+// A value that is wrong here is a defect in the contract's table, and the next print overwrites
+// any edit.
+
+package com.mountaya.geo.generated
+
+/**
+ * ElementLayout is every measure the elements are laid out by, as the contract's tokens table
+ * names them under `layout`, each spelled in camel case: `panel-width` is `panelWidth`. A length
+ * is in density-independent pixels, the unit the table's logical pixel is on Android, and reads
+ * alike in both schemes; a measure whose name ends in `columns` is a count of columns. Every other
+ * size, radius, font, padding and shadow offset is each platform's own and is not here.
+ */
+public object ElementLayout {
+    /** panelLayerCardColumns is the layout measure `panel-layer-card-columns`, a count of columns. */
+    public val panelLayerCardColumns: Int = 3
+
+    /** panelWidth is the layout measure `panel-width`, a length in dp. */
+    public val panelWidth: Double = 340.0
+
+    /** watermarkInset is the layout measure `watermark-inset`, a length in dp. */
+    public val watermarkInset: Double = -4.0
+
+    /** watermarkWidth is the layout measure `watermark-width`, a length in dp. */
+    public val watermarkWidth: Double = 180.5
+}

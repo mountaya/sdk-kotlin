@@ -1,0 +1,193 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+package com.mountaya.client.generated
+
+/** Studio is the `studio` operations of the REST API, one property per resource. */
+public class Studio internal constructor(
+    sender: com.mountaya.client.OperationSender,
+) {
+    /** The `studio.huts` operations. */
+    public val huts: Studio.Huts = Studio.Huts(sender)
+
+    /** Huts is the `studio.huts` operations of the REST API. */
+    public class Huts internal constructor(
+        private val sender: com.mountaya.client.OperationSender,
+    ) {
+        /**
+         * Read a hut.
+         *
+         * @param hut_id The hut.
+         * @param season
+         * @param speed
+         * @param options What this call overrides of its client's configuration.
+         * @param parameters Sets the optional parameters, each by assigning it.
+         */
+        public suspend fun getHut(
+            hut_id: kotlin.String,
+            season: RestSchema.Season,
+            speed: kotlin.Double,
+            options: com.mountaya.client.RequestOptions = com.mountaya.client.RequestOptions(),
+            parameters: RestSchema.GetHutParameters.() -> kotlin.Unit = {},
+        ): com.mountaya.client.Response<kotlin.collections.List<RestSchema.Hut>, RestSchema.Page> {
+            val given = RestSchema.GetHutParameters().apply(parameters)
+            val call =
+                com.mountaya.client.OperationCall(
+                    facts = OperationTable.Rest.getHut,
+                    path = "/v1/huts/" + com.mountaya.client.encodePathSegment(hut_id) + "/seasons/" + com.mountaya.client.encodePathSegment(season.value),
+                    query =
+                        kotlin.collections.buildList {
+                            given.slot0?.let { add("limit" to it.toString()) }
+                            add("speed" to speed.toString())
+                        },
+                    headers = kotlin.collections.emptyList(),
+                    body = com.mountaya.client.RequestBody.Empty,
+                    options = options,
+                )
+            return sender.send(call, kotlinx.serialization.builtins.ListSerializer(RestSchema.Hut.serializer()), RestSchema.Page.serializer())
+        }
+
+        /**
+         * List huts.
+         *
+         * @param options What this call overrides of its client's configuration.
+         * @param parameters Sets the optional parameters, each by assigning it.
+         */
+        public suspend fun listHuts(
+            options: com.mountaya.client.RequestOptions = com.mountaya.client.RequestOptions(),
+            parameters: RestSchema.ListHutsParameters.() -> kotlin.Unit = {},
+        ): com.mountaya.client.Response<kotlin.collections.List<RestSchema.HutSummary>, RestSchema.ListMetadata> {
+            val given = RestSchema.ListHutsParameters().apply(parameters)
+            val call =
+                com.mountaya.client.OperationCall(
+                    facts = OperationTable.Rest.listHuts,
+                    path = "/v1/huts",
+                    query =
+                        kotlin.collections.buildList {
+                            given.slot0?.let { add("cursor" to it) }
+                            given.slot1?.let { add("limit" to it.toString()) }
+                            given.slot2?.let { add("sort" to it.value) }
+                        },
+                    headers = kotlin.collections.emptyList(),
+                    body = com.mountaya.client.RequestBody.Empty,
+                    options = options,
+                )
+            return sender.send(call, kotlinx.serialization.builtins.ListSerializer(RestSchema.HutSummary.serializer()), RestSchema.ListMetadata.serializer())
+        }
+
+        /**
+         * Walks the listing `listHuts` answers, one row at a time, requesting a page only as its
+         * collector takes the rows before it (`transport.pagination.walk`).
+         *
+         * Every request sends what [parameters] sets, its filters and `sort` included, with its
+         * `limit` replaced by [pageSize] and its `cursor` by the one the walk has reached, starting
+         * from the one [parameters] names, so a walk resumes where an earlier one stopped. It
+         * follows every page for as long as a `next_cursor` names one, an empty page included, and
+         * stops at a null `next_cursor`, at [maxPages] requests, which raises nothing, or at a
+         * cursor it has already sent, which raises the base `ApiException`.
+         *
+         * It throws `ConfigurationException` here, before any flow is collected, for a [pageSize]
+         * outside 1 to 100 or a [maxPages] under 1. A collector that is cancelled, or that stops
+         * early, requests no further page.
+         *
+         * @param pageSize How many rows each request asks for, from 1 to 100.
+         * @param maxPages The most requests the walk makes, at least 1, or null to read the listing to its last page.
+         * @param options What every request of the walk overrides of its client's configuration.
+         * @param parameters Sets the optional parameters every request sends, each by assigning it.
+         */
+        public fun walkListHuts(
+            pageSize: kotlin.Int = 50,
+            maxPages: kotlin.Int? = null,
+            options: com.mountaya.client.RequestOptions = com.mountaya.client.RequestOptions(),
+            parameters: RestSchema.ListHutsParameters.() -> kotlin.Unit = {},
+        ): kotlinx.coroutines.flow.Flow<RestSchema.HutSummary> =
+            com.mountaya.client.PageWalk(pageSize, maxPages) { paged ->
+                listHuts(
+                    options = options,
+                ) {
+                    parameters()
+                    paged()
+                }
+            }
+
+        /**
+         * @param hut_id
+         * @param body The request body, sent as `application/json`.
+         * @param options What this call overrides of its client's configuration.
+         * @param parameters Sets the optional parameters, each by assigning it.
+         */
+        public suspend fun patchHut(
+            hut_id: kotlin.String,
+            body: RestSchema.Hut,
+            options: com.mountaya.client.RequestOptions = com.mountaya.client.RequestOptions(),
+            parameters: RestSchema.PatchHutParameters.() -> kotlin.Unit = {},
+        ): com.mountaya.client.Response<RestSchema.Hut, kotlinx.serialization.json.JsonObject?> {
+            val given = RestSchema.PatchHutParameters().apply(parameters)
+            val call =
+                com.mountaya.client.OperationCall(
+                    facts = OperationTable.Rest.patchHut,
+                    path = "/v1/huts/" + com.mountaya.client.encodePathSegment(hut_id),
+                    query = kotlin.collections.emptyList(),
+                    headers = kotlin.collections.emptyList(),
+                    body = com.mountaya.client.RequestBody.Json(com.mountaya.client.wireJson.encodeToString(RestSchema.Hut.serializer(), body)),
+                    idempotencyKey = given.idempotencyKeySlot,
+                    ifMatch = given.ifMatchSlot,
+                    options = options,
+                )
+            return sender.send(call, RestSchema.Hut.serializer(), com.mountaya.client.nullableSerializer(kotlinx.serialization.json.JsonObject.serializer()))
+        }
+
+        /**
+         * Delete a hut.
+         *
+         * @param hut_id
+         * @param options What this call overrides of its client's configuration.
+         * @param parameters Sets the optional parameters, each by assigning it.
+         */
+        public suspend fun deleteHut(
+            hut_id: kotlin.String,
+            options: com.mountaya.client.RequestOptions = com.mountaya.client.RequestOptions(),
+            parameters: RestSchema.DeleteHutParameters.() -> kotlin.Unit = {},
+        ): com.mountaya.client.Response<kotlinx.serialization.json.JsonElement, kotlinx.serialization.json.JsonObject?> {
+            val given = RestSchema.DeleteHutParameters().apply(parameters)
+            val call =
+                com.mountaya.client.OperationCall(
+                    facts = OperationTable.Rest.deleteHut,
+                    path = "/v1/huts/" + com.mountaya.client.encodePathSegment(hut_id),
+                    query = kotlin.collections.emptyList(),
+                    headers = kotlin.collections.emptyList(),
+                    body = com.mountaya.client.RequestBody.Empty,
+                    idempotencyKey = given.idempotencyKeySlot,
+                    ifMatch = given.ifMatchSlot,
+                    options = options,
+                )
+            return sender.send(call, kotlinx.serialization.json.JsonElement.serializer(), com.mountaya.client.nullableSerializer(kotlinx.serialization.json.JsonObject.serializer()))
+        }
+
+        /**
+         * @param options What this call overrides of its client's configuration.
+         * @param parameters Sets the optional parameters, each by assigning it.
+         */
+        public suspend fun getExport(
+            options: com.mountaya.client.RequestOptions = com.mountaya.client.RequestOptions(),
+            parameters: RestSchema.GetExportParameters.() -> kotlin.Unit = {},
+        ): com.mountaya.client.BinaryResponse {
+            RestSchema.GetExportParameters().apply(parameters)
+            val call =
+                com.mountaya.client.OperationCall(
+                    facts = OperationTable.Rest.getExport,
+                    path = "/v1/export",
+                    query = kotlin.collections.emptyList(),
+                    headers = kotlin.collections.emptyList(),
+                    body = com.mountaya.client.RequestBody.Empty,
+                    options = options,
+                )
+            return sender.download(call)
+        }
+    }
+}

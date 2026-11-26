@@ -1,0 +1,30 @@
+Third-party licences in sdk-kotlin
+==================================
+
+lucide-static (v1.75.0)
+-----------------------
+The glyph sets mountaya-geo publishes hold the markup of icons from Lucide, printed from the
+glyph table of mountaya/schemas into
+
+  mountaya-geo/src/commonMain/kotlin/com/mountaya/geo/generated/GlyphSetMarker.kt
+  mountaya-geo/src/commonMain/kotlin/com/mountaya/geo/generated/GlyphSetControl.kt
+
+each carrying the licences below too, as every jar and AAR mountaya-geo publishes does at
+META-INF/mountaya-geo/THIRD-PARTY-NOTICES.txt: the ISC licence for Lucide, and the MIT
+licence for the icons Lucide derives from Feather, which it lists.
+
+ISC License
+
+Copyright (c) 2026 Lucide Icons and Contributors
+
+Permission to use, copy, modify, and/or distribute this software for any purpose.
+
+---
+
+The following Lucide icons are derived from the Feather project:
+
+airplay, alert-circle, alert-octagon
+
+The MIT License (MIT) (for the icons listed above)
+
+Copyright (c) 2013-present Cole Bemis

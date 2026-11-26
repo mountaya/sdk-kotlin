@@ -1,0 +1,120 @@
+// GENERATED FILE. DO NOT EDIT.
+//
+// Printed by `./gradlew generateClient` from sdk/model.json of mountaya/schemas, contract
+// v0.0.0-test, model digest 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.
+// Every name below is the contract's, verbatim, but an enum member's, printed as its words
+// (SPEC.md section 3). A shape that is wrong here is a defect in the contract's description,
+// and the next print overwrites any edit.
+
+@file:kotlin.OptIn(com.mountaya.client.InternalMountayaApi::class)
+
+package com.mountaya.admin.generated
+
+/** Admin is the `admin` operations of the REST API, one property per resource. */
+public class Admin internal constructor(
+    sender: com.mountaya.client.OperationSender,
+) {
+    /** The `admin.keys` operations. */
+    public val keys: Admin.Keys = Admin.Keys(sender)
+
+    /** Keys is the `admin.keys` operations of the REST API. */
+    public class Keys internal constructor(
+        private val sender: com.mountaya.client.OperationSender,
+    ) {
+        /**
+         * List an organization's keys.
+         *
+         * @param organization_id The organization.
+         * @param options What this call overrides of its client's configuration.
+         * @param parameters Sets the optional parameters, each by assigning it.
+         */
+        public suspend fun listKeys(
+            organization_id: kotlin.String,
+            options: com.mountaya.client.RequestOptions = com.mountaya.client.RequestOptions(),
+            parameters: AdminSchema.ListKeysParameters.() -> kotlin.Unit = {},
+        ): com.mountaya.client.Response<kotlin.collections.List<AdminSchema.Key>, com.mountaya.client.generated.RestSchema.ListMetadata> {
+            val given = AdminSchema.ListKeysParameters().apply(parameters)
+            val call =
+                com.mountaya.client.OperationCall(
+                    facts = OperationTable.Rest.listKeys,
+                    path = "/v1/organizations/" + com.mountaya.client.encodePathSegment(organization_id) + "/keys",
+                    query =
+                        kotlin.collections.buildList {
+                            given.slot0?.let { add("cursor" to it) }
+                            given.slot1?.let { add("limit" to it.toString()) }
+                            given.slot2?.let { add("season" to it.value) }
+                            given.slot3?.let { add("since" to com.mountaya.client.formatTimestamp(it)) }
+                            given.slot4?.let { add("sort" to it.value) }
+                        },
+                    headers = kotlin.collections.emptyList(),
+                    body = com.mountaya.client.RequestBody.Empty,
+                    options = options,
+                )
+            return sender.send(call, kotlinx.serialization.builtins.ListSerializer(AdminSchema.Key.serializer()), com.mountaya.client.generated.RestSchema.ListMetadata.serializer())
+        }
+
+        /**
+         * Walks the listing `listKeys` answers, one row at a time, requesting a page only as its
+         * collector takes the rows before it (`transport.pagination.walk`).
+         *
+         * Every request sends what [parameters] sets, its filters and `sort` included, with its
+         * `limit` replaced by [pageSize] and its `cursor` by the one the walk has reached, starting
+         * from the one [parameters] names, so a walk resumes where an earlier one stopped. It
+         * follows every page for as long as a `next_cursor` names one, an empty page included, and
+         * stops at a null `next_cursor`, at [maxPages] requests, which raises nothing, or at a
+         * cursor it has already sent, which raises the base `ApiException`.
+         *
+         * It throws `ConfigurationException` here, before any flow is collected, for a [pageSize]
+         * outside 1 to 100 or a [maxPages] under 1. A collector that is cancelled, or that stops
+         * early, requests no further page.
+         *
+         * @param organization_id The organization.
+         * @param pageSize How many rows each request asks for, from 1 to 100.
+         * @param maxPages The most requests the walk makes, at least 1, or null to read the listing to its last page.
+         * @param options What every request of the walk overrides of its client's configuration.
+         * @param parameters Sets the optional parameters every request sends, each by assigning it.
+         */
+        public fun walkListKeys(
+            organization_id: kotlin.String,
+            pageSize: kotlin.Int = 50,
+            maxPages: kotlin.Int? = null,
+            options: com.mountaya.client.RequestOptions = com.mountaya.client.RequestOptions(),
+            parameters: AdminSchema.ListKeysParameters.() -> kotlin.Unit = {},
+        ): kotlinx.coroutines.flow.Flow<AdminSchema.Key> =
+            com.mountaya.client.PageWalk(pageSize, maxPages) { paged ->
+                listKeys(
+                    organization_id = organization_id,
+                    options = options,
+                ) {
+                    parameters()
+                    paged()
+                }
+            }
+
+        /**
+         * Mint a key.
+         *
+         * @param body The request body, sent as `application/json`.
+         * @param options What this call overrides of its client's configuration.
+         * @param parameters Sets the optional parameters, each by assigning it.
+         */
+        public suspend fun postKey(
+            body: AdminSchema.KeyCreateParams,
+            options: com.mountaya.client.RequestOptions = com.mountaya.client.RequestOptions(),
+            parameters: AdminSchema.PostKeyParameters.() -> kotlin.Unit = {},
+        ): com.mountaya.client.Response<AdminSchema.Key, com.mountaya.client.generated.RestSchema.Page?> {
+            val given = AdminSchema.PostKeyParameters().apply(parameters)
+            val call =
+                com.mountaya.client.OperationCall(
+                    facts = OperationTable.Rest.postKey,
+                    path = "/v1/keys",
+                    query = kotlin.collections.emptyList(),
+                    headers = kotlin.collections.emptyList(),
+                    body = com.mountaya.client.RequestBody.Json(com.mountaya.client.wireJson.encodeToString(AdminSchema.KeyCreateParams.serializer(), body)),
+                    idempotencyKey = given.idempotencyKeySlot,
+                    options = options,
+                )
+            return sender.send(call, AdminSchema.Key.serializer(), com.mountaya.client.nullableSerializer(com.mountaya.client.generated.RestSchema.Page.serializer()))
+        }
+    }
+}

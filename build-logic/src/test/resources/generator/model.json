@@ -1,0 +1,503 @@
+{
+  "//": "A miniature sdk/model.json holding one of every kind the printer knows, for its golden files.",
+  "modelVersion": 2,
+  "contract": "v0.0.0-test",
+  "unknownTopLevelKey": "ignored",
+  "rest": {
+    "origin": "https://api.example.com",
+    "schemas": [
+      {
+        "name": "Hut",
+        "unit": "core",
+        "kind": "object",
+        "usage": ["request", "response"],
+        "description": "A mountain hut.",
+        "closed": true,
+        "properties": [
+          { "name": "id", "required": true, "type": { "kind": "string", "format": "uuid" }, "description": "The hut." },
+          { "name": "opened_at", "required": true, "type": { "kind": "string", "format": "date-time", "nullable": true } },
+          { "name": "beds", "required": false, "type": { "kind": "integer", "format": "int32" }, "default": 20 },
+          { "name": "note", "required": false, "type": { "kind": "string", "nullable": true }, "description": "Null clears it." },
+          { "name": "website", "required": false, "type": { "kind": "string", "format": "uri", "nullable": true }, "description": "Its web site, kept as written." },
+          { "name": "kind", "required": true, "type": { "kind": "string", "const": "Feature" } },
+          { "name": "in", "required": false, "type": { "kind": "integer", "format": "int64" }, "deprecated": true, "description": "Use beds. It goes in the next major." },
+          { "name": "tags", "required": false, "type": { "kind": "map", "keys": { "kind": "ref", "name": "Season" }, "values": { "kind": "boolean" } } },
+          { "name": "extra", "required": false, "type": { "kind": "any" } },
+          { "name": "site", "required": false, "type": { "kind": "string", "format": "uri" } },
+          { "name": "where", "required": false, "type": { "kind": "ref", "name": "GeoJSONPoint" } },
+          { "name": "contact", "required": false, "type": { "kind": "object", "name": "HutContact", "closed": true, "properties": [ { "name": "phone", "required": true, "type": { "kind": "string" } }, { "name": "email", "required": false, "type": { "kind": "string", "nullable": true }, "description": "Null clears it." } ] } },
+          { "name": "level", "required": false, "type": { "kind": "string", "name": "HutLevel", "enum": ["low", "high"] } },
+          { "name": "path", "required": false, "type": { "kind": "array", "items": { "kind": "union", "name": "HutPathItem", "members": [ { "kind": "string" }, { "kind": "integer" } ] } } }
+        ]
+      },
+      {
+        "name": "HutSummary",
+        "unit": "core",
+        "kind": "object",
+        "usage": ["response"],
+        "description": "A hut as a listing shows it.",
+        "extends": ["Hut"],
+        "properties": [
+          { "name": "id", "required": true, "type": { "kind": "string", "format": "uuid" }, "from": "Hut" },
+          { "name": "rating", "required": false, "type": { "kind": "number", "nullable": true }, "readOnly": true }
+        ]
+      },
+      {
+        "name": "Season",
+        "unit": "core",
+        "kind": "enum",
+        "usage": ["request", "response"],
+        "valueType": "string",
+        "members": [
+          { "value": "summer", "name": "SeasonSummer", "description": "June to September." },
+          { "value": "winter", "name": "SeasonWinter", "deprecated": true },
+          { "value": "all-year", "name": "SeasonAllYear", "description": "Open the whole year." }
+        ]
+      },
+      {
+        "name": "HutScope",
+        "unit": "core",
+        "kind": "enum",
+        "usage": ["request", "response"],
+        "valueType": "string",
+        "members": [
+          { "value": "read", "name": "HutScopeRead", "description": "Reads huts." },
+          { "value": "write", "name": "HutScopeWrite", "description": "Writes huts.", "includes": ["read"] },
+          { "value": "admin", "name": "HutScopeAdmin", "description": "Runs huts.", "includes": ["read", "write"], "needs": ["read", "write"] }
+        ]
+      },
+      {
+        "name": "TileSize",
+        "unit": "core",
+        "kind": "enum",
+        "usage": ["response"],
+        "valueType": "integer",
+        "format": "int32",
+        "members": [ { "value": 512, "name": "TileSize512" } ]
+      },
+      {
+        "name": "Signal",
+        "unit": "core",
+        "kind": "union",
+        "usage": ["request"],
+        "discriminator": "type",
+        "members": [ { "value": "ping", "type": "PingSignal" } ]
+      },
+      {
+        "name": "PingSignal",
+        "unit": "core",
+        "kind": "object",
+        "usage": ["request"],
+        "closed": true,
+        "properties": [
+          { "name": "type", "required": true, "type": { "kind": "ref", "name": "SignalType" }, "discriminatorValue": "ping" },
+          { "name": "payload", "required": true, "type": { "kind": "string", "format": "binary" } },
+          { "name": "secret", "required": false, "type": { "kind": "string", "nullable": true }, "writeOnly": true, "secret": true, "description": "What the ping carries." }
+        ]
+      },
+      {
+        "name": "SignalType",
+        "unit": "core",
+        "kind": "enum",
+        "usage": ["request"],
+        "valueType": "string",
+        "members": [ { "value": "ping", "name": "SignalTypePing" } ]
+      },
+      { "name": "Labels", "unit": "core", "kind": "alias", "usage": ["response"], "type": { "kind": "map", "values": { "kind": "string", "nullable": true } } },
+      { "name": "GeoJSONPoint", "unit": "core", "kind": "geojson", "usage": ["request", "response"], "geometry": "Point" },
+      { "name": "Errors", "unit": "core", "kind": "object", "role": "envelope", "usage": ["response"], "properties": [ { "name": "errors", "required": true, "type": { "kind": "array", "items": { "kind": "ref", "name": "Error" } } } ] },
+      { "name": "Error", "unit": "core", "kind": "object", "role": "envelope", "usage": ["response"], "properties": [ { "name": "message", "required": true, "type": { "kind": "string" } }, { "name": "extensions", "required": true, "type": { "kind": "object", "name": "ErrorExtensions", "properties": [ { "name": "code", "required": true, "type": { "kind": "string", "name": "ErrorExtensionsCode", "enum": ["BAD_REQUEST", "LIMIT_REACHED", "NOT_FOUND"] } } ] } } ] },
+      { "name": "Page", "unit": "core", "kind": "object", "usage": ["response"], "properties": [ { "name": "total", "required": true, "type": { "kind": "integer" } }, { "name": "next_cursor", "required": false, "type": { "kind": "string", "nullable": true } } ] },
+      { "name": "ListMetadata", "unit": "core", "kind": "object", "usage": ["response"], "properties": [ { "name": "pagination", "required": true, "type": { "kind": "ref", "name": "PaginationMetadata" } } ] },
+      { "name": "PaginationMetadata", "unit": "core", "kind": "object", "usage": ["response"], "properties": [ { "name": "limit", "required": true, "type": { "kind": "integer" } }, { "name": "next_cursor", "required": true, "type": { "kind": "string", "nullable": true } } ] },
+      {
+        "name": "WebhookEvent",
+        "unit": "admin",
+        "kind": "object",
+        "usage": ["response"],
+        "description": "A change recorded, as it is delivered to an endpoint.",
+        "properties": [
+          { "name": "id", "required": true, "type": { "kind": "string", "format": "uuid" }, "description": "Identifier of the event." },
+          { "name": "object", "required": true, "type": { "kind": "string", "const": "webhook_event" }, "description": "Always `webhook_event`." },
+          { "name": "type", "required": true, "type": { "kind": "ref", "name": "WebhookEventType" }, "description": "What happened." },
+          { "name": "created_at", "required": true, "type": { "kind": "string", "format": "date-time" }, "description": "When the change was made." },
+          { "name": "data", "required": true, "type": { "kind": "ref", "name": "WebhookEventData" }, "description": "The object, and what the change moved." },
+          { "name": "request_id", "required": true, "type": { "kind": "string", "nullable": true }, "description": "The request that made the change, null for a change made on its own." },
+          { "name": "livemode", "required": false, "type": { "kind": "boolean" }, "description": "Whether the change was made in a live organization." },
+          { "name": "legacy_id", "required": false, "type": { "kind": "string" }, "deprecated": true, "description": "The former identifier of the event. Use `id` instead." }
+        ]
+      },
+      {
+        "name": "WebhookEventData",
+        "unit": "admin",
+        "kind": "object",
+        "usage": ["response"],
+        "description": "What a webhook event says about its object.",
+        "properties": [
+          { "name": "object", "required": true, "type": { "kind": "ref", "name": "WebhookEventObject" }, "description": "The object once the change was made." },
+          { "name": "previous_attributes", "required": false, "type": { "kind": "map", "values": { "kind": "any" } }, "description": "The fields of `data.object` the change moved, each with the value it held before." }
+        ]
+      },
+      { "name": "WebhookEventObject", "unit": "admin", "kind": "union", "usage": ["response"], "description": "The object a webhook event carries, told apart by its `object`.", "discriminator": "object", "members": [ { "value": "hut", "type": "HutEventObject" } ] },
+      {
+        "name": "HutEventObject",
+        "unit": "admin",
+        "kind": "object",
+        "usage": ["response"],
+        "description": "A hut as a webhook event carries it.",
+        "properties": [
+          { "name": "object", "required": true, "type": { "kind": "string", "const": "hut" }, "discriminatorValue": "hut", "description": "Always `hut`." },
+          { "name": "id", "required": true, "type": { "kind": "string", "format": "uuid" }, "description": "Its identifier." },
+          { "name": "count", "required": true, "type": { "kind": "integer", "format": "int64" } },
+          { "name": "updated_at", "required": true, "type": { "kind": "string", "format": "date-time", "nullable": true } },
+          { "name": "season", "required": true, "type": { "kind": "ref", "name": "Season" } },
+          { "name": "old", "required": false, "type": { "kind": "string" }, "deprecated": true, "description": "The former name. Use `id` instead." }
+        ]
+      },
+      {
+        "name": "WebhookEventType",
+        "unit": "admin",
+        "kind": "enum",
+        "usage": ["request", "response"],
+        "description": "What happened.",
+        "valueType": "string",
+        "members": [ { "value": "hut.created", "name": "WebhookEventTypeHutCreated" }, { "value": "hut.updated", "name": "WebhookEventTypeHutUpdated" } ]
+      },
+      {
+        "name": "Key",
+        "unit": "admin",
+        "kind": "object",
+        "usage": ["response"],
+        "description": "A key, as the admin unit answers it.",
+        "properties": [
+          { "name": "id", "required": true, "type": { "kind": "string", "format": "uuid" }, "description": "The key." },
+          { "name": "season", "required": true, "type": { "kind": "ref", "name": "Season" }, "description": "The season it opens, a component of the core." },
+          { "name": "scopes", "required": true, "type": { "kind": "array", "items": { "kind": "ref", "name": "KeyScope" } } },
+          { "name": "labels", "required": false, "type": { "kind": "ref", "name": "Labels" }, "description": "Its labels, an alias the core declares." },
+          { "name": "secret", "required": false, "type": { "kind": "string" }, "secret": true, "description": "Shown once." },
+          { "name": "created_at", "required": true, "type": { "kind": "string", "format": "date-time" } }
+        ]
+      },
+      {
+        "name": "KeyScope",
+        "unit": "admin",
+        "kind": "enum",
+        "usage": ["request", "response"],
+        "valueType": "string",
+        "members": [ { "value": "read", "name": "KeyScopeRead" }, { "value": "write", "name": "KeyScopeWrite", "includes": ["read"] } ]
+      },
+      {
+        "name": "KeyCreateParams",
+        "unit": "admin",
+        "kind": "object",
+        "usage": ["request"],
+        "closed": true,
+        "properties": [
+          { "name": "name", "required": true, "type": { "kind": "string" } },
+          { "name": "season", "required": false, "type": { "kind": "ref", "name": "Season" } },
+          { "name": "note", "required": false, "type": { "kind": "string", "nullable": true }, "description": "Null clears it." },
+          { "name": "website", "required": false, "type": { "kind": "string", "format": "uri" } },
+          { "name": "expires_at", "required": false, "type": { "kind": "string", "format": "date-time" } },
+          { "name": "where", "required": false, "type": { "kind": "ref", "name": "GeoJSONPoint" } }
+        ]
+      }
+    ],
+    "webhooks": [
+      { "type": "hut.created", "envelope": "WebhookEvent", "object": "HutEventObject", "summary": "A hut was created.", "description": "A hut was created.\n\n`data.object` is a `HutEventObject`.", "unit": "admin" },
+      { "type": "hut.updated", "envelope": "WebhookEvent", "object": "HutEventObject", "previousAttributes": ["count", "updated_at", "season", "old"], "summary": "A hut's count, update time, season or former name changed.", "description": "A hut changed.\n\n`data.object` is a `HutEventObject`.", "unit": "admin" }
+    ],
+    "operations": [
+      {
+        "operationId": "getHut",
+        "method": "GET",
+        "path": "/v1/huts/{hut_id}/seasons/{season}",
+        "namespace": "studio.huts",
+        "unit": "core",
+        "scope": "resources",
+        "idempotent": true,
+        "timeoutMs": 30000,
+        "idempotencyKey": false,
+        "conditional": false,
+        "notModified": true,
+        "credentials": { "actingUser": "optional", "acceptsShareToken": true, "requiresSession": false, "requiresSecretKey": false, "takesNoCredential": false, "pendingInvitee": true },
+        "pathParameters": [
+          { "name": "season", "type": { "kind": "ref", "name": "Season" } },
+          { "name": "hut_id", "type": { "kind": "string", "format": "uuid" }, "description": "The hut." }
+        ],
+        "queryParameters": [
+          { "name": "limit", "required": false, "type": { "kind": "integer" }, "default": 10 },
+          { "name": "speed", "required": true, "type": { "kind": "number", "format": "double" } }
+        ],
+        "headerParameters": [],
+        "success": {
+          "kind": "envelope",
+          "data": { "type": { "kind": "array", "items": { "kind": "ref", "name": "Hut" } } },
+          "metadata": { "required": true, "type": { "kind": "ref", "name": "Page" } },
+          "responses": [ { "status": 200, "headers": [ { "name": "ETag", "required": true, "type": { "kind": "string" } } ] } ]
+        },
+        "errors": [ { "status": 404 }, { "status": 500 } ],
+        "summary": "Read a hut."
+      },
+      {
+        "operationId": "listHuts",
+        "method": "GET",
+        "path": "/v1/huts",
+        "namespace": "studio.huts",
+        "unit": "core",
+        "scope": "resources",
+        "idempotent": true,
+        "timeoutMs": 10000,
+        "idempotencyKey": false,
+        "conditional": false,
+        "credentials": { "actingUser": "none", "acceptsShareToken": false, "requiresSession": false, "requiresSecretKey": false, "takesNoCredential": false, "pendingInvitee": false },
+        "pathParameters": [],
+        "queryParameters": [
+          { "name": "cursor", "required": false, "type": { "kind": "string" } },
+          { "name": "limit", "required": false, "type": { "kind": "integer" }, "default": 50 },
+          { "name": "sort", "required": false, "type": { "kind": "string", "name": "ListHutsSort", "enum": ["name", "-name"] } }
+        ],
+        "headerParameters": [],
+        "pagination": { "sort": ["name", "-name"], "defaultSort": "name" },
+        "success": {
+          "kind": "envelope",
+          "data": { "type": { "kind": "array", "items": { "kind": "ref", "name": "HutSummary" } } },
+          "metadata": { "required": true, "type": { "kind": "ref", "name": "ListMetadata" } },
+          "responses": [ { "status": 200, "headers": [] } ]
+        },
+        "errors": [ { "status": 400 } ],
+        "summary": "List huts."
+      },
+      {
+        "operationId": "postSignal",
+        "method": "POST",
+        "path": "/v1/signals",
+        "namespace": "agent.signals",
+        "unit": "core",
+        "scope": "agent",
+        "idempotent": false,
+        "timeoutMs": 30000,
+        "idempotencyKey": true,
+        "conditional": false,
+        "deprecated": true,
+        "description": "Sends a signal. Use streams instead.",
+        "credentials": { "actingUser": "required", "acceptsShareToken": false, "requiresSession": true, "requiresSecretKey": false, "takesNoCredential": false, "pendingInvitee": false },
+        "requestBody": { "required": true, "content": [
+          { "mediaType": "multipart/form-data", "type": { "kind": "object", "name": "PostSignalMultipartBody", "properties": [
+            { "name": "file", "required": true, "type": { "kind": "string", "format": "binary" } },
+            { "name": "season", "required": false, "type": { "kind": "ref", "name": "Season" } },
+            { "name": "caption", "required": false, "type": { "kind": "string", "nullable": true } }
+          ] }, "encoding": [ { "property": "file", "contentType": "application/gpx+xml" } ] },
+          { "mediaType": "application/json", "type": { "kind": "ref", "name": "Signal" } }
+        ] },
+        "success": {
+          "kind": "envelope",
+          "responses": [
+            { "status": 201, "headers": [ { "name": "Location", "required": true, "type": { "kind": "string", "format": "uri" } } ] },
+            { "status": 200, "headers": [] }
+          ]
+        },
+        "errors": [ { "status": 409, "metadata": { "required": false, "type": { "kind": "ref", "name": "Page" } } } ],
+        "tasks": ["signal.post", "signal.record"]
+      },
+      {
+        "operationId": "getSignals",
+        "method": "GET",
+        "path": "/v1/signals",
+        "namespace": "agent.signals",
+        "unit": "core",
+        "scope": "agent",
+        "idempotent": true,
+        "idempotencyKey": false,
+        "conditional": false,
+        "credentials": { "actingUser": "required", "acceptsShareToken": false, "requiresSession": true, "requiresSecretKey": false, "takesNoCredential": false, "pendingInvitee": false },
+        "headerParameters": [ { "name": "X-Trace", "required": false, "type": { "kind": "string" } } ],
+        "success": { "kind": "event-stream", "event": { "kind": "ref", "name": "Signal" }, "responses": [ { "status": 200, "headers": [] } ] },
+        "errors": [ { "status": 401 } ]
+      },
+      {
+        "operationId": "patchHut",
+        "method": "PATCH",
+        "path": "/v1/huts/{hut_id}",
+        "namespace": "studio.huts",
+        "unit": "core",
+        "scope": "resources",
+        "idempotent": true,
+        "timeoutMs": 30000,
+        "idempotencyKey": true,
+        "conditional": true,
+        "credentials": { "actingUser": "required", "acceptsShareToken": false, "requiresSession": false, "requiresSecretKey": false, "takesNoCredential": false, "pendingInvitee": false },
+        "pathParameters": [ { "name": "hut_id", "type": { "kind": "string", "format": "uuid" } } ],
+        "requestBody": { "required": true, "content": [ { "mediaType": "application/json", "type": { "kind": "ref", "name": "Hut" } } ] },
+        "success": { "kind": "envelope", "data": { "type": { "kind": "ref", "name": "Hut" } }, "responses": [ { "status": 200, "headers": [] } ] },
+        "errors": [ { "status": 412 }, { "status": 404 } ],
+        "tasks": ["hut.update"]
+      },
+      {
+        "operationId": "deleteHut",
+        "method": "DELETE",
+        "path": "/v1/huts/{hut_id}",
+        "namespace": "studio.huts",
+        "unit": "core",
+        "scope": "resources",
+        "idempotent": true,
+        "timeoutMs": 30000,
+        "idempotencyKey": true,
+        "conditional": true,
+        "credentials": { "actingUser": "required", "acceptsShareToken": false, "requiresSession": true, "requiresSecretKey": false, "takesNoCredential": false, "pendingInvitee": false },
+        "pathParameters": [ { "name": "hut_id", "type": { "kind": "string", "format": "uuid" } } ],
+        "success": {
+          "kind": "envelope",
+          "data": { "type": { "kind": "null" } },
+          "responses": [ { "status": 200, "headers": [ { "name": "Idempotent-Replayed", "required": false, "type": { "kind": "ref", "name": "Season" } } ] } ]
+        },
+        "errors": [ { "status": 404 }, { "status": 409, "metadata": { "required": false, "type": { "kind": "object", "name": "DeleteHutConflict", "properties": [ { "name": "page", "required": true, "type": { "kind": "ref", "name": "Page" } } ] } } } ],
+        "summary": "Delete a hut.",
+        "tasks": ["hut.delete"]
+      },
+      {
+        "operationId": "getExport",
+        "method": "GET",
+        "path": "/v1/export",
+        "namespace": "studio.huts",
+        "unit": "core",
+        "scope": "resources",
+        "idempotent": true,
+        "timeoutMs": 60000,
+        "idempotencyKey": false,
+        "conditional": false,
+        "credentials": { "actingUser": "none", "acceptsShareToken": false, "requiresSession": false, "requiresSecretKey": false, "takesNoCredential": true, "pendingInvitee": false },
+        "success": { "kind": "binary", "mediaTypes": ["text/csv"], "responses": [ { "status": 200, "headers": [] } ] },
+        "errors": []
+      },
+      {
+        "operationId": "listKeys",
+        "method": "GET",
+        "path": "/v1/organizations/{organization_id}/keys",
+        "namespace": "admin.keys",
+        "unit": "admin",
+        "scope": "management",
+        "idempotent": true,
+        "timeoutMs": 10000,
+        "idempotencyKey": false,
+        "conditional": false,
+        "credentials": { "actingUser": "required", "acceptsShareToken": false, "requiresSession": true, "requiresSecretKey": false, "takesNoCredential": false, "pendingInvitee": false },
+        "pathParameters": [ { "name": "organization_id", "type": { "kind": "string", "format": "uuid" }, "description": "The organization." } ],
+        "queryParameters": [
+          { "name": "cursor", "required": false, "type": { "kind": "string" } },
+          { "name": "limit", "required": false, "type": { "kind": "integer" }, "default": 50 },
+          { "name": "season", "required": false, "type": { "kind": "ref", "name": "Season" } },
+          { "name": "since", "required": false, "type": { "kind": "string", "format": "date-time" } },
+          { "name": "sort", "required": false, "type": { "kind": "string", "name": "ListKeysSort", "enum": ["created_at", "-created_at"], "enumNames": ["ListKeysSortCreatedAt", "ListKeysSortCreatedAtDescending"] } }
+        ],
+        "headerParameters": [],
+        "pagination": { "sort": ["created_at", "-created_at"], "defaultSort": "-created_at" },
+        "success": {
+          "kind": "envelope",
+          "data": { "type": { "kind": "array", "items": { "kind": "ref", "name": "Key" } } },
+          "metadata": { "required": true, "type": { "kind": "ref", "name": "ListMetadata" } },
+          "responses": [ { "status": 200, "headers": [] } ]
+        },
+        "errors": [ { "status": 403 } ],
+        "summary": "List an organization's keys."
+      },
+      {
+        "operationId": "postKey",
+        "method": "POST",
+        "path": "/v1/keys",
+        "namespace": "admin.keys",
+        "unit": "admin",
+        "scope": "management",
+        "idempotent": false,
+        "timeoutMs": 30000,
+        "idempotencyKey": true,
+        "conditional": false,
+        "credentials": { "actingUser": "none", "acceptsShareToken": false, "requiresSession": false, "requiresSecretKey": true, "takesNoCredential": false, "pendingInvitee": false },
+        "requestBody": { "required": true, "content": [ { "mediaType": "application/json", "type": { "kind": "ref", "name": "KeyCreateParams" } } ] },
+        "success": {
+          "kind": "envelope",
+          "data": { "type": { "kind": "ref", "name": "Key" } },
+          "metadata": { "required": false, "type": { "kind": "ref", "name": "Page" } },
+          "responses": [ { "status": 201, "headers": [ { "name": "Location", "required": true, "type": { "kind": "string", "format": "uri" } } ] } ]
+        },
+        "errors": [ { "status": 401 }, { "status": 409, "metadata": { "required": false, "type": { "kind": "ref", "name": "Page" } } } ],
+        "summary": "Mint a key.",
+        "tasks": ["key.create"]
+      }
+    ],
+    "templates": []
+  },
+  "tiles": {
+    "origin": "https://tiles.example.com",
+    "schemas": [ { "name": "Spec", "kind": "object", "usage": ["response"], "properties": [ { "name": "tiles", "required": true, "type": { "kind": "array", "items": { "kind": "string", "format": "uri" } } } ] }, { "name": "Error", "kind": "object", "role": "envelope", "usage": ["response"], "properties": [ { "name": "message", "required": true, "type": { "kind": "string" } }, { "name": "extensions", "required": true, "type": { "kind": "object", "name": "ErrorExtensions", "properties": [ { "name": "code", "required": true, "type": { "kind": "string", "name": "ErrorExtensionsCode", "enum": ["BAD_REQUEST", "NOT_FOUND", "TILE_TOO_DEEP"] } } ] } } ] } ],
+    "operations": [
+      {
+        "operationId": "getSpec",
+        "method": "GET",
+        "path": "/v1/spec",
+        "scope": "tiles",
+        "idempotent": true,
+        "timeoutMs": 30000,
+        "idempotencyKey": false,
+        "conditional": false,
+        "credentials": { "actingUser": "none", "acceptsShareToken": true, "requiresSession": false, "requiresSecretKey": false, "takesNoCredential": false, "pendingInvitee": false },
+        "success": { "kind": "envelope", "data": { "type": { "kind": "ref", "name": "Spec" } }, "responses": [ { "status": 200, "headers": [] } ] },
+        "errors": [ { "status": 404 } ]
+      }
+    ],
+    "templates": [
+      { "operationId": "getTile", "method": "GET", "path": "/v1/{z}/{x}/{y}", "scope": "tiles", "idempotent": true, "timeoutMs": 30000, "idempotencyKey": false, "conditional": false,
+        "credentials": { "actingUser": "none", "acceptsShareToken": true, "requiresSession": false, "requiresSecretKey": false, "takesNoCredential": false, "pendingInvitee": false },
+        "success": { "kind": "binary", "mediaTypes": ["application/x-protobuf"], "responses": [ { "status": 200, "headers": [] } ] }, "errors": [] },
+      { "operationId": "getTileJson", "method": "GET", "path": "/v1/tiles.json", "scope": "tiles", "idempotent": true, "timeoutMs": 30000, "idempotencyKey": false, "conditional": false,
+        "credentials": { "actingUser": "none", "acceptsShareToken": true, "requiresSession": false, "requiresSecretKey": false, "takesNoCredential": false, "pendingInvitee": false },
+        "success": { "kind": "binary", "mediaTypes": ["application/json"], "documents": [ { "mediaType": "application/json", "type": { "kind": "ref", "name": "Spec" } } ], "responses": [ { "status": 200, "headers": [] } ] }, "errors": [] }
+    ]
+  },
+  "data": {
+    "origin": "https://data.example.com",
+    "endpoint": "/graphql",
+    "operations": [
+      {
+        "name": "route",
+        "input": "RouteInput",
+        "inputType": "RouteInput!",
+        "resultType": "RouteResult",
+        "scopes": ["DATA"],
+        "timeoutMs": 30000,
+        "credentials": { "actingUser": "none", "acceptsShareToken": false, "requiresSession": true, "requiresSecretKey": false, "takesNoCredential": false, "pendingInvitee": false },
+        "success": { "responses": [ { "status": 200, "headers": [] } ] },
+        "selection": [ { "name": "distance" }, { "name": "line" }, { "name": "legs", "fields": [ { "name": "at" } ] } ],
+        "document": "query Route($input: RouteInput!) {\n  route(input: $input) {\n    distance\n    line\n    legs {\n      at\n    }\n  }\n}\n",
+        "description": "Routes between two points.",
+        "deprecated": true
+      }
+    ],
+    "objects": [
+      { "name": "RouteResult", "description": "A route.", "fields": [
+        { "name": "distance", "type": { "kind": "ref", "name": "Float" } },
+        { "name": "line", "type": { "kind": "ref", "name": "GeoJSON", "nullable": true } },
+        { "name": "legs", "type": { "kind": "array", "items": { "kind": "ref", "name": "Leg" } }, "deprecated": true }
+      ] },
+      { "name": "Leg", "fields": [ { "name": "at", "type": { "kind": "ref", "name": "DateTime" } } ] }
+    ],
+    "inputs": [
+      { "name": "RouteInput", "fields": [
+        { "name": "activity", "required": true, "type": { "kind": "ref", "name": "Activity" } },
+        { "name": "points", "required": true, "type": { "kind": "array", "items": { "kind": "array", "items": { "kind": "ref", "name": "Float" } } } },
+        { "name": "speed", "required": false, "type": { "kind": "ref", "name": "Float", "nullable": true }, "default": 4.5 },
+        { "name": "link", "required": false, "type": { "kind": "ref", "name": "URL", "nullable": true } }
+      ] }
+    ],
+    "enums": [ { "name": "Activity", "members": [ { "name": "HIKING" }, { "name": "SKIING", "deprecated": true }, { "name": "HIKING_AND_TRAIL" }, { "name": "MTB_0" } ] }, { "name": "ErrorCode", "description": "The closed vocabulary of `extensions.code` on an error entry.", "members": [ { "name": "BAD_REQUEST", "description": "The request was malformed." }, { "name": "NOT_FOUND" }, { "name": "GATEWAY_TIMEOUT" } ] } ],
+    "scalars": [
+      { "name": "Boolean", "builtin": true },
+      { "name": "DateTime", "wire": { "kind": "string", "format": "date-time" } },
+      { "name": "Float", "builtin": true },
+      { "name": "GeoJSON", "wire": { "kind": "geojson", "geometry": "Geometry" } },
+      { "name": "ID", "builtin": true },
+      { "name": "Int", "builtin": true },
+      { "name": "String", "builtin": true },
+      { "name": "URL", "wire": { "kind": "string", "format": "uri" } }
+    ]
+  }
+}
