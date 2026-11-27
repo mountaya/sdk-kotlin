@@ -82,11 +82,20 @@ description = "Refuse a toolchain other than the pinned one: the JDK ./gradlew s
 run = "bash scripts/check-toolchain.sh 27.2"
 
 # The gate, which CI runs on every push: it deletes what this repository's builds left behind and no
-# longer use, checks the disk has room and the toolchain is the pinned one, then Gradle's `verify`: every gate, the
-# app-size gate after the consumer build it measures, and the capability coverage gate last.
+# longer use, checks the disk has room and the toolchain is the pinned one, tests the release scripts, then Gradle's
+# `verify`: every gate, the ABI check among them, the app-size gate after the consumer build it measures, and the
+# capability coverage gate last.
 [tasks.ci]
-description = "The gate: clean, the disk check, the toolchain check, then every Gradle gate, the app-size gate after checkConsumer and the capability coverage gate last"
-run = [{ task = "clean" }, { task = "disk:check" }, { task = "toolchain:check" }, "./gradlew verify"]
+description = "The gate: clean, the disk check, the toolchain check, the release scripts' test, then every Gradle gate, the app-size gate after checkConsumer and the capability coverage gate last"
+run = [{ task = "clean" }, { task = "disk:check" }, { task = "toolchain:check" }, { task = "test:release" }, "./gradlew verify"]
+
+# The part of the gate CI cannot run, which a release runs on the Mac it publishes from, once a commit: CI's Linux
+# runner builds every target and checks every ABI dump, the iOS klibs' included, and runs no device and no iOS
+# simulator. So: the toolchain check, then the device tests and Trail's journey on the emulator (`test:device`, the
+# disk check first), then the iOS simulator suites, every module's and the conformance harness's.
+[tasks."ci:local"]
+description = "The part of the gate CI cannot run: the toolchain check, the device tests on a running emulator, and the iOS simulator suites"
+run = [{ task = "toolchain:check" }, { task = "test:device" }, "./gradlew iosSimulatorArm64Test"]
 
 # The app-size gate alone, which `verify` runs after `checkConsumer`: Trail's release build (examples/trail),
 # its dex code read package by package with the command-line tools' apkanalyzer, each module's share and each
@@ -147,13 +156,27 @@ run = "./gradlew conformance"
 description = "Run the fixtures and write the report into the sibling schemas checkout"
 run = "./gradlew conformanceReport"
 
-# A release is made where the whole gate runs: macOS for the iOS simulator suites, with the emulator
-# booted for the device tests. The preflight runs the gate itself before anything is committed,
-# signed or uploaded. `bash scripts/release.sh --help` says what it refuses and what it does, and
-# `--dry-run` proves all of it but git and the upload.
+# A release is three steps. `mise run version <X.Y.Z>` writes the version into the files, the catalog's
+# `mountaya`, the README's install lines and CHANGELOG.md's dated section, and nothing else, so an agent may run
+# it; the person commits that as "version: Release v<X.Y.Z>" and pushes main, and CI runs the gate on it.
+[tasks.version]
+description = "Write a release into the files: the catalog's mountaya, the README's install lines, CHANGELOG.md's dated section"
+run = "bash scripts/version.sh"
+
+# Then `mise run release <X.Y.Z>` runs where ci:local runs: macOS for the iOS simulator suites, with the emulator
+# booted for the device tests. It tags the pushed commit CI passed, after ci:local and a deployment the Portal
+# validated, pushes the tag alone, publishes what Maven Central lacks and waits for the mirror; run again, it
+# resumes where it stopped. `bash scripts/release.sh --help` says what it refuses and what it does, and `--check`
+# runs every check and changes nothing.
 [tasks.release]
-description = "Release a version: the preflight and the gate, then the changelog, the tag, the deployment on the Central Portal, the push of main and then the tag to Entire, and the wait for the mirror"
+description = "Release a version CI passed: ci:local, the deployment validated, the tag pushed to Entire, the modules published to Maven Central, the wait for the mirror; --check changes nothing"
 run = "bash scripts/release.sh"
+
+# The fixture test of the two release scripts, which CI's gate runs: fakes of the Portal, gpg, depot and mise, a
+# bare repository as Entire and another as the mirror, in a scratch directory, and no network.
+[tasks."test:release"]
+description = "Test scripts/version.sh and scripts/release.sh against fakes: no network, no registry, no git of this repository"
+run = "bash scripts/test-release.sh"
 
 # What pre-commit runs: formatting, the only lint the Gradle build has on its own.
 [tasks."ci:quick"]

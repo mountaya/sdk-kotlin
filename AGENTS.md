@@ -150,7 +150,7 @@ It never becomes a guess presented as the contract.
 `gradle/libs.versions.toml` pins what the build resolves (plugins, libraries, floors).
 
 ```bash
-mise run ci                             # the gate: clean, the disk check, the toolchain check, Gradle's verify, every target, the coverage gate included
+mise run ci                             # the gate: clean, the disk check, the toolchain check, the release scripts' test, Gradle's verify, every target, the coverage gate included
 mise run ci -- -Pmountaya.targets=jvm   # the gate on the jvm alone, for bring-up
 mise run clean                          # delete what this repository's builds left behind, inside it alone; `-- --all` the build directories too, `-- --dry-run` only lists
 mise run clean:toolchains               # the person's, never an agent's: list the shared toolchains no checkout pins; `-- --yes` deletes them
@@ -171,8 +171,12 @@ mise run readme                         # print the README's Kotlin snippets int
 mise run snippets -- <file.md> [...]    # compile the Kotlin fences of any Markdown documents, for the jvm and Android; never a gate
 mise run api:update                     # rewrite the ABI dumps after a deliberate API change
 mise run wrapper                        # regenerate the wrapper after moving the Gradle pin
-mise run release <version>              # the preflight and the whole gate, then the changelog, the tag, the deployment, the push of main and then the tag to Entire, the wait for the mirror
-mise run release <version> --dry-run    # every check but git's, and the gate, then the modules, signed where a key is given, into a local repository
+mise run version <X.Y.Z>                # write a release into the files: the catalog's mountaya, the README's install lines, CHANGELOG.md's dated section
+mise run ci:local                       # the part of the gate CI cannot run: the toolchain check, test:device and the iOS simulator suites
+mise run release <X.Y.Z>                # the person's: tag the pushed commit CI passed, publish to Maven Central, wait for the mirror; run again, it resumes
+mise run release <X.Y.Z> --check        # every check of the release, the credentials' included, changing nothing
+mise run release <X.Y.Z> --credentials  # the release's credentials alone, each checked online
+mise run test:release                   # the fixture test of scripts/version.sh and scripts/release.sh, which the gate runs
 ```
 
 - `-Pmountaya.targets` takes `jvm`, `ios` and `android`, comma-separated. A published module
@@ -294,31 +298,42 @@ mise run release <version> --dry-run    # every check but git's, and the gate, t
   installs one in their place: each Android build's `gradle.properties`, the repository's, the
   consumer's and Trail's, sets `android.builder.sdkDownload=false`, so a package the SDK lacks fails
   the build rather than the Android Gradle plugin installing it with its licence.
-- **A release is `mise run release <version>`, and it is the person's to run.** `scripts/release.sh`
-  refuses, each refusal with what to do and all of them told together: no git; a version that is
-  not MAJOR.MINOR.PATCH, already tagged here or on Entire, or not newer than every tag and every
-  version Maven Central holds; a version the catalog's `mountaya` or the README's install lines do
-  not name; a dirty tree, off `main` or not at Entire's `main`, or no `origin` remote; no
-  `[Unreleased]` notes in `CHANGELOG.md` and no section of the version's; a sibling that is not
-  clean at the commit `siblings.lock` pins (`sh .agents/siblings at-pins`); licence texts that are
-  not sdk-typescript's bytes or a licence address that does not answer; a host that is not macOS
-  or no emulator running; no signing key, no passphrase for it, or no Portal token. Then it runs
-  the gate itself: `mise run disk:check` on its own, since it passes under CI without looking, then
-  `CI=true` `mise run ci`, `mise run test:device` and the ABI check. It publishes every module,
-  signed, into `build/release/maven` and zips the bundle (`centralBundle`, which
-  `checkReleaseRepository` holds to what the Central Portal validates, and to naming no directory
-  of this machine) before it asks; then it commits the moved changelog, tags `v<version>`, uploads
-  the bundle as a deployment the person publishes in the Portal (`scripts/central-upload.sh`,
-  never released by the script), waits until the Portal has validated it, pushes `main` to Entire
-  and then the tag (Entire takes no atomic push), and waits, ten minutes at most, until the GitHub
-  mirror lists the tag, which `.depot/workflows/mirror.yml`, rendered by `ai`, pushes there from
-  Entire. Where a release stopped after its tag, look for its deployment in the Portal before
-  uploading again. The key is `MOUNTAYA_SIGNING_KEY` (ASCII-armoured, with
-  `MOUNTAYA_SIGNING_PASSWORD`), the token `MOUNTAYA_CENTRAL_USERNAME` and
-  `MOUNTAYA_CENTRAL_PASSWORD`. `--dry-run` touches no git and uploads nothing, and runs the gate:
-  it publishes into `build/release/dry-run/maven`, or the empty directory `--repository` names,
-  unsigned where no key is given; `--skip-gate` leaves the gate out of a dry run, and is refused
-  without one.
+- **A release is `mise run version <X.Y.Z>`, a commit CI passes, then `mise run release <X.Y.Z>`,
+  and the last is the person's to run.** `mise run version` (`scripts/version.sh`) writes the
+  version into the catalog's `mountaya` and the README's install lines, and moves `CHANGELOG.md`'s
+  `[Unreleased]` notes under the version and today's date, and nothing else, so an agent may run
+  it; run again it changes nothing. The person commits that as "version: Release v<X.Y.Z>" and
+  pushes `main`, and CI runs the gate on it. `scripts/release.sh` reruns no gate CI ran, and
+  refuses, each refusal with what to do and all of them told together: a version that is not
+  MAJOR.MINOR.PATCH, not newer than every `v*` tag, or tagged elsewhere than this commit, here, on
+  Entire or on the mirror; a dirty tree, off `main` or not at Entire's `main`; a commit CI has not
+  finished green on; a version the catalog or the README's install lines do not name, or no dated
+  `CHANGELOG.md` section for it; a sibling that is not clean at the commit `siblings.lock` pins
+  (`sh .agents/siblings at-pins`); licence texts that are not sdk-typescript's bytes or a licence
+  address that does not answer; and, until `mise run ci:local` passed on the commit, a host that
+  is not macOS or no emulator running. Then it takes the credentials, each from the environment,
+  else the macOS Keychain, else a hidden prompt, and each checked online: the key and its
+  passphrase sign a test payload in a throwaway GnuPG home, and the Portal answers the token. It
+  refuses a version Maven Central holds, unless the tag is on this commit already. Once asked, it
+  runs `mise run disk:check` on its own, since it passes under CI without looking, and `CI=true`
+  `mise run ci:local` once a commit: the toolchain check, `test:device` and the iOS simulator
+  suites, which CI's Linux runner cannot run, though it builds every target and checks every ABI
+  dump, the iOS klibs' among them. Before the tag it proves the publish: every module, signed, into
+  `build/release/maven`, zipped (`centralBundle`, which `checkReleaseRepository` holds to what the
+  Central Portal validates, and to naming no directory of this machine), and uploaded as a
+  USER_MANAGED deployment the Portal validates (`scripts/central-upload.sh`). Then it tags
+  `v<X.Y.Z>`, noted with the changelog's section, pushes the tag alone to Entire, publishes the
+  deployment through the Portal API and waits until Maven Central holds it, and waits, ten minutes
+  at most, until the GitHub mirror lists the tag, which `.depot/workflows/mirror.yml`, rendered by
+  `ai`, pushes there from Entire. It makes no commit and pushes no `main`. Run again after a stop,
+  it reads where it stands from Entire, the mirror and the Portal: `ci:local` is not run twice on
+  one commit, the tag is kept, a deployment of the version the Portal is publishing is waited on,
+  the bundle is uploaded again where none is, and nothing Maven Central holds is published again.
+  `--check` runs every check and changes nothing; `--credentials` takes and checks the credentials
+  alone. The key is `MOUNTAYA_SIGNING_KEY` (ASCII-armoured, with `MOUNTAYA_SIGNING_PASSWORD`, and
+  `MOUNTAYA_SIGNING_KEY_ID` for a signing subkey), the token `MOUNTAYA_CENTRAL_USERNAME` and
+  `MOUNTAYA_CENTRAL_PASSWORD`. `mise run test:release`, in `mise run ci`, holds both scripts to
+  fakes of the Portal, gpg, depot and mise, in a scratch copy.
 - **The changelog is gated.** `CHANGELOG.md` keeps `## [Unreleased]` first, holding what the next
   release carries, then each release as `## [MAJOR.MINOR.PATCH] - YYYY-MM-DD`, newest first;
   `checkChangelog`, in `verify`, holds that shape and every name it writes in backticks to a
@@ -362,7 +377,7 @@ build-logic/.../changelog/      the changelog gate
 build-logic/.../size/           the app-size gate: apkanalyzer's output read package by package, the release graph's brought libraries, and its baseline's rule
 build-logic/.../trail/          the scenario gate, checkTrail, which holds examples/trail to sdk/trail.yaml
 build-logic/.../seams/          BuildClock, the one place the build's own tooling reads the wall clock
-scripts/                        release.sh and central-upload.sh, behind `mise run release`; check-toolchain.sh, behind `mise run toolchain:check`; lib/common.sh, rendered by `ai`
+scripts/                        version.sh, behind `mise run version`; release.sh and central-upload.sh, behind `mise run release`; test-release.sh, their fixture test; check-toolchain.sh, behind `mise run toolchain:check`; lib/common.sh and lib/release.sh, rendered by `ai`
 mountaya-client/src/<set>/kotlin/com/mountaya/client/<topic>/<kind>/
 mountaya-client/.../generated/  the printed core, in com.mountaya.client.generated: RestSchema, TileSchema, DataSchema, the accessors
 mountaya-admin/src/<set>/kotlin/com/mountaya/admin/<topic>/<kind>/        accessors (Mountaya.admin), webhooks, errors, seams
@@ -493,18 +508,23 @@ and its `api` flag. The coverage gate then stops listing it.
 
 Ask Entire Graph before searching by hand: `entire graph query --profile full "<the task in one sentence>"` finds the code for a task, and `entire graph impact --symbol <name>` shows what a change to a symbol reaches. `entire graph agent-guide` is the reference for the installed version; the `graph-first` skill says when to use which.
 
+<!-- entire-agent:begin -->
 ### Memory of past work
 
 - Start a substantial task with `entire brain brief "<task>" --json`. Look for earlier work with `entire search "<topic>" --compact`, and across every Mountaya repository with `entire brain workspace query mountaya "<query>"`.
-- Record a decision, gotcha or invariant the code cannot show with `entire brain remember "<fact>" --kind decision|gotcha|invariant --path <path>`, and read them back with `entire brain recall "<query>"`. A fact about the repository goes to Brain, which every agent shares; an agent's own memory is for the person's preferences.
+- Record a decision, gotcha or invariant the code cannot show with `entire brain remember "<fact>" --kind decision|gotcha|invariant`, and read them back with `entire brain recall "<query>"`. `--path` takes a taxonomy path (`architecture.billing.decision`), never a file; `recall --locus <file or symbol>` narrows to code. A fact about the repository goes to Brain, which every agent shares; an agent's own memory is for the person's preferences.
+- Brain records into the repository the command runs in, and Entire records a session in the repository its working directory is in. So a session that changes a sibling works inside it: `cd ../<repo>` stays there for a session that lists it among its working directories, as platform's lists every sibling, Entire then records the session there too, and the commit the person makes there links its checkpoint. Read the sibling's AGENTS.md before changing it, since its rules do not load from here. A fact about a sibling is recorded from inside it (`cd ../<repo> && entire brain remember ...`), and one that holds in every repository with `--global`.
 - Before changing a line you do not understand, ask `entire why <file>:<line>`: it names the commit, the checkpoint and the prompt behind it.
 - Brain and checkpoints say what was decided and what went wrong before. Current source and a passing test outrank both.
-- `entire brain setup` without `--no-backfill --no-daemon` installs a background service and spends model tokens distilling past sessions. Choose that deliberately.
+- `entire brain setup` without `--no-backfill --no-daemon` installs a background service and spends model tokens distilling past sessions. Choose that deliberately: `entire brain workspace watch mountaya` keeps every brain of the workspace fresh and spends none.
+<!-- entire-agent:end -->
 
 ### Review and CI
 
+- Before you report a change done, run `sh .agents/siblings gate`. It runs the quick gate (`mise run ci:quick`) of every repository checked out beside this one that the change reaches, one at a time, with the render check of each one ai renders where ai changed and `mise run generate:check` where a sibling it reads changed; `sh .agents/siblings impact` lists them first, and why. A change to ai or schemas is done once every repository it reaches passes.
 - CI runs on Depot for every push to Entire (`.depot/workflows/ci.yml`): the gate, `mise run ci` (tests and the build), each job a check on the commit. Pre-commit runs formatting and linting (`mise run ci:quick`). Run the gate yourself before you report a change done. `depot ci run list` and `depot ci logs <run>` read CI's runs, and `depot ci run --workflow .depot/workflows/ci.yml` runs CI's own gate on your uncommitted changes.
-- CI builds against the sibling commits `siblings.lock` pins, fetched as the bundles each sibling's own CI publishes on every push. Pre-commit stops while any sibling checked out beside this one has uncommitted or untracked files or a HEAD no remote branch holds, naming each one and what to do. It then pins each sibling whose HEAD moved forward and stages the lock, so a commit pins the sibling commits it was tested against: it stops on a HEAD behind or diverged from its pin, it keeps the pins of a commit that changes the lock itself or concludes a merge, and `SIBLINGS_ALLOW_DRIFT=<name>` leaves a pin where it is, never past uncommitted or unpushed work. Pre-push stops a push whose commit carries no lock, which CI's checkout stops on, or whose pin no remote branch holds or its sibling's CI never ran on, so no bundle of it exists. `sh .agents/siblings status` shows each pin beside its sibling's HEAD and CI run, `sh .agents/siblings pin` moves pins by hand, and `sh .agents/siblings at-pins`, which a release runs before it commits and tags, stops unless every sibling is checked out, clean and at its pin.
+- CI builds against the sibling commits `siblings.lock` pins, fetched as the bundles each sibling's own CI publishes on every push. Pre-commit stops while any sibling checked out beside this one has uncommitted or untracked files or a HEAD no remote branch holds, naming each one and what to do. It then pins each sibling whose HEAD moved forward and stages the lock, so a commit pins the sibling commits it was tested against: it stops on a HEAD behind or diverged from its pin, it keeps the pins of a commit that changes the lock itself or concludes a merge, and `SIBLINGS_ALLOW_DRIFT=<name>` leaves a pin where it is, never past uncommitted or unpushed work. Pre-push stops a push whose commit carries no lock, which CI's checkout stops on, or whose pin no remote branch holds or its sibling's CI never ran on, so no bundle of it exists. `sh .agents/siblings status` shows each pin beside its sibling's HEAD and CI run, `sh .agents/siblings pin` moves pins by hand, and `sh .agents/siblings at-pins`, which a release runs before it tags, stops unless every sibling is checked out, clean and at its pin.
+- A release of this repository runs with the rest of the workspace's, from ../platform (`mise run release`), and is a person's. `mise run version <X.Y.Z>` writes it into the files, and an agent may run it; `mise run ci:local` is the part of the gate CI cannot run, which the release runs on the commit it tags; `mise run release <X.Y.Z>` tags the pushed commit CI passed, publishes what a registry lacks and waits for the mirror, and run again it resumes where it stopped.
 - Every push of `main` and of a release tag (`v*`) also reaches the read-only public mirror, https://github.com/mountaya/sdk-kotlin, which Depot CI pushes (`.depot/workflows/mirror.yml`) and nothing else does. Published metadata and links for readers name the mirror; contributors clone, push and review here.
 - Review happens on Entire trails. Read one with `entire trail show <number>` and answer its findings with `entire trail finding` (the `address-findings` skill). Creating, approving and merging a trail is the person's.
 - Entire's repository, trail, login and setup commands are the person's too: suggest them, never run them.
@@ -513,7 +533,7 @@ Ask Entire Graph before searching by hand: `entire graph query --profile full "<
 
 Claude Code: model `claude-opus-5-5`, effort `xhigh`, plugins `mountaya-core@mountaya`, `entire@entire-skills`, `mountaya-kotlin@mountaya`, all set in `.claude/settings.json`.
 
-Any other agent: the same conventions are plain skills in the `mountaya/ai` repository (https://entire.com/et/mountaya/ai), installed for your user (`-g`) rather than into this repository. `sh .agents/setup` does it for Codex and Cursor; by hand, from a checkout beside this one:
+Any other agent: the same conventions are plain skills in the `mountaya/ai` repository (https://github.com/mountaya/ai), installed for your user (`-g`) rather than into this repository. `sh .agents/setup` does it for Codex and Cursor; by hand, from a checkout beside this one:
 
 ```bash
 npx skills add ../ai -g --skill graph-first --skill kotlin-conventions --skill retrieve-via-ctx

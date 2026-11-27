@@ -11,8 +11,9 @@ The five modules are one release: `com.mountaya:mountaya-client`, `com.mountaya:
 `com.mountaya:mountaya-geo`, `com.mountaya:mountaya-elements` and `com.mountaya:mountaya-navigation`
 are published to Maven Central together, at one version, and each names its siblings at exactly that
 version.
-`mise run release <version>` moves the notes under `[Unreleased]` to the version and its date, tags
-it, and hands the signed modules to the Central Portal.
+`mise run version <version>` moves the notes under `[Unreleased]` to the version and its date, and
+`mise run release <version>` tags the commit that holds them, once CI passed on it, and publishes
+the signed modules to Maven Central.
 
 ## [Unreleased]
 

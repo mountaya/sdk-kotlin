@@ -1,61 +1,73 @@
 #!/usr/bin/env bash
 # USAGE-START
-# Releases sdk-kotlin: one version of its five modules, signed and handed to the Central Portal as
-# one deployment you then publish to Maven Central, and the tag of this repository that names it.
+# Releases sdk-kotlin: the annotated tag v<X.Y.Z> on the commit CI passed, pushed to the repository
+# on Entire, its five modules published to Maven Central together through the Central Portal, then
+# the wait for the public mirror on GitHub, where mirror.yml makes its GitHub Release.
 #
-#   mise run release <version> [--yes]
-#   mise run release <version> --dry-run [--repository <dir>] [--skip-gate]
+#   mise run release <X.Y.Z> [--yes]
+#   mise run release <X.Y.Z> --check
+#   mise run release <X.Y.Z> --credentials
 #
-# <version> is MAJOR.MINOR.PATCH, the version gradle/libs.versions.toml gives every module, newer
-# than every `v*` tag and every version Maven Central holds. The release asks before it commits;
-# --yes answers yes.
+# <X.Y.Z> is the version gradle/libs.versions.toml and the README's install lines give every
+# module, with a dated CHANGELOG.md section (`mise run version <X.Y.Z>` writes all three), past the
+# newest `v*` tag. The release runs from `main`, clean, at the commit Entire's `main` is at, on which
+# CI finished green. It asks before it does anything; --yes answers yes. --check runs every check,
+# the credentials' included, says what a release would do, and changes nothing. --credentials takes
+# and checks the credentials alone, as a release does, and nothing else: platform's release asks
+# for every credential with it before it waits on CI and runs the device suites.
 #
-# Every publication is signed with the ASCII-armoured secret key in MOUNTAYA_SIGNING_KEY, its
-# passphrase in MOUNTAYA_SIGNING_PASSWORD, and MOUNTAYA_SIGNING_KEY_ID naming a signing subkey
-# where the primary key does not sign. The deployment is uploaded with the Central Portal user
-# token in MOUNTAYA_CENTRAL_USERNAME and MOUNTAYA_CENTRAL_PASSWORD. The repository on Entire is the
-# remote `origin`; RELEASE_ENTIRE_REMOTE names another. RELEASE_CENTRAL_URL names another Maven
-# repository than Maven Central to ask which versions it holds, and RELEASE_PORTAL_URL another
-# Portal than https://central.sonatype.com, such as a stand-in for a test. The mirror is
-# https://github.com/mountaya/sdk-kotlin, which every POM names as its source; RELEASE_MIRROR_URL
-# names another to wait on.
+# Run again after a stop, it resumes from what the remotes and the Portal say: `mise run ci:local`
+# runs once on a commit, a tag made here or on Entire is kept, and only what Maven Central lacks is
+# published.
 #
-# --dry-run touches no git and uploads nothing: it runs every other check and the gate, then
-# publishes every module into a local Maven repository, build/release/dry-run/maven, emptied
-# first, or the empty directory --repository names, and zips the bundle beside it. Without
-# MOUNTAYA_SIGNING_KEY a dry run publishes unsigned. --skip-gate leaves the gate out of a dry
-# run, and is refused without one.
+# The credentials are MOUNTAYA_SIGNING_KEY, the ASCII-armoured secret key every publication is
+# signed with, and MOUNTAYA_SIGNING_PASSWORD, its passphrase, and MOUNTAYA_CENTRAL_USERNAME and
+# MOUNTAYA_CENTRAL_PASSWORD, the two halves of a Central Portal user token: each from the
+# environment, else the macOS Keychain (service mountaya-release), else asked for, and checked
+# online before anything is built. MOUNTAYA_SIGNING_KEY_ID, from the environment, names the signing
+# subkey where the primary key does not sign. The repository on Entire is the remote `origin`;
+# RELEASE_ENTIRE_REMOTE names another, RELEASE_MIRROR_URL another mirror and RELEASE_PORTAL_URL
+# another Portal than https://central.sonatype.com, for a test; RELEASE_POLL_SECONDS is how long to
+# wait between two asks (15), and RELEASE_PORTAL_WAIT_SECONDS how long the Portal is waited on at
+# most, to validate a deployment (1800) and to publish it (3600).
 # USAGE-END
 #
-# The preflight refuses, each refusal with what to do, and runs the gate only once nothing else
-# refused, since it is the longest step: no git repository; a version that is not
-# MAJOR.MINOR.PATCH, already tagged here or on Entire, or not newer than the newest tag and than
-# every version Maven Central holds; a version the build or the README's install lines do not give
-# the modules; a working tree with changes; a commit that is not `main` at the commit Entire's
-# `main` is at, or no remote for Entire; a CHANGELOG.md with nothing to say for the version; a
-# sibling checkout that is not clean at the commit siblings.lock pins; a licence text that differs
-# from sdk-typescript's bytes, or a licence address that does not answer; a host that is not macOS
-# or no emulator running, where the gate needs both; no signing key or no passphrase, or no Portal
-# token; and a gate that fails: `mise run disk:check`, then `mise run ci`, `mise run test:device`,
-# each module's device tests and Trail's journey, and the ABI check, every target built.
+# It refuses, every refusal told together with what to do: what every release refuses
+# (release_checks: a version that is not MAJOR.MINOR.PATCH, a dirty tree, off `main` or not at
+# Entire's `main`, a tag elsewhere than this commit or not newer than every `v*`, CI not finished
+# green on this commit); a version the catalog's `mountaya` or the README's install lines do not
+# name; no dated CHANGELOG.md section for it; a sibling that is not clean at the commit
+# siblings.lock pins; licence texts that are not sdk-typescript's bytes, or a licence address that
+# does not answer; and, until `mise run ci:local` passed on this commit, a host that is not macOS or
+# no emulator running. Then it takes the credentials, each checked online (the key and its
+# passphrase sign a test payload in a throwaway GnuPG home, the token is answered by the Portal), and
+# refuses a version Maven Central holds already, unless the tag is on this commit already, as a
+# release that stopped after its tag leaves it.
 #
-# Then it publishes every module, signed, into the release repository and zips the bundle, before
-# anything is committed, so a key that does not sign stops it there. Once it has said what it will
-# do and been answered: the changelog's `[Unreleased]` notes become the version's section with
-# today's date, in a commit "version: Release v<version>" that holds that change alone,
-# unless CHANGELOG.md holds the section already; the annotated tag `v<version>` is made on it; the
-# bundle is uploaded to the Central Portal as a deployment you publish yourself, and waited on
-# until the Portal has validated it; `main` at that commit is pushed to Entire, then the tag, since
-# Entire takes no atomic push; and the release waits until the mirror lists the tag, which the
-# Depot workflow mirror.yml pushes there from Entire. The deployment is yours to publish.
+# Then, once asked: `mise run disk:check` and `CI=true mise run ci:local`, unless ci:local passed
+# here on this commit; every module published, signed, into build/release/maven and zipped
+# (centralBundle), uploaded to the Portal as the USER_MANAGED deployment sdk-kotlin-<version> and
+# waited on until the Portal has validated it, which proves the publish before anything is tagged;
+# the annotated tag, noted with CHANGELOG.md's section; the tag pushed alone to Entire, whose `main`
+# holds the commit already; the deployment published through the Portal API and waited on until
+# it is, unless Maven Central holds every module at the version already; and the wait for the
+# mirror. Run again after the tag, the deployment's id is gone with the process that uploaded it:
+# a deployment of the version the Portal is publishing is waited on, and otherwise the bundle is
+# built, uploaded and validated again, and that deployment published. It makes no commit and
+# pushes no `main`.
 set -euo pipefail
 
 # shellcheck source=lib/common.sh
 . "$(dirname "$0")/lib/common.sh"
+# shellcheck source=lib/release.sh
+. "$(dirname "$0")/lib/release.sh"
 answer_help "$@"
 require_cmd awk "awk, which comes with the operating system"
+require_cmd base64 "base64, which comes with the operating system"
 require_cmd cmp "cmp, which comes with the operating system"
 require_cmd curl "curl, which comes with the operating system"
+require_cmd git "git, which comes with Xcode's command line tools: xcode-select --install"
+require_cmd gpg "brew install gnupg"
 require_cmd mise "mise: sh .agents/setup installs it"
 
 root="$(cd "$(dirname "$0")/.." && pwd -P)"
@@ -63,323 +75,252 @@ cd "$root"
 
 version=""
 yes=0
-dry_run=0
-skip_gate=0
-repository=""
+check=0
+credentials=0
 while [ "$#" -gt 0 ]; do
   case "$1" in
     --yes) yes=1 ;;
-    --dry-run) dry_run=1 ;;
-    --skip-gate) skip_gate=1 ;;
-    --repository)
-      [ "$#" -ge 2 ] || die "--repository takes the directory a dry run publishes into." "bash scripts/release.sh --help"
-      repository="$2"
-      shift
+    --check) check=1 ;;
+    --credentials) credentials=1 ;;
+    --dry-run | --skip-gate)
+      die "\`$1\` is no option of the release any more: CI's run on the commit is the gate, and --check runs every check and changes nothing." \
+        "mise run release <X.Y.Z> --check"
       ;;
-    --repository=*) repository="${1#--repository=}" ;;
     -*) die "\`$1\` is no option of the release." "bash scripts/release.sh --help" ;;
     *)
-      [ -z "$version" ] || die "The release takes one version, and was given \`$version\` and \`$1\`." \
-        "mise run release <version>, such as: mise run release 0.1.0"
+      [ -z "$version" ] || die "The release takes one version, and was given \`$version\` and \`$1\`." "mise run release <X.Y.Z>"
       version="$1"
       ;;
   esac
   shift
 done
-[ -n "$version" ] || die "The release takes the version it releases." \
-  "mise run release <version>, such as: mise run release 0.1.0"
-if [ "$dry_run" -eq 0 ]; then
-  [ "$skip_gate" -eq 0 ] || die "--skip-gate is for a dry run alone: a release is never made from a tree the gate did not pass." \
-    "Run the release without --skip-gate, or the dry run with --dry-run."
-  [ -z "$repository" ] || die "--repository is for a dry run alone: a release publishes into build/release/maven." \
-    "Run the release without --repository, or the dry run with --dry-run."
-  require_cmd git "git, which comes with Xcode's command line tools: xcode-select --install"
-fi
-
+[ -n "$version" ] || die "The release takes the version it releases." "mise run release <X.Y.Z>, such as: mise run release 0.2.0"
 entire="${RELEASE_ENTIRE_REMOTE:-origin}"
-central="${RELEASE_CENTRAL_URL:-https://repo1.maven.org/maven2}"
-central="${central%/}"
+tag="v$version"
 portal="${RELEASE_PORTAL_URL:-https://central.sonatype.com}"
 portal="${portal%/}"
-# The public, read-only mirror on GitHub, which the Depot workflow mirror.yml pushes every push of
-# `main` and every release tag to, from Entire. Nothing pushes to it by hand.
-mirror="${RELEASE_MIRROR_URL:-https://github.com/mountaya/sdk-kotlin}"
-mirror="${mirror%/}"
-tag="v$version"
-date="$(date -u +%Y-%m-%d)"
-group_path="com/mountaya"
-# Every module a release publishes, each after every module it depends on: the core, its admin unit, the geo layer,
-# then the elements and navigation over it.
+poll="${RELEASE_POLL_SECONDS:-15}"
+namespace="com.mountaya"
+deployment_name="sdk-kotlin-$version"
+# Every module a release publishes, each after every module it depends on: the core, its admin unit,
+# the geo layer, then the elements and navigation over it. One deployment holds them all.
 modules="mountaya-client mountaya-admin mountaya-geo mountaya-elements mountaya-navigation"
+module_count=5
+repository="$root/build/release/maven"
+bundle="$root/build/release/central-bundle.zip"
 
-# A repository at this root, before anything asks git about one.
-if [ "$dry_run" -eq 0 ]; then
-  toplevel="$(git rev-parse --show-toplevel 2>/dev/null || true)"
-  if [ -z "$toplevel" ] || [ "$(cd "$toplevel" && pwd -P)" != "$root" ]; then
-    die "$root is no git repository, so there is nothing to tag." \
-      "Release from a clone of sdk-kotlin's repository on Entire: entire repo clone /et/mountaya/sdk-kotlin" \
-      "Or rehearse everything but git and the publishing: mise run release $version --dry-run"
-  fi
-fi
+# The credentials handed to each step through its environment, and to no other step.
+signing_secrets="-u MOUNTAYA_SIGNING_KEY -u MOUNTAYA_SIGNING_PASSWORD"
+central_secrets="-u MOUNTAYA_CENTRAL_USERNAME -u MOUNTAYA_CENTRAL_PASSWORD"
 
-refusals=()
-refuse() {
-  refusals+=("$1")
+# portal <method> <path and query> <answer file>: one call to the Central Portal's API, its answer
+# written into the file and its HTTP status printed, 000 where nothing answered. The token
+# ($portal_auth) travels in a header curl reads from its standard input (`--config -`), never on a
+# command line and never in a file.
+portal_auth=""
+portal() {
+  printf 'header = "Authorization: Bearer %s"\n' "$portal_auth" \
+    | curl -sS --max-time 60 --config - -X "$1" -o "$3" -w '%{http_code}' "$portal$2" 2>/dev/null || true
 }
 
-# is_version <text>: MAJOR.MINOR.PATCH, each a number with no leading zero.
-is_version() {
-  printf '%s\n' "$1" | grep -Eq '^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$'
-}
-
-# newer <a> <b>: whether version a comes after version b.
-newer() {
-  local a1 a2 a3 b1 b2 b3
-  IFS=. read -r a1 a2 a3 <<<"$1"
-  IFS=. read -r b1 b2 b3 <<<"$2"
-  [ "$a1" -gt "$b1" ] && return 0
-  [ "$a1" -lt "$b1" ] && return 1
-  [ "$a2" -gt "$b2" ] && return 0
-  [ "$a2" -lt "$b2" ] && return 1
-  [ "$a3" -gt "$b3" ]
-}
-
-# unreleased_notes: the [Unreleased] section's text, its blank lines at either end left out.
-unreleased_notes() {
-  awk '
-    /^## \[Unreleased\][[:space:]]*$/ { inside = 1; next }
-    inside && /^## \[/ { exit }
-    inside { lines[++n] = $0 }
-    END {
-      first = 1
-      while (first <= n && lines[first] ~ /^[[:space:]]*$/) first++
-      last = n
-      while (last >= first && lines[last] ~ /^[[:space:]]*$/) last--
-      for (i = first; i <= last; i++) print lines[i]
-    }
-  ' CHANGELOG.md
-}
-
-# released_section <version>: the heading of the version's own section where CHANGELOG.md holds
-# one, as a release that stopped after its commit leaves it.
-released_section() {
-  local escaped
-  escaped="$(printf '%s' "$1" | sed 's/\./\\./g')"
-  grep -Ex "## \[$escaped\] - [0-9]{4}-[0-9]{2}-[0-9]{2}" CHANGELOG.md | sed -n 1p || true
-}
-
-# moved_changelog <version>: CHANGELOG.md as the release writes it, the notes under [Unreleased]
-# moved to <version> and today's date; the file as it stands where it holds that section already.
-moved_changelog() {
-  if [ -n "$(released_section "$1")" ]; then
-    cat CHANGELOG.md
-    return 0
-  fi
-  awk -v version="$1" -v date="$date" '
-    function emit(more,   first, last, i) {
-      first = 1
-      while (first <= n && lines[first] ~ /^[[:space:]]*$/) first++
-      last = n
-      while (last >= first && lines[last] ~ /^[[:space:]]*$/) last--
-      print ""
-      print "## [" version "] - " date
-      print ""
-      for (i = first; i <= last; i++) print lines[i]
-      if (more) print ""
-    }
-    /^## \[Unreleased\][[:space:]]*$/ { print; inside = 1; next }
-    inside && /^## \[/ { emit(1); inside = 0 }
-    inside { lines[++n] = $0; next }
-    { print }
-    END { if (inside) emit(0) }
-  ' CHANGELOG.md
-}
-
-# central_versions <module>: the versions Maven Central holds of a module, one a line, none where it
-# holds the module at no version. It fails where Maven Central cannot be asked.
-central_versions() {
-  local answer code
+# published_modules: the modules Maven Central holds at the version, one a line, as the Portal's
+# `published` says, which no cache stands in front of. It fails, saying why, where the Portal does
+# not answer.
+published_modules() {
+  local module code answer
   answer="$(mktemp)"
-  code="$(curl -sS -L --max-time 30 -o "$answer" -w '%{http_code}' \
-    "$central/$group_path/$1/maven-metadata.xml" 2>/dev/null || true)"
+  for module in $modules; do
+    code="$(portal GET "/api/v1/publisher/published?namespace=$namespace&name=$module&version=$version" "$answer")"
+    if [ "$code" != 200 ]; then
+      echo "Asked whether Maven Central holds $module $version, the Central Portal answered ${code}: $(cat "$answer" 2>/dev/null)" >&2
+      rm -f "$answer"
+      return 1
+    fi
+    if grep -Eq '"published"[[:space:]]*:[[:space:]]*true' "$answer"; then
+      echo "$module"
+    fi
+  done
+  rm -f "$answer"
+}
+
+# publishing_deployment: the id of the deployment named $deployment_name the Portal is publishing,
+# nothing where it publishes none. The Portal matches a name as a substring, so each deployment's
+# own fields are read at its own depth of the answer and its name compared whole. It fails, saying
+# why, where the Portal does not answer.
+publishing_deployment() {
+  local code answer
+  answer="$(mktemp)"
+  code="$(portal GET "/api/v1/publisher/deployments?namespace=$namespace&deploymentName=$deployment_name&deploymentState=PUBLISHING" "$answer")"
+  if [ "$code" != 200 ]; then
+    echo "Asked for the deployments of $deployment_name it is publishing, the Central Portal answered ${code}: $(cat "$answer" 2>/dev/null)" >&2
+    rm -f "$answer"
+    return 1
+  fi
+  awk -v name="$deployment_name" '
+    { text = text $0 "\n" }
+    END {
+      # The list is {"deployments": [{...}, ...]}: each deployment an object at depth 3, its
+      # components nested deeper. A string at depth 3 is a key where a colon follows it, and the
+      # value of the key before it where a colon came first.
+      n = length(text)
+      depth = 0; quoted = 0; token = ""; key = ""; pending = ""; id = ""; named = ""; state = ""
+      for (i = 1; i <= n; i++) {
+        c = substr(text, i, 1)
+        if (quoted) {
+          if (c == "\\") { token = token substr(text, i + 1, 1); i++; continue }
+          if (c == "\"") {
+            quoted = 0
+            if (depth == 3) {
+              if (pending != "") {
+                if (pending == "deploymentId") id = token
+                else if (pending == "deploymentName") named = token
+                else if (pending == "deploymentState") state = token
+                pending = ""
+              } else {
+                key = token
+              }
+            }
+            continue
+          }
+          token = token c
+          continue
+        }
+        if (c == "\"") { quoted = 1; token = ""; continue }
+        if (c == "{" || c == "[") {
+          depth++
+          if (depth == 3) { id = ""; named = ""; state = ""; key = ""; pending = "" }
+          continue
+        }
+        if (c == "}" || c == "]") {
+          if (depth == 3 && named == name && state == "PUBLISHING" && id != "") print id
+          depth--
+          continue
+        }
+        if (depth == 3 && c == ":") { pending = key; continue }
+        if (depth == 3 && c == ",") { pending = ""; key = ""; continue }
+      }
+    }
+  ' "$answer" | sed -n 1p
+  rm -f "$answer"
+}
+
+# signing_works <key> <passphrase or nothing>: whether gpg imports the key as a secret key, in a
+# throwaway GnuPG home deleted with the agent it started, and, given the passphrase, signs a test
+# payload with the key Gradle signs with: MOUNTAYA_SIGNING_KEY_ID, else the primary key. Each value
+# reaches gpg on its standard input, never on a command line. It prints why where it fails.
+signing_works() {
+  local home primary signer works=0
+  home="$(mktemp -d)"
+  chmod 700 "$home"
+  if ! printf '%s\n' "$1" | GNUPGHOME="$home" gpg --batch --quiet --import >/dev/null 2>"$home/import.log"; then
+    echo "gpg imports no key from it: $(sed -n 1p "$home/import.log")" >&2
+    works=1
+  else
+    primary="$(GNUPGHOME="$home" gpg --batch --with-colons --list-secret-keys 2>/dev/null \
+      | awk -F: '$1 == "sec" { primary = 1; next } primary && $1 == "fpr" { print $10; exit }')"
+    signer="${MOUNTAYA_SIGNING_KEY_ID:-$primary}"
+    if [ -z "$primary" ]; then
+      echo "It holds no secret key, only a public one: export it with gpg --armor --export-secret-keys <id>." >&2
+      works=1
+    elif [ -n "$2" ]; then
+      printf 'sdk-kotlin release check\n' >"$home/payload"
+      if ! printf '%s\n' "$2" | GNUPGHOME="$home" gpg --batch --yes --quiet --pinentry-mode loopback --passphrase-fd 0 \
+        --local-user "$signer!" --output "$home/payload.sig" --detach-sign "$home/payload" 2>"$home/sign.log"; then
+        echo "The key does not sign with it: $(sed -n 1p "$home/sign.log")" >&2
+        works=1
+      fi
+    fi
+  fi
+  if command -v gpgconf >/dev/null 2>&1; then
+    GNUPGHOME="$home" gpgconf --kill gpg-agent >/dev/null 2>&1 || true
+  fi
+  rm -rf "$home"
+  return "$works"
+}
+signing_key_works() { signing_works "$1" ""; }
+signing_passphrase_works() { signing_works "$MOUNTAYA_SIGNING_KEY" "$1"; }
+
+# central_token_works <password>: whether the Portal answers one authenticated read made with the
+# token MOUNTAYA_CENTRAL_USERNAME and <password> make. A Portal that cannot be asked stops the
+# release there, since the token may well be right.
+central_token_works() {
+  local answer code why
+  portal_auth="$(printf '%s:%s' "$MOUNTAYA_CENTRAL_USERNAME" "$1" | base64 | tr -d '\n')"
+  answer="$(mktemp)"
+  code="$(portal GET "/api/v1/publisher/published?namespace=$namespace&name=mountaya-client&version=$version" "$answer")"
   case "$code" in
-    200) sed -n 's/.*<version>\([^<]*\)<\/version>.*/\1/p' "$answer" ;;
-    404) ;;
-    *)
+    200)
+      rm -f "$answer"
+      return 0
+      ;;
+    401 | 403)
+      echo "The Central Portal answers $code to the token MOUNTAYA_CENTRAL_USERNAME and MOUNTAYA_CENTRAL_PASSWORD make: $(cat "$answer"). Generate a user token at $portal/usertoken; its two halves are the two values." >&2
       rm -f "$answer"
       return 1
       ;;
   esac
+  why="$(cat "$answer" 2>/dev/null || true)"
   rm -f "$answer"
+  die "The Central Portal, $portal, could not be asked whether the token works: it answered ${code:-nothing}${why:+: $why}." \
+    "Reach it, then run the release again."
 }
 
-# mirrored_tag: the object the mirror lists for the tag, nothing where it lists none or cannot be
-# asked. A mirror asked over https never prompts for a login, so one it cannot read fails at once.
-mirrored_tag() {
-  GIT_TERMINAL_PROMPT=0 git ls-remote "$mirror" "refs/tags/$tag" 2>/dev/null | awk 'NR == 1 { print $1 }' || true
+# take_credentials: the four credentials, each from the environment, the Keychain or a prompt, and
+# each checked online, a failure stopping the release with why; $portal_auth from the token.
+take_credentials() {
+  release_secret MOUNTAYA_SIGNING_KEY "the ASCII-armoured secret key every publication is signed with" signing_key_works multiline
+  release_secret MOUNTAYA_SIGNING_PASSWORD "the signing key's passphrase" signing_passphrase_works
+  release_secret MOUNTAYA_CENTRAL_USERNAME "the first half of the Central Portal user token"
+  release_secret MOUNTAYA_CENTRAL_PASSWORD "the second half of the Central Portal user token" central_token_works
+  portal_auth="$(printf '%s:%s' "$MOUNTAYA_CENTRAL_USERNAME" "$MOUNTAYA_CENTRAL_PASSWORD" | base64 | tr -d '\n')"
 }
 
-# gate <step> <command>...: one step of the gate, refused where it fails.
-gate() {
-  local step="$1"
-  shift
-  "$@" && return 0
-  refuse "The gate failed at \`$step\`, so what would be released is not what passed.
-
-  Fix: fix what it reported, commit, push, then run the release again."
-  return 1
-}
-
-# Entire, asked once for its `main` and the tag.
-entire_known=0
-entire_error=""
-entire_main=""
-entire_tag=""
-if [ "$dry_run" -eq 0 ] && git remote get-url "$entire" >/dev/null 2>&1; then
-  entire_known=1
-  if answer="$(git ls-remote "$entire" refs/heads/main "refs/tags/$tag" 2>&1)"; then
-    entire_main="$(printf '%s\n' "$answer" | awk '$2 == "refs/heads/main" { print $1 }')"
-    entire_tag="$(printf '%s\n' "$answer" | awk -v ref="refs/tags/$tag" '$2 == ref { print $1 }')"
-  else
-    entire_error="$answer"
-  fi
+if [ "$credentials" -eq 1 ]; then
+  release_is_version "$version" || die "\`$version\` is no release version: a release is MAJOR.MINOR.PATCH, each a number with no leading zero." \
+    "mise run release <X.Y.Z> --credentials, such as: mise run release 0.2.0 --credentials"
+  take_credentials
+  ok "Every credential of the release works: the signing key signs with its passphrase, and the Central Portal answers the token."
+  exit 0
 fi
 
-if ! is_version "$version"; then
-  refuse "\`$version\` is no release version: a release is MAJOR.MINOR.PATCH, each a number with no
-leading zero.
+# The checks every release makes, then this repository's own.
+release_checks "$entire" "$version"
+# A resume: the tag is on this commit here already, made by a release that stopped after it, which
+# validated a deployment of this commit before it tagged.
+resume=0
+[ "$(git rev-parse -q --verify "refs/tags/$tag^{commit}" 2>/dev/null || true)" != "$release_head" ] || resume=1
 
-  Fix: run the release with a version such as 0.1.0."
+stated="$(sed -n 's/^mountaya = "\(.*\)"$/\1/p' gradle/libs.versions.toml)"
+if [ "$stated" != "$version" ]; then
+  release_refuse "The build gives every module ${stated:-no version}, in gradle/libs.versions.toml, and the release
+is $version, so the tag and what Maven Central would hold would part ways.
+
+  Fix: mise run version $version, commit it as \"version: Release $tag\", push main, then run the
+  release again once CI passed."
 else
-  if [ "$dry_run" -eq 0 ]; then
-    newest=""
-    for existing in $(git tag --list 'v*'); do
-      candidate="${existing#v}"
-      is_version "$candidate" || continue
-      if [ -z "$newest" ] || newer "$candidate" "$newest"; then
-        newest="$candidate"
-      fi
-    done
-    if git rev-parse --quiet --verify "refs/tags/$tag" >/dev/null; then
-      refuse "$tag is already tagged here, on $(git rev-parse --short=12 "$tag^{commit}").
+  for line in $(grep -o 'com\.mountaya:mountaya-[a-z-]*:[^")[:space:]]*' README.md || true); do
+    if [ "${line##*:}" != "$version" ]; then
+      release_refuse "README.md installs ${line%:*} at ${line##*:}, and the release is $version.
 
-  Fix: where that release stopped before its push, look for the deployment sdk-kotlin-$version at
-  $portal/publishing/deployments before uploading anything again. Where it is
-  there and validated, push, then wait for the mirror to list $tag:
-  git push $entire $tag^{commit}:refs/heads/main && git push $entire refs/tags/$tag
-  Where there is none: bash scripts/central-upload.sh build/release/central-bundle.zip sdk-kotlin-$version,
-  then that push. Otherwise release a version past $version."
-    elif [ -n "$entire_tag" ]; then
-      refuse "\`$entire\` already holds $tag, so $version is released.
-
-  Fix: release a version past $version."
-    elif [ -n "$newest" ] && ! newer "$version" "$newest"; then
-      refuse "$version is not newer than v$newest, the newest tag, so a consumer asking for the newest
-release would never get it.
-
-  Fix: release a version past $newest."
-    fi
-  fi
-  for module in $modules; do
-    if ! held="$(central_versions "$module")"; then
-      refuse "Maven Central could not be asked which versions of $module it holds, and a version it
-holds can never be published again.
-
-  Fix: reach $central, then run the release again."
+  Fix: mise run version $version, commit it as \"version: Release $tag\", push main, then run the
+  release again once CI passed."
       break
     fi
-    for existing in $held; do
-      is_version "$existing" || continue
-      if [ "$existing" = "$version" ]; then
-        refuse "Maven Central already holds $module $version, and a version is published once.
-
-  Fix: release a version past $version."
-        break 2
-      elif newer "$existing" "$version"; then
-        refuse "Maven Central holds $module $existing, newer than $version, so a consumer asking for the
-newest release would never get this one.
-
-  Fix: release a version past $existing."
-        break 2
-      fi
-    done
   done
 fi
 
-# The version the build publishes every module at, and the one the README's install lines name.
-built="$(sed -n 's/^mountaya = "\(.*\)"$/\1/p' gradle/libs.versions.toml)"
-if is_version "$version" && [ "$built" != "$version" ]; then
-  refuse "The build gives every module ${built:-no version}, in gradle/libs.versions.toml, and the release
-is $version.
+if [ ! -f CHANGELOG.md ] || ! release_dated CHANGELOG.md "$version"; then
+  release_refuse "CHANGELOG.md has no dated section for $version, so the release would say nothing of what it carries.
 
-  Fix: set \`mountaya = \"$version\"\` there and wherever the README installs the modules, commit it,
-  then run the release again."
-fi
-for line in $(grep -o 'com\.mountaya:mountaya-[a-z-]*:[^")[:space:]]*' README.md || true); do
-  if is_version "$version" && [ "${line##*:}" != "$version" ]; then
-    refuse "README.md installs ${line%:*} at ${line##*:}, and the release is $version.
-
-  Fix: write $version in every install line of README.md, commit it, then run the release again."
-    break
-  fi
-done
-
-branch=""
-if [ "$dry_run" -eq 0 ]; then
-  if [ -n "$(git status --porcelain --untracked-files=normal)" ]; then
-    refuse "The working tree holds changes no commit holds, so the tag would name a commit that is
-not what passed the gate.
-
-  Fix: commit or stash them (git status lists them), then run the release again."
-  fi
-
-  branch="$(git symbolic-ref --quiet --short HEAD || true)"
-  if [ "$branch" != "main" ]; then
-    refuse "The release stands on ${branch:-no branch}, and a release tags what is on \`main\`.
-
-  Fix: check out \`main\` at the commit you mean to release, then run the release again."
-  fi
-
-  if [ "$entire_known" -eq 0 ]; then
-    refuse "No remote named \`$entire\`, the repository on Entire, so neither \`main\` nor the tag would
-reach anyone, the mirror included.
-
-  Fix: git remote add $entire <the repository's address on Entire>, then run the release again."
-  elif [ -n "$entire_error" ]; then
-    refuse "Asking \`$entire\` for its \`main\` failed: $entire_error
-
-  Fix: reach the remote, then run the release again."
-  elif [ "$branch" = "main" ]; then
-    head="$(git rev-parse HEAD)"
-    if [ -z "$entire_main" ]; then
-      refuse "\`$entire\` holds no \`main\`, so the release would stand on a history nobody else has.
-
-  Fix: git push $entire main, then run the release again."
-    elif [ "$entire_main" != "$head" ]; then
-      refuse "This commit (${head:0:12}) is not the one \`$entire\`'s \`main\` is at (${entire_main:0:12}).
-
-  Fix: push \`main\`, or check out the commit \`$entire\` holds, then run the release again."
-    fi
-  fi
+  Fix: mise run version $version, which dates the [Unreleased] notes, commit it, push main, then run
+  the release again once CI passed."
 fi
 
-if [ ! -f CHANGELOG.md ]; then
-  refuse "CHANGELOG.md is missing, so the release would say nothing of what it carries.
-
-  Fix: write CHANGELOG.md with an \`## [Unreleased]\` section holding the notes, commit it, then run
-  the release again."
-elif [ -z "$(released_section "$version")" ] && [ -z "$(unreleased_notes)" ]; then
-  refuse "CHANGELOG.md has no section for $version: nothing is written under \`## [Unreleased]\`.
-
-  Fix: write what $version carries under \`## [Unreleased]\`, commit it, then run the release again."
-fi
-
-# The siblings the gate reads beside this checkout, each clean at the commit siblings.lock pins, so
-# the gate runs on what CI tested this commit against and pre-commit moves no pin in the release's
-# commit.
-if [ "$dry_run" -eq 0 ] && ! siblings="$(sh .agents/siblings at-pins 2>&1)"; then
-  refuse "A sibling beside this checkout is not clean at the commit siblings.lock pins, so the gate
-would not run on what CI tested this commit against:
+# The siblings beside this checkout, each clean at the commit siblings.lock pins, so ci:local runs
+# on what CI tested this commit against.
+if ! siblings="$(sh .agents/siblings at-pins 2>&1)"; then
+  release_refuse "A sibling beside this checkout is not clean at the commit siblings.lock pins, so ci:local would
+not run on what CI tested this commit against:
 $(printf '%s\n' "$siblings" | sed 's/^/  /')
 
   Fix: do what the lines above say for each (sh .agents/siblings status shows every pin beside its
@@ -389,13 +330,13 @@ fi
 typescript="$(cd .. && pwd -P)/sdk-typescript"
 for text in LICENSE.txt LICENCE.fr.txt; do
   if [ ! -f "$typescript/$text" ]; then
-    refuse "$typescript/$text is missing, so nothing holds $text to the licence the TypeScript
+    release_refuse "$typescript/$text is missing, so nothing holds $text to the licence the TypeScript
 packages ship.
 
   Fix: clone sdk-typescript beside this repository, with: entire repo clone /et/mountaya/sdk-typescript,
   then run the release again."
   elif ! cmp -s "$text" "$typescript/$text"; then
-    refuse "$text differs from sdk-typescript's, and the modules ship the TypeScript packages'
+    release_refuse "$text differs from sdk-typescript's, and the modules ship the TypeScript packages'
 licence byte for byte.
 
   Fix: copy sdk-typescript's $text over this one, commit it, then run the release again."
@@ -407,14 +348,14 @@ done
 licence_source="build-logic/src/main/kotlin/com/mountaya/build/licence/LicenceCheck.kt"
 licence="$(sed -n 's/^ *const val URL = "\(.*\)"$/\1/p' "$licence_source" 2>/dev/null || true)"
 if [ -z "$licence" ]; then
-  refuse "$licence_source states no URL, the
+  release_refuse "$licence_source states no URL, the
 address every POM names the licence by.
 
   Fix: state it there as \`const val URL = \"<address>\"\`, then run the release again."
 else
   answered="$(curl -sS -L --max-time 30 -o /dev/null -w '%{http_code}' "$licence" 2>/dev/null || true)"
   if [ "$answered" != "200" ]; then
-    refuse "The licence's address, $licence, answers ${answered:-nothing}, and every POM published
+    release_refuse "The licence's address, $licence, answers ${answered:-nothing}, and every POM published
 names the licence by it, for good.
 
   Fix: publish the licence there, or name the address it is published at in LicenceCheck.URL,
@@ -422,126 +363,41 @@ names the licence by it, for good.
   fi
 fi
 
-gate=1
-[ "$skip_gate" -eq 1 ] && gate=0
-if [ "$gate" -eq 1 ]; then
+# What ci:local runs on: macOS for the iOS simulator suites, and an emulator for the device tests
+# and Trail's journey. Once ci:local passed on this commit, neither is asked for.
+if ! release_ran ci-local "$release_head"; then
   if [ "$(uname -s)" != "Darwin" ]; then
-    refuse "This host is $(uname -s), and the gate runs the iOS simulator suites, which macOS alone runs.
+    release_refuse "This host is $(uname -s), and mise run ci:local runs the iOS simulator suites, which macOS alone runs.
 
   Fix: run the release on a Mac with the Xcode mise.toml's toolchain:check names."
   fi
   if ! has_cmd adb; then
-    refuse "adb is not on PATH, so nothing can tell whether an emulator is running for the device tests.
+    release_refuse "adb is not on PATH, so nothing can tell whether an emulator is running for the device tests.
 
   Fix: mise run android:packages, then run the release under mise: mise run release $version"
   elif [ -z "$(adb devices 2>/dev/null | awk 'NR > 1 && $2 == "device"')" ]; then
-    refuse "No emulator is running, and the gate runs the device tests and Trail's journey on one (mise run test:device).
+    release_refuse "No emulator is running, and mise run ci:local runs the device tests and Trail's journey on one.
 
   Fix: boot the AVD (mise run android:emulator creates it): emulator -avd mountaya-api37 -gpu host,
   then run the release again."
   fi
 fi
+release_refused "sdk-kotlin $version"
 
-signed=1
-if [ -z "${MOUNTAYA_SIGNING_KEY:-}" ]; then
-  if [ "$dry_run" -eq 1 ]; then
-    signed=0
-  else
-    refuse "MOUNTAYA_SIGNING_KEY holds no key, and Maven Central takes nothing unsigned.
+# The credentials, once nothing else stands in the way, so none is asked for a release refused anyway.
+take_credentials
 
-  Fix: export the ASCII-armoured secret key into it (gpg --armor --export-secret-keys <id>), with
-  its passphrase in MOUNTAYA_SIGNING_PASSWORD, then run the release again."
-  fi
-elif [ -z "${MOUNTAYA_SIGNING_PASSWORD:-}" ]; then
-  refuse "MOUNTAYA_SIGNING_PASSWORD holds no passphrase for the key in MOUNTAYA_SIGNING_KEY, so no
-publication could be signed.
-
-  Fix: export the key's passphrase into MOUNTAYA_SIGNING_PASSWORD, then run the release again."
+if ! held="$(published_modules)"; then
+  die "The Central Portal could not say whether Maven Central holds $version: the line above says why." \
+    "Reach it, then run the release again."
 fi
-if [ "$dry_run" -eq 0 ] && { [ -z "${MOUNTAYA_CENTRAL_USERNAME:-}" ] || [ -z "${MOUNTAYA_CENTRAL_PASSWORD:-}" ]; }; then
-  refuse "MOUNTAYA_CENTRAL_USERNAME and MOUNTAYA_CENTRAL_PASSWORD do not both hold the Central Portal
-user token, so the deployment could not be uploaded.
+held_count="$(printf '%s' "$held" | grep -c . || true)"
+if [ "$held_count" -gt 0 ] && [ "$resume" -eq 0 ]; then
+  release_refuse "Maven Central already holds $(printf '%s' "$held" | tr '\n' ' ' | sed 's/ $//') at $version, and a version is published once.
 
-  Fix: generate a user token at $portal/usertoken and export its two halves,
-  then run the release again."
+  Fix: release a version past $version."
 fi
-
-if [ "$dry_run" -eq 1 ] && [ -z "$repository" ]; then
-  repository="$root/build/release/dry-run/maven"
-  bundle="$root/build/release/dry-run/central-bundle.zip"
-elif [ "$dry_run" -eq 1 ]; then
-  case "$repository" in
-    /*) ;;
-    *) repository="$root/$repository" ;;
-  esac
-  if [ -e "$repository" ] && [ -n "$(ls -A "$repository" 2>/dev/null)" ]; then
-    refuse "$repository already holds files, and the bundle a dry run zips would carry them too.
-
-  Fix: name an empty directory with --repository, or empty this one, then run the dry run again."
-  fi
-  bundle="$(dirname "$repository")/central-bundle.zip"
-else
-  repository="$root/build/release/maven"
-  bundle="$root/build/release/central-bundle.zip"
-fi
-
-if [ "${#refusals[@]}" -eq 0 ]; then
-  if [ "$gate" -eq 0 ]; then
-    warn "The gate is left out (--skip-gate): this dry run proves the publications alone."
-  else
-    info "Every check passed; running the gate (mise run disk:check, then mise run ci, mise run test:device and the ABI check)."
-    # The disk check passes under CI without looking, so it runs on its own first.
-    if gate "mise run disk:check" mise run disk:check \
-      && gate "mise run ci" env CI=true mise run ci \
-      && gate "mise run test:device" env CI=true mise run test:device \
-      && gate "./gradlew checkKotlinAbi" env CI=true mise exec -- ./gradlew --console=plain checkKotlinAbi; then
-      ok "The gate passed."
-    fi
-  fi
-fi
-
-if [ "${#refusals[@]}" -gt 0 ]; then
-  {
-    echo ""
-    echo "${PF_RED}${PF_BOLD}✗ The release of $version is refused.${PF_RESET}"
-    for refusal in "${refusals[@]}"; do
-      echo ""
-      echo "$refusal"
-    done
-    echo ""
-  } >&2
-  exit 1
-fi
-
-# The publications, signed, before anything is committed: a key that does not sign, or a
-# publication the Portal would refuse, stops the release here. Only a directory of the build's own
-# is emptied first; one --repository names was refused above unless it is empty.
-if [ "$repository" = "$root/build/release/maven" ] || [ "$repository" = "$root/build/release/dry-run/maven" ]; then
-  rm -rf "$(dirname "$repository")"
-fi
-gradle_args=(--console=plain "-Pmountaya.releaseRepository=$repository" "-Pmountaya.releaseBundle=$bundle")
-[ "$signed" -eq 1 ] || gradle_args+=("-Pmountaya.unsigned=true")
-info "Publishing every module into $repository and zipping the bundle (centralBundle)."
-if ! mise exec -- ./gradlew "${gradle_args[@]}" centralBundle; then
-  die "Publishing the modules into $repository failed, as the log above says; nothing was committed." \
-    "Fix what it reported, then run the release again."
-fi
-files="$(find "$repository" -type f | wc -l | tr -d ' ')"
-ok "Published $files files into $repository, $([ "$signed" -eq 1 ] && echo signed || echo unsigned), and zipped $bundle."
-
-if [ "$dry_run" -eq 1 ]; then
-  echo ""
-  ok "The dry run of $version passed. A consumer resolves the modules from that repository:"
-  echo "  repositories { maven(\"$repository\") }"
-  echo "A release would now commit the changelog, tag $tag, upload $bundle to the Central Portal,"
-  echo "push main and then $tag to $entire, and wait for $mirror to list $tag."
-  exit 0
-fi
-
-entire_url="$(git remote get-url "$entire")"
-section="$(released_section "$version")"
-moved=1
-[ -n "$section" ] || moved=0
+release_refused "sdk-kotlin $version"
 
 # step <line> [<line>]: one numbered step of what the release does.
 steps=0
@@ -551,109 +407,165 @@ step() {
   [ -z "${2:-}" ] || echo "     $2"
 }
 
+head_short="$(git rev-parse --short=12 HEAD)"
 echo ""
-echo "${PF_BOLD}The release of $version:${PF_RESET}"
-if [ "$moved" -eq 0 ]; then
-  step "CHANGELOG.md: the notes under [Unreleased] become [$version] - $date."
-  step "A commit on main, \"version: Release $tag\", holding that change and nothing else."
+echo "${PF_BOLD}The release of sdk-kotlin $version:${PF_RESET}"
+if release_ran ci-local "$release_head"; then
+  step "mise run ci:local passed on $head_short already: it is not run again."
 else
-  step "CHANGELOG.md already holds ${section#"## "}, committed: nothing to move, and no commit."
+  step "mise run disk:check, then CI=true mise run ci:local: the toolchain check, the device tests and Trail's" \
+    "journey on the emulator, and the iOS simulator suites, the part of the gate CI cannot run."
 fi
-step "The annotated tag $tag, on that commit."
-step "$bundle, uploaded to the Central Portal as a deployment you publish there yourself," \
-  "and waited on until the Portal has validated it."
-step "main at that commit, pushed to $entire ($entire_url), then $tag."
-step "A wait, up to ten minutes, until the mirror, $mirror, lists $tag:" \
-  "the Depot workflow mirror.yml pushes it there from $entire."
+if [ "$resume" -eq 0 ]; then
+  step "Every module, signed, published into build/release/maven and zipped (centralBundle), uploaded to" \
+    "the Central Portal as the deployment $deployment_name, and waited on until the Portal has validated it."
+  step "The annotated tag $tag on $head_short, noted with CHANGELOG.md's [$version] section."
+else
+  step "$tag is tagged on $head_short already, by a release that validated its deployment before it: it is kept."
+fi
+step "$tag pushed alone to $entire ($(git remote get-url "$entire")), unless it is there: main is there already."
+if [ "$held_count" -eq "$module_count" ]; then
+  step "Maven Central holds every module at $version already: nothing is published."
+elif [ "$resume" -eq 0 ]; then
+  step "The deployment published to Maven Central through the Portal, and waited on until it is."
+else
+  step "The modules published to Maven Central: a deployment of $version the Portal is publishing is waited on;" \
+    "otherwise the bundle is built, uploaded and validated again, and that deployment published."
+fi
+step "A wait until the mirror, $RELEASE_MIRROR, lists $tag: mirror.yml pushes it and makes its GitHub Release."
 echo ""
-if [ "$yes" -eq 0 ]; then
-  [ -t 0 ] || die "The release asks before it commits, and nothing can answer here." \
-    "Run it from a terminal, or pass --yes once you have read what it does."
-  printf 'Release %s? [y/N] ' "$version"
-  read -r answer
-  case "$answer" in
-    y | Y | yes | Yes) ;;
-    *) die "The release of $version was not made: nothing was committed, tagged, uploaded or pushed." ;;
-  esac
+if [ "$check" -eq 1 ]; then
+  ok "Every check passed: nothing was built, tagged, uploaded, pushed or published."
+  exit 0
+fi
+release_confirm "sdk-kotlin $version" "$yes"
+
+release_lock
+
+if release_ran ci-local "$release_head"; then
+  ok "mise run ci:local passed on $head_short already."
+else
+  info "Running the part of the gate CI cannot run: mise run disk:check, then CI=true mise run ci:local."
+  # The disk check passes under CI without looking, so it runs on its own first. ci:local is handed
+  # none of the credentials.
+  # shellcheck disable=SC2086 # Each credential is a word of its own to env.
+  env $signing_secrets $central_secrets mise run disk:check \
+    || die "The disk lacks room for ci:local, as the lines above say: nothing was tagged or published." \
+      "Make room (the lines above name both cleans), then run the release again."
+  # shellcheck disable=SC2086 # Each credential is a word of its own to env.
+  env $signing_secrets $central_secrets CI=true mise run ci:local \
+    || die "mise run ci:local failed on $head_short, as the log above says: nothing was tagged or published." \
+      "Fix what it reported in a commit of its own, push it, then run the release again once CI passed."
+  release_record ci-local "$release_head"
+  ok "mise run ci:local passed on $head_short."
 fi
 
-if [ "$moved" -eq 0 ]; then
-  moved_file="$(mktemp)"
-  moved_changelog "$version" >"$moved_file"
-  mv "$moved_file" CHANGELOG.md
-  git add CHANGELOG.md
-  if ! git commit --quiet -m "version: Release $tag"; then
-    die "The commit \"version: Release $tag\" was stopped, by pre-commit as the lines above say: nothing was tagged, uploaded or pushed, and CHANGELOG.md holds the moved notes, staged." \
-      "Put CHANGELOG.md back as it was: git restore --staged --worktree CHANGELOG.md" \
-      "Fix what pre-commit reported in a commit of its own, push it, then run the release again."
+# build_bundle: every module published, signed, into the release repository, which
+# checkReleaseRepository holds to what the Portal validates, and zipped into the bundle. Gradle is
+# handed the signing key and its passphrase, and not the Portal's token.
+build_bundle() {
+  rm -rf "$root/build/release"
+  info "Publishing every module, signed, into build/release/maven and zipping the bundle (centralBundle)."
+  # shellcheck disable=SC2086 # Each credential is a word of its own to env.
+  if ! env $central_secrets mise exec -- ./gradlew --console=plain \
+    "-Pmountaya.releaseRepository=$repository" "-Pmountaya.releaseBundle=$bundle" centralBundle; then
+    die "Publishing the modules into build/release/maven failed, as the log above says: $1" \
+      "Fix what it reported in a commit of its own, push it, then run the release again once CI passed."
   fi
-  ok "Committed CHANGELOG.md as \"version: Release $tag\"."
-  section="## [$version] - $date"
+  ok "Published $(find "$repository" -type f | wc -l | tr -d ' ') files into build/release/maven, signed, and zipped build/release/central-bundle.zip."
+}
+
+# upload_bundle: the bundle uploaded as the USER_MANAGED deployment $deployment_name and waited on
+# until the Portal has validated it; its id in $deployment. The upload is handed the Portal's token,
+# and not the signing key.
+deployment=""
+upload_bundle() {
+  # shellcheck disable=SC2086 # Each credential is a word of its own to env.
+  if ! deployment="$(env $signing_secrets bash scripts/central-upload.sh "$bundle" "$deployment_name")"; then
+    die "The Central Portal validated no deployment of $version, as the lines above say: $1" \
+      "Fix what the Portal named in a commit of its own, push it, then run the release again once CI passed."
+  fi
+  ok "The Central Portal validated deployment $deployment."
+}
+
+# The dry checks: the publish proven, up to the Portal's validation, before anything is tagged.
+if [ "$resume" -eq 0 ]; then
+  build_bundle "nothing was tagged or published."
+  upload_bundle "nothing was tagged or published."
 fi
 
-message="$(mktemp)"
-{
-  echo "sdk-kotlin $version"
-  echo ""
-  awk -v heading="$section" '
-    $0 == heading { inside = 1; next }
-    inside && /^## \[/ { exit }
-    inside { print }
-  ' CHANGELOG.md | sed '/./,$!d'
-} >"$message"
-git tag --annotate --cleanup=verbatim "$tag" --file "$message"
-rm -f "$message"
-ok "Tagged $tag on $(git rev-parse --short=12 HEAD)."
+notes="$(mktemp)"
+release_notes CHANGELOG.md "$version" >"$notes"
+release_tag "$tag" "sdk-kotlin $version" "$notes"
+rm -f "$notes"
+release_push_tag "$entire" "$tag"
 
-if ! deployment="$(bash scripts/central-upload.sh "$bundle" "sdk-kotlin-$version")"; then
-  die "The Central Portal validated no deployment of $version, as the lines above say; the commit and $tag are made here, and nothing was pushed." \
-    "Look for sdk-kotlin-$version at $portal/publishing/deployments before uploading again: one validated, or still validating, is never uploaded twice." \
-    "Where there is none, or you dropped it: bash scripts/central-upload.sh $bundle sdk-kotlin-$version" \
-    "Then: git push $entire HEAD:refs/heads/main && git push $entire refs/tags/$tag, and wait for the mirror to list it: git ls-remote $mirror refs/tags/$tag"
-fi
-ok "The Central Portal validated deployment $deployment."
+# wait_published <deployment>: until the Portal says the deployment is on Maven Central, an hour
+# at most.
+wait_published() {
+  local answer code state="" deadline limit="${RELEASE_PORTAL_WAIT_SECONDS:-3600}"
+  answer="$(mktemp)"
+  deadline=$(($(date +%s) + limit))
+  while :; do
+    code="$(portal POST "/api/v1/publisher/status?id=$1" "$answer")"
+    if [ "$code" = 200 ]; then
+      state="$(sed -n 's/.*"deploymentState"[[:space:]]*:[[:space:]]*"\([A-Z_]*\)".*/\1/p' "$answer" | sed -n 1p)"
+      case "$state" in
+        PUBLISHED)
+          rm -f "$answer"
+          ok "The Central Portal published deployment $1: Maven Central holds every module at $version."
+          return 0
+          ;;
+        FAILED)
+          die "The Central Portal failed to publish deployment $1: $(cat "$answer"). $tag is on $entire." \
+            "Read what it names at $portal/publishing/deployments, then run the release again: it publishes what Maven Central lacks."
+          ;;
+      esac
+    fi
+    if [ "$(date +%s)" -ge "$deadline" ]; then
+      die "Deployment $1 is still ${state:-unanswered} after $limit seconds; $tag is on $entire." \
+        "Follow it at $portal/publishing/deployments, then run the release again: it waits on a deployment the Portal is publishing, and goes on to the mirror once Maven Central holds $version."
+    fi
+    info "Deployment $1 is ${state:-not yet answered}; asking again in $poll seconds."
+    sleep "$poll"
+  done
+}
 
-# Entire takes no atomic push, so main goes first and the tag after it: a tag on Entire then always
-# names a commit its main holds, and a push that stops between the two leaves only the tag to push.
-if ! git push "$entire" "HEAD:refs/heads/main"; then
-  die "Pushing main to $entire failed; deployment $deployment is validated on the Portal, and the commit and the tag are made here." \
-    "Once $entire is reachable: git push $entire HEAD:refs/heads/main && git push $entire refs/tags/$tag" \
-    "Then wait for the mirror to list it: git ls-remote $mirror refs/tags/$tag" \
-    "And publish the deployment yourself: $portal/publishing/deployments"
+# The publish of what Maven Central lacks, read from the Portal again, since a release that stopped
+# after its tag may have published already.
+if ! held="$(published_modules)"; then
+  die "The Central Portal could not say whether Maven Central holds $version, as the line above says; $tag is on $entire." \
+    "Once it answers, run the release again: it publishes what Maven Central lacks."
 fi
-ok "Pushed main to $entire."
-if ! git push "$entire" "refs/tags/$tag"; then
-  die "Pushing $tag to $entire failed; deployment $deployment is validated on the Portal, main is pushed there, and the tag is made here alone." \
-    "Once $entire is reachable: git push $entire refs/tags/$tag" \
-    "Then wait for the mirror to list it: git ls-remote $mirror refs/tags/$tag" \
-    "And publish the deployment yourself: $portal/publishing/deployments"
+if [ "$(printf '%s' "$held" | grep -c . || true)" -eq "$module_count" ]; then
+  ok "Maven Central holds every module at $version already: nothing to publish."
+else
+  if ! publishing="$(publishing_deployment)"; then
+    die "The Central Portal could not list its deployments of $version, as the line above says; $tag is on $entire." \
+      "Once it answers, run the release again: it publishes what Maven Central lacks."
+  fi
+  if [ -n "$publishing" ]; then
+    info "The Central Portal is publishing deployment $publishing of $version already: waiting on it."
+    deployment="$publishing"
+  else
+    if [ -z "$deployment" ]; then
+      info "$tag was tagged by a release that stopped before it published, and its deployment's id went with it: the bundle is built and uploaded again."
+      build_bundle "$tag is on $entire, and nothing was published. Where it fails again, this commit cannot be published: release a version past $version."
+      upload_bundle "$tag is on $entire, and nothing was published."
+    fi
+    answer="$(mktemp)"
+    code="$(portal POST "/api/v1/publisher/deployment/$deployment" "$answer")"
+    if [ "$code" != 204 ]; then
+      why="$(cat "$answer" 2>/dev/null || true)"
+      rm -f "$answer"
+      die "The Central Portal did not publish deployment $deployment, answering ${code}${why:+: $why}; $tag is on $entire, and nothing was published." \
+        "Run the release again: it uploads the bundle again and publishes that deployment."
+    fi
+    rm -f "$answer"
+    ok "The Central Portal is publishing deployment $deployment."
+  fi
+  wait_published "$deployment"
 fi
-ok "Pushed $tag to $entire."
 
-info "Waiting for the mirror, $mirror, to list $tag; mirror.yml pushes it there from $entire."
-made="$(git rev-parse "refs/tags/$tag")"
-listed=""
-tries=0
-while :; do
-  listed="$(mirrored_tag)"
-  [ -z "$listed" ] || break
-  tries=$((tries + 1))
-  [ "$tries" -lt 40 ] || break
-  sleep 15
-done
-if [ -z "$listed" ]; then
-  die "The mirror, $mirror, does not list $tag after ten minutes. The release itself is done: deployment $deployment is validated on the Portal, and main and $tag are on $entire." \
-    "The Depot workflow mirror.yml pushes them to the mirror: depot ci run list shows its runs, and depot ci logs <run> the one for $tag." \
-    "Once it has run, git ls-remote $mirror refs/tags/$tag lists the tag; the release is not run again." \
-    "Publish the deployment yourself: $portal/publishing/deployments"
-elif [ "$listed" != "$made" ]; then
-  die "The mirror, $mirror, lists a $tag other than this one (${listed:0:12}, where this release tagged ${made:0:12}). The release itself is done: deployment $deployment is validated on the Portal, and main and $tag are on $entire." \
-    "Only mirror.yml writes to the mirror, and never by force: depot ci run list shows its runs, and depot ci logs <run> what it pushed." \
-    "Publish the deployment yourself: $portal/publishing/deployments"
-fi
-ok "The mirror lists $tag."
-
-echo ""
-ok "Released $version to the Central Portal, as deployment $deployment."
-echo "  Publish it to Maven Central yourself: $portal/publishing/deployments"
-echo "  Its source, which every POM names: $mirror"
+release_wait_mirror "$tag"
+ok "sdk-kotlin $version is released: its five modules on Maven Central (https://central.sonatype.com/artifact/$namespace/mountaya-client/$version), and $RELEASE_MIRROR/releases/tag/$tag"

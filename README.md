@@ -3,7 +3,7 @@
 The documentation is at [docs.mountaya.com/en/sdks/kotlin](https://docs.mountaya.com/en/sdks/kotlin/): installing the
 modules, the quickstarts for a Compose app and a JVM server, the map, navigation, and every public name by capability.
 
-Mountaya's Kotlin SDK, written against contract v0.9.0 of [`mountaya/schemas`](https://entire.com/et/mountaya/schemas). It declares five modules. Four are Kotlin Multiplatform, for the jvm, Android and iOS
+Mountaya's Kotlin SDK, written against contract v0.9.0 of [`mountaya/schemas`](https://github.com/mountaya/schemas). It declares five modules. Four are Kotlin Multiplatform, for the jvm, Android and iOS
 (`iosArm64` and `iosSimulatorArm64`):
 
 - `mountaya-client`, the client for the Map Studio API, the Tile API and the GraphQL Data API,
@@ -1846,7 +1846,8 @@ sh .agents/setup --check   # what is missing, changing nothing
 | `mise run build` | Assemble every module |
 | `mise run format` | `ktlintFormat` |
 | `mise run ci:quick` | What pre-commit runs: `lint` |
-| `mise run ci` | The gate: Gradle's `verify` on every target, the hot-path budgets, Trail's scenario gate, the app-size gate after the consumer and Trail builds and the capability coverage gate included. It first deletes what this repository's builds left behind and no longer use, inside the repository alone, and stops where the disk lacks room or the toolchain is not the pinned one |
+| `mise run ci` | The gate: Gradle's `verify` on every target, the ABI check, the hot-path budgets, Trail's scenario gate, the app-size gate after the consumer and Trail builds and the capability coverage gate included, after the release scripts' fixture test. It first deletes what this repository's builds left behind and no longer use, inside the repository alone, and stops where the disk lacks room or the toolchain is not the pinned one |
+| `mise run ci:local` | The part of the gate CI cannot run, which a release runs once a commit: the toolchain check, the device tests and Trail's journey on a running emulator (`test:device`), and the iOS simulator suites, on macOS |
 | `mise run toolchain:check` | Refuse a toolchain other than the pinned one: the JDK `./gradlew` starts Gradle on, held to the `java` pin, and on macOS the Xcode `mise.toml` names |
 | `mise run size:check` | The app-size gate alone: Trail's release build, its dex code read module by module with `apkanalyzer`, each share held to `examples/trail/size/android.json` at the version of `sdk/trail.yaml` it records, and every library the SDK brings named by a share. `MOUNTAYA_SIZE_BASELINE=write mise run size:check` records the figures after a deliberate change |
 | `mise run clean` | Delete what this repository's builds left behind and no longer use, inside the repository alone: Gradle's state for a version the wrapper no longer names, and the build output of a directory that holds no build any more. `mise run clean -- --all` deletes the build directories too, `-- --dry-run` only lists |
@@ -1859,8 +1860,11 @@ sh .agents/setup --check   # what is missing, changing nothing
 | `mise run readme` | Print the README's Kotlin snippets into the consumer build after a change |
 | `mise run snippets -- <file.md> [<file.md>...]` | Compile the Kotlin fences of any Markdown documents, a documentation site's pages among them, against the modules for the jvm and Android, warnings as errors: each fence printed into `consumer/build/generated/snippets`, never committed, where its imports say, a `<!-- kotlin:skip <reason> -->` line above one opting it out. It prints how many compiled and were skipped, and fails naming each failing fence's document and line. Paths are read from where you run it |
 | `mise run api:update` | Rewrite the committed ABI dumps after a deliberate change to the public API |
-| `mise run release <version>` | Release a version: the preflight, every sibling clean at its pin among it, and the whole gate, the emulator's included, then the changelog's commit, the tag, the signed modules uploaded to the Central Portal as a deployment you publish there, a push of `main` to Entire and then of the tag, since Entire takes no atomic push, and a wait until the GitHub mirror lists the tag, which the Depot workflow `mirror.yml` pushes there from Entire |
-| `mise run release <version> --dry-run` | Every check of the release but git's, and the gate (`--skip-gate` leaves it out), then the modules, signed where a key is given, published into a local Maven repository; no git and no upload |
+| `mise run version <X.Y.Z>` | Write a release into the files and nothing else: the catalog's `mountaya`, the README's install lines, and `CHANGELOG.md`'s `[Unreleased]` notes under the version and today's date. Commit it as "version: Release v<X.Y.Z>" and push `main`, and CI runs the gate on it |
+| `mise run release <X.Y.Z>` | Yours to run, on a Mac: release the pushed commit CI passed. The preflight, every sibling clean at its pin and every credential checked online among it, then `ci:local` once a commit, the signed modules uploaded to the Central Portal and validated there before the tag, the tag pushed alone to Entire, the deployment published to Maven Central, and a wait until the GitHub mirror lists the tag, which the Depot workflow `mirror.yml` pushes there from Entire. It makes no commit and pushes no `main`; run again after a stop, it resumes where it stopped |
+| `mise run release <X.Y.Z> --check` | Every check of the release, the credentials' included, and what it would do; nothing is built, tagged, uploaded or pushed |
+| `mise run release <X.Y.Z> --credentials` | The release's credentials alone, from the environment, the macOS Keychain or a prompt, each checked online |
+| `mise run test:release` | The fixture test of `scripts/version.sh` and `scripts/release.sh`, against fakes of the Central Portal, gpg, Depot and mise, with no network |
 
 Pre-commit runs `mise run ci:quick`. `.depot/workflows/ci.yml` runs `mise run ci` on Depot CI for
 every push to Entire, against the `../schemas` and `../ai` commits `siblings.lock` pins. Run `mise

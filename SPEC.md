@@ -4768,38 +4768,48 @@ without it and a green CI run always means the fixtures ran.
   and Central takes such a jar in its place, as it does from the kotlinx libraries. Until the first
   release, a consumer depends on a checkout through a composite build. `sdk-swift` is served from a
   public mirror of its own repository instead, which SwiftPM clones.
-- **A release is `mise run release <version>`, run by a maintainer on a Mac.** The whole gate
-  runs there and nowhere else: the iOS simulator suites need macOS, and the device tests an
-  emulator. `scripts/release.sh` refuses before it changes anything, every refusal told together
-  with what to do: no git; a version that is not MAJOR.MINOR.PATCH, is already tagged here or on
-  Entire, or is not newer than every tag and every version Maven Central holds; a version that is
-  not the catalog's `mountaya` and the README's install lines; a working tree with changes, a
-  commit other than the one Entire's `main` is at, or no `origin` remote; a changelog with nothing
-  to say for it; a sibling that is not clean at the commit `siblings.lock` pins, which
+- **A release is `mise run version <X.Y.Z>`, a commit CI passes, then `mise run release <X.Y.Z>`,
+  run by a maintainer on a Mac.** `mise run version` writes the version into the catalog's
+  `mountaya` and the README's install lines and moves the changelog's `[Unreleased]` notes under
+  the version and today's date, and nothing else; the maintainer commits that as "version: Release
+  v<X.Y.Z>" and pushes `main`, and CI runs the whole gate on it but for what its Linux runner
+  cannot run: the device tests need an emulator and the iOS simulator suites macOS, so the release
+  runs them, `mise run ci:local`, once a commit on the Mac it publishes from. CI builds every
+  target and checks every ABI dump, the iOS klibs' among them, so nothing else of the gate runs
+  twice. `scripts/release.sh` refuses before it changes anything, every refusal told together
+  with what to do: a version that is not MAJOR.MINOR.PATCH, not newer than every `v*` tag, or
+  tagged elsewhere than this commit, here, on Entire or on the mirror; a working tree with changes,
+  off `main` or a commit other than the one Entire's `main` is at; a commit CI did not finish green
+  on; a version that is not the catalog's `mountaya` and the README's install lines, or no dated
+  changelog section for it; a sibling that is not clean at the commit `siblings.lock` pins, which
   `sh .agents/siblings at-pins` names; licence texts that are not the TypeScript packages' bytes or
-  a licence address that does not answer; no macOS or no emulator; no signing key, no passphrase
-  for it, or no Central Portal token. Then it runs the gate: `mise run disk:check` on its own,
-  since it passes under CI without looking, then, under `CI=true`, `mise run ci`, `mise run
-  test:device` and the ABI check, every target built. It publishes
-  every module, signed, into the release repository, `build/release/maven`, which
+  a licence address that does not answer; and, until `ci:local` passed on the commit, no macOS or
+  no emulator. Then it takes the credentials, each from the environment, else the macOS Keychain,
+  else a hidden prompt, each checked online before anything is built: the key and its passphrase
+  sign a test payload in a throwaway GnuPG home, with the key Gradle signs with, and the Central
+  Portal answers the token; and it refuses a version Maven Central holds, unless the tag is on this
+  commit already, as a release that stopped after its tag leaves it. Once asked, it runs
+  `mise run disk:check` on its own, since it passes under CI without looking, and `CI=true`
+  `mise run ci:local`, which is handed none of the credentials. Before the tag it proves the
+  publish: every module, signed, into the release repository, `build/release/maven`, which
   `checkReleaseRepository` holds to what the Portal validates (each module with its Gradle module
   metadata and no other version, every POM as above, a sources and a javadoc jar beside every
-  artifact, an MD5 and a SHA-1 checksum and a signature beside every file), and `centralBundle` zips
-  it, leaving out what the Portal never reads; a key that does not sign stops the release there,
-  before it asks. Then it moves the changelog's notes under the version and its date in a commit
-  holding that alone, unless the section is there already, tags `v<version>`, uploads the bundle
-  as a deployment of the publishing type the Portal leaves to a person (`scripts/central-upload.sh`,
-  which waits until the Portal has validated it), pushes `main` at that commit to Entire and then
-  the tag, since Entire takes no atomic push, and waits, ten minutes at most, until the mirror
-  lists the tag; where it never does, it says the release is done and names `mirror.yml`'s runs to
-  read. Publishing the deployment to Maven Central is the maintainer's, and so is resuming a
-  release that stopped after its tag, which starts by looking for its deployment in the Portal, so
-  a validated one is never uploaded twice. The key is held in memory from `MOUNTAYA_SIGNING_KEY`,
-  an ASCII-armoured secret key whose primary key signs, with `MOUNTAYA_SIGNING_PASSWORD` and, for a
-  signing subkey, `MOUNTAYA_SIGNING_KEY_ID`; the token is `MOUNTAYA_CENTRAL_USERNAME` and
-  `MOUNTAYA_CENTRAL_PASSWORD`. `--dry-run` runs every check but git's, and the gate, then publishes
-  into a local Maven repository a consumer can resolve from, unsigned where no key is given; it
-  touches no git and uploads nothing, and `--skip-gate` leaves its gate out. A first release needs, once: the `com.mountaya` namespace
+  artifact, an MD5 and a SHA-1 checksum and a signature beside every file), and `centralBundle`
+  zips it, leaving out what the Portal never reads; `scripts/central-upload.sh` uploads the bundle
+  as a deployment of the publishing type the Portal leaves to its owner, `USER_MANAGED`, and waits
+  until the Portal has validated it. Then it tags `v<X.Y.Z>`, noted with the changelog's section,
+  pushes the tag alone to Entire, whose `main` holds the commit already, publishes the deployment
+  through the Portal's API, waits until the Portal says Maven Central holds it, and waits, ten
+  minutes at most, until the mirror lists the tag. It makes no commit and pushes no `main`. Every
+  step reads where it stands from Entire, the mirror and the Portal, so a release run again
+  resumes where it stopped: `ci:local` passed on the commit is not run again, the tag is kept, a
+  deployment of the version the Portal is publishing is waited on, the bundle is built, uploaded
+  and validated again where the one before went with the process that uploaded it, and nothing
+  Maven Central holds is published again. `--check` runs every check and changes nothing, and
+  `--credentials` takes and checks the credentials alone. The key is held in memory from
+  `MOUNTAYA_SIGNING_KEY`, an ASCII-armoured secret key whose primary key signs, with
+  `MOUNTAYA_SIGNING_PASSWORD` and, for a signing subkey, `MOUNTAYA_SIGNING_KEY_ID`; the token is
+  `MOUNTAYA_CENTRAL_USERNAME` and `MOUNTAYA_CENTRAL_PASSWORD`. A first release needs, once: the `com.mountaya` namespace
   verified on the Central Portal, by a DNS TXT record on mountaya.com; the signing key's public half
   on a key server the Portal reads; and a Portal user token.
 - **The changelog records the SDK's version, not the contract's.** `CHANGELOG.md` follows Keep a
@@ -4811,7 +4821,7 @@ without it and a green CI run always means the fixtures ran.
   by its getter, which reads the same for `localMountayaScope` as for `LocalMountayaScope`, so a
   getter answering a `CompositionLocal` publishes its property under the UpperCamelCase spelling
   the naming law gives it (section 5) as well as under the lowerCamelCase one every getter does.
-- **The release builds the iOS klibs on the Mac that ran the gate.** JetBrains made producing
+- **The release builds the iOS klibs on the Mac that ran `ci:local`.** JetBrains made producing
   Apple klibs on any host Kotlin/Native supports, a Linux x86_64 one included, stable and on by
   default in Kotlin 2.2.20, but where the library or a module it depends on has cinterop
   dependencies. No module here declares a cinterop: the iOS sources reach C and Objective-C through
@@ -4821,9 +4831,10 @@ without it and a green CI run always means the fixtures ran.
   records each relative to the repository root (`-Xklib-relative-path-base`): a published klib
   names no directory of the machine that built it, and `checkReleaseRepository` refuses any
   published file, or archive inside one, that names the building machine's checkout or home. With
-  that, a Linux x86_64 host builds the iOS klibs a Mac builds, byte for byte. One host publishes
-  every artifact of a release, since Maven Central refuses a version published twice, and the host
-  that runs the whole gate is a Mac, so the release publishes from there.
+  that, a Linux x86_64 host builds the iOS klibs a Mac builds, byte for byte, which is how CI's
+  Linux runner checks their ABI dump. One host publishes every artifact of a release, since Maven
+  Central refuses a version published twice, and the iOS simulator suites a release runs first need
+  a Mac, so the release publishes from there.
 
 ## 11. Deliberate divergences
 
